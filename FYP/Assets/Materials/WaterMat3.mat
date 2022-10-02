@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: WaterMat3
-  m_Shader: {fileID: -6465566751694194690, guid: 619439c6b0b65ae4c933cd5e66644224, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: 78475d9c12e938345963b562b638e3eb, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -33,11 +33,18 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - RippleDensity: 7
-    - RippleSimness: 5
+    - Depht_Fade: 0
+    - FoamRippleSpeed: 0
+    - Foam_Depth: 2.51
+    - Foam_NoiseScale: 0
+    - RippleDensity: 6.88
+    - RippleSimness: 5.99
     - RippleSpeed: 1
-    - WaveSpeed: 0.1
+    - WaveSpeed: 0.05
     m_Colors:
     - BaseColor: {r: 0, g: 0.5897384, b: 1, a: 0}
+    - DeepColor: {r: 0, g: 0, b: 0, a: 0}
+    - FoamColor: {r: 1, g: 1, b: 1, a: 1}
     - RippleColor: {r: 0, g: 0.6658902, b: 1, a: 0}
+    - ShallowColor: {r: 0, g: 0.6564734, b: 1, a: 0}
   m_BuildTextureStacks: []
