@@ -2,20 +2,14 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!21 &2100000
 Material:
-  serializedVersion: 8
+  serializedVersion: 6
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Beach
-  m_Shader: {fileID: -6465566751694194690, guid: b85c5e2c0d0c9774ab24e77078fc44cb,
-    type: 3}
-  m_ValidKeywords:
-  - FOAM_SHADOWS_ON
-  - INTERSECTION_EFFECTS_ON
-  - WATER_LIGHTING_ON
-  - WORLD_SPACE_UV_ON
-  m_InvalidKeywords: []
+  m_Shader: {fileID: -6465566751694194690, guid: b85c5e2c0d0c9774ab24e77078fc44cb, type: 3}
+  m_ShaderKeywords: FOAM_SHADOWS_ON INTERSECTION_EFFECTS_ON WATER_LIGHTING_ON WORLD_SPACE_UV_ON
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -89,6 +83,7 @@ Material:
     m_Floats:
     - FOAM_SHADOWS: 1
     - INTERSECTION_EFFECTS: 1
+    - REFRACTION: 0
     - SHORE_MOVEMENT: 0
     - SURFACE_FOAM: 0
     - WATER_LIGHTING: 1
@@ -166,10 +161,10 @@ Material:
     - _SurfaceFoamMovement: {r: 0.7, g: 0, b: 0.47, a: 0.01}
     - _SurfaceFoamSampling: {r: 0.62, g: 0, b: 0, a: 0}
     - _SurfaceFoamTilingAndOffset: {r: -1, g: -1, b: 0.57, a: 0.22}
-    - _WaterColorDeep: {r: 0, g: 0.26003903, b: 0.6509434, a: 1}
-    - _WaterColorHorizon: {r: 0, g: 0.22740671, b: 0.8, a: 1}
+    - _WaterColorDeep: {r: 0, g: 0.26003364, b: 0.6509434, a: 1}
+    - _WaterColorHorizon: {r: 0, g: 0.22740129, b: 0.8, a: 1}
     - _WaterColorShallow: {r: 0, g: 0.7725491, b: 0.62352943, a: 0.5019608}
-    - _WaterColorUnderwater: {r: 0.2038796, g: 0.3097596, b: 0.517647, a: 0}
+    - _WaterColorUnderwater: {r: 0.20387447, g: 0.3097542, b: 0.517647, a: 0}
     - _WaveColor: {r: 0, g: 0, b: 0, a: 0}
     - _WaveDirections: {r: 0, g: 0.64, b: 1, a: 0.33}
     - _WaveVisuals: {r: 0, g: 7.9, b: 1.38, a: 0}

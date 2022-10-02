@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Shader Graphs_Water2Shader Graph
-  m_Shader: {fileID: -6465566751694194690, guid: 452f8f6260c994a439e77f590bc0de90, type: 3}
+  m_Name: WaterMat3
+  m_Shader: {fileID: -6465566751694194690, guid: 619439c6b0b65ae4c933cd5e66644224, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -33,19 +33,11 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - Depht_Fade: 2.74
-    - Depth: 12.1
-    - DepthFalloff: 2.8
-    - FoamDepth: 1.21
-    - FoamNoiseScale: 4.34
-    - FoamRippleSpeed: 0.4
-    - WaterHeight: 0.79
-    - WaterNoiseScale: 0.16
-    - WaterSpeed: 1.09
+    - RippleDensity: 7
+    - RippleSimness: 5
+    - RippleSpeed: 1
+    - WaveSpeed: 0.1
     m_Colors:
-    - DeepColor: {r: 0.08362401, g: 0.24714369, b: 0.509434, a: 1}
-    - FoamColor: {r: 1, g: 1, b: 1, a: 1}
-    - MainColor: {r: 0.23018867, g: 0.52721536, b: 1, a: 0}
-    - ShallowColor: {r: 0.36753285, g: 0.7764844, b: 0.8396226, a: 1}
-    - ShoreColor: {r: 0.61698115, g: 0.85532486, b: 1, a: 0}
+    - BaseColor: {r: 0, g: 0.5897384, b: 1, a: 0}
+    - RippleColor: {r: 0, g: 0.6658902, b: 1, a: 0}
   m_BuildTextureStacks: []
