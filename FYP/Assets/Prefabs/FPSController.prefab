@@ -31,7 +31,6 @@ Transform:
   m_Children:
   - {fileID: 3805550523672393420}
   - {fileID: 3805550523367378152}
-  - {fileID: 3805550522870330232}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -48,7 +47,7 @@ CharacterController:
   serializedVersion: 2
   m_Height: 2
   m_Radius: 0.5
-  m_SlopeLimit: 45
+  m_SlopeLimit: 55
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
@@ -67,53 +66,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 3805550522536465333}
   walkSpeed: 7
-  sprintSpeed: 10
+  sprintSpeed: 13
   crouchSpeed: 3.5
   crouchScale: 0.5
-  jumpForce: 8
+  jumpForce: 15
   gravity: 30
   sprintKey: 304
   crouchKey: 306
-  groundCheck: {fileID: 3805550522870330232}
-  groundDistance: 0.4
-  groundMask:
-    serializedVersion: 2
-    m_Bits: 64
   slopeForce: 3
   slopeForceRayLength: 2
   slopeSpeed: 8
   hitPointNormal: {x: 0, y: 0, z: 0}
   state: 0
---- !u!1 &3805550522870330233
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 3805550522870330232}
-  m_Layer: 0
-  m_Name: GroundCheck
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &3805550522870330232
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3805550522870330233}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 3805550522536465332}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3805550523367378153
 GameObject:
   m_ObjectHideFlags: 0
