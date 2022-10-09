@@ -54,8 +54,8 @@ public class GrassComputeScript : MonoBehaviour
     [Header("Other")]
     public UnityEngine.Rendering.ShadowCastingMode castShadow;
 
-    [SerializeField]
-    public ShaderInteractor[] interactors;
+
+    ShaderInteractor[] interactors;
 
     private Camera m_MainCamera;
 
