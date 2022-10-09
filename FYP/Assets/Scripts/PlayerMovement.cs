@@ -5,6 +5,8 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public CharacterController controller;
+    public CapsuleCollider CapsuleCollider;
+    public Rigidbody Rigidbody;
 
     public float walkSpeed;
     public float sprintSpeed;
@@ -13,8 +15,8 @@ public class PlayerMovement : MonoBehaviour
     public float crouchScale;
     private float startYScale;
 
-    public float jumpForce = 8f;
-    public float gravity = 30f;
+    public float jumpForce = 10f;
+    public float gravity = -9.8f;
 
     public KeyCode sprintKey = KeyCode.LeftShift;
     public KeyCode crouchKey = KeyCode.LeftControl;
@@ -28,6 +30,10 @@ public class PlayerMovement : MonoBehaviour
     public float slopeSpeed = 2f;
     public Vector3 hitPointNormal;
     bool isSliding;
+
+    public bool isSwimming;
+    public float swimSpeed;
+    public Transform target;
 
     public MovementState state;
 
@@ -48,19 +54,27 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        HandleMovementInput();
-        ApplyFinalMovements();
-        Jump();
-        StateHandles();
-        CrouchScale();
-        SlideOnSlope();
-
-        if (currectInput.x != 0 || currectInput.y != 0 && OnSlope())
+        if (isSwimming)
         {
-            controller.Move(Vector3.down * controller.height / 2 * slopeForce * Time.deltaTime);
+            Swimming();
         }
+        else
+        {
+            HandleMovementInput();
+            ApplyFinalMovements();
+            StateHandles();
+            CrouchScale();
+            SlideOnSlope();
+            if(!isSliding)
+            {
+                Jump();
+            }
 
+            if (currectInput.x != 0 || currectInput.y != 0 && OnSlope())
+            {
+                controller.Move(Vector3.down * controller.height / 2 * slopeForce * Time.deltaTime);
+            }
+        }
     }
 
     void HandleMovementInput()
@@ -74,9 +88,9 @@ public class PlayerMovement : MonoBehaviour
 
     void ApplyFinalMovements()
     {
-        if(!controller.isGrounded)
+        if (!controller.isGrounded)
         {
-            moveDirection.y -= gravity * Time.deltaTime;
+            moveDirection.y += gravity * Time.deltaTime;
         }
 
         if (controller.isGrounded && isSliding)
@@ -89,7 +103,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Jump()
     {
-        if(Input.GetButtonDown("Jump") && controller.isGrounded)
+        if (Input.GetButtonDown("Jump") && controller.isGrounded)
         {
             moveDirection.y = jumpForce;
         }
@@ -97,12 +111,12 @@ public class PlayerMovement : MonoBehaviour
 
     void CrouchScale()
     {
-        if(Input.GetKeyDown(crouchKey))
+        if (Input.GetKeyDown(crouchKey))
         {
             transform.localScale = new Vector3(transform.localScale.x, crouchScale, transform.localScale.z);
         }
 
-        if(Input.GetKeyUp(crouchKey))
+        if (Input.GetKeyUp(crouchKey))
         {
             transform.localScale = new Vector3(transform.localScale.x, startYScale, transform.localScale.z);
         }
@@ -110,12 +124,12 @@ public class PlayerMovement : MonoBehaviour
 
     void StateHandles()
     {
-        if(controller.isGrounded && Input.GetKey(crouchKey))
+        if (controller.isGrounded && Input.GetKey(crouchKey))
         {
             state = MovementState.crouching;
             walkSpeed = crouchSpeed;
         }
-        else if(controller.isGrounded && Input.GetKey(sprintKey))
+        else if (controller.isGrounded && Input.GetKey(sprintKey))
         {
             state = MovementState.sprinting;
             walkSpeed = sprintSpeed;
@@ -133,9 +147,9 @@ public class PlayerMovement : MonoBehaviour
 
     bool OnSlope()
     {
-        if(Physics.Raycast(transform.position, Vector3.down, out slopeHit, slopeForceRayLength))
+        if (Physics.Raycast(transform.position, Vector3.down, out slopeHit, slopeForceRayLength))
         {
-            if(slopeHit.normal != Vector3.up)
+            if (slopeHit.normal != Vector3.up)
             {
                 return true;
             }
@@ -156,4 +170,43 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    public void Swimming()
+    {
+        if (isSwimming != true)
+        {
+            controller = GetComponent<CharacterController>();
+            CapsuleCollider = GetComponent<CapsuleCollider>();
+            controller.enabled = true;
+            CapsuleCollider.enabled = false;
+
+            if (Rigidbody.useGravity != true)
+            {
+                Rigidbody.useGravity = true;
+            }
+        }
+        else
+        {
+            controller.enabled = false;
+            CapsuleCollider.enabled = true;
+
+            if (Rigidbody.useGravity == true)
+            {
+                Rigidbody.useGravity = false;
+            }
+            if (Input.GetAxis("Vertical") > 0)
+            {
+                transform.position += target.forward * swimSpeed * Time.deltaTime;
+            }
+            if (Input.GetAxis("Vertical") < 0)
+            {
+                transform.position -= target.forward * swimSpeed * Time.deltaTime;
+            }
+        }
+    }
+
+    public void ResetVelocity()
+    {
+        Rigidbody.velocity = Vector3.zero;
+        Rigidbody.angularVelocity = Vector3.zero;
+    }
 }
