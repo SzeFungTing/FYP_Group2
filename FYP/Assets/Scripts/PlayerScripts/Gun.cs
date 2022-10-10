@@ -34,7 +34,7 @@ public class Gun : MonoBehaviour
                 if (Input.GetMouseButton(1))
                 {
                     AttractTarget(_hit);
-                    Debug.Log("hit");
+                    //Debug.Log("hit");
                 }
                 else if (Input.GetMouseButtonUp(1))
                 {
