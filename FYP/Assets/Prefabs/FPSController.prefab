@@ -11,9 +11,11 @@ GameObject:
   - component: {fileID: 3805550522536465332}
   - component: {fileID: 3805550522536465333}
   - component: {fileID: 3805550522536465331}
-  - component: {fileID: 1924446918}
   - component: {fileID: 1924446919}
   - component: {fileID: 1924446917}
+  - component: {fileID: 1924446918}
+  - component: {fileID: 1093483571342652032}
+  - component: {fileID: 7045988737216485152}
   m_Layer: 0
   m_Name: FPSController
   m_TagString: Player
@@ -67,13 +69,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 3805550522536465333}
-  CapsuleCollider: {fileID: 1924446919}
+  CapsuleCollider: {fileID: 1093483571342652032}
   Rigidbody: {fileID: 1924446918}
   walkSpeed: 7
   sprintSpeed: 13
   crouchSpeed: 3.5
   crouchScale: 0.5
-  jumpForce: 10
+  jumpForce: 8
   gravity: -9.8
   sprintKey: 304
   crouchKey: 306
@@ -85,6 +87,32 @@ MonoBehaviour:
   swimSpeed: 7
   target: {fileID: 6871280404837956932}
   state: 0
+--- !u!136 &1924446919
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3805550522536465334}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1924446917
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3805550522536465334}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 438db309757dea64ea599075734d435e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!54 &1924446918
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -101,7 +129,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!136 &1924446919
+--- !u!136 &1093483571342652032
 CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -115,7 +143,7 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1924446917
+--- !u!114 &7045988737216485152
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

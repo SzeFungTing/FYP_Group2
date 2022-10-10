@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
     public CapsuleCollider CapsuleCollider;
     public Rigidbody Rigidbody;
 
+    bool isGrounded;
     public float walkSpeed;
     public float sprintSpeed;
 
@@ -54,6 +55,8 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        isGrounded = Physics.Raycast(transform.position, Vector3.down, controller.height / 2 + 0.1f);
+
         if (isSwimming)
         {
             Swimming();
@@ -65,10 +68,6 @@ public class PlayerMovement : MonoBehaviour
             StateHandles();
             CrouchScale();
             SlideOnSlope();
-            if(!isSliding)
-            {
-                Jump();
-            }
 
             if (currectInput.x != 0 || currectInput.y != 0 && OnSlope())
             {
@@ -84,6 +83,10 @@ public class PlayerMovement : MonoBehaviour
         float moveDirectionY = moveDirection.y;
         moveDirection = (transform.TransformDirection(Vector3.forward) * currectInput.x) + (transform.TransformDirection(Vector3.right) * currectInput.y);
         moveDirection.y = moveDirectionY;
+        if (!isSliding)
+        {
+            Jump();
+        }
     }
 
     void ApplyFinalMovements()
