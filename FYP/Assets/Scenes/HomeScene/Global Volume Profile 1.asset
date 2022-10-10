@@ -32,7 +32,7 @@ MonoBehaviour:
   m_AdvancedMode: 0
   threshold:
     m_OverrideState: 1
-    m_Value: 1.01
+    m_Value: 0.95
     min: 0
   intensity:
     m_OverrideState: 1
@@ -84,12 +84,12 @@ MonoBehaviour:
   m_AdvancedMode: 0
   temperature:
     m_OverrideState: 1
-    m_Value: 22.3
+    m_Value: 46
     min: -100
     max: 100
   tint:
     m_OverrideState: 0
-    m_Value: -3.45
+    m_Value: 100
     min: -100
     max: 100
 --- !u!114 &7927479409297529394
@@ -111,7 +111,7 @@ MonoBehaviour:
     m_Value: {x: 0.5032769, y: 0.5392572, z: 1, w: 0.101180434}
   midtones:
     m_OverrideState: 1
-    m_Value: {x: 0.93362176, y: 0.9509512, z: 1, w: 0.03372681}
+    m_Value: {x: 1, y: 0.97606903, z: 0.9796326, w: 0.03372681}
   highlights:
     m_OverrideState: 1
     m_Value: {x: 0.96514684, y: 0.9934299, z: 1, w: -0.000000002698048}
