@@ -15,6 +15,8 @@ public class Gun : MonoBehaviour
 
     private RaycastHit _hit;
 
+    Animator anim;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -39,6 +41,7 @@ public class Gun : MonoBehaviour
                 else if (Input.GetMouseButtonUp(1))
                 {
                     _hit.rigidbody.useGravity = true;
+                    anim.speed = 1;
                 }
             }
         }
@@ -51,6 +54,8 @@ public class Gun : MonoBehaviour
             _hit.rigidbody.useGravity = false;
             float distance = speed * Time.deltaTime;
             _hit.transform.position = Vector3.MoveTowards(_hit.transform.position, gunPoint.position, distance);
+            anim = _hit.transform.gameObject.GetComponentInChildren<Animator>();
+            anim.speed = 5;
         }
         else
         {
