@@ -13,6 +13,9 @@ public class Gun : MonoBehaviour
     [SerializeField]
     private float speed = 1.0f;
 
+    [SerializeField]
+    private Vector3 scaleChange = new Vector3(-0.01f, -0.01f, -0.01f);
+
     private RaycastHit _hit;
 
     Animator anim;
@@ -35,25 +38,30 @@ public class Gun : MonoBehaviour
             {
                 if (Input.GetMouseButton(1))
                 {
-                    AttractTarget(_hit);
-                    //Debug.Log("hit");
+                    _hit.transform.gameObject.GetComponent<Target>().isVacuum = true;
+                    VacuumTarget(_hit);
                 }
                 else if (Input.GetMouseButtonUp(1))
                 {
-                    _hit.rigidbody.useGravity = true;
+                    _hit.transform.gameObject.GetComponent<Target>().isVacuum = false;
                     anim.speed = 1;
                 }
             }
         }
     }
 
-    private void AttractTarget(RaycastHit _hit)
+    private void VacuumTarget(RaycastHit _hit)
     {
         if (Vector3.Distance(_hit.transform.position, gunPoint.position) > 0.3f)
         {
-            _hit.rigidbody.useGravity = false;
-            float distance = speed * Time.deltaTime;
-            _hit.transform.position = Vector3.MoveTowards(_hit.transform.position, gunPoint.position, distance);
+            //old version (Vector3.MoveTowards)
+            //float distance = speed * Time.deltaTime;
+            //_hit.transform.position = Vector3.MoveTowards(_hit.transform.position, gunPoint.position, distance);
+
+            //new version (change velocity)
+            Vector3 direction = (gunPoint.position - _hit.transform.position).normalized;
+            _hit.rigidbody.velocity = direction * speed;
+
             anim = _hit.transform.gameObject.GetComponentInChildren<Animator>();
             anim.speed = 5;
         }
@@ -61,6 +69,10 @@ public class Gun : MonoBehaviour
         {
             Destroy(_hit.transform.gameObject);
             //_hit.transform.gameObject.SetActive(false);
+        }
+        if (Vector3.Distance(_hit.transform.position, gunPoint.position) < 1.0f)
+        {
+            _hit.transform.localScale += scaleChange;
         }
     }
 }
