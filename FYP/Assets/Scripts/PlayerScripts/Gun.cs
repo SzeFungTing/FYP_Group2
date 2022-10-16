@@ -44,6 +44,11 @@ public class Gun : MonoBehaviour
                 else if (Input.GetMouseButtonUp(1))
                 {
                     _hit.transform.gameObject.GetComponent<Target>().isVacuum = false;
+                    anim.SetBool("isSucking", false);
+                    anim.SetBool("isReleasing", true);
+                }
+                if (anim.GetCurrentAnimatorStateInfo(0).IsName("ChickenNormal"))
+                {
                     anim.speed = 1;
                 }
             }
@@ -63,7 +68,9 @@ public class Gun : MonoBehaviour
             _hit.rigidbody.velocity = direction * speed;
 
             anim = _hit.transform.gameObject.GetComponentInChildren<Animator>();
-            anim.speed = 5;
+            anim.speed = 2;
+            anim.SetBool("isSucking", true);
+            anim.SetBool("isReleasing", false);
         }
         else
         {
