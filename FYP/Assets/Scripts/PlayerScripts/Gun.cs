@@ -74,7 +74,7 @@ public class Gun : MonoBehaviour
         }
         else
         {
-            //Destroy(_hit.transform.gameObject);
+            Destroy(_hit.transform.gameObject);
             //_hit.transform.gameObject.SetActive(false);
         }
         if (Vector3.Distance(_hit.transform.position, gunPoint.position) < 1.0f)
