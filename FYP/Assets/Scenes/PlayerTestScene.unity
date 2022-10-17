@@ -14,7 +14,7 @@ OcclusionCullingSettings:
 RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
-  m_Fog: 1
+  m_Fog: 0
   m_FogColor: {r: 0.65080994, g: 0.666729, b: 0.7075472, a: 1}
   m_FogMode: 3
   m_FogDensity: 0.05
@@ -249,9 +249,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4507c138325a46c41854a0622a6f1a99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  originalScale: {x: 0, y: 0, z: 0}
   isVacuum: 0
-  rb: {fileID: 74269785}
 --- !u!1 &168086273
 GameObject:
   m_ObjectHideFlags: 0
@@ -515,7 +513,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gunPoint: {fileID: 1802466108}
   distanceOfRaycast: 20
-  speed: 10
+  speed: 5
   scaleChange: {x: -0.01, y: -0.01, z: -0.01}
 --- !u!65 &885307104
 BoxCollider:
@@ -706,9 +704,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4507c138325a46c41854a0622a6f1a99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  originalScale: {x: 0, y: 0, z: 0}
   isVacuum: 0
-  rb: {fileID: 902357398}
 --- !u!1 &962339190
 GameObject:
   m_ObjectHideFlags: 0
@@ -769,9 +765,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4507c138325a46c41854a0622a6f1a99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  originalScale: {x: 0, y: 0, z: 0}
   isVacuum: 0
-  rb: {fileID: 962339192}
 --- !u!4 &962339194
 Transform:
   m_ObjectHideFlags: 0
@@ -937,9 +931,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4507c138325a46c41854a0622a6f1a99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  originalScale: {x: 0, y: 0, z: 0}
   isVacuum: 0
-  rb: {fileID: 1041612484}
 --- !u!1 &1251159185
 GameObject:
   m_ObjectHideFlags: 0
@@ -1066,9 +1058,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4507c138325a46c41854a0622a6f1a99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  originalScale: {x: 0, y: 0, z: 0}
   isVacuum: 0
-  rb: {fileID: 1251159190}
 --- !u!1 &1400641099 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100002, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
@@ -1265,7 +1255,7 @@ Transform:
   m_GameObject: {fileID: 1657646252}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 10, y: 10, z: 10}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
@@ -1558,9 +1548,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4507c138325a46c41854a0622a6f1a99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  originalScale: {x: 0, y: 0, z: 0}
   isVacuum: 0
-  rb: {fileID: 2072079902}
 --- !u!1 &2138677391
 GameObject:
   m_ObjectHideFlags: 0
