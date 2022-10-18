@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class Inventory : MonoBehaviour
 {
     public GameObject inventory;
-
+    public InventoryManager inventoryManager;
 
 
     // Start is called before the first frame update
@@ -19,15 +19,19 @@ public class Inventory : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         if (Input.GetKeyDown(KeyCode.I))
         {
-            inventory.SetActive(true);
+            inventoryManager.ListItems();
+            inventory.SetActive(!inventory.activeSelf);
 
         }
-        if (Input.GetKeyDown(KeyCode.Escape) && Input.GetKeyDown(KeyCode.I))
-        {
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+
             inventory.SetActive(false);
 
-        }
+            }
+        
     }
 }
