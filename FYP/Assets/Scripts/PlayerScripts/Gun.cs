@@ -20,10 +20,12 @@ public class Gun : MonoBehaviour
 
     Animator anim;
 
+    CapsuleCollider _collider;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -36,6 +38,11 @@ public class Gun : MonoBehaviour
         {
             if (_hit.transform.CompareTag("Target"))
             {
+                anim = _hit.transform.gameObject.GetComponentInChildren<Animator>();
+                if (_hit.transform.gameObject.layer == 7)
+                {
+                    _collider = _hit.transform.GetChild(1).gameObject.GetComponentInChildren<CapsuleCollider>();
+                }
                 if (Input.GetMouseButton(1))
                 {
                     _hit.transform.gameObject.GetComponent<Target>().isVacuum = true;
@@ -55,7 +62,7 @@ public class Gun : MonoBehaviour
         }
     }
 
-    private void VacuumTarget(RaycastHit _hit)
+    public void VacuumTarget(RaycastHit _hit)
     {
         if (Vector3.Distance(_hit.transform.position, gunPoint.position) > 0.3f)
         {
@@ -71,10 +78,12 @@ public class Gun : MonoBehaviour
             anim.speed = 2;
             anim.SetBool("isSucking", true);
             anim.SetBool("isReleasing", false);
+            _hit.transform.GetChild(1).gameObject.GetComponentInChildren<CapsuleCollider>().enabled = false;
         }
         else
         {
             Destroy(_hit.transform.gameObject);
+            _hit.transform.GetChild(1).gameObject.GetComponentInChildren<CapsuleCollider>().enabled = true;
             //_hit.transform.gameObject.SetActive(false);
         }
         if (Vector3.Distance(_hit.transform.position, gunPoint.position) < 1.0f)
