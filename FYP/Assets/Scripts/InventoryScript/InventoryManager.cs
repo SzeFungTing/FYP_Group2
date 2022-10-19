@@ -11,8 +11,18 @@ public class InventoryManager : MonoBehaviour
 
     public Transform ItemContent;
     public GameObject InventoryItem;
+    public Button ItemDel;
 
+    public void Update()
+    {
+        Button btn = ItemDel.GetComponent<Button>();
+        btn.onClick.AddListener(TaskOnClick);
+    }
 
+    void TaskOnClick()
+    {
+        Destroy(ItemDel);
+    }
 
     private void Awake()
     {
