@@ -15,17 +15,27 @@ public class GunVacuum : MonoBehaviour
 
     Animator anim;
 
+    CapsuleCollider _collider;
+
     private void OnTriggerStay(Collider other)
     {
         if (other.transform.CompareTag("Target"))
         {
+            anim = other.transform.gameObject.GetComponentInChildren<Animator>();
+            if (other.transform.gameObject.layer == 7)
+            {
+                Debug.Log("A");
+                _collider = other.transform.GetChild(0).gameObject.GetComponentInChildren<CapsuleCollider>();
+            }
             if (Input.GetMouseButton(1))
             {
+                other.transform.gameObject.GetComponent<Target>().isVacuum = true;
                 other.transform.gameObject.GetComponent<Target>().isVacuum = true;
                 VacuumTarget(other);
             }
             else /*if (Input.GetMouseButtonUp(1))*/
             {
+                other.transform.GetChild(1).gameObject.GetComponentInChildren<CapsuleCollider>().enabled = true;
                 other.transform.gameObject.GetComponent<Target>().isVacuum = false;
                 anim.SetBool("isSucking", false);
                 anim.SetBool("isReleasing", true);
@@ -49,6 +59,7 @@ public class GunVacuum : MonoBehaviour
             Vector3 direction = (gunPoint.position - other.transform.position).normalized;
             other.attachedRigidbody.velocity = direction * speed;
 
+            other.transform.GetChild(1).gameObject.GetComponentInChildren<CapsuleCollider>().enabled = false;
             anim = other.transform.gameObject.GetComponentInChildren<Animator>();
             anim.speed = 2;
             anim.SetBool("isSucking", true);
@@ -57,6 +68,7 @@ public class GunVacuum : MonoBehaviour
         else
         {
             Destroy(other.transform.gameObject);
+            //other.transform.GetChild(1).gameObject.GetComponentInChildren<CapsuleCollider>().enabled = true;
             //collision.transform.gameObject.SetActive(false);
         }
         if (Vector3.Distance(other.transform.position, gunPoint.position) < 1.0f)
