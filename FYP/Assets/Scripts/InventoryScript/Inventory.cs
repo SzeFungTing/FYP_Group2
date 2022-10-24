@@ -13,7 +13,7 @@ public class Inventory : MonoBehaviour
     void Start()
     {
         inventory.SetActive(false);
-  
+
     }
 
     // Update is called once per frame
