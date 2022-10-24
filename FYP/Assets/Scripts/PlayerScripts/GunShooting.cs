@@ -7,6 +7,9 @@ public class GunShooting : MonoBehaviour
     public GameObject target;
     Transform gunPos;
 
+    [SerializeField]
+    float speed = 8f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -38,9 +41,11 @@ public class GunShooting : MonoBehaviour
     void Shoot()
     {
         //gunPos = this.transform;
-        Vector3 newGunPos = gunPos.position;
-        newGunPos.z = gunPos.transform.forward + 0.4f;
-        Instantiate(target, transform.TransformPoint(newGunPos), gunPos.rotation);
+        Vector3 gunLoaclPos = gunPos.localPosition;
+        gunLoaclPos.z = gunPos.localPosition.z + 0.8f;
+        Quaternion gunRotation = gunPos.rotation;
+        gunRotation.y = gunPos.rotation.y - 90f;
+        Instantiate(target, transform.TransformPoint(gunLoaclPos), gunRotation).GetComponent<Rigidbody>().velocity = speed * transform.forward;
     }
 
     //https://cindyalex.pixnet.net/blog/post/143734467-unity-c%23-%E5%8F%96%E5%BE%97%E7%88%B6%E5%AD%90%E7%89%A9%E4%BB%B6
