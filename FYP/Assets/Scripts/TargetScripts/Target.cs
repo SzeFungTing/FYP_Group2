@@ -11,6 +11,9 @@ public class Target : MonoBehaviour
 
     private Vector3 scaleChange = new Vector3(0.01f, 0.01f, 0.01f);
 
+    Quaternion startRotation;
+    float time;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -31,6 +34,8 @@ public class Target : MonoBehaviour
             {
                 gameObject.transform.localScale += -scaleChange;
             }
+
+            gameObject.transform.rotation = Quaternion.Slerp(startRotation, Quaternion.identity, time);
 
             //if (rb.velocity.x < 0.01f || rb.velocity.z < 0.01f)
             //{
