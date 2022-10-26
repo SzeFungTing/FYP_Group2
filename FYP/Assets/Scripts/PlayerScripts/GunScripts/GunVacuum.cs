@@ -45,6 +45,18 @@ public class GunVacuum : MonoBehaviour
         }
     }
 
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.transform.CompareTag("Target"))
+        {
+            anim = other.transform.gameObject.GetComponentInChildren<Animator>();
+            other.transform.GetChild(1).gameObject.GetComponentInChildren<CapsuleCollider>().enabled = true;
+            other.transform.gameObject.GetComponent<Target>().isVacuum = false;
+            anim.ResetTrigger("Suck");
+            anim.SetTrigger("Release");
+        }
+    }
+
     public void VacuumTarget(Collider other)
     {
         if (Vector3.Distance(other.transform.position, gunPoint.position) > 0.3f)
