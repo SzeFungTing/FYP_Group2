@@ -15,10 +15,17 @@ public class GunVacuum : MonoBehaviour
 
     Animator anim;
 
+    CapsuleCollider _collider;
+
     private void OnTriggerStay(Collider other)
     {
         if (other.transform.CompareTag("Target"))
         {
+            anim = other.transform.gameObject.GetComponentInChildren<Animator>();
+            if (other.transform.gameObject.layer == 7)
+            {
+                _collider = other.transform.GetChild(0).gameObject.GetComponentInChildren<CapsuleCollider>();
+            }
             if (Input.GetMouseButton(1))
             {
                 other.transform.gameObject.GetComponent<Target>().isVacuum = true;
@@ -26,14 +33,27 @@ public class GunVacuum : MonoBehaviour
             }
             else /*if (Input.GetMouseButtonUp(1))*/
             {
+                other.transform.GetChild(1).gameObject.GetComponentInChildren<CapsuleCollider>().enabled = true;
                 other.transform.gameObject.GetComponent<Target>().isVacuum = false;
-                anim.SetBool("isSucking", false);
-                anim.SetBool("isReleasing", true);
+                anim.ResetTrigger("Suck");
+                anim.SetTrigger("Release");
             }
             if (anim.GetCurrentAnimatorStateInfo(0).IsName("ChickenNormal"))
             {
                 anim.speed = 1;
             }
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.transform.CompareTag("Target"))
+        {
+            anim = other.transform.gameObject.GetComponentInChildren<Animator>();
+            other.transform.GetChild(1).gameObject.GetComponentInChildren<CapsuleCollider>().enabled = true;
+            other.transform.gameObject.GetComponent<Target>().isVacuum = false;
+            anim.ResetTrigger("Suck");
+            anim.SetTrigger("Release");
         }
     }
 
@@ -49,10 +69,11 @@ public class GunVacuum : MonoBehaviour
             Vector3 direction = (gunPoint.position - other.transform.position).normalized;
             other.attachedRigidbody.velocity = direction * speed;
 
+            other.transform.GetChild(1).gameObject.GetComponentInChildren<CapsuleCollider>().enabled = false;
             anim = other.transform.gameObject.GetComponentInChildren<Animator>();
-            anim.speed = 2;
-            anim.SetBool("isSucking", true);
-            anim.SetBool("isReleasing", false);
+            anim.speed = 1;
+            anim.SetTrigger("Suck");
+            anim.ResetTrigger("Release");
         }
         else
         {

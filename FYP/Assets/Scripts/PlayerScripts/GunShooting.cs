@@ -5,15 +5,19 @@ using UnityEngine;
 public class GunShooting : MonoBehaviour
 {
     public GameObject target;
+    GameObject born;
     Transform gunPos;
 
     [SerializeField]
     float speed = 8f;
 
+    Animator anim;
+
     // Start is called before the first frame update
     void Start()
     {
         gunPos = this.transform;
+        
         //Debug.Log(gunPos.position);
     }
 
@@ -44,7 +48,12 @@ public class GunShooting : MonoBehaviour
         Vector3 gunLoaclPos = gunPos.localPosition;
         gunLoaclPos.z = gunPos.localPosition.z + 0.8f;
 
-        Instantiate(target, transform.TransformPoint(gunLoaclPos), ObjectRotation()).GetComponent<Rigidbody>().velocity = speed * transform.forward;
+        born = Instantiate(target, transform.TransformPoint(gunLoaclPos), ObjectRotation());
+        born.GetComponent<Rigidbody>().velocity = speed * transform.forward;
+
+        //anim = born.gameObject.GetComponentInChildren<Animator>();
+        //anim.SetTrigger("isBorn");
+
     }
 
 
