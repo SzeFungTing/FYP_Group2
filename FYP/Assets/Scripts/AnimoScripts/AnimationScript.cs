@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AnimationScript : MonoBehaviour
 {
-    Animator anim;
+    //Animator anim;
 
     //Vector3 normalSize = new Vector3(1, 1, 1);
     Vector3 enlargeSclae = new Vector3(0.01f, 0.01f, 0.01f);

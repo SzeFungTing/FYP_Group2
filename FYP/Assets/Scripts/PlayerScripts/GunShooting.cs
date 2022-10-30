@@ -11,12 +11,18 @@ public class GunShooting : MonoBehaviour
     [SerializeField]
     float speed = 8f;
 
-    Animator anim;
+    //Animator anim;
+
+    private Inventory2 inventory;
+
+    [SerializeField] private UI_Inventory uiInventory;
 
     // Start is called before the first frame update
     void Start()
     {
         gunPos = this.transform;
+
+        inventory = new Inventory2();
         
         //Debug.Log(gunPos.position);
     }
@@ -25,21 +31,14 @@ public class GunShooting : MonoBehaviour
     void Update()
     {
         gunPos = this.transform;
-        //gunPos = this.transform;
-        //if (Input.GetAxis("Mouse ScrollWheel") > 0f) //forward
-        //{
-        //    Debug.Log("forward: " + Input.GetAxis("Mouse ScrollWheel"));
-        //}
-        //else if(Input.GetAxis("Mouse ScrollWheel") < 0f) //backwards
-        //{
-        //    Debug.Log("backwards: " + Input.GetAxis("Mouse ScrollWheel"));
-        //}
+
 
         if (Input.GetButtonDown("Fire1"))
         {
             Shoot();
         }
 
+        //Debug.DrawLine(transform.position, transform.right );
     }
 
     void Shoot()
@@ -63,6 +62,8 @@ public class GunShooting : MonoBehaviour
         return Quaternion.LookRotation(-transform.right);
     }
 
-    //https://cindyalex.pixnet.net/blog/post/143734467-unity-c%23-%E5%8F%96%E5%BE%97%E7%88%B6%E5%AD%90%E7%89%A9%E4%BB%B6
-    //    ameObject.transform.GetChild(0).gameObject;
+
+
+
+
 }
