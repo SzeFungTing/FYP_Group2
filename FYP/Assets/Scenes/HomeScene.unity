@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 851519463}
-  m_IndirectSpecularColor: {r: 0.1128566, g: 0.4179828, b: 0.72334015, a: 1}
+  m_IndirectSpecularColor: {r: 0.11241088, g: 0.41749325, b: 0.7230427, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5114,6 +5114,32 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8327710a5003de545a5a6b0faa6c56e4, type: 3}
+--- !u!21 &707941569
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Custom_GrassComputeHLSL(Clone)
+  m_Shader: {fileID: 4800000, guid: 6eee99beae21dcc4c9928455ad576f90, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs: []
+    m_Ints: []
+    m_Floats:
+    - _AmbientAdjustment: 0
+    - _BlendFloor: 0
+    - _Fade: 0
+    m_Colors: []
+  m_BuildTextureStacks: []
 --- !u!1001 &772428265
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5143,7 +5169,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3805550522536465332, guid: 95cdd22d7ba130b48b6d55e74985949f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 598.65
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3805550522536465332, guid: 95cdd22d7ba130b48b6d55e74985949f, type: 3}
       propertyPath: m_LocalRotation.w
@@ -5176,6 +5202,10 @@ PrefabInstance:
     - target: {fileID: 3805550522536465334, guid: 95cdd22d7ba130b48b6d55e74985949f, type: 3}
       propertyPath: m_Name
       value: FPSController
+      objectReference: {fileID: 0}
+    - target: {fileID: 3805550522536465334, guid: 95cdd22d7ba130b48b6d55e74985949f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5908125070697154886, guid: 95cdd22d7ba130b48b6d55e74985949f, type: 3}
       propertyPath: m_IsActive
@@ -10486,32 +10516,6 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
---- !u!21 &1364435802
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Custom_GrassComputeHLSL(Clone)
-  m_Shader: {fileID: 4800000, guid: 6eee99beae21dcc4c9928455ad576f90, type: 3}
-  m_ShaderKeywords: 
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs: []
-    m_Ints: []
-    m_Floats:
-    - _AmbientAdjustment: 0
-    - _BlendFloor: 0
-    - _Fade: 0
-    m_Colors: []
-  m_BuildTextureStacks: []
 --- !u!1001 &1444612099
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -31174,7 +31178,7 @@ MonoBehaviour:
   rangeG: 0
   rangeB: 0
   AdjustedColor: {r: 0.14901961, g: 0.77254903, b: 0.44313726, a: 0}
-  hitPosGizmo: {x: 554.84753, y: 27.949274, z: 530.4579}
+  hitPosGizmo: {x: 176.432, y: 10.246317, z: 86.60031}
   hitNormal: {x: 0.01874785, y: 0.9998242, z: 0}
 --- !u!33 &1482524617
 MeshFilter:
@@ -31217,7 +31221,7 @@ MonoBehaviour:
   topTint: {r: 1, g: 1, b: 1, a: 1}
   bottomTint: {r: 0.09841577, g: 0.5377358, b: 0.15921968, a: 1}
   castShadow: 0
-  m_InstantiatedMaterial: {fileID: 1364435802}
+  m_InstantiatedMaterial: {fileID: 707941569}
 --- !u!4 &1482524619
 Transform:
   m_ObjectHideFlags: 0
@@ -31376,10 +31380,54 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -4676854282438483170, guid: 2423b74a37d855043be6925d13653609, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: d9972136fdfb5174794b21ce203a4e6f, type: 2}
+    - target: {fileID: -2184013339637081026, guid: 2423b74a37d855043be6925d13653609, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: d9972136fdfb5174794b21ce203a4e6f, type: 2}
+    - target: {fileID: -1761256685094841312, guid: 2423b74a37d855043be6925d13653609, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: d9972136fdfb5174794b21ce203a4e6f, type: 2}
+    - target: {fileID: -39281640324246052, guid: 2423b74a37d855043be6925d13653609, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 2423b74a37d855043be6925d13653609, type: 3}
       propertyPath: m_Name
       value: Arms
       objectReference: {fileID: 0}
+    - target: {fileID: 1365132098506396400, guid: 2423b74a37d855043be6925d13653609, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1395907985004231953, guid: 2423b74a37d855043be6925d13653609, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.62
+      objectReference: {fileID: 0}
+    - target: {fileID: 1395907985004231953, guid: 2423b74a37d855043be6925d13653609, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.11
+      objectReference: {fileID: 0}
+    - target: {fileID: 3219882101630006985, guid: 2423b74a37d855043be6925d13653609, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: d9972136fdfb5174794b21ce203a4e6f, type: 2}
+    - target: {fileID: 4008791811287642139, guid: 2423b74a37d855043be6925d13653609, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 2444ae366818f5c4ca9a56e5e1bec075, type: 2}
+    - target: {fileID: 5074512353664290214, guid: 2423b74a37d855043be6925d13653609, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 1db9523e90b2ee54ebcac03dfb636ba9, type: 2}
+    - target: {fileID: 6652693477388612062, guid: 2423b74a37d855043be6925d13653609, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: d9972136fdfb5174794b21ce203a4e6f, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2423b74a37d855043be6925d13653609, type: 3}
 --- !u!4 &1592130479 stripped
