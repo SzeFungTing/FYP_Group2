@@ -35,13 +35,7 @@ public class Target : MonoBehaviour
                 gameObject.transform.localScale += -scaleChange;
             }
 
-            gameObject.transform.rotation = Quaternion.Slerp(startRotation, Quaternion.identity, time);
-
-            //if (rb.velocity.x < 0.01f || rb.velocity.z < 0.01f)
-            //{
-            //    rb.velocity = Vector3.zero;
-            //    rb.angularVelocity = Vector3.zero;
-            //}
+            //gameObject.transform.rotation = Quaternion.Slerp(startRotation, Quaternion.identity, time);
         }
     }
 }
