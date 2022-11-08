@@ -13,7 +13,10 @@ public class GunVacuum : MonoBehaviour
     [SerializeField]
     private Vector3 scaleChange = new Vector3(-0.01f, -0.01f, -0.01f);
 
+    public GameObject gun;
+
     Animator anim;
+    Animator gunAnim;
 
     CapsuleCollider _collider;
 
@@ -74,9 +77,16 @@ public class GunVacuum : MonoBehaviour
             anim.speed = 1;
             anim.SetTrigger("Suck");
             anim.ResetTrigger("Release");
+
+            gunAnim.SetBool("isInhale",false);
         }
+
         else
         {
+            gunAnim = gun.GetComponent<Animator>();
+            gunAnim.SetBool("isInhale",true);
+            gunAnim.speed = 1f;
+
             Destroy(other.transform.gameObject);
             //collision.transform.gameObject.SetActive(false);
         }
