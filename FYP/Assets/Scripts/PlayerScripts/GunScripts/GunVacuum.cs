@@ -20,6 +20,24 @@ public class GunVacuum : MonoBehaviour
 
     CapsuleCollider _collider;
 
+    private void Start()
+    {
+        gunAnim = gun.GetComponent<Animator>();
+    }
+
+    private void Update()
+    {
+        if (Input.GetMouseButtonDown(1))
+        {
+            gunAnim.SetBool("isInhale", true);
+            gunAnim.speed = 1f;
+        }
+        else if (Input.GetMouseButtonUp(1))
+        {
+            gunAnim.SetBool("isInhale", false);
+        }
+    }
+
     private void OnTriggerStay(Collider other)
     {
         if (other.transform.CompareTag("Target"))
@@ -38,6 +56,7 @@ public class GunVacuum : MonoBehaviour
             {
                 other.transform.GetChild(1).gameObject.GetComponentInChildren<CapsuleCollider>().enabled = true;
                 other.transform.gameObject.GetComponent<Target>().isVacuum = false;
+
                 anim.ResetTrigger("Suck");
                 anim.SetTrigger("Release");
             }
@@ -78,14 +97,12 @@ public class GunVacuum : MonoBehaviour
             anim.SetTrigger("Suck");
             anim.ResetTrigger("Release");
 
-            gunAnim.SetBool("isInhale",false);
+            
         }
 
         else
         {
-            gunAnim = gun.GetComponent<Animator>();
-            gunAnim.SetBool("isInhale",true);
-            gunAnim.speed = 1f;
+            
 
             Destroy(other.transform.gameObject);
             //collision.transform.gameObject.SetActive(false);

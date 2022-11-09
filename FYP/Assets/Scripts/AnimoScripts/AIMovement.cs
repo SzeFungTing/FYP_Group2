@@ -34,39 +34,39 @@ public class AIMovement : MonoBehaviour
 
         if (isRotatingRight)
         {
-            Debug.Log("isRotatingRight");
+            //Debug.Log("isRotatingRight");
             transform.Rotate(transform.up * Time.deltaTime * rotationSpeed);
         }
 
         if (isRotatingLeft)
         {
-            Debug.Log("isRotatingLeft");
+            //Debug.Log("isRotatingLeft");
             transform.Rotate(transform.up * Time.deltaTime * -rotationSpeed);
         }
 
         if (isFlyingUp)
         {
-            Debug.Log("isFlyingUp");
+            //Debug.Log("isFlyingUp");
             rb.AddForce(transform.up * flySpeed);
             rb.AddForce(transform.forward * movementSpeed);
         }
 
         if (isFlyingDown)
         {
-            Debug.Log("isFlyingDown");
+            //Debug.Log("isFlyingDown");
             rb.AddForce(transform.up * -flySpeed);
             rb.AddForce(transform.forward * -movementSpeed);
         }
 
         if (isWalking)
         {
-            Debug.Log("isWalking");
+            //Debug.Log("isWalking");
             rb.AddForce(transform.forward * movementSpeed);
         }
 
         if (isStoping)
         {
-            Debug.Log("isStoping");
+            //Debug.Log("isStoping");
             Stop();
         }
     }
