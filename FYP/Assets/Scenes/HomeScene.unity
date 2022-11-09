@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 851519463}
-  m_IndirectSpecularColor: {r: 0.11269159, g: 0.41779685, b: 0.72328174, a: 1}
+  m_IndirectSpecularColor: {r: 0.1124079, g: 0.41750026, b: 0.72305155, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5868,32 +5868,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!21 &1161348872
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Custom_GrassComputeHLSL(Clone)
-  m_Shader: {fileID: 4800000, guid: 6eee99beae21dcc4c9928455ad576f90, type: 3}
-  m_ShaderKeywords: 
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs: []
-    m_Ints: []
-    m_Floats:
-    - _AmbientAdjustment: 0
-    - _BlendFloor: 0
-    - _Fade: 0
-    m_Colors: []
-  m_BuildTextureStacks: []
 --- !u!1 &1189383093 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 167804728931560801, guid: 2423b74a37d855043be6925d13653609, type: 3}
@@ -31489,7 +31463,7 @@ MonoBehaviour:
   topTint: {r: 1, g: 1, b: 1, a: 1}
   bottomTint: {r: 0.09841577, g: 0.5377358, b: 0.15921968, a: 1}
   castShadow: 0
-  m_InstantiatedMaterial: {fileID: 1161348872}
+  m_InstantiatedMaterial: {fileID: 1534185867}
 --- !u!4 &1482524619
 Transform:
   m_ObjectHideFlags: 0
@@ -31606,6 +31580,32 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: beb3fb57688ede142bdba88864b2509e, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4479c12b09235e047b6cd757fbbeb08d, type: 3}
+--- !u!21 &1534185867
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Custom_GrassComputeHLSL(Clone)
+  m_Shader: {fileID: 4800000, guid: 6eee99beae21dcc4c9928455ad576f90, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs: []
+    m_Ints: []
+    m_Floats:
+    - _AmbientAdjustment: 0
+    - _BlendFloor: 0
+    - _Fade: 0
+    m_Colors: []
+  m_BuildTextureStacks: []
 --- !u!1001 &1592130478
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -32332,14 +32332,6 @@ PrefabInstance:
     - target: {fileID: 6482935730354592829, guid: d51c558a6dcf38641a551c7a2bb1be49, type: 3}
       propertyPath: m_RootOrder
       value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 6482935730354592829, guid: d51c558a6dcf38641a551c7a2bb1be49, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 500
-      objectReference: {fileID: 0}
-    - target: {fileID: 6482935730354592829, guid: d51c558a6dcf38641a551c7a2bb1be49, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 6482935730354592829, guid: d51c558a6dcf38641a551c7a2bb1be49, type: 3}
       propertyPath: m_LocalPosition.x
