@@ -55,7 +55,7 @@ public class AIMovement : MonoBehaviour
         {
             //Debug.Log("isFlyingDown");
             rb.AddForce(transform.up * -flySpeed);
-            rb.AddForce(transform.forward * -movementSpeed);
+            rb.AddForce(transform.forward * movementSpeed);
         }
 
         if (isWalking)
@@ -139,6 +139,6 @@ public class AIMovement : MonoBehaviour
 
     private void Stop()
     {
-        rb.velocity = rb.velocity * 0.99f;
+        rb.velocity = rb.velocity * 0.995f;
     }
 }
