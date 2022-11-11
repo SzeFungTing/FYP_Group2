@@ -37,7 +37,7 @@ public class ItemWorld : MonoBehaviour
     {
         Debug.Log("Drop itemType: " + item.itemType + "Drop item.amount: " + item.amount);
         ItemWorld itemWorld = SpawnItemWorld(gunPos, item);
-        itemWorld.GetComponent<Rigidbody>().velocity = 8f * gun.forward;
+        itemWorld.GetComponent<Rigidbody>().velocity = 8f * gun.up;
         return itemWorld;
     }
 

@@ -20,9 +20,19 @@ public class GunVacuum : MonoBehaviour
 
     CapsuleCollider _collider;
 
+    //inventory system
+    private Inventory2 inventory;
+    public GunShooting gunShooting;
+    [SerializeField] private HotBarScript hotBarScript;
+
     private void Start()
     {
         gunAnim = gun.GetComponent<Animator>();
+
+        //inventory system
+        inventory = new Inventory2();
+        hotBarScript.SetInventory(inventory);
+        gunShooting.SetInventory(inventory);
     }
 
     private void Update()
@@ -102,7 +112,8 @@ public class GunVacuum : MonoBehaviour
 
         else
         {
-            
+            //inventory system
+            inventory.AddItem(other.transform.GetComponent<ItemWorld>().GetItem());
 
             Destroy(other.transform.gameObject);
             //collision.transform.gameObject.SetActive(false);

@@ -1,30 +1,30 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GunShooting : MonoBehaviour
 {
-    public GameObject target;
-    GameObject born;
+    //public GameObject target;
+
     Transform gunPos;
 
-    [SerializeField]
-    float speed = 8f;
+    //[SerializeField]
+    //float speed = 8f;
 
-    //Animator anim;
+    Vector3 gunLoaclPos;
+
+
+
+
 
     private Inventory2 inventory;
-
-    [SerializeField] private UI_Inventory uiInventory;
+    [SerializeField] private HotBarScript hotBarScript;
 
     // Start is called before the first frame update
     void Start()
     {
         gunPos = this.transform;
-
-        inventory = new Inventory2();
-        
-        //Debug.Log(gunPos.position);
     }
 
     // Update is called once per frame
@@ -33,37 +33,40 @@ public class GunShooting : MonoBehaviour
         gunPos = this.transform;
 
 
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButtonDown("Fire1") && (hotBarScript.GetComponent<Image>().sprite!=null))
         {
             Shoot();
         }
-
-        //Debug.DrawLine(transform.position, transform.right );
     }
 
-    void Shoot()
+    public void SetInventory(Inventory2 inventory)
     {
-        //gunPos = this.transform;
-        Vector3 gunLoaclPos = gunPos.localPosition;
+        this.inventory = inventory;
+    }
+
+
+
+    public void Shoot()
+    {
+        gunLoaclPos = gunPos.localPosition;
         gunLoaclPos.z = gunPos.localPosition.z + 0.8f;
 
-        born = Instantiate(target, transform.TransformPoint(gunLoaclPos), ObjectRotation());
-        born.GetComponent<Rigidbody>().velocity = speed * transform.forward;
 
-        //anim = born.gameObject.GetComponentInChildren<Animator>();
-        //anim.SetTrigger("isBorn");
+        Item2 item = hotBarScript.GetHotbarItem();
 
+
+        inventory.RemoveItem(new Item2 { itemType = item.itemType, amount = 1 });
+        ItemWorld.DropItem(transform.TransformPoint(gunLoaclPos), new Item2 { itemType = item.itemType, amount = 1 }, transform);
     }
 
 
     Quaternion ObjectRotation()
     {
-        //Quaternion rotation = Quaternion.LookRotation(-transform.right);
         return Quaternion.LookRotation(-transform.right);
     }
 
-
-
-
-
+    public Vector3 GetGunPos()
+    {
+        return transform.TransformPoint(gunLoaclPos);
+    }
 }
