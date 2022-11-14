@@ -104,12 +104,12 @@ public class HotBarScript : MonoBehaviour
 
 
             itemSlotRectTransform.anchoredPosition = new Vector2(x * itemSlotCellSize, 0);
-            Image image = /*SetHorBarItem()*/itemSlotRectTransform.GetComponent<Image>();
+            Image image = /*SetHorBarItem()*/itemSlotRectTransform.GetChild(0).GetComponent<Image>();
             image.sprite = item.GetSprite();
-            itemSlotRectTransform.GetComponent<ItemWorld>().SetItem(item);
+            itemSlotRectTransform.GetChild(0).GetComponent<ItemWorld>().SetItem(item);
             //Debug.Log(item.itemType);
 
-            Text uiText = itemSlotRectTransform.GetChild(0).GetComponent<Text>();
+            Text uiText = itemSlotRectTransform.GetChild(0).GetChild(0).GetComponent<Text>();
 
 
             //GameObject hb = SetHorBarItem();
@@ -141,7 +141,7 @@ public class HotBarScript : MonoBehaviour
 
     public Item2 GetHotbarItem()
     {
-        return transform.GetChild(currentPos+1).GetComponent<ItemWorld>().item;
+        return transform.GetChild(currentPos+1).GetChild(0).GetComponent<ItemWorld>().item;
     }
 
     GameObject SetHorBarItem()

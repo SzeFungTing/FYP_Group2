@@ -22,8 +22,10 @@ public class GunVacuum : MonoBehaviour
 
     //inventory system
     private Inventory2 inventory;
+    private Inventory2 BackpackInventory;
     public GunShooting gunShooting;
     [SerializeField] private HotBarScript hotBarScript;
+    [SerializeField] private BackpackScript BackpackScript;
 
     private void Start()
     {
@@ -33,6 +35,11 @@ public class GunVacuum : MonoBehaviour
         inventory = new Inventory2();
         hotBarScript.SetInventory(inventory);
         gunShooting.SetInventory(inventory);
+    }
+
+    public void SetInventory(Inventory2 inventory)
+    {
+        BackpackInventory = inventory;
     }
 
     private void Update()
@@ -113,9 +120,34 @@ public class GunVacuum : MonoBehaviour
         else
         {
             //inventory system
-            inventory.AddItem(other.transform.GetComponent<ItemWorld>().GetItem());
+            if (inventory.GetItemList().Count <= 4)
+            {
+                if (inventory.GetItemList().Count >= 4)
+                {
+                    bool itemAlreadyInInventory = false;
+                    foreach (Item2 inventoryItem in inventory.GetItemList())
+                    {
+                        if (inventoryItem.itemType == other.transform.GetComponent<ItemWorld>().GetItem().itemType)
+                        {
+                            inventory.AddItem(other.transform.GetComponent<ItemWorld>().GetItem());
+                            itemAlreadyInInventory = true;
+                        }
+                    }
+                    if (!itemAlreadyInInventory)
+                    {
+                        BackpackInventory.AddItem(other.transform.GetComponent<ItemWorld>().GetItem());
 
-            Destroy(other.transform.gameObject);
+                    }
+                }
+                else
+                {
+                    inventory.AddItem(other.transform.GetComponent<ItemWorld>().GetItem());
+                }
+            }
+
+
+
+                Destroy(other.transform.gameObject);
             //collision.transform.gameObject.SetActive(false);
         }
         if (Vector3.Distance(other.transform.position, gunPoint.position) < 1.0f)
