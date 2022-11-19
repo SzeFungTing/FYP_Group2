@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Shader Graphs_Fajro_Engry
-  m_Shader: {fileID: -6465566751694194690, guid: a6a7183b47b733647899fe7987f54daf, type: 3}
+  m_Name: Fajor
+  m_Shader: {fileID: -6465566751694194690, guid: 42097cc36583612448a3d3c8dcc24505, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -33,13 +33,13 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - Dissolve_: 0.832
-    - NoisePower_: 1
-    - NoiseScale_: 20.26
-    - TwirlAmount_: 8.78
+    - BottomLine: 0.811
+    - Metallic: 0.863
+    - Smoothness: 0.518
+    - TopLine: 0.796
+    - Transparent: 0.925
     m_Colors:
-    - Color_: {r: 11.984314, g: 4.1411767, b: 0.1254902, a: 0.27058825}
-    - NoiseSpeed_: {r: 0.58, g: 0, b: 0.01, a: 0}
-    - TwirlCenter_: {r: 1.95, g: -0.5, b: 0, a: 0}
-    - TwirlSpeed_: {r: 0, g: 1, b: 0, a: 0}
+    - BaseColor: {r: 1, g: 0.7093233, b: 0.107547104, a: 1}
+    - BottomColor: {r: 1.1045377, g: 1.1353015, b: 0.029719925, a: 1}
+    - TopColor: {r: 1.39772, g: 0, b: 0.6210732, a: 1}
   m_BuildTextureStacks: []
