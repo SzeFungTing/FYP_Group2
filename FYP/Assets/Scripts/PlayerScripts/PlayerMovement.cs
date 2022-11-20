@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
     public CapsuleCollider CapsuleCollider;
     public Rigidbody Rigidbody;
 
+    bool isWalking;
     bool isGrounded;
     public float walkSpeed;
     public float sprintSpeed;
@@ -36,6 +37,9 @@ public class PlayerMovement : MonoBehaviour
     public float swimSpeed;
     public Transform target;
 
+    public AudioSource footStepInGrass;
+    public AudioSource RunningInGrass;
+
     public MovementState state;
 
     public enum MovementState
@@ -43,7 +47,8 @@ public class PlayerMovement : MonoBehaviour
         walking,
         sprinting,
         crouching,
-        air
+        air,
+        standing
     }
 
     // Start is called before the first frame update
@@ -68,6 +73,7 @@ public class PlayerMovement : MonoBehaviour
             StateHandles();
             CrouchScale();
             SlideOnSlope();
+            FootStep();
 
             if (currectInput.x != 0 || currectInput.y != 0 && OnSlope())
             {
@@ -79,6 +85,12 @@ public class PlayerMovement : MonoBehaviour
     void HandleMovementInput()
     {
         currectInput = new Vector2(walkSpeed * Input.GetAxis("Vertical"), walkSpeed * Input.GetAxis("Horizontal"));
+
+        isWalking = true;
+        if (currectInput.x == 0 && currectInput.y == 0)
+        {
+            isWalking = false;
+        }
 
         float moveDirectionY = moveDirection.y;
         moveDirection = (transform.TransformDirection(Vector3.forward) * currectInput.x) + (transform.TransformDirection(Vector3.right) * currectInput.y);
@@ -139,6 +151,10 @@ public class PlayerMovement : MonoBehaviour
         }
         else if (controller.isGrounded)
         {
+            state = MovementState.standing;
+        }
+        else if (controller.isGrounded && isWalking)
+        {
             state = MovementState.walking;
             walkSpeed = 7;
         }
@@ -146,6 +162,7 @@ public class PlayerMovement : MonoBehaviour
         {
             state = MovementState.air;
         }
+
     }
 
     bool OnSlope()
@@ -211,5 +228,25 @@ public class PlayerMovement : MonoBehaviour
     {
         Rigidbody.velocity = Vector3.zero;
         Rigidbody.angularVelocity = Vector3.zero;
+    }
+
+    public void FootStep()
+    {
+        if (state == MovementState.walking)
+        {
+            footStepInGrass.Play();
+            //Debug.Log("walking");
+        }
+        else if (state == MovementState.sprinting)
+        {
+            RunningInGrass.Play();
+            //Debug.Log("running");
+        }
+        else if(state == MovementState.standing)
+        {
+            footStepInGrass.Stop();
+            RunningInGrass.Stop();
+            //Debug.Log("standing");
+        }
     }
 }

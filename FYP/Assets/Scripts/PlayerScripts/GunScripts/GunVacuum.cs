@@ -27,6 +27,14 @@ public class GunVacuum : MonoBehaviour
     [SerializeField] private HotBarScript hotBarScript;
     [SerializeField] private BackpackScript BackpackScript;
 
+    //PS
+    public ParticleSystem farPointInhale;
+    public ParticleSystem nearPoint;
+
+    //Audio
+    public AudioSource inhale;
+    public AudioSource shoot;
+
     private void Start()
     {
         gunAnim = gun.GetComponent<Animator>();
@@ -48,10 +56,20 @@ public class GunVacuum : MonoBehaviour
         {
             gunAnim.SetBool("isInhale", true);
             gunAnim.speed = 1f;
+            farPointInhale.Play(true);
+            nearPoint.Play(true);
+            inhale.Play();
         }
         else if (Input.GetMouseButtonUp(1))
         {
             gunAnim.SetBool("isInhale", false);
+            farPointInhale.Stop(true);
+            nearPoint.Stop(true);
+            inhale.Stop();
+        }
+        if (Input.GetMouseButtonDown(0))
+        {
+            shoot.Play();
         }
     }
 
