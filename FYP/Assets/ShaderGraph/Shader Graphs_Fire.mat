@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: AnimoCh
-  m_Shader: {fileID: -6465566751694194690, guid: 502a201cb48b44c4ab3d2ef1cfa1a58e, type: 3}
+  m_Name: Shader Graphs_Fire
+  m_Shader: {fileID: -6465566751694194690, guid: ea65e3bd017f62946996605dface5531, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -19,6 +19,10 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: 02ca227abca30724eb6e9f7a3e7e8c3b, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -33,10 +37,9 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - FresnelPower: 1.03
-    - GlowSpeed: 6.24
+    - _FireDetail: 10.71
+    - _FirePower: 0.3
+    - _Firethreshold: -0.279
     m_Colors:
-    - FresnelColor: {r: 0.509434, g: 0.509434, b: 0.509434, a: 1}
-    - InteriorColor: {r: 2.79544, g: 1.5660318, b: 0.3658953, a: 1}
-    - InteriorPos: {r: 2.7, g: 0.01, b: 4.42, a: -2.91}
+    - _FireColor: {r: 0.44596523, g: 0.36938536, b: 0.09459869, a: 0.6666667}
   m_BuildTextureStacks: []
