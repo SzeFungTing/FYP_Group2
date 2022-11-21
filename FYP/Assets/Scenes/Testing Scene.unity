@@ -300,7 +300,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1445926167314338599, guid: bbcbb24d181360749bd471bdaeccfbe7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.981
+      value: 1.042
       objectReference: {fileID: 0}
     - target: {fileID: 1445926167314338599, guid: bbcbb24d181360749bd471bdaeccfbe7, type: 3}
       propertyPath: m_LocalPosition.z
@@ -338,17 +338,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: FajroCore
       objectReference: {fileID: 0}
+    - target: {fileID: 2259442092407703965, guid: bbcbb24d181360749bd471bdaeccfbe7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2869667158065048486, guid: bbcbb24d181360749bd471bdaeccfbe7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.15
+      value: 1.1
       objectReference: {fileID: 0}
     - target: {fileID: 2869667158065048486, guid: bbcbb24d181360749bd471bdaeccfbe7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.01
+      value: 0.83
       objectReference: {fileID: 0}
     - target: {fileID: 2869667158065048486, guid: bbcbb24d181360749bd471bdaeccfbe7, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.72
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 2869667158065048486, guid: bbcbb24d181360749bd471bdaeccfbe7, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1828,6 +1832,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 9e5107febb17b2645be67de371bdaf5b, type: 3}
       propertyPath: m_Name
       value: Chicken
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 9e5107febb17b2645be67de371bdaf5b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7603786706384944740, guid: 9e5107febb17b2645be67de371bdaf5b, type: 3}
       propertyPath: m_Materials.Array.data[0]
