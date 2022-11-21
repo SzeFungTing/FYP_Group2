@@ -30,6 +30,7 @@ public class GunVacuum : MonoBehaviour
     //PS
     public ParticleSystem farPointInhale;
     public ParticleSystem nearPoint;
+    public ParticleSystem shootPoint;
 
     //Audio
     public AudioSource inhale;
@@ -55,6 +56,7 @@ public class GunVacuum : MonoBehaviour
         if (Input.GetMouseButtonDown(1))
         {
             gunAnim.SetBool("isInhale", true);
+            gunAnim.SetBool("canShoot", true);
             gunAnim.speed = 1f;
             farPointInhale.Play(true);
             nearPoint.Play(true);
@@ -69,7 +71,14 @@ public class GunVacuum : MonoBehaviour
         }
         if (Input.GetMouseButtonDown(0))
         {
+            gunAnim.SetBool("canShoot", true);
             shoot.Play();
+            shootPoint.Play(true);
+        }
+        if (Input.GetMouseButtonUp(0))
+        {
+            gunAnim.SetBool("canShoot", false);
+            shootPoint.Stop(true);
         }
     }
 

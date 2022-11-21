@@ -37,7 +37,7 @@ public class PlayerMovement : MonoBehaviour
     public float swimSpeed;
     public Transform target;
 
-    public AudioSource footStepInGrass;
+    public AudioSource WalkingInGrass;
     public AudioSource RunningInGrass;
 
     public MovementState state;
@@ -149,14 +149,14 @@ public class PlayerMovement : MonoBehaviour
             state = MovementState.sprinting;
             walkSpeed = sprintSpeed;
         }
-        else if (controller.isGrounded)
-        {
-            state = MovementState.standing;
-        }
         else if (controller.isGrounded && isWalking)
         {
             state = MovementState.walking;
             walkSpeed = 7;
+        }
+        else if (controller.isGrounded)
+        {
+            state = MovementState.standing;
         }
         else
         {
@@ -234,19 +234,17 @@ public class PlayerMovement : MonoBehaviour
     {
         if (state == MovementState.walking)
         {
-            footStepInGrass.Play();
-            //Debug.Log("walking");
+            if (!WalkingInGrass.isPlaying && !RunningInGrass.isPlaying)
+            {
+                WalkingInGrass.Play();
+            }
         }
         else if (state == MovementState.sprinting)
         {
-            RunningInGrass.Play();
-            //Debug.Log("running");
-        }
-        else if(state == MovementState.standing)
-        {
-            footStepInGrass.Stop();
-            RunningInGrass.Stop();
-            //Debug.Log("standing");
+            if (!WalkingInGrass.isPlaying && !RunningInGrass.isPlaying)
+            {
+                RunningInGrass.Play();
+            }
         }
     }
 }
