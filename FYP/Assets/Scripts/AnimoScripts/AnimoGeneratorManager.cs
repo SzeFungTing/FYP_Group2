@@ -6,10 +6,11 @@ public class AnimoGeneratorManager : MonoBehaviour
 {
     int animoCount = 0;
     bool canGenerate = true;
-    float cooldown = 0.0f;
+    float countDown = 0.0f;
 
     [SerializeField] int maxNum = 30;
     [SerializeField] AnimoGenerator ag;
+    [SerializeField] float cooldown = 300.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -20,12 +21,12 @@ public class AnimoGeneratorManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (cooldown > 0)
+        if (countDown > 0)
         {
-            cooldown -= Time.deltaTime;
+            countDown -= Time.deltaTime;
         }
 
-        if (cooldown <= 0)
+        if (countDown <= 0)
         {
             canGenerate = true;
         }
@@ -46,7 +47,7 @@ public class AnimoGeneratorManager : MonoBehaviour
                 }
 
                 canGenerate = false;
-                cooldown = 300.0f;
+                countDown = cooldown;
             }
         }
         
