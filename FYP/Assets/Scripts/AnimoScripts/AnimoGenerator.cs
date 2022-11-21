@@ -6,7 +6,13 @@ public class AnimoGenerator : MonoBehaviour
 {
     [SerializeField] private Rigidbody animoPrefab;
 
-    public float speed = 1.0f;
+    public float generationInterval = 0.5f;
+    public float speed = 0.5f;
+
+    private float previousGenerationTime = 0.0f;
+    private bool isGenerating;
+    private int currentNum;
+    private float currentTime;
 
     // Start is called before the first frame update
     void Start()
@@ -17,15 +23,38 @@ public class AnimoGenerator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        currentTime = Time.time;
     }
 
-    public void Generate(int num)
+    public void Generate(int targetNum)
     {
-        for (int i = 0; i < num; i++)
+        //isGenerating = true;
+        //currentNum = 0;
+        ////currentTime = 100.0f;
+
+        //while (isGenerating)
+        //{
+        //    if (currentTime > previousGenerationTime + generationInterval)
+        //    {
+        //        Rigidbody rb = Instantiate(animoPrefab, transform.position, transform.rotation);
+        //        rb.velocity = transform.forward * speed;
+        //        previousGenerationTime = Time.time;
+        //        currentNum++;
+        //    }
+        //    if (currentNum == targetNum)
+        //    {
+        //        isGenerating = false;
+        //    }
+
+        //    //currentTime = Time.time;
+        //}
+
+        //previousGenerationTime = 0.0f;
+
+        for (int i = 0; i < targetNum; i++)
         {
-            Rigidbody rb = Instantiate(animoPrefab, transform.position, transform.rotation);
-            rb.velocity = transform.forward * speed;
+            Rigidbody rb = Instantiate(animoPrefab, transform.position + Vector3.up * i, transform.rotation);
+            rb.velocity = transform.up * speed;
         }
     }
 }

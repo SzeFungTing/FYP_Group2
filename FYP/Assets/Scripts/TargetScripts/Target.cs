@@ -37,5 +37,15 @@ public class Target : MonoBehaviour
 
             //gameObject.transform.rotation = Quaternion.Slerp(startRotation, Quaternion.identity, time);
         }
+
+        if (gameObject.transform.position.y < -2)   //delete target when fall out of map
+        {
+            Destroy(gameObject);
+        }
+
+        if (gameObject.transform.position.y > 80)   //delete target when fly too high
+        {
+            Destroy(gameObject);
+        }
     }
 }

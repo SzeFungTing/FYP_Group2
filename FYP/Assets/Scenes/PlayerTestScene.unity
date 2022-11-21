@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 2138677392}
-  m_IndirectSpecularColor: {r: 0.2850269, g: 0.3713935, b: 0.49601045, a: 1}
+  m_IndirectSpecularColor: {r: 0.28502586, g: 0.37139237, b: 0.4960093, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -11095,6 +11095,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxNum: 30
   ag: {fileID: 2022462772}
+  cooldown: 10
 --- !u!65 &1890738747
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11170,7 +11171,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2022462771
 GameObject:
@@ -11202,7 +11203,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animoPrefab: {fileID: 7932083041662162505, guid: cd4ee46b53265e64788586c66a35d198, type: 3}
-  speed: 0.1
+  generationInterval: 0.5
+  speed: 0.5
 --- !u!4 &2022462773
 Transform:
   m_ObjectHideFlags: 0
@@ -11215,7 +11217,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2061086552
 GameObject:
