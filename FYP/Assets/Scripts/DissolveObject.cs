@@ -20,7 +20,7 @@ public class DissolveObject : MonoBehaviour
         var time = Time.time * Mathf.PI * 0.25f;
 
         float height = transform.position.y;
-        height += Mathf.Sin(time) * (objectHeight / 2.0f);
+        height += Mathf.Tan(-time) * (objectHeight / 2.0f);
         SetHeight(height);
     }
 
