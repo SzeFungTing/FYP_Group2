@@ -7,56 +7,65 @@ public class GunShooting : MonoBehaviour
 {
     //public GameObject target;
 
-    Transform gunPos;
+    //Transform gunPos;
 
-    //[SerializeField]
-    //float speed = 8f;
+    [SerializeField] float speed = 8f;
 
     Vector3 gunLoaclPos;
+    public GameObject shootingPoint;
 
 
 
 
 
-    private Inventory2 inventory;
-    [SerializeField] private HotBarScript hotBarScript;
+    //private Inventory2 inventory;
+    //[SerializeField] private HotBarScript hotBarScript;
 
     // Start is called before the first frame update
     void Start()
     {
-        gunPos = this.transform;
+        //gunPos = this.transform;
     }
 
     // Update is called once per frame
     void Update()
     {
-        gunPos = this.transform;
+        //gunPos = this.transform;
 
 
-        if (Input.GetButtonDown("Fire1") && (hotBarScript.GetComponent<Image>().sprite!=null))
+        if (Input.GetButtonDown("Fire1"))
         {
             Shoot();
         }
     }
 
-    public void SetInventory(Inventory2 inventory)
-    {
-        this.inventory = inventory;
-    }
+    //public void SetInventory(Inventory2 inventory)
+    //{
+    //    this.inventory = inventory;
+    //}
 
 
 
     public void Shoot()
     {
-        gunLoaclPos = gunPos.localPosition;
-        gunLoaclPos.z = gunPos.localPosition.z + 0.8f;
+        //shooting offset
+        //gunLoaclPos = this.transform.localPosition;
+        //gunLoaclPos.z = this.transform.localPosition.z + 0.8f;
 
+        //inventory system
+        Item5 receivedItem = InventoryManager5.instance.GetSelectedItem(true);
+        if (receivedItem != null)
+            Debug.Log("use item: " + receivedItem);
+        else
+            Debug.Log("no item use ");
 
-        Item2 item = hotBarScript.GetHotbarItem();
-
-
-        inventory.RemoveItem(new Item2 { itemType = item.itemType, amount = 1 });
-        ItemWorld.DropItem(transform.TransformPoint(gunLoaclPos), new Item2 { itemType = item.itemType, amount = 1 }, transform);
+        if (receivedItem)
+        {
+            Debug.Log("spawn");
+            GameObject born = Instantiate(receivedItem.objectPrefab, shootingPoint.transform.position/*GetGunPos()*/, ObjectRotation());
+            born.GetComponent<Rigidbody>().velocity = speed * transform.forward;
+        }
+        
     }
 
 
@@ -65,8 +74,8 @@ public class GunShooting : MonoBehaviour
         return Quaternion.LookRotation(-transform.right);
     }
 
-    public Vector3 GetGunPos()
-    {
-        return transform.TransformPoint(gunLoaclPos);
-    }
+    //public Vector3 GetGunPos()
+    //{
+    //    return transform.TransformPoint(gunLoaclPos);
+    //}
 }
