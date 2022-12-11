@@ -242,7 +242,7 @@ public class AIMovement : MonoBehaviour
             }
         }
 
-        Debug.Log("distance: " + distance);
+        //Debug.Log("distance: " + distance);
 
         if (distance <= findFoodDistance)
         {

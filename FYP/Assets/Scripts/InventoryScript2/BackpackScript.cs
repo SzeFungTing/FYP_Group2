@@ -15,7 +15,7 @@ public class BackpackScript : MonoBehaviour
     {
         inventory = new Inventory2();
 
-        GunVacuum.SetInventory(inventory);
+        //GunVacuum.SetInventory(inventory);
 
         inventory.OnItemListChanged += Inventory_OnItemListChanged;
 

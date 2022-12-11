@@ -10,6 +10,11 @@ public class InventoryManager5 : MonoBehaviour
     public InventorySlot5[] inventorySlots;
     public GameObject inventoryItemPrefab;
     public GameObject inventoryUI;
+    public GameObject hotBarUI;
+
+    //Synchronize Hot Bar
+    public InventorySlot5[] backpackHotbarSlots;
+    public InventorySlot5[] hotbarSlots;
 
     int selectedSlot = -1;
     int hotBarNumber = 0;
@@ -21,6 +26,8 @@ public class InventoryManager5 : MonoBehaviour
 
     private void Start()
     {
+        inventoryUI.SetActive(false);
+        hotBarUI.SetActive(true);
         ChangeSelectedSlot(0);
     }
 
@@ -28,10 +35,16 @@ public class InventoryManager5 : MonoBehaviour
     {
         ScrollWheelSelectedSlot();
 
-        if (Input.GetKeyDown(KeyCode.I))
-        {
-            inventoryUI.SetActive(!inventoryUI.activeSelf);
-        }
+        ControlUI();
+
+        //if (inventoryUI.activeInHierarchy)
+        //{
+        //    Cursor.lockState = CursorLockMode.Confined;
+        //}
+        //else
+        //{
+        //    Cursor.lockState = CursorLockMode.Locked;
+        //}
     }
 
     void ChangeSelectedSlot(int newValue)
@@ -83,6 +96,7 @@ public class InventoryManager5 : MonoBehaviour
 
     public Item5 GetSelectedItem(bool use)
     {
+        Debug.Log("remove" + " + use: " + use);
         InventorySlot5 slot = inventorySlots[selectedSlot];
         InventoryItem itemInSlot = slot.GetComponentInChildren<InventoryItem>();
         if (itemInSlot != null)
@@ -107,6 +121,37 @@ public class InventoryManager5 : MonoBehaviour
         return null;
     }
 
+
+
+    //public void SynchronizeHotBar()
+    //{
+    //    for (int i = 0; i < hotbarSlots.Length; i++)            //open backpack, and Synchronize HotBar
+    //    {
+    //        InventorySlot5 backpackHotBarSlot = backpackHotbarSlots[i];                                                         //define backpackHotbar Slots
+    //        InventoryItem itemInBackpackHotBarSlot = backpackHotBarSlot.GetComponentInChildren<InventoryItem>();        //define item of backpackHotbar Slots
+    //        //for (int j = 0; j < backpackHotbarSlots.Length; j++)        //clean backpackHotbar Slots
+    //        if (itemInBackpackHotBarSlot != null)                                       //copy hotBarSlot to backpackHotBarSlot
+    //        {
+    //            Destroy(itemInBackpackHotBarSlot.gameObject);
+    //        }
+
+    //        InventorySlot5 hotBarSlot = hotbarSlots[i];                                                                     //define Hotbar Slots
+    //        InventoryItem itemInHotBarSlot = hotBarSlot.GetComponentInChildren<InventoryItem>();                            //define item of Hotbar Slots
+    //        if (itemInHotBarSlot != null)                                       //copy hotBarSlot to backpackHotBarSlot
+    //        {                                                                                                       
+    //            SpawnNewItem(itemInHotBarSlot.item, backpackHotBarSlot);
+    //            Debug.Log("itemInHotBarSlot.item: " + itemInHotBarSlot.item);
+    //            Debug.Log("itemInBackpackHotBarSlot.item: " + itemInBackpackHotBarSlot.item);
+
+    //            //itemInBackpackHotBarSlot.count = itemInHotBarSlot.count;
+    //            //Debug.Log("itemInBackpackHotBarSlot.count: " + itemInBackpackHotBarSlot.count);
+    //            //Debug.Log("itemInHotBarSlot.count: " + itemInHotBarSlot.count);
+
+    //            //itemInBackpackHotBarSlot.RefreshCount();
+    //        }
+    //    }
+    //}
+
     void ScrollWheelSelectedSlot()
     {
         //use mouseScroll to change the SelectedSlot
@@ -126,4 +171,24 @@ public class InventoryManager5 : MonoBehaviour
 
         ChangeSelectedSlot(hotBarNumber);
     }
+
+    void ControlUI()
+    {
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+            if (!inventoryUI.activeInHierarchy)
+            {
+                inventoryUI.SetActive(true);
+                //SynchronizeHotBar();
+                hotBarUI.transform.position = new Vector3(959.9999389648438f, 995.0f, 0.5400000214576721f);     //up
+                hotBarUI.transform.localScale = new Vector3(0.7f, 0.7f, 0.7f);
+            }
+            else
+            {
+                inventoryUI.SetActive(false);
+                hotBarUI.transform.position = new Vector3(959.9999389648438f, 90.0f, 0.5400000214576721f);      //down
+                hotBarUI.transform.localScale = new Vector3(1f, 1f, 1f);
+            }
+        }
+    } 
 }
