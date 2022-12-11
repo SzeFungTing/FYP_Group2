@@ -5,6 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class StartUI : MonoBehaviour
 {
+    private void Awake()
+    {
+        Cursor.lockState = CursorLockMode.Confined;
+    }
 
     public void HomeScene()
     {
