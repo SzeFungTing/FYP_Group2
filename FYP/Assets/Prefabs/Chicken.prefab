@@ -32,6 +32,7 @@ GameObject:
   - component: {fileID: 7932083041662162504}
   - component: {fileID: 7932083041662162502}
   - component: {fileID: 7932083041662162506}
+  - component: {fileID: -406338546799173149}
   - component: {fileID: 1848031626309348760}
   m_Layer: 6
   m_Name: Chicken
@@ -116,7 +117,21 @@ MonoBehaviour:
   rotationSpeed: 100
   eatCooldown: 200
   findFoodDistance: 500
-  _eat: {fileID: 0}
+  _eat: {fileID: -406338546799173149}
+--- !u!114 &-406338546799173149
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7932083041662162503}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c07b0be5f82d574db88402f539d6321, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FajroCore: {fileID: 2259442092407703965, guid: bbcbb24d181360749bd471bdaeccfbe7, type: 3}
+  Food: {fileID: 2604161690428849773, guid: b13535e237f51c44096fb9bc86cac1b3, type: 3}
 --- !u!114 &1848031626309348760
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -285,15 +300,15 @@ PrefabInstance:
     - target: {fileID: -5352229424225747466, guid: 9e5107febb17b2645be67de371bdaf5b, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 0e96c09f9d934aa4e94993efa0f19817, type: 2}
+      objectReference: {fileID: 2100000, guid: 2bdb8d52b2481574cb7a87da30a443df, type: 2}
     - target: {fileID: -4612520378060379669, guid: 9e5107febb17b2645be67de371bdaf5b, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 0e96c09f9d934aa4e94993efa0f19817, type: 2}
+      objectReference: {fileID: 2100000, guid: 2bdb8d52b2481574cb7a87da30a443df, type: 2}
     - target: {fileID: -4568373110070351361, guid: 9e5107febb17b2645be67de371bdaf5b, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 0e96c09f9d934aa4e94993efa0f19817, type: 2}
+      objectReference: {fileID: 2100000, guid: 2bdb8d52b2481574cb7a87da30a443df, type: 2}
     - target: {fileID: -2453051982977489153, guid: 9e5107febb17b2645be67de371bdaf5b, type: 3}
       propertyPath: m_Layer
       value: 6
@@ -341,7 +356,7 @@ PrefabInstance:
     - target: {fileID: 7603786706384944740, guid: 9e5107febb17b2645be67de371bdaf5b, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 0e96c09f9d934aa4e94993efa0f19817, type: 2}
+      objectReference: {fileID: 2100000, guid: 2bdb8d52b2481574cb7a87da30a443df, type: 2}
     - target: {fileID: 7679641636787266966, guid: 9e5107febb17b2645be67de371bdaf5b, type: 3}
       propertyPath: m_Layer
       value: 6

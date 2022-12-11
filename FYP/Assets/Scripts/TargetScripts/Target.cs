@@ -5,6 +5,7 @@ using UnityEngine;
 public class Target : MonoBehaviour
 {
     public bool isVacuum = false;
+    public float maxHeight = 80f;
 
     //private Rigidbody rb;
     private Vector3 originalScale;
@@ -43,7 +44,7 @@ public class Target : MonoBehaviour
             Destroy(gameObject);
         }
 
-        if (gameObject.transform.position.y > 80)   //delete target when fly too high
+        if (gameObject.transform.position.y > maxHeight)   //delete target when fly too high
         {
             Destroy(gameObject);
         }
