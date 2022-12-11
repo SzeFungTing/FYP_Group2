@@ -13,8 +13,8 @@ public class InventoryManager5 : MonoBehaviour
     public GameObject hotBarUI;
 
     //Synchronize Hot Bar
-    public InventorySlot5[] backpackHotbarSlots;
-    public InventorySlot5[] hotbarSlots;
+    //public InventorySlot5[] backpackHotbarSlots;
+    //public InventorySlot5[] hotbarSlots;
 
     int selectedSlot = -1;
     int hotBarNumber = 0;

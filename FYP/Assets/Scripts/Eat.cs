@@ -8,7 +8,8 @@ public class Eat : MonoBehaviour
     bool isEaten = false;
     bool isPooed = false;
     float time,Ftime;
-    public GameObject FajroCore,Food;
+    public GameObject FajroCore;
+    public GameObject Food;
     Vector3 offset;
     Vector3 scaleChange;
 
@@ -62,7 +63,8 @@ public class Eat : MonoBehaviour
             
             if (other.tag == "Food")
             {
-                Destroy(other.gameObject);
+                Food = other.gameObject;
+                //Destroy(other.gameObject);
                 isEaten = true;
                 offset = transform.position;
                 offset.x += 2;
