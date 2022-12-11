@@ -129,7 +129,7 @@ public class AIMovement : MonoBehaviour
         int flyDirection = Random.Range(1, 3);
         int flyWait = Random.Range(1, 5);
         int flyTime = Random.Range(1, 3);
-        int eatWait = Random.Range(1, 5);
+        //int eatWait = Random.Range(1, 5);
 
         int stopTime = Random.Range(1, 5);
 
