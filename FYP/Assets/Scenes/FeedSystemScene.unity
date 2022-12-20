@@ -123,6 +123,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &211332230 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 712354774174834363, guid: ed56b7259823e924f8655037667597dd, type: 3}
+  m_PrefabInstance: {fileID: 5576483833476956099}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &261223230
 GameObject:
   m_ObjectHideFlags: 0
@@ -1026,6 +1031,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1164958782973509978, guid: bbcbb24d181360749bd471bdaeccfbe7, type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1164958782973509978, guid: bbcbb24d181360749bd471bdaeccfbe7, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1164958782973509978, guid: bbcbb24d181360749bd471bdaeccfbe7, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1412528626670091250, guid: bbcbb24d181360749bd471bdaeccfbe7, type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1412528626670091250, guid: bbcbb24d181360749bd471bdaeccfbe7, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1412528626670091251, guid: bbcbb24d181360749bd471bdaeccfbe7, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -1220,6 +1245,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1987710846}
   m_CullTransparentMesh: 1
+--- !u!1 &2025119034 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 712354774561914219, guid: ed56b7259823e924f8655037667597dd, type: 3}
+  m_PrefabInstance: {fileID: 5576483833476956099}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2604161691362445132
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1292,6 +1322,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 712354774191546970, guid: ed56b7259823e924f8655037667597dd, type: 3}
+      propertyPath: pauseUI
+      value: 
+      objectReference: {fileID: 2025119034}
+    - target: {fileID: 712354774191546970, guid: ed56b7259823e924f8655037667597dd, type: 3}
+      propertyPath: settingUI
+      value: 
+      objectReference: {fileID: 211332230}
+    - target: {fileID: 712354774561914219, guid: ed56b7259823e924f8655037667597dd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 712354774570182721, guid: ed56b7259823e924f8655037667597dd, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -1379,6 +1421,10 @@ PrefabInstance:
     - target: {fileID: 712354774570182733, guid: ed56b7259823e924f8655037667597dd, type: 3}
       propertyPath: m_Name
       value: PauseUI&SettingCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 712354774570182733, guid: ed56b7259823e924f8655037667597dd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ed56b7259823e924f8655037667597dd, type: 3}
