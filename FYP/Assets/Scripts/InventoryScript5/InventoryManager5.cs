@@ -11,6 +11,7 @@ public class InventoryManager5 : MonoBehaviour
     public GameObject inventoryItemPrefab;
     public GameObject inventoryUI;
     public GameObject hotBarUI;
+    public GunShooting gunShooting;
 
     //Synchronize Hot Bar
     //public InventorySlot5[] backpackHotbarSlots;
@@ -96,7 +97,7 @@ public class InventoryManager5 : MonoBehaviour
 
     public Item5 GetSelectedItem(bool use)
     {
-        Debug.Log("remove" + " + use: " + use);
+        //Debug.Log("remove" + " + use: " + use);
         InventorySlot5 slot = inventorySlots[selectedSlot];
         InventoryItem itemInSlot = slot.GetComponentInChildren<InventoryItem>();
         if (itemInSlot != null)
@@ -176,15 +177,18 @@ public class InventoryManager5 : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.I))
         {
-            if (!inventoryUI.activeInHierarchy)
+            if (!inventoryUI.activeInHierarchy)     //open backpack
             {
+                gunShooting.enabled = false;
                 inventoryUI.SetActive(true);
                 //SynchronizeHotBar();
                 hotBarUI.transform.position = new Vector3(959.9999389648438f, 995.0f, 0.5400000214576721f);     //up
                 hotBarUI.transform.localScale = new Vector3(0.7f, 0.7f, 0.7f);
+                
             }
-            else
+            else                //close backpack
             {
+                gunShooting.enabled = true;
                 inventoryUI.SetActive(false);
                 hotBarUI.transform.position = new Vector3(959.9999389648438f, 90.0f, 0.5400000214576721f);      //down
                 hotBarUI.transform.localScale = new Vector3(1f, 1f, 1f);

@@ -819,6 +819,7 @@ MonoBehaviour:
   image: {fileID: 0}
   selectedColor: {r: 0, g: 0, b: 0, a: 0}
   notSelectedColor: {r: 0, g: 0, b: 0, a: 0}
+  itemCountPrefab: {fileID: 0}
 --- !u!114 &266513737
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7061,7 +7062,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 562303814}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.476, y: -0.33100003, z: 0.29}
+  m_LocalPosition: {x: 0.476, y: -0.33100003, z: 0.396}
   m_LocalScale: {x: 0.25, y: 0.25, z: 0.5}
   m_Children:
   - {fileID: 536929449}
@@ -7940,7 +7941,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &759189833
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8769,12 +8770,28 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1253862624, guid: 95cdd22d7ba130b48b6d55e74985949f, type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1623549465, guid: 95cdd22d7ba130b48b6d55e74985949f, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 1924446918, guid: 95cdd22d7ba130b48b6d55e74985949f, type: 3}
       propertyPath: m_UseGravity
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1924446918, guid: 95cdd22d7ba130b48b6d55e74985949f, type: 3}
       propertyPath: m_IsKinematic
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1973599316, guid: 95cdd22d7ba130b48b6d55e74985949f, type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2120705225, guid: 95cdd22d7ba130b48b6d55e74985949f, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1038409197142912265, guid: 95cdd22d7ba130b48b6d55e74985949f, type: 3}
@@ -14548,7 +14565,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2423b74a37d855043be6925d13653609, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.46
+      value: 1.0970001
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2423b74a37d855043be6925d13653609, type: 3}
       propertyPath: m_LocalRotation.w
@@ -21325,7 +21342,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6482935730354592829, guid: d51c558a6dcf38641a551c7a2bb1be49, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 4.5
+      value: 7.808
       objectReference: {fileID: 0}
     - target: {fileID: 6482935730354592829, guid: d51c558a6dcf38641a551c7a2bb1be49, type: 3}
       propertyPath: m_LocalRotation.w
@@ -24122,6 +24139,10 @@ PrefabInstance:
       propertyPath: hotBarUI
       value: 
       objectReference: {fileID: 601579959}
+    - target: {fileID: 4453459713993990026, guid: fe4bf0d7152fd454ba21188bb9c690d4, type: 3}
+      propertyPath: gunShooting
+      value: 
+      objectReference: {fileID: 562303820}
     - target: {fileID: 4453459713993990026, guid: fe4bf0d7152fd454ba21188bb9c690d4, type: 3}
       propertyPath: inventoryUI
       value: 

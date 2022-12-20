@@ -78,7 +78,8 @@ public class GunVacuum : MonoBehaviour
             anim = other.transform.gameObject.GetComponentInChildren<Animator>();
             if (other.transform.gameObject.layer == 7)
             {
-                _collider = other.transform.GetChild(0).gameObject.GetComponentInChildren<CapsuleCollider>();
+                if(other.transform.childCount > 0)     //new
+                    _collider = other.transform.GetChild(0).gameObject.GetComponentInChildren<CapsuleCollider>();
             }
             if (Input.GetMouseButton(1))
             {
@@ -87,13 +88,18 @@ public class GunVacuum : MonoBehaviour
             }
             else /*if (Input.GetMouseButtonUp(1))*/
             {
-                other.transform.GetChild(1).gameObject.GetComponentInChildren<CapsuleCollider>().enabled = true;
+                if(other.transform.childCount > 0)         //new
+                    other.transform.GetChild(1).gameObject.GetComponentInChildren<CapsuleCollider>().enabled = true;
                 other.transform.gameObject.GetComponent<Target>().isVacuum = false;
 
-                anim.ResetTrigger("Suck");
-                anim.SetTrigger("Release");
+                if (anim)
+                {
+                    anim.ResetTrigger("Suck");
+                    anim.SetTrigger("Release");
+                }
+                
             }
-            if (anim.GetCurrentAnimatorStateInfo(0).IsName("ChickenNormal"))
+            if (anim && anim.GetCurrentAnimatorStateInfo(0).IsName("ChickenNormal"))
             {
                 anim.speed = 1;
             }
@@ -105,10 +111,15 @@ public class GunVacuum : MonoBehaviour
         if (other.transform.CompareTag("Target"))
         {
             anim = other.transform.gameObject.GetComponentInChildren<Animator>();
-            other.transform.GetChild(1).gameObject.GetComponentInChildren<CapsuleCollider>().enabled = true;
+            if(other.transform.childCount > 0)         //new
+                other.transform.GetChild(1).gameObject.GetComponentInChildren<CapsuleCollider>().enabled = true;
             other.transform.gameObject.GetComponent<Target>().isVacuum = false;
-            anim.ResetTrigger("Suck");
-            anim.SetTrigger("Release");
+            if (anim)
+            {
+                anim.ResetTrigger("Suck");
+                anim.SetTrigger("Release");
+            }
+        
         }
     }
 
@@ -124,11 +135,16 @@ public class GunVacuum : MonoBehaviour
             Vector3 direction = (gunPoint.position - other.transform.position).normalized;
             other.attachedRigidbody.velocity = direction * speed;
 
-            other.transform.GetChild(1).gameObject.GetComponentInChildren<CapsuleCollider>().enabled = false;
+            if (other.transform.childCount > 0)         //new
+                other.transform.GetChild(1).gameObject.GetComponentInChildren<CapsuleCollider>().enabled = false;
             anim = other.transform.gameObject.GetComponentInChildren<Animator>();
-            anim.speed = 1;
-            anim.SetTrigger("Suck");
-            anim.ResetTrigger("Release");
+            if (anim)
+            {
+                anim.speed = 1;
+                anim.SetTrigger("Suck");
+                anim.ResetTrigger("Release");
+            }
+           
 
             
         }
