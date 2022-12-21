@@ -37,7 +37,7 @@ public class InventoryManager5 : MonoBehaviour
         ScrollWheelSelectedSlot();
 
         ControlUI();
-
+        
         //if (inventoryUI.activeInHierarchy)
         //{
         //    Cursor.lockState = CursorLockMode.Confined;

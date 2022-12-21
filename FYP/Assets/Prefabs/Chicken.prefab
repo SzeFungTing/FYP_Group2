@@ -30,10 +30,10 @@ GameObject:
   - component: {fileID: 7932083041662162507}
   - component: {fileID: 7932083041662162505}
   - component: {fileID: 7932083041662162504}
+  - component: {fileID: 1848031626309348760}
   - component: {fileID: 7932083041662162502}
   - component: {fileID: 7932083041662162506}
   - component: {fileID: -406338546799173149}
-  - component: {fileID: 1848031626309348760}
   m_Layer: 6
   m_Name: Chicken
   m_TagString: Target
@@ -86,6 +86,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isVacuum: 0
+  maxHeight: 80
+--- !u!114 &1848031626309348760
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7932083041662162503}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69cc6bbaa03dc054988569c3108b1659, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item: {fileID: 11400000, guid: 750e84631ce635447aee1477d77348a5, type: 2}
 --- !u!136 &7932083041662162502
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -132,19 +146,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FajroCore: {fileID: 2259442092407703965, guid: bbcbb24d181360749bd471bdaeccfbe7, type: 3}
   Food: {fileID: 2604161690428849773, guid: b13535e237f51c44096fb9bc86cac1b3, type: 3}
---- !u!114 &1848031626309348760
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7932083041662162503}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 69cc6bbaa03dc054988569c3108b1659, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  item: {fileID: 11400000, guid: 750e84631ce635447aee1477d77348a5, type: 2}
 --- !u!1 &7932083043028831268
 GameObject:
   m_ObjectHideFlags: 0
