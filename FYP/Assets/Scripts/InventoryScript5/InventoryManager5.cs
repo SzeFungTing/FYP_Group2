@@ -17,6 +17,8 @@ public class InventoryManager5 : MonoBehaviour
     //public InventorySlot5[] backpackHotbarSlots;
     //public InventorySlot5[] hotbarSlots;
 
+    bool isOpenBackpack = false;
+
     int selectedSlot = -1;
     int hotBarNumber = 0;
 
@@ -34,7 +36,9 @@ public class InventoryManager5 : MonoBehaviour
 
     private void Update()
     {
+
         ScrollWheelSelectedSlot();
+      
 
         ControlUI();
         
@@ -55,8 +59,14 @@ public class InventoryManager5 : MonoBehaviour
             inventorySlots[selectedSlot].Deselect();
         }
 
-        inventorySlots[newValue].Select();
+        if (!isOpenBackpack)
+            inventorySlots[newValue].Select();
+        else
+            inventorySlots[newValue].Deselect();
+
         selectedSlot = newValue;
+        
+        
     }
 
    public bool AddItem(Item5 item)
@@ -179,6 +189,7 @@ public class InventoryManager5 : MonoBehaviour
         {
             if (!inventoryUI.activeInHierarchy)     //open backpack
             {
+                isOpenBackpack = true;
                 gunShooting.enabled = false;
                 inventoryUI.SetActive(true);
                 //SynchronizeHotBar();
@@ -188,6 +199,7 @@ public class InventoryManager5 : MonoBehaviour
             }
             else                //close backpack
             {
+                isOpenBackpack = false;
                 gunShooting.enabled = true;
                 inventoryUI.SetActive(false);
                 hotBarUI.transform.position = new Vector3(959.9999389648438f, 90.0f, 0.5400000214576721f);      //down
