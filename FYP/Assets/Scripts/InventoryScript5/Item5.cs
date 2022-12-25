@@ -7,15 +7,16 @@ using UnityEngine.Tilemaps;
 public class Item5 : ScriptableObject
 {
     [Header("Only gameplay")]
-    //public TileBase tile;
+    
     public ItemType type;
     public int maxStackSize = 10;
+    public float price;
     public GameObject objectPrefab;
-    //public ActionType actionType;
-    //public Vector2Int range = new Vector2Int(5, 4);
+   
 
     [Header("Only UI")]
     public bool stackabke = true;
+    public bool sellable = true;
 
     [Header("Both")]
     public Sprite image;
