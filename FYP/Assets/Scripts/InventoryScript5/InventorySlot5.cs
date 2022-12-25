@@ -121,16 +121,25 @@ public class InventorySlot5 : MonoBehaviour, IDropHandler, IPointerEnterHandler,
                 Debug.Log(gameObject.name + ": is click one time");
                 if (selectedItem)
                 {
-                    selectedItem.count--;
-                    if (selectedItem.count <= 0)
+                    if (selectedItem.item.sellable)     //if item can sell
                     {
-                        Destroy(selectedItem.gameObject);
-                        selectedItem = null;
+                        selectedItem.count--;
+                        MoneyManager.instance.Sell(selectedItem.item.price);
+                        if (selectedItem.count <= 0)
+                        {
+                            Destroy(selectedItem.gameObject);
+                            selectedItem = null;
+                        }
+                        else
+                        {
+                            selectedItem.RefreshCount();
+                        }
                     }
-                    else
+                    else            //item can not sell
                     {
-                        selectedItem.RefreshCount();
+                        Debug.Log("item is not sellable");
                     }
+                    
                 }
 
             }
