@@ -10,6 +10,11 @@ public class ShopManager : MonoBehaviour
     public float coins;
     public Text CoinsTXT;
 
+    public GameObject Select;
+
+    public Button building, upgrade, equirement, item;
+
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -35,6 +40,12 @@ public class ShopManager : MonoBehaviour
 
     }
 
+
+       void Update()
+    {
+        
+    }
+
     // Update is called once per frame
     public void Buy()
     {
@@ -50,4 +61,5 @@ public class ShopManager : MonoBehaviour
             
         }
     }
+
 }
