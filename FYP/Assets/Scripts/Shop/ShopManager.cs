@@ -41,11 +41,6 @@ public class ShopManager : MonoBehaviour
     }
 
 
-       void Update()
-    {
-        
-    }
-
     // Update is called once per frame
     public void Buy()
     {
@@ -60,6 +55,11 @@ public class ShopManager : MonoBehaviour
             ButtonRef.GetComponent<ButtonInfo>().QuantityTxt.text= shopItems[3, ButtonRef.GetComponent<ButtonInfo>().ItemID].ToString();
             
         }
+    }
+
+    public void Button()
+    {
+        Select.transform.position = transform.position;
     }
 
 }
