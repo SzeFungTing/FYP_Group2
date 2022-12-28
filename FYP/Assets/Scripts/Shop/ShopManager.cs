@@ -12,7 +12,7 @@ public class ShopManager : MonoBehaviour
 
     public GameObject Select;
 
-    public Button building, upgrade, equirement, item;
+    public Button building, upgrade, equipment, item;
 
     
     // Start is called before the first frame update
@@ -57,9 +57,9 @@ public class ShopManager : MonoBehaviour
         }
     }
 
-    public void Button()
+    public void Button(GameObject button)
     {
-        Select.transform.position = transform.position;
+        Select.transform.position= button.transform.position;
     }
 
 }
