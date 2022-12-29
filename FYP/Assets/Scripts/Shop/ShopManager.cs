@@ -14,7 +14,9 @@ public class ShopManager : MonoBehaviour
 
     public Button building, upgrade, equipment, item;
 
-    
+    public bool isBought = false;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,7 +30,7 @@ public class ShopManager : MonoBehaviour
 
         //Price
         shopItems[2, 1] = 10;
-        shopItems[2, 2] = 20;
+        shopItems[2, 2] = 1000; //jetpack
         shopItems[2, 3] = 30;
         shopItems[2, 4] = 40;
 
@@ -38,25 +40,42 @@ public class ShopManager : MonoBehaviour
         shopItems[3, 3] = 0;
         shopItems[3, 4] = 0;
 
+        //Limit
+        shopItems[4, 1] = 3;
+        shopItems[4, 2] = 1;
+        shopItems[4, 3] = 0;
+        shopItems[4, 4] = 0;
+
     }
+
+
 
 
     // Update is called once per frame
     public void Buy()
     {
+
         GameObject ButtonRef = GameObject.FindGameObjectWithTag("Event").GetComponent<EventSystem>().currentSelectedGameObject;
 
-        if (coins >= shopItems[2, ButtonRef.GetComponent<ButtonInfo>().ItemID])
-        {
-            coins -= shopItems[2, ButtonRef.GetComponent<ButtonInfo>().ItemID];
 
-            shopItems[3, ButtonRef.GetComponent<ButtonInfo>().ItemID]++;
-            CoinsTXT.text = "Coins: $" + coins.ToString(); //update the coins player have
-            ButtonRef.GetComponent<ButtonInfo>().QuantityTxt.text= shopItems[3, ButtonRef.GetComponent<ButtonInfo>().ItemID].ToString();
-            
+
+        if (shopItems[4, ButtonRef.GetComponent<ButtonInfo>().ItemID] > 0)
+        {
+            if (coins >= shopItems[2, ButtonRef.GetComponent<ButtonInfo>().ItemID])
+            {
+                coins -= shopItems[2, ButtonRef.GetComponent<ButtonInfo>().ItemID];
+
+                shopItems[4, ButtonRef.GetComponent<ButtonInfo>().ItemID]--;
+                shopItems[3, ButtonRef.GetComponent<ButtonInfo>().ItemID]++;
+
+                CoinsTXT.text = "Coins: $" + coins.ToString(); //update the coins player have
+                ButtonRef.GetComponent<ButtonInfo>().QuantityTxt.text = shopItems[3, ButtonRef.GetComponent<ButtonInfo>().ItemID].ToString();
+                ButtonRef.GetComponent<ButtonInfo>().LimitTxt.text = shopItems[4, ButtonRef.GetComponent<ButtonInfo>().ItemID].ToString();
+
+            }
+
         }
     }
-
     public void Button(GameObject button)
     {
         Select.transform.position= button.transform.position;
