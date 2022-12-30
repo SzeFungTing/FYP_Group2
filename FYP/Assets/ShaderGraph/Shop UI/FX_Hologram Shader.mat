@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: CyS2
-  m_Shader: {fileID: -6465566751694194690, guid: 42097cc36583612448a3d3c8dcc24505, type: 3}
+  m_Name: FX_Hologram Shader
+  m_Shader: {fileID: 4800000, guid: aec58b63e3d1a514482ac997303cce7c, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -19,27 +19,22 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
-    - unity_Lightmaps:
-        m_Texture: {fileID: 0}
+    - _AlphaTexture:
+        m_Texture: {fileID: 2800000, guid: eebd677a7c738c14bac8663b1ca0f9c3, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - unity_LightmapsInd:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - unity_ShadowMasks:
+    - _MainTex:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - BottomLine: 0.718
-    - Metallic: 0.572
-    - Smoothness: 0.448
-    - TopLine: 0.702
-    - Transparent: 0.542
+    - _GlitchIntensity: 0.1
+    - _GlitchSpeed: 10.1
+    - _GlowIntensity: 0.27
+    - _Scale: 3.54
+    - _ScrollSpeedV: 0.29
     m_Colors:
-    - BaseColor: {r: 0.6226415, g: 0.5486294, b: 0.5486294, a: 1}
-    - BottomColor: {r: 0, g: 0.720752, b: 2.2073028, a: 1}
-    - TopColor: {r: 1.2745967, g: 0.48280174, b: 1.9987992, a: 1}
+    - _Color: {r: 0.022089666, g: 0.16990034, b: 0.6886792, a: 1}
+    - _TColor: {r: 0.5249853, g: 0.34588823, b: 0.5283019, a: 1}
   m_BuildTextureStacks: []

@@ -8,6 +8,8 @@ public class ButtonInfo : MonoBehaviour
     public int ItemID;
     public Text PriceTxt;
     public Text QuantityTxt;
+    public Text LimitTxt;
+  
     public GameObject ShopManager;
 
     // Update is called once per frame
@@ -15,5 +17,6 @@ public class ButtonInfo : MonoBehaviour
     {
         PriceTxt.text = "Price: $" + ShopManager.GetComponent<ShopManager>().shopItems[2, ItemID].ToString();
         QuantityTxt.text = ShopManager.GetComponent<ShopManager>().shopItems[3, ItemID].ToString();
+        LimitTxt.text = ShopManager.GetComponent<ShopManager>().shopItems[4, ItemID].ToString();
     }
 }
