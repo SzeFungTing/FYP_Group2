@@ -9,6 +9,7 @@ public class ButtonInfo : MonoBehaviour
     public Text PriceTxt;
     public Text QuantityTxt;
     public Text LimitTxt;
+    public Text NameTxt;
   
     public GameObject ShopManager;
 
