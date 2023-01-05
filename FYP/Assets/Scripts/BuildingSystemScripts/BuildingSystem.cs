@@ -15,8 +15,10 @@ public class BuildingSystem : MonoBehaviour
 
     public GameObject prefab1;
     public GameObject prefab2;
+    public GameObject player;
 
     private PlaceableObject objectToPlace;
+    private bool canBuild = false;
 
     #region Unity methods
 
@@ -28,41 +30,65 @@ public class BuildingSystem : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.B))
+        if (Input.GetKeyDown(KeyCode.N))
         {
             InitalizeWithObject(prefab1);
+            canBuild = true;
         }
-        else if (Input.GetKeyDown(KeyCode.N))
+        else if (Input.GetKeyDown(KeyCode.M))
         {
             InitalizeWithObject(prefab2);
+            canBuild = true;
         }
 
-        if (!objectToPlace)
-        {
-            return;
-        }
+        //if (!objectToPlace)
+        //{
+        //    return;
+        //}
 
-        if (Input.GetKeyDown(KeyCode.R))
+        if (Input.GetKeyDown(KeyCode.R))        //rotate building
         {
             objectToPlace.Rotate();
         }
-        else if (Input.GetButtonDown("Fire1"))
+        else if (Input.GetButtonDown("Fire1") && canBuild)          //building building
         {
             if (CanBePlaced(objectToPlace))
             {
                 objectToPlace.Place();
                 Vector3Int start = gridLayout.WorldToCell(objectToPlace.GetStartPosition());
                 TakeArae(start, objectToPlace.Size);
+                canBuild = false;
             }
             else
             {
+                Debug.Log("delet");
                 Destroy(objectToPlace.gameObject);
             }
         }
-        else if (Input.GetKeyDown(KeyCode.Escape))
+        //else if (Input.GetKeyDown(KeyCode.Escape))
+        //{
+        //    Destroy(objectToPlace.gameObject);
+        //}
+
+      
+
+
+        if (Input.GetMouseButtonDown(1))        //delet building
         {
-            Destroy(objectToPlace.gameObject);
+            RaycastHit raycastHit;
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            if (Physics.Raycast(ray, out raycastHit, 100f))
+            {
+                if ((raycastHit.transform != null) && (raycastHit.transform.gameObject.GetComponent<PlaceableObject>() != null))
+                {
+                    PlaceableObject deletObject = raycastHit.transform.gameObject.GetComponent<PlaceableObject>();
+                    Vector3Int start = gridLayout.WorldToCell(deletObject.GetStartPosition());
+                    DeletArae(start, deletObject.Size);
+                    Destroy(deletObject.gameObject);
+                }
+            }
         }
+
     }
 
     #endregion
@@ -73,7 +99,7 @@ public class BuildingSystem : MonoBehaviour
     public static Vector3 GetMouseWorldPosition()
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        if(Physics.Raycast(ray, out RaycastHit raycastHit))
+        if (Physics.Raycast(ray, out RaycastHit raycastHit))
         {
             return raycastHit.point;
         }
@@ -124,6 +150,7 @@ public class BuildingSystem : MonoBehaviour
         BoundsInt area = new BoundsInt();
         area.position = gridLayout.WorldToCell(objectToPlace.GetStartPosition());
         area.size = placeableObject.Size;
+        area.size = new Vector3Int(area.size.x + 1, area.size.y + 1, area.size.z);
 
         TileBase[] baseArray = GetTilesBlock(area, MainTilemap);
 
@@ -131,16 +158,22 @@ public class BuildingSystem : MonoBehaviour
         {
             if(b == whiteTile)
             {
-                return false;
+                return true;
             }
         }
 
-        return true;
+        return false;
     }
 
     public void TakeArae(Vector3Int start, Vector3Int size)
     {
-        MainTilemap.BoxFill(start, whiteTile, start.x, start.y, 
+        MainTilemap.BoxFill(start, null, start.x, start.y, 
+                            start.x + size.x, start.y + size.y);
+    }
+
+    public void DeletArae(Vector3Int start, Vector3Int size)
+    {
+        MainTilemap.BoxFill(start, whiteTile, start.x, start.y,
                             start.x + size.x, start.y + size.y);
     }
 

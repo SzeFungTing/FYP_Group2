@@ -8,7 +8,7 @@ public class PlaceableObject : MonoBehaviour
     public Vector3Int Size { get; private set; }
     private Vector3[] Vertices;
 
-    private Collider collider;
+    private Collider c;
 
     private void GetColliderVertexPositionlocal()
     {
@@ -44,8 +44,8 @@ public class PlaceableObject : MonoBehaviour
     {
         GetColliderVertexPositionlocal();
         CalculateSizeInCells();
-        collider = GetComponent<Collider>();
-        collider.isTrigger = true;
+        c = GetComponent<Collider>();
+        c.isTrigger = true;
     }
 
     public void Rotate()
@@ -68,7 +68,7 @@ public class PlaceableObject : MonoBehaviour
         Destroy(drag);
 
         Placed = true;
-        collider.isTrigger = false;
+        c.isTrigger = false;
 
         //invake events of placment
     }

@@ -3,7 +3,7 @@ Shader "FX/Hologram Shader"
 {
 	Properties
 	{
-		_Color("Color", Color) = (0, 1, 1, 1)
+		[HDR] _Color("Color", Color) = (0, 1, 1, 1)
 		_MainTex("Base (RGB)", 2D) = "white" {}
 		_AlphaTexture("Alpha Mask (R)", 2D) = "white" {}
 		//Alpha Mask Properties

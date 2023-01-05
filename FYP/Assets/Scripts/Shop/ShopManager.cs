@@ -11,6 +11,7 @@ public class ShopManager : MonoBehaviour
     public Text CoinsTXT;
 
     public GameObject Select;
+    public GameObject Jetpack;
 
     public Button building, upgrade, equipment, item;
 
@@ -20,6 +21,8 @@ public class ShopManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Jetpack.SetActive(false);
+
         CoinsTXT.text = "Coins: $" + coins.ToString();
 
         //ID
@@ -46,9 +49,17 @@ public class ShopManager : MonoBehaviour
         shopItems[4, 3] = 0;
         shopItems[4, 4] = 0;
 
+
     }
 
-
+    public void Update()
+    {
+        if (shopItems[4, 2] <= 0)
+        {
+            Jetpack.SetActive(true);
+            isBought = true;
+        }
+    }
 
 
     // Update is called once per frame
@@ -57,16 +68,19 @@ public class ShopManager : MonoBehaviour
 
         GameObject ButtonRef = GameObject.FindGameObjectWithTag("Event").GetComponent<EventSystem>().currentSelectedGameObject;
 
-
+       
 
         if (shopItems[4, ButtonRef.GetComponent<ButtonInfo>().ItemID] > 0)
         {
+         
             if (coins >= shopItems[2, ButtonRef.GetComponent<ButtonInfo>().ItemID])
             {
                 coins -= shopItems[2, ButtonRef.GetComponent<ButtonInfo>().ItemID];
 
                 shopItems[4, ButtonRef.GetComponent<ButtonInfo>().ItemID]--;
                 shopItems[3, ButtonRef.GetComponent<ButtonInfo>().ItemID]++;
+
+               Instantiate(ButtonRef.GetComponent<ButtonInfo>().SItem, transform.position,new Quaternion(-0.7071068f, 0,0, 0.7071068f));
 
                 CoinsTXT.text = "Coins: $" + coins.ToString(); //update the coins player have
                 ButtonRef.GetComponent<ButtonInfo>().QuantityTxt.text = shopItems[3, ButtonRef.GetComponent<ButtonInfo>().ItemID].ToString();
