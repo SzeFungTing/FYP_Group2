@@ -10,6 +10,7 @@ public class ButtonInfo : MonoBehaviour
     public Text QuantityTxt;
     public Text LimitTxt;
     public Text NameTxt;
+    public GameObject SItem;
   
     public GameObject ShopManager;
 
@@ -19,5 +20,6 @@ public class ButtonInfo : MonoBehaviour
         PriceTxt.text = "Price: $" + ShopManager.GetComponent<ShopManager>().shopItems[2, ItemID].ToString();
         QuantityTxt.text = ShopManager.GetComponent<ShopManager>().shopItems[3, ItemID].ToString();
         LimitTxt.text = ShopManager.GetComponent<ShopManager>().shopItems[4, ItemID].ToString();
+        
     }
 }

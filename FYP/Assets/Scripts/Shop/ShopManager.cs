@@ -57,6 +57,7 @@ public class ShopManager : MonoBehaviour
         if (shopItems[4, 2] <= 0)
         {
             Jetpack.SetActive(true);
+            isBought = true;
         }
     }
 
@@ -78,6 +79,8 @@ public class ShopManager : MonoBehaviour
 
                 shopItems[4, ButtonRef.GetComponent<ButtonInfo>().ItemID]--;
                 shopItems[3, ButtonRef.GetComponent<ButtonInfo>().ItemID]++;
+
+               Instantiate(ButtonRef.GetComponent<ButtonInfo>().SItem, transform.position,new Quaternion(-0.7071068f, 0,0, 0.7071068f));
 
                 CoinsTXT.text = "Coins: $" + coins.ToString(); //update the coins player have
                 ButtonRef.GetComponent<ButtonInfo>().QuantityTxt.text = shopItems[3, ButtonRef.GetComponent<ButtonInfo>().ItemID].ToString();
