@@ -20,8 +20,6 @@ public class GunVacuum : MonoBehaviour
 
     CapsuleCollider _collider;
 
-
-
     //PS
     public ParticleSystem farPointInhale;
     public ParticleSystem nearPoint;
@@ -31,43 +29,45 @@ public class GunVacuum : MonoBehaviour
     public AudioSource inhale;
     public AudioSource shoot;
 
+    [SerializeField] GameObject pauseUI;
+    [SerializeField] GameObject settingUI;
+
     private void Start()
     {
         gunAnim = gun.GetComponent<Animator>();
-
-     
     }
-
-
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(1))
+        if (!pauseUI.activeInHierarchy && !settingUI.activeInHierarchy)
         {
-            gunAnim.SetBool("isInhale", true);
-            gunAnim.SetBool("canShoot", true);
-            gunAnim.speed = 1f;
-            farPointInhale.Play(true);
-            nearPoint.Play(true);
-            inhale.Play();
-        }
-        else if (Input.GetMouseButtonUp(1))
-        {
-            gunAnim.SetBool("isInhale", false);
-            farPointInhale.Stop(true);
-            nearPoint.Stop(true);
-            inhale.Stop();
-        }
-        if (Input.GetMouseButtonDown(0))
-        {
-            gunAnim.SetBool("canShoot", true);
-            shoot.Play();
-            shootPoint.Play(true);
-        }
-        if (Input.GetMouseButtonUp(0))
-        {
-            gunAnim.SetBool("canShoot", false);
-            shootPoint.Stop(true);
+            if (Input.GetMouseButtonDown(1))
+            {
+                gunAnim.SetBool("isInhale", true);
+                gunAnim.SetBool("canShoot", true);
+                gunAnim.speed = 1f;
+                farPointInhale.Play(true);
+                nearPoint.Play(true);
+                inhale.Play();
+            }
+            else if (Input.GetMouseButtonUp(1))
+            {
+                gunAnim.SetBool("isInhale", false);
+                farPointInhale.Stop(true);
+                nearPoint.Stop(true);
+                inhale.Stop();
+            }
+            if (Input.GetMouseButtonDown(0))
+            {
+                gunAnim.SetBool("canShoot", true);
+                shoot.Play();
+                shootPoint.Play(true);
+            }
+            if (Input.GetMouseButtonUp(0))
+            {
+                gunAnim.SetBool("canShoot", false);
+                shootPoint.Stop(true);
+            }
         }
     }
 
