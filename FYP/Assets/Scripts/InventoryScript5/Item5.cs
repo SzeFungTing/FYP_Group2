@@ -21,6 +21,18 @@ public class Item5 : ScriptableObject
     [Header("Both")]
     public Sprite image;
 
+
+    //public ItemType GetItemType()
+    //{
+    //    return type;
+    //}
+
+    //public bool IsBuildingBlock()
+    //{
+    //    if (type == ItemType.BuildingBlock)
+    //        return true;
+    //    return false;
+    //}
 }
 
 public enum ItemType
@@ -40,4 +52,6 @@ public enum ActionType
     Dig,
     Mine
 }
+
+
 
