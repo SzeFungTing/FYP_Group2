@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: CyS2
-  m_Shader: {fileID: -6465566751694194690, guid: 42097cc36583612448a3d3c8dcc24505, type: 3}
+  m_Name: Shader Graphs_CrystalShader 1
+  m_Shader: {fileID: -6465566751694194690, guid: d6d80ac5c5b6368488dcda3049e29aec, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -33,13 +33,13 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - BottomLine: 0.718
-    - Metallic: 0.572
-    - Smoothness: 0.448
-    - TopLine: 0.702
-    - Transparent: 0.73
+    - BottomLine: 0.8
+    - Metallic: 1
+    - Smoothness: 0.67
+    - TopLine: 0.83
+    - Transparent: 1
     m_Colors:
-    - BaseColor: {r: 0.6226415, g: 0.5486294, b: 0.5486294, a: 1}
-    - BottomColor: {r: 0, g: 0.720752, b: 2.2073028, a: 1}
-    - TopColor: {r: 1.2745967, g: 0.48280174, b: 1.9987992, a: 1}
+    - BaseColor: {r: 0.4437742, g: 0.54718125, b: 0.9924065, a: 1}
+    - BottomColor: {r: 5.0529494, g: 0.48112994, b: 18.37917, a: 1}
+    - TopColor: {r: 0, g: 0.3316326, b: 1, a: 1}
   m_BuildTextureStacks: []
