@@ -11,7 +11,9 @@ public class MouseLook : MonoBehaviour
     float xRotation = 0f;
 
     public bool lockCursor = true;
-    private bool m_cursorIsLocked = true;
+
+    [SerializeField] GameObject pauseUI;
+    [SerializeField] GameObject settingUI;
 
     // Start is called before the first frame update
     void Start()
@@ -32,7 +34,7 @@ public class MouseLook : MonoBehaviour
         transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
         playerBody.Rotate(Vector3.up * mouseX);
 
-        //UpdateCursorLock();
+        UpdateCursorLock();
     }
 
     public void SetCursorLock(bool value)
@@ -52,26 +54,20 @@ public class MouseLook : MonoBehaviour
             InternalLockUpdate();
     }
 
-    private void InternalLockUpdate()
+    public void InternalLockUpdate()
     {
         if (Input.GetKeyUp(KeyCode.Escape))
         {
-            m_cursorIsLocked = false;
-        }
-        else if (Input.GetMouseButtonUp(0))
-        {
-            m_cursorIsLocked = true;
-        }
-
-        if (m_cursorIsLocked)
-        {
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
-        }
-        else if (!m_cursorIsLocked)
-        {
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
+        }
+        else if (pauseUI.activeInHierarchy || settingUI.activeInHierarchy)
+        {
+            if (Input.GetKeyUp(KeyCode.Escape))
+            {
+                Cursor.lockState = CursorLockMode.Locked;
+                Cursor.visible = false;
+            }
         }
     }
 }

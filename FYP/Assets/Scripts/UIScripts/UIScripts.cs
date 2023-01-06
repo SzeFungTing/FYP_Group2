@@ -10,16 +10,33 @@ public class UIScripts : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) && SceneManager.GetActiveScene().name != "Start UI")
+        if (!pauseUI.activeInHierarchy && !settingUI.activeInHierarchy)
         {
-            //PauseUI.SetActive(!PauseUI.activeInHierarchy);
-            OpenUI(pauseUI);
+            if (Input.GetKeyDown(KeyCode.Escape) && SceneManager.GetActiveScene().name != "Start UI")
+            {
+                //PauseUI.SetActive(!PauseUI.activeInHierarchy);
+                OpenUI(pauseUI);
+            }
+        }
+        else if (pauseUI.activeInHierarchy && !settingUI.activeInHierarchy)
+        {
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                CloseUI(pauseUI);
+            }
+        }
+        else if(!pauseUI.activeInHierarchy && settingUI.activeInHierarchy)
+        {
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                CloseUI(settingUI);
+            }
         }
 
         if (pauseUI.activeInHierarchy || settingUI.activeInHierarchy || SceneManager.GetActiveScene().name == "Start UI")
         {
             Time.timeScale = 0;     //pause the game time
-            Cursor.lockState = CursorLockMode.Confined;
+            Cursor.lockState = CursorLockMode.None;
         }
         else
         {

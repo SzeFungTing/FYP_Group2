@@ -15,7 +15,6 @@ public class BuildingSystem : MonoBehaviour
 
     public GameObject prefab1;
     public GameObject prefab2;
-    public GameObject player;
 
     private PlaceableObject objectToPlace;
     private bool canBuild = false;
@@ -30,16 +29,42 @@ public class BuildingSystem : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.N))
+        //if (Input.GetKeyDown(KeyCode.N))
+        //{
+        //    InitalizeWithObject(prefab1);
+        //    canBuild = true;
+        //}
+        //else if (Input.GetKeyDown(KeyCode.M))
+        //{
+        //    InitalizeWithObject(prefab2);
+        //    canBuild = true;
+        //}
+
+        Item5 receivedItem = InventoryManager5.instance.GetSelectedItem(false);
+        if (receivedItem)                                                       //check the item is building object?
         {
-            InitalizeWithObject(prefab1);
-            canBuild = true;
+            if (receivedItem.type == ItemType.BuildingBlock && !canBuild)           //if yes, display the object
+            {
+                InitalizeWithObject(receivedItem.objectPrefab);
+                canBuild = true;
+            }
+            else if (receivedItem.type != ItemType.BuildingBlock)               //if switch to other item, close the building object display
+            {
+                canBuild = false;
+                if(objectToPlace && objectToPlace.GetComponent<ObjectDrag>())
+                    Destroy(objectToPlace.gameObject);
+            }
         }
-        else if (Input.GetKeyDown(KeyCode.M))
+        else                                                                    //if switch to no item, close the building object display
         {
-            InitalizeWithObject(prefab2);
-            canBuild = true;
+            canBuild = false;
+            if (objectToPlace && objectToPlace.GetComponent<ObjectDrag>())
+                Destroy(objectToPlace.gameObject);
         }
+
+
+
+
 
         //if (!objectToPlace)
         //{
@@ -57,12 +82,13 @@ public class BuildingSystem : MonoBehaviour
                 objectToPlace.Place();
                 Vector3Int start = gridLayout.WorldToCell(objectToPlace.GetStartPosition());
                 TakeArae(start, objectToPlace.Size);
+                receivedItem = InventoryManager5.instance.GetSelectedItem(true);
                 canBuild = false;
             }
             else
             {
-                Debug.Log("delet");
                 Destroy(objectToPlace.gameObject);
+                canBuild = false;
             }
         }
         //else if (Input.GetKeyDown(KeyCode.Escape))
@@ -79,7 +105,7 @@ public class BuildingSystem : MonoBehaviour
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out raycastHit, 100f))
             {
-                if ((raycastHit.transform != null) && (raycastHit.transform.gameObject.GetComponent<PlaceableObject>() != null))
+                if ((raycastHit.transform != null) && (raycastHit.transform.gameObject.GetComponent<PlaceableObject>() != null) && !raycastHit.transform.gameObject.GetComponent<ObjectDrag>())
                 {
                     PlaceableObject deletObject = raycastHit.transform.gameObject.GetComponent<PlaceableObject>();
                     Vector3Int start = gridLayout.WorldToCell(deletObject.GetStartPosition());
@@ -156,13 +182,13 @@ public class BuildingSystem : MonoBehaviour
 
         foreach(var b in baseArray)
         {
-            if(b == whiteTile)
+            if(b == null)
             {
-                return true;
+                return false;
             }
         }
 
-        return false;
+        return true;
     }
 
     public void TakeArae(Vector3Int start, Vector3Int size)
@@ -178,4 +204,14 @@ public class BuildingSystem : MonoBehaviour
     }
 
     #endregion
+
+    public PlaceableObject GetPlaceableObject()
+    {
+        return objectToPlace;
+    }
+
+    public void SetCanBuild(bool action)
+    {
+        canBuild = action;
+    }
 }
