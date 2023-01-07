@@ -80,8 +80,9 @@ public class ShopManager : MonoBehaviour
                 shopItems[4, ButtonRef.GetComponent<ButtonInfo>().ItemID]--;
                 shopItems[3, ButtonRef.GetComponent<ButtonInfo>().ItemID]++;
 
-               Instantiate(ButtonRef.GetComponent<ButtonInfo>().SItem, transform.position,Quaternion.identity);
-
+                var position = new Vector3(Random.Range(-3, 3), 5, Random.Range(-3,3));
+                Instantiate(ButtonRef.GetComponent<ButtonInfo>().SItem,position,Quaternion.identity);
+                
                 CoinsTXT.text = "Coins: $" + coins.ToString(); //update the coins player have
                 ButtonRef.GetComponent<ButtonInfo>().QuantityTxt.text = shopItems[3, ButtonRef.GetComponent<ButtonInfo>().ItemID].ToString();
                 ButtonRef.GetComponent<ButtonInfo>().LimitTxt.text = shopItems[4, ButtonRef.GetComponent<ButtonInfo>().ItemID].ToString();
