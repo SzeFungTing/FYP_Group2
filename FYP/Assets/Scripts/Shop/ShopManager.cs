@@ -35,7 +35,7 @@ public class ShopManager : MonoBehaviour
         shopItems[2, 1] = 30;
         shopItems[2, 2] = 1000; //jetpack
         shopItems[2, 3] = 10;
-        shopItems[2, 4] = 40;
+        shopItems[2, 4] = 20;
 
         //Quantity
         shopItems[3, 1] = 0;
@@ -46,8 +46,8 @@ public class ShopManager : MonoBehaviour
         //Limit
         shopItems[4, 1] = 3;
         shopItems[4, 2] = 1;
-        shopItems[4, 3] = 10;
-        shopItems[4, 4] = 0;
+        shopItems[4, 3] = 20;
+        shopItems[4, 4] = 10;
 
 
     }
