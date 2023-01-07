@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 2138677392}
-  m_IndirectSpecularColor: {r: 0.28502586, g: 0.37139237, b: 0.4960093, a: 1}
+  m_IndirectSpecularColor: {r: 0.2850269, g: 0.3713935, b: 0.49601045, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -250,6 +250,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isVacuum: 0
+  maxHeight: 80
 --- !u!1 &168086273
 GameObject:
   m_ObjectHideFlags: 0
@@ -5504,10 +5505,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -4676854282438483170, guid: 2423b74a37d855043be6925d13653609, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: d9972136fdfb5174794b21ce203a4e6f, type: 2}
+    - target: {fileID: -2184013339637081026, guid: 2423b74a37d855043be6925d13653609, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: d9972136fdfb5174794b21ce203a4e6f, type: 2}
     - target: {fileID: 919132149155446097, guid: 2423b74a37d855043be6925d13653609, type: 3}
       propertyPath: m_Name
       value: Arms
       objectReference: {fileID: 0}
+    - target: {fileID: 3219882101630006985, guid: 2423b74a37d855043be6925d13653609, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: d9972136fdfb5174794b21ce203a4e6f, type: 2}
+    - target: {fileID: 4008791811287642139, guid: 2423b74a37d855043be6925d13653609, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 2444ae366818f5c4ca9a56e5e1bec075, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2423b74a37d855043be6925d13653609, type: 3}
 --- !u!1 &885307101
@@ -5753,6 +5770,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isVacuum: 0
+  maxHeight: 80
 --- !u!1 &1041612483
 GameObject:
   m_ObjectHideFlags: 0
@@ -5880,6 +5898,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isVacuum: 0
+  maxHeight: 80
 --- !u!1 &1195171616 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2604161690428849773, guid: b13535e237f51c44096fb9bc86cac1b3, type: 3}
@@ -6012,6 +6031,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isVacuum: 0
+  maxHeight: 80
 --- !u!1 &1274640892 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7932083041662162503, guid: cd4ee46b53265e64788586c66a35d198, type: 3}
@@ -6029,6 +6049,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c07b0be5f82d574db88402f539d6321, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canPoo: 0
   FajroCore: {fileID: 2259442092407703965, guid: bbcbb24d181360749bd471bdaeccfbe7, type: 3}
   Food: {fileID: 1195171616}
 --- !u!1 &1400641099 stripped
@@ -11148,6 +11169,10 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2604161690428849775, guid: b13535e237f51c44096fb9bc86cac1b3, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: a6383e34c6f87124d852ac8804779359, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b13535e237f51c44096fb9bc86cac1b3, type: 3}
 --- !u!114 &2022462772 stripped
@@ -11363,6 +11388,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isVacuum: 0
+  maxHeight: 80
 --- !u!4 &2102387975 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 2423b74a37d855043be6925d13653609, type: 3}

@@ -10,12 +10,15 @@ public class ShopManager : MonoBehaviour
     public float coins;
     public Text CoinsTXT;
 
+    public Transform ShootingP;
     public GameObject Select;
     public GameObject Jetpack;
 
     public Button building, upgrade, equipment, item;
 
     public bool isBought = false;
+    public float Speed = 5f;
+
 
 
     // Start is called before the first frame update
@@ -80,8 +83,11 @@ public class ShopManager : MonoBehaviour
                 shopItems[4, ButtonRef.GetComponent<ButtonInfo>().ItemID]--;
                 shopItems[3, ButtonRef.GetComponent<ButtonInfo>().ItemID]++;
 
-                var position = new Vector3(Random.Range(-3, 3), 5, Random.Range(-3,3));
-                Instantiate(ButtonRef.GetComponent<ButtonInfo>().SItem,position,Quaternion.identity);
+                var a = new Vector3(Random.Range(-3, 3), 5, Random.Range(-3,3));
+                //var stuff = Instantiate(ButtonRef.GetComponent<ButtonInfo>().SItem,position,Quaternion.identity);
+
+                var stuff = Instantiate(ButtonRef.GetComponent<ButtonInfo>().SItem, ShootingP.position, Random.rotation);
+                stuff.GetComponent<Rigidbody>().velocity = ShootingP.forward * Speed;
                 
                 CoinsTXT.text = "Coins: $" + coins.ToString(); //update the coins player have
                 ButtonRef.GetComponent<ButtonInfo>().QuantityTxt.text = shopItems[3, ButtonRef.GetComponent<ButtonInfo>().ItemID].ToString();
