@@ -10,6 +10,8 @@ public class ShopSystem : MonoBehaviour
     public GameObject shopUI;
 
     Animator Anim_Drone;
+
+    bool isUIOpened = false;
   
     // Start is called before the first frame update
     void Start()
@@ -25,24 +27,28 @@ public class ShopSystem : MonoBehaviour
     void Update()
     {
 
-        if (Anim_Drone.GetCurrentAnimatorStateInfo(0).normalizedTime > 1)
-            shopUI.SetActive(true);
-
-
-        if (Input.GetKeyDown(KeyCode.C))
+        if (Anim_Drone.GetCurrentAnimatorStateInfo(0).normalizedTime > 1 && !isUIOpened)            //drone animation end, open shopUI
         {
-            
-            drone.SetActive(!drone.activeSelf);
-            if (shopUI.activeInHierarchy)
+            shopUI.SetActive(true);
+            isUIOpened = true;
+        }
+
+
+        if (Input.GetKeyDown(KeyCode.C))                        //open/ close shop UI
+        {
+            drone.SetActive(!drone.activeSelf);                   //open/ close drone                
+            if (shopUI.activeInHierarchy)                       //if shopUI is display, close shopUI
             {
                 shopUI.SetActive(!shopUI.activeSelf);
             }
         }
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape))                     //Escape to close shopUI  
         {
             shopUI.SetActive(false);
             drone.SetActive(false);
-         
+            isUIOpened = false;
+
+
 
         }
 
