@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: CyS2
-  m_Shader: {fileID: -6465566751694194690, guid: 42097cc36583612448a3d3c8dcc24505, type: 3}
+  m_Name: Shader Graphs_BarrierShader_Dots
+  m_Shader: {fileID: -6465566751694194690, guid: f852f852d40bc4546828574076f6117e, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -33,13 +33,11 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - BottomLine: 0.718
-    - Metallic: 0.7
-    - Smoothness: 0.4
-    - TopLine: 0.58
-    - Transparent: 0.76
+    - DotNoiseScale: 10
+    - DotSize: 0.8
+    - NoiseScale: 7.4
     m_Colors:
-    - BaseColor: {r: 0.6226415, g: 0.5486294, b: 0.5486294, a: 1}
-    - BottomColor: {r: 0, g: 1.7206175, b: 5.2164755, a: 1}
-    - TopColor: {r: 8.031373, g: 0, b: 11.984314, a: 1}
+    - DotColor: {r: 2.4686356, g: 1.4809775, b: 0.21891662, a: 1}
+    - DotTiling: {r: 100, g: 200, b: 0, a: 0}
+    - NoiseSpeed: {r: 0, g: 0.2, b: 0, a: 0}
   m_BuildTextureStacks: []
