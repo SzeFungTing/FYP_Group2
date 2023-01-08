@@ -15,6 +15,7 @@ public class ShopManager : MonoBehaviour
     public GameObject Jetpack;
 
     public Button building, upgrade, equipment, item;
+    GameObject ButtonRef;
 
     public bool isBought = false;
     public float Speed = 5f;
@@ -59,8 +60,18 @@ public class ShopManager : MonoBehaviour
 
     public void Update()
     {
+        if (isBought)
+        {
+            if (Anim_Drone.GetCurrentAnimatorStateInfo(0).IsName("TurnAround") && Anim_Drone.GetCurrentAnimatorStateInfo(0).normalizedTime > 1)
+            {
+                Debug.Log("z");
+                var stuff = Instantiate(ButtonRef.GetComponent<ButtonInfo>().SItem, ShootingP.position, Random.rotation);
+                stuff.GetComponentInChildren<Rigidbody>().velocity = ShootingP.forward * Speed;
+                Anim_Drone.SetBool("is_Shooted", false);
+                isBought = false;
+            }
+        }
 
-       
 
         if (shopItems[4, 2] <= 0)
         {
@@ -74,29 +85,22 @@ public class ShopManager : MonoBehaviour
     public void Buy()
     {
 
-        GameObject ButtonRef = GameObject.FindGameObjectWithTag("Event").GetComponent<EventSystem>().currentSelectedGameObject;
+        /*GameObject*/ ButtonRef = GameObject.FindGameObjectWithTag("Event").GetComponent<EventSystem>().currentSelectedGameObject;
 
 
-   
+
 
         if (shopItems[4, ButtonRef.GetComponent<ButtonInfo>().ItemID] > 0)
         {
-       
+
 
             if (coins >= shopItems[2, ButtonRef.GetComponent<ButtonInfo>().ItemID])
             {
                 coins -= shopItems[2, ButtonRef.GetComponent<ButtonInfo>().ItemID];
 
                 Anim_Drone.SetBool("is_Shooted", true);
+                isBought = true;
 
-                if (Anim_Drone.GetCurrentAnimatorStateInfo(0).normalizedTime > 1)
-                {
-
-                    var stuff = Instantiate(ButtonRef.GetComponent<ButtonInfo>().SItem, ShootingP.position, Random.rotation);
-                    stuff.GetComponentInChildren<Rigidbody>().velocity = ShootingP.forward * Speed;
-                    Anim_Drone.SetBool("is_Shooted", false);
-
-                }
 
                 shopItems[4, ButtonRef.GetComponent<ButtonInfo>().ItemID]--;
                 shopItems[3, ButtonRef.GetComponent<ButtonInfo>().ItemID]++;
@@ -109,9 +113,20 @@ public class ShopManager : MonoBehaviour
 
         }
     }
-    public void Button(GameObject button)
+    public void Button(GameObject button )
     {
-        Select.transform.position= button.transform.position;
+        Select.transform.position = button.transform.position;
     }
 
+    //public void TurnAround(GameObject _ButtonRef)
+    //{
+    //    if (Anim_Drone.GetCurrentAnimatorStateInfo(0).IsName("TurnAround"))
+    //    {
+
+    //        var stuff = Instantiate(_ButtonRef.GetComponent<ButtonInfo>().SItem, ShootingP.position, Random.rotation);
+    //        stuff.GetComponentInChildren<Rigidbody>().velocity = ShootingP.forward * Speed;
+    //        Anim_Drone.SetBool("is_Shooted", false);
+
+    //    }  
+    //}
 }
