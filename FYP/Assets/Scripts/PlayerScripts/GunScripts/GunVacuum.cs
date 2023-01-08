@@ -78,7 +78,7 @@ public class GunVacuum : MonoBehaviour
             anim = other.transform.gameObject.GetComponentInChildren<Animator>();
             if (other.transform.gameObject.layer == 7)
             {
-                if(other.transform.childCount > 0)     //new
+                if(other.transform.GetComponent<CapsuleCollider>())     //new
                     _collider = other.transform.GetChild(0).gameObject.GetComponentInChildren<CapsuleCollider>();
             }
             if (Input.GetMouseButton(1))
@@ -88,7 +88,7 @@ public class GunVacuum : MonoBehaviour
             }
             else /*if (Input.GetMouseButtonUp(1))*/
             {
-                if(other.transform.childCount > 0)         //new
+                if(other.transform.childCount > 0 && other.transform.GetComponentInChildren<CapsuleCollider>())         //new
                     other.transform.GetChild(1).gameObject.GetComponentInChildren<CapsuleCollider>().enabled = true;
                 other.transform.gameObject.GetComponent<Target>().isVacuum = false;
 
@@ -125,6 +125,7 @@ public class GunVacuum : MonoBehaviour
 
     public void VacuumTarget(Collider other)
     {
+        Debug.Log("inhaling");
         if (Vector3.Distance(other.transform.position, gunPoint.position) > 0.3f)
         {
             //old version (Vector3.MoveTowards)
@@ -135,7 +136,7 @@ public class GunVacuum : MonoBehaviour
             Vector3 direction = (gunPoint.position - other.transform.position).normalized;
             other.attachedRigidbody.velocity = direction * speed;
 
-            if (other.transform.childCount > 0)         //new
+            if (other.transform.childCount > 0 && other.transform.GetComponentInChildren<CapsuleCollider>())         //new
                 other.transform.GetChild(1).gameObject.GetComponentInChildren<CapsuleCollider>().enabled = false;
             anim = other.transform.gameObject.GetComponentInChildren<Animator>();
             if (anim)
@@ -151,6 +152,7 @@ public class GunVacuum : MonoBehaviour
 
         else
         {
+            Debug.Log("inhaled");
             //inventory system
             var item = other.transform.GetComponent<WorldItem>().item;
             if (item)

@@ -53,17 +53,20 @@ public class GunShooting : MonoBehaviour
         //gunLoaclPos.z = this.transform.localPosition.z + 0.8f;
 
         //inventory system
-        Item5 receivedItem = InventoryManager5.instance.GetSelectedItem(true);
+
+        Item5 receivedItem = InventoryManager5.instance.GetSelectedItem(false);
         //if (receivedItem != null)
         //    Debug.Log("use item: " + receivedItem);
         //else
         //    Debug.Log("no item use ");
 
-        if (receivedItem)
+        if (receivedItem && receivedItem.type != ItemType.BuildingBlock)
         {
             //Debug.Log("spawn");
+            receivedItem = InventoryManager5.instance.GetSelectedItem(true);
             GameObject born = Instantiate(receivedItem.objectPrefab, shootingPoint.transform.position/*GetGunPos()*/, ObjectRotation());
-            born.GetComponent<Rigidbody>().velocity = speed * transform.forward;
+            Debug.Log("born: " + born);
+            born.GetComponent<Rigidbody>().velocity = speed * -shootingPoint.transform.up;
         }
         
     }

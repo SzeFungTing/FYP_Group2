@@ -9,10 +9,17 @@ public class ControlBuildingSystem : MonoBehaviour
 
     PlaceableObject objectToPlace;
 
+    public GameObject player;
+    GunShooting gunShooting;
+    GunVacuum gunVacuum;
+
     private void Start()
     {
+        buildingGrid.SetActive(false);
+
         buildingSystem = buildingGrid.GetComponent<BuildingSystem>();
-        //buildingGrid.SetActive(false);
+        gunShooting = player.GetComponentInChildren<GunShooting>();
+        gunVacuum = player.GetComponentInChildren<GunVacuum>();
     }
 
     
@@ -23,23 +30,27 @@ public class ControlBuildingSystem : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.B))
         {
             //buildingGrid.SetActive(!buildingGrid.activeSelf);
-            if (!buildingGrid.activeInHierarchy)
+            if (!buildingGrid.activeInHierarchy)                        //open building system
             {
                 buildingGrid.SetActive(true);
+                gunShooting.enabled = false;
+                gunVacuum.enabled = false;
             }
-            else
+            else                                                        //close building system
             {
-                //if (objectToPlace)
+
+                objectToPlace = buildingSystem.GetPlaceableObject();
+                if (objectToPlace && objectToPlace.GetComponent<ObjectDrag>())
                 {
-                    objectToPlace = buildingSystem.GetPlaceableObject();
-                    if (objectToPlace && objectToPlace.GetComponent<ObjectDrag>())
-                    {
-                        buildingSystem.SetCanBuild(false);
-                        Destroy(objectToPlace.gameObject);
-                    }
+                    buildingSystem.SetCanBuild(false);
+                    Destroy(objectToPlace.gameObject);
                 }
 
+
                 buildingGrid.SetActive(false);
+
+                gunShooting.enabled = true;
+                gunVacuum.enabled = true;
             }
             
         }
