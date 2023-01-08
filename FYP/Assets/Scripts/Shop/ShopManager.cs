@@ -19,11 +19,13 @@ public class ShopManager : MonoBehaviour
     public bool isBought = false;
     public float Speed = 5f;
 
-
+    Animator Anim_Drone;
 
     // Start is called before the first frame update
     void Start()
     {
+        Anim_Drone = ShootingP.gameObject.GetComponent<Animator>();
+        Anim_Drone.SetBool("is_Shooted", false);
         Jetpack.SetActive(false);
 
         CoinsTXT.text = "Coins: $" + coins.ToString();
@@ -57,6 +59,9 @@ public class ShopManager : MonoBehaviour
 
     public void Update()
     {
+
+       
+
         if (shopItems[4, 2] <= 0)
         {
             Jetpack.SetActive(true);
@@ -71,24 +76,31 @@ public class ShopManager : MonoBehaviour
 
         GameObject ButtonRef = GameObject.FindGameObjectWithTag("Event").GetComponent<EventSystem>().currentSelectedGameObject;
 
-       
+
+   
 
         if (shopItems[4, ButtonRef.GetComponent<ButtonInfo>().ItemID] > 0)
         {
-         
+       
+
             if (coins >= shopItems[2, ButtonRef.GetComponent<ButtonInfo>().ItemID])
             {
                 coins -= shopItems[2, ButtonRef.GetComponent<ButtonInfo>().ItemID];
 
+                Anim_Drone.SetBool("is_Shooted", true);
+
+                if (Anim_Drone.GetCurrentAnimatorStateInfo(0).normalizedTime > 1)
+                {
+
+                    var stuff = Instantiate(ButtonRef.GetComponent<ButtonInfo>().SItem, ShootingP.position, Random.rotation);
+                    stuff.GetComponentInChildren<Rigidbody>().velocity = ShootingP.forward * Speed;
+                    Anim_Drone.SetBool("is_Shooted", false);
+
+                }
+
                 shopItems[4, ButtonRef.GetComponent<ButtonInfo>().ItemID]--;
                 shopItems[3, ButtonRef.GetComponent<ButtonInfo>().ItemID]++;
 
-                var a = new Vector3(Random.Range(-3, 3), 5, Random.Range(-3,3));
-                //var stuff = Instantiate(ButtonRef.GetComponent<ButtonInfo>().SItem,position,Quaternion.identity);
-
-                var stuff = Instantiate(ButtonRef.GetComponent<ButtonInfo>().SItem, ShootingP.position, Random.rotation);
-                stuff.GetComponent<Rigidbody>().velocity = ShootingP.forward * Speed;
-                
                 CoinsTXT.text = "Coins: $" + coins.ToString(); //update the coins player have
                 ButtonRef.GetComponent<ButtonInfo>().QuantityTxt.text = shopItems[3, ButtonRef.GetComponent<ButtonInfo>().ItemID].ToString();
                 ButtonRef.GetComponent<ButtonInfo>().LimitTxt.text = shopItems[4, ButtonRef.GetComponent<ButtonInfo>().ItemID].ToString();
