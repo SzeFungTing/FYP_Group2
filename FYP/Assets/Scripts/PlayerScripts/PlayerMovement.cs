@@ -40,6 +40,11 @@ public class PlayerMovement : MonoBehaviour
     public AudioSource WalkingInGrass;
     public AudioSource RunningInGrass;
 
+    public Vector3 currentVector = Vector3.up;
+    public float CurrentForce = 0;
+    public float MaxForce = 5;
+    bool isflying;
+
     public MovementState state;
 
     public enum MovementState
@@ -80,6 +85,57 @@ public class PlayerMovement : MonoBehaviour
                 controller.Move(Vector3.down * controller.height / 2 * slopeForce * Time.deltaTime);
             }
         }
+
+        if (Input.GetKey(KeyCode.Space) && MaxForce > 0)
+        {
+            MaxForce -= Time.deltaTime;
+
+            if (CurrentForce < 1)
+            {
+                CurrentForce += Time.deltaTime * 10;
+            }
+            else
+            {
+                CurrentForce = 1;
+            }
+        }
+
+        if (MaxForce < 0 && CurrentForce > 0)
+        {
+            CurrentForce -= Time.deltaTime;
+        }
+
+        if (!Input.GetKey(KeyCode.Space))
+        {
+            if (CurrentForce > 0)
+            {
+                CurrentForce -= Time.deltaTime;
+            }
+            else
+            {
+                CurrentForce = 0;
+            }
+            if (MaxForce < 5)
+            {
+                MaxForce += Time.deltaTime;
+            }
+            else
+            {
+                MaxForce = 5;
+            }
+        }
+
+        if (CurrentForce > 0)
+        {
+            UseJetPack();
+            isflying = true;
+            Rigidbody.useGravity = false;
+        }
+        else
+        {
+            isflying = false;
+            Rigidbody.useGravity = true;
+        }
     }
 
     void HandleMovementInput()
@@ -95,7 +151,7 @@ public class PlayerMovement : MonoBehaviour
         float moveDirectionY = moveDirection.y;
         moveDirection = (transform.TransformDirection(Vector3.forward) * currectInput.x) + (transform.TransformDirection(Vector3.right) * currectInput.y);
         moveDirection.y = moveDirectionY;
-        if (!isSliding)
+        if (!isSliding && !isflying)
         {
             Jump();
         }
@@ -112,8 +168,12 @@ public class PlayerMovement : MonoBehaviour
         {
             moveDirection += new Vector3(hitPointNormal.x, -hitPointNormal.y, hitPointNormal.z) * slopeSpeed;
         }
+        if (!isflying)
+        {
+            controller.Move(moveDirection * Time.deltaTime);
 
-        controller.Move(moveDirection * Time.deltaTime);
+            gravity = -9.8f;
+        }
     }
 
     void Jump()
@@ -246,5 +306,17 @@ public class PlayerMovement : MonoBehaviour
                 RunningInGrass.Play();
             }
         }
+    }
+
+    public void UseJetPack()
+    {
+        currentVector = Vector3.up;
+
+        currentVector += transform.right * Input.GetAxis("Horizontal");
+        currentVector += transform.forward * Input.GetAxis("Vertical");
+
+        controller.Move((currentVector * walkSpeed * Time.deltaTime - controller.velocity * Time.deltaTime) * CurrentForce);
+
+        gravity = -4.9f;
     }
 }
