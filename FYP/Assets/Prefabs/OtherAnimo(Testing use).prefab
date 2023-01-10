@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3499233398691345205}
   - component: {fileID: 3499233398691345204}
   - component: {fileID: 3499233398691345207}
+  - component: {fileID: -1540691941892462806}
   - component: {fileID: 3499233398691345206}
   - component: {fileID: 3499233398691345193}
   - component: {fileID: 3499233398691345200}
@@ -115,6 +116,27 @@ MonoBehaviour:
   canPoo: 0
   FajroCore: {fileID: 0}
   Food: {fileID: 0}
+--- !u!114 &-1540691941892462806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3499233398691345192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd7e6cff09ba6664c8c54d5cc6008991, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FajroWillNotEat:
+  - {fileID: 2259442092407703965, guid: bbcbb24d181360749bd471bdaeccfbe7, type: 3}
+  - {fileID: 0}
+  ListOfMixedAnimoPrefab: []
+  _eat: {fileID: 3499233398691345207}
+  _aIMovement: {fileID: 3499233398691345193}
+  movementSpeed: 1
+  rotationSpeed: 100
+  findFajroDistance: 300
 --- !u!114 &3499233398691345206
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -147,6 +169,7 @@ MonoBehaviour:
   eatCooldown: 200
   findFoodDistance: 200
   _eat: {fileID: 3499233398691345207}
+  _eatFajro: {fileID: -1540691941892462806}
 --- !u!54 &3499233398691345200
 Rigidbody:
   m_ObjectHideFlags: 0
