@@ -7,6 +7,7 @@ public class UIScripts : MonoBehaviour
 {
     [SerializeField] GameObject pauseUI;
     [SerializeField] GameObject settingUI;
+    [SerializeField] GameObject shopUI;
 
     private void Update()
     {
@@ -41,6 +42,15 @@ public class UIScripts : MonoBehaviour
         else
         {
             Time.timeScale = 1;     //start the game time
+            Cursor.lockState = CursorLockMode.Locked;
+        }
+
+        if (shopUI.activeInHierarchy)
+        {
+            Cursor.lockState = CursorLockMode.None;
+        }
+        else
+        {
             Cursor.lockState = CursorLockMode.Locked;
         }
     }
