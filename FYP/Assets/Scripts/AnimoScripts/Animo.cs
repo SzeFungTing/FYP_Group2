@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Animo : MonoBehaviour
 {
-    public enum AnimoType1 {Chicken, Other};
-    public enum AnimoType2 {Chicken, Other, Null};
+    public enum AnimoType1 {Chicken, Cat};
+    public enum AnimoType2 {Chicken, Cat, Null};
     public AnimoType1 animoType1;
     public AnimoType2 animoType2;
     // Start is called before the first frame update
