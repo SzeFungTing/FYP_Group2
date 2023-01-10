@@ -14,7 +14,7 @@ public class GunShooting : MonoBehaviour
     Vector3 gunLoaclPos;
     public GameObject shootingPoint;
 
-
+    public Animator Anim_Gun;
 
 
 
@@ -25,6 +25,7 @@ public class GunShooting : MonoBehaviour
     void Start()
     {
         //gunPos = this.transform;
+        //Anim_Gun = transform.GetComponentInParent<Animator>();
     }
 
     // Update is called once per frame
@@ -63,10 +64,15 @@ public class GunShooting : MonoBehaviour
         if (receivedItem && receivedItem.type != ItemType.BuildingBlock)
         {
             //Debug.Log("spawn");
-            receivedItem = InventoryManager5.instance.GetSelectedItem(true);
-            GameObject born = Instantiate(receivedItem.objectPrefab, shootingPoint.transform.position/*GetGunPos()*/, ObjectRotation());
-            Debug.Log("born: " + born);
-            born.GetComponent<Rigidbody>().velocity = speed * -shootingPoint.transform.up;
+            //if(Anim_Gun.GetCurrentAnimatorStateInfo(0).IsName("Arm1_shoot") && Anim_Gun.GetCurrentAnimatorStateInfo(0).normalizedTime > 1)
+            {
+                receivedItem = InventoryManager5.instance.GetSelectedItem(true);
+
+                GameObject born = Instantiate(receivedItem.objectPrefab, shootingPoint.transform.position/*GetGunPos()*/, ObjectRotation());
+                //Debug.Log("born: " + born);
+                born.GetComponent<Rigidbody>().velocity = speed * shootingPoint.transform.forward;
+            }
+           
         }
         
     }

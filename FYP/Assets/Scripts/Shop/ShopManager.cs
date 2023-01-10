@@ -63,31 +63,37 @@ public class ShopManager : MonoBehaviour
 
     public void Update()
     {
-        if (!Ss.isUIOpened)
+        //if (!Ss.isUIOpened)
+        //{
+
+
+        //        if (Anim_Drone.GetCurrentAnimatorStateInfo(0).IsName("TurnAround") && Anim_Drone.GetCurrentAnimatorStateInfo(0).normalizedTime > 1)         //check animation end?, Instantiate ther
+        //        {
+        //            for(int i = 1; i < 5; i++)
+        //            {
+
+        //                if (shopItems[3, i] != 0) 
+        //                {
+        //                    var stuff = Instantiate(ButtonRef.GetComponent<ButtonInfo>().SItem, ShootingP.position, Random.rotation);
+        //                    stuff.GetComponentInChildren<Rigidbody>().velocity = ShootingP.forward * Speed;
+        //                    Anim_Drone.SetBool("is_Shooted", false);
+        //                    shopItems[3, i] = 0;
+        //                }
+        //            }
+        //        }
+        //}
+
+        if (isBought)
         {
-
-           
-               /* if (Anim_Drone.GetCurrentAnimatorStateInfo(0).IsName("TurnAround") && Anim_Drone.GetCurrentAnimatorStateInfo(0).normalizedTime > 1)  */       //check animation end?, Instantiate ther
-                {
-                    for(int i = 1; i < 5; i++)
-                    {
-
-                        if (shopItems[3, i] != 0) 
-                        {
-                           
-                            var stuff = Instantiate(ButtonRef.GetComponent<ButtonInfo>().SItem, ShootingP.position, Random.rotation);
-                            stuff.GetComponentInChildren<Rigidbody>().velocity = ShootingP.forward * Speed;
-                            Anim_Drone.SetBool("is_Shooted", false);
-                            shopItems[3, i] = 0;
-                        }
-                    
-                    }
-                  
-                }
-            
-
+            if (Anim_Drone.GetCurrentAnimatorStateInfo(0).IsName("TurnAround") && Anim_Drone.GetCurrentAnimatorStateInfo(0).normalizedTime > 1)         //check animation end?, Instantiate ther
+            {
+                var stuff = Instantiate(ButtonRef.GetComponent<ButtonInfo>().SItem, ShootingP.position, Random.rotation);
+                stuff.GetComponentInChildren<Rigidbody>().velocity = ShootingP.forward * Speed;
+                Anim_Drone.SetBool("is_Shooted", false);
+                isBought = false;
+            }
         }
-        
+
 
 
         if (shopItems[4, 2] <= 0)
@@ -113,18 +119,21 @@ public class ShopManager : MonoBehaviour
 
             if (/*coins*/MoneyManager.instance.coins >= shopItems[2, ButtonRef.GetComponent<ButtonInfo>().ItemID])
             {
-                /*coins*/MoneyManager.instance.coins -= shopItems[2, ButtonRef.GetComponent<ButtonInfo>().ItemID];
-
                 Anim_Drone.SetBool("is_Shooted", true);
                 isBought = true;
 
+                if (Anim_Drone.GetCurrentAnimatorStateInfo(0).IsName("TurnAround") && Anim_Drone.GetCurrentAnimatorStateInfo(0).normalizedTime > 1)
+                {
+                    /*coins*/ MoneyManager.instance.coins -= shopItems[2, ButtonRef.GetComponent<ButtonInfo>().ItemID];
 
-                shopItems[4, ButtonRef.GetComponent<ButtonInfo>().ItemID]--;
-                shopItems[3, ButtonRef.GetComponent<ButtonInfo>().ItemID]++;
+                    shopItems[4, ButtonRef.GetComponent<ButtonInfo>().ItemID]--;
+                    shopItems[3, ButtonRef.GetComponent<ButtonInfo>().ItemID]++;
 
-                CoinsTXT.text = "Coins: $" + MoneyManager.instance.coins.ToString(); //update the coins player have
-                ButtonRef.GetComponent<ButtonInfo>().QuantityTxt.text = shopItems[3, ButtonRef.GetComponent<ButtonInfo>().ItemID].ToString();
-                ButtonRef.GetComponent<ButtonInfo>().LimitTxt.text = shopItems[4, ButtonRef.GetComponent<ButtonInfo>().ItemID].ToString();
+                    CoinsTXT.text = "Coins: $" + MoneyManager.instance.coins.ToString(); //update the coins player have
+                    ButtonRef.GetComponent<ButtonInfo>().QuantityTxt.text = shopItems[3, ButtonRef.GetComponent<ButtonInfo>().ItemID].ToString();
+                    ButtonRef.GetComponent<ButtonInfo>().LimitTxt.text = shopItems[4, ButtonRef.GetComponent<ButtonInfo>().ItemID].ToString();
+                }
+                    
 
             }
 
