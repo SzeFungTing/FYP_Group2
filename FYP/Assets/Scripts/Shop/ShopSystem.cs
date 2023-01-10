@@ -27,7 +27,7 @@ public class ShopSystem : MonoBehaviour
     void Update()
     {
 
-        if (Anim_Drone.GetCurrentAnimatorStateInfo(0).normalizedTime > 1 && !isUIOpened)            //drone animation end, open shopUI
+        if (Anim_Drone.GetCurrentAnimatorStateInfo(0).IsName("Start") && Anim_Drone.GetCurrentAnimatorStateInfo(0).normalizedTime > 1 && !isUIOpened)            //drone animation end, open shopUI
         {
             shopUI.SetActive(true);
             isUIOpened = true;
@@ -44,13 +44,17 @@ public class ShopSystem : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Escape))                     //Escape to close shopUI  
         {
-            shopUI.SetActive(false);
-            drone.SetActive(false);
-            isUIOpened = false;
-
-
-
+            //shopUI.SetActive(false);
+            //drone.SetActive(false);
+            //isUIOpened = false;
+            CloseShopUI();
         }
+    }
 
+    public void CloseShopUI()
+    {
+        shopUI.SetActive(false);
+        drone.SetActive(false);
+        isUIOpened = false;
     }
 }

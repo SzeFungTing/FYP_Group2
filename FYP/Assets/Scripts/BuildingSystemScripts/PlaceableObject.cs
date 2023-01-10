@@ -66,6 +66,7 @@ public class PlaceableObject : MonoBehaviour
     {
         ObjectDrag drag = gameObject.GetComponent<ObjectDrag>();
         Destroy(drag);
+        this.gameObject.layer = LayerMask.NameToLayer("Default");
 
         Placed = true;
         c.isTrigger = false;

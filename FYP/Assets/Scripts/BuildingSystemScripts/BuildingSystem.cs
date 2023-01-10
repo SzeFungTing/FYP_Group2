@@ -169,6 +169,7 @@ public class BuildingSystem : MonoBehaviour
         GameObject obj = Instantiate(prefab, position, Quaternion.identity);
         objectToPlace = obj.GetComponent<PlaceableObject>();
         obj.AddComponent<ObjectDrag>();
+        obj.layer = LayerMask.NameToLayer("Ignore Raycast"); 
     }
 
     private bool CanBePlaced(PlaceableObject placeableObject)

@@ -20,6 +20,8 @@ public class ShopManager : MonoBehaviour
     public bool isBought = false;
     public float Speed = 5f;
 
+
+
     Animator Anim_Drone;
 
     // Start is called before the first frame update
@@ -29,7 +31,7 @@ public class ShopManager : MonoBehaviour
         Anim_Drone.SetBool("is_Shooted", false);
         Jetpack.SetActive(false);
 
-        CoinsTXT.text = "Coins: $" + coins.ToString();
+        CoinsTXT.text = "Coins: $" + /*coins*/MoneyManager.instance.coins.ToString();
 
         //ID
         shopItems[1, 1] = 1;
@@ -60,11 +62,10 @@ public class ShopManager : MonoBehaviour
 
     public void Update()
     {
-        if (isBought)
+        if (isBought)                                           
         {
-            if (Anim_Drone.GetCurrentAnimatorStateInfo(0).IsName("TurnAround") && Anim_Drone.GetCurrentAnimatorStateInfo(0).normalizedTime > 1)
+            if (Anim_Drone.GetCurrentAnimatorStateInfo(0).IsName("TurnAround") && Anim_Drone.GetCurrentAnimatorStateInfo(0).normalizedTime > 1)         //check animation end?, Instantiate ther
             {
-                Debug.Log("z");
                 var stuff = Instantiate(ButtonRef.GetComponent<ButtonInfo>().SItem, ShootingP.position, Random.rotation);
                 stuff.GetComponentInChildren<Rigidbody>().velocity = ShootingP.forward * Speed;
                 Anim_Drone.SetBool("is_Shooted", false);
@@ -94,9 +95,9 @@ public class ShopManager : MonoBehaviour
         {
 
 
-            if (coins >= shopItems[2, ButtonRef.GetComponent<ButtonInfo>().ItemID])
+            if (/*coins*/MoneyManager.instance.coins >= shopItems[2, ButtonRef.GetComponent<ButtonInfo>().ItemID])
             {
-                coins -= shopItems[2, ButtonRef.GetComponent<ButtonInfo>().ItemID];
+                /*coins*/MoneyManager.instance.coins -= shopItems[2, ButtonRef.GetComponent<ButtonInfo>().ItemID];
 
                 Anim_Drone.SetBool("is_Shooted", true);
                 isBought = true;
@@ -105,7 +106,7 @@ public class ShopManager : MonoBehaviour
                 shopItems[4, ButtonRef.GetComponent<ButtonInfo>().ItemID]--;
                 shopItems[3, ButtonRef.GetComponent<ButtonInfo>().ItemID]++;
 
-                CoinsTXT.text = "Coins: $" + coins.ToString(); //update the coins player have
+                CoinsTXT.text = "Coins: $" + MoneyManager.instance.coins.ToString(); //update the coins player have
                 ButtonRef.GetComponent<ButtonInfo>().QuantityTxt.text = shopItems[3, ButtonRef.GetComponent<ButtonInfo>().ItemID].ToString();
                 ButtonRef.GetComponent<ButtonInfo>().LimitTxt.text = shopItems[4, ButtonRef.GetComponent<ButtonInfo>().ItemID].ToString();
 
