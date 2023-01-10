@@ -129,7 +129,7 @@ public class GunVacuum : MonoBehaviour
 
     public void VacuumTarget(Collider other)
     {
-        Debug.Log("inhaling");
+        //Debug.Log("inhaling");
         if (Vector3.Distance(other.transform.position, gunPoint.position) > 0.3f)
         {
             //old version (Vector3.MoveTowards)
@@ -156,7 +156,7 @@ public class GunVacuum : MonoBehaviour
 
         else
         {
-            Debug.Log("inhaled");
+            //Debug.Log("inhaled");
             //inventory system
             var item = other.transform.GetComponent<WorldItem>().item;
             if (item)
