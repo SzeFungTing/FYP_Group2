@@ -11,6 +11,7 @@ public class AIMovement : MonoBehaviour
     public float findFoodDistance = 500f;
 
     [SerializeField] Eat _eat;
+    [SerializeField] EatFajro _eatFajro;
 
     private bool isWandering = false;
     private bool isRotatingLeft = false;
@@ -47,6 +48,11 @@ public class AIMovement : MonoBehaviour
         if (isHungry)
         {
             closestFood = FindClosestFood();
+        }
+
+        if (_eatFajro.GetHvFajro())
+        {
+            StopCoroutine(Wander());
         }
 
         if (!isWandering)
