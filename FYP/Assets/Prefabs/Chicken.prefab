@@ -34,6 +34,8 @@ GameObject:
   - component: {fileID: 7932083041662162502}
   - component: {fileID: 7932083041662162506}
   - component: {fileID: -406338546799173149}
+  - component: {fileID: 1274640893}
+  - component: {fileID: 1274640894}
   m_Layer: 6
   m_Name: Chicken
   m_TagString: Target
@@ -130,7 +132,7 @@ MonoBehaviour:
   movementSpeed: 0.5
   rotationSpeed: 100
   eatCooldown: 200
-  findFoodDistance: 500
+  findFoodDistance: 200
   _eat: {fileID: -406338546799173149}
 --- !u!114 &-406338546799173149
 MonoBehaviour:
@@ -144,8 +146,44 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c07b0be5f82d574db88402f539d6321, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canPoo: 0
   FajroCore: {fileID: 2259442092407703965, guid: bbcbb24d181360749bd471bdaeccfbe7, type: 3}
   Food: {fileID: 2604161690428849773, guid: b13535e237f51c44096fb9bc86cac1b3, type: 3}
+--- !u!114 &1274640893
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7932083041662162503}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdb6a6d557da9ef49be50e50fd199222, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animoType1: 0
+  animoType2: 2
+--- !u!114 &1274640894
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7932083041662162503}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd7e6cff09ba6664c8c54d5cc6008991, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FajroWillNotEat:
+  - {fileID: 2259442092407703965, guid: bbcbb24d181360749bd471bdaeccfbe7, type: 3}
+  ListOfMixedAnimoPrefab:
+  - {fileID: 3499233398691345192, guid: 9d6baea7fa3bfae4aaf74e298bf4e752, type: 3}
+  _eat: {fileID: -406338546799173149}
+  _aIMovement: {fileID: 7932083041662162506}
+  movementSpeed: 1
+  rotationSpeed: 100
+  findFajroDistance: 300
 --- !u!1 &7932083043028831268
 GameObject:
   m_ObjectHideFlags: 0
