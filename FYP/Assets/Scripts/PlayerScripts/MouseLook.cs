@@ -15,6 +15,7 @@ public class MouseLook : MonoBehaviour
     [SerializeField] GameObject pauseUI;
     [SerializeField] GameObject settingUI;
     [SerializeField] GameObject shopUI;
+    [SerializeField] GameObject backPackUI;
 
     // Start is called before the first frame update
     void Start()
@@ -76,7 +77,7 @@ public class MouseLook : MonoBehaviour
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
         }
-        else if (pauseUI.activeInHierarchy || settingUI.activeInHierarchy)
+        else if (shopUI.activeInHierarchy)
         {
             if (Input.GetKeyUp(KeyCode.C))
             {
@@ -84,5 +85,20 @@ public class MouseLook : MonoBehaviour
                 Cursor.visible = false;
             }
         }
+
+        if (Input.GetKeyUp(KeyCode.I))
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
+        else if (backPackUI.activeInHierarchy)
+        {
+            if (Input.GetKeyUp(KeyCode.I))
+            {
+                Cursor.lockState = CursorLockMode.Locked;
+                Cursor.visible = false;
+            }
+        }
+
     }
 }
