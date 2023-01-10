@@ -7,6 +7,7 @@ public class UIScripts : MonoBehaviour
 {
     [SerializeField] GameObject pauseUI;
     [SerializeField] GameObject settingUI;
+    [SerializeField] GameObject shopUI;
 
     private void Update()
     {
@@ -33,7 +34,7 @@ public class UIScripts : MonoBehaviour
             }
         }
 
-        if (pauseUI.activeInHierarchy || settingUI.activeInHierarchy || SceneManager.GetActiveScene().name == "Start UI")
+        if (shopUI.activeInHierarchy || pauseUI.activeInHierarchy || settingUI.activeInHierarchy || SceneManager.GetActiveScene().name == "Start UI")
         {
             Time.timeScale = 0;     //pause the game time
             Cursor.lockState = CursorLockMode.None;

@@ -1251,7 +1251,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.00001335144, y: 0.000032972774}
+  m_AnchoredPosition: {x: 0.000021874905, y: -0.0000012573656}
   m_SizeDelta: {x: 0, y: 300}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &311770355
@@ -2472,22 +2472,22 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 681830302}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2.4, y: 2.4, z: 2.4}
+  m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 120060403}
   - {fileID: 1692579856}
   - {fileID: 1385271350}
   - {fileID: 1709392912}
-  m_Father: {fileID: 2032926795}
-  m_RootOrder: 3
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 960, y: 540}
-  m_SizeDelta: {x: 799.99994, y: 449.99997}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0, y: 0}
 --- !u!114 &681830304
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2537,7 +2537,7 @@ Canvas:
   m_GameObject: {fileID: 681830302}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 1
+  m_RenderMode: 0
   m_Camera: {fileID: 0}
   m_PlaneDistance: 1
   m_PixelPerfect: 0
@@ -5736,7 +5736,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1758938694}
   m_HandleRect: {fileID: 1758938693}
   m_Direction: 1
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -6760,6 +6760,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.GameObject, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 712354774191546970, guid: ed56b7259823e924f8655037667597dd, type: 3}
+      propertyPath: shopUI
+      value: 
+      objectReference: {fileID: 681830302}
     - target: {fileID: 712354774191546970, guid: ed56b7259823e924f8655037667597dd, type: 3}
       propertyPath: pauseUI
       value: 
@@ -8092,7 +8096,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149494967735, guid: 95cdd22d7ba130b48b6d55e74985949f, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2016269827330734786, guid: 95cdd22d7ba130b48b6d55e74985949f, type: 3}
       propertyPath: pauseUI
@@ -8166,6 +8170,10 @@ PrefabInstance:
       propertyPath: CollisionModule.m_Planes.Array.data[0]
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 6805707388876547021, guid: 95cdd22d7ba130b48b6d55e74985949f, type: 3}
+      propertyPath: shopUI
+      value: 
+      objectReference: {fileID: 681830302}
     - target: {fileID: 6805707388876547021, guid: 95cdd22d7ba130b48b6d55e74985949f, type: 3}
       propertyPath: pauseUI
       value: 
