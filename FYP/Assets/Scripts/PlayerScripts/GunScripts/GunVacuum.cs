@@ -32,6 +32,7 @@ public class GunVacuum : MonoBehaviour
     [SerializeField] GameObject pauseUI;
     [SerializeField] GameObject settingUI;
     [SerializeField] GameObject shopUI;
+    [SerializeField] GameObject backPackUI;
 
     private void Start()
     {
@@ -42,7 +43,7 @@ public class GunVacuum : MonoBehaviour
     {
         if ((pauseUI && settingUI) && !pauseUI.activeInHierarchy && !settingUI.activeInHierarchy)
         {
-            if (shopUI && !shopUI.activeInHierarchy)
+            if (shopUI && !shopUI.activeInHierarchy && !backPackUI.activeInHierarchy)
             {
                 if (Input.GetMouseButtonDown(1))
                 {
