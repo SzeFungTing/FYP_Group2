@@ -8,6 +8,7 @@ public class UIScripts : MonoBehaviour
     [SerializeField] GameObject pauseUI;
     [SerializeField] GameObject settingUI;
     [SerializeField] GameObject shopUI;
+    [SerializeField] GameObject backPackUI;
 
     private void Update()
     {
@@ -45,13 +46,13 @@ public class UIScripts : MonoBehaviour
             Cursor.lockState = CursorLockMode.Locked;
         }
 
-        if (shopUI && shopUI.activeInHierarchy)
+        if (shopUI.activeInHierarchy)
         {
             Cursor.lockState = CursorLockMode.None;
         }
-        else
+        else if (backPackUI.activeInHierarchy)
         {
-            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.lockState = CursorLockMode.None;
         }
     }
 
