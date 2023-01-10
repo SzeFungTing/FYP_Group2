@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -45,6 +46,9 @@ public class PlayerMovement : MonoBehaviour
     public float MaxForce = 5;
     bool isflying;
 
+    public Image FillBar;
+    public ShopManager shopManager;
+
     public MovementState state;
 
     public enum MovementState
@@ -86,55 +90,65 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-        if (Input.GetKey(KeyCode.Space) && MaxForce > 0)
+        if (shopManager.isBought)
         {
-            MaxForce -= Time.deltaTime;
+            FillBar.fillAmount = MaxForce;
 
-            if (CurrentForce < 1)
+            if (Input.GetKeyUp(KeyCode.Space))
             {
-                CurrentForce += Time.deltaTime * 10;
+                MaxForce -= Time.deltaTime * 10;
             }
-            else
+
+            if (Input.GetKey(KeyCode.Space) && MaxForce > 0)
             {
-                CurrentForce = 1;
+                MaxForce -= Time.deltaTime / 3;
+
+                if (CurrentForce < 1)
+                {
+                    CurrentForce += Time.deltaTime * 10;
+                }
+                else
+                {
+                    CurrentForce = 1;
+                }
             }
-        }
 
-        if (MaxForce < 0 && CurrentForce > 0)
-        {
-            CurrentForce -= Time.deltaTime;
-        }
-
-        if (!Input.GetKey(KeyCode.Space))
-        {
-            if (CurrentForce > 0)
+            if (MaxForce < 0 && CurrentForce > 0)
             {
                 CurrentForce -= Time.deltaTime;
             }
-            else
-            {
-                CurrentForce = 0;
-            }
-            if (MaxForce < 5)
-            {
-                MaxForce += Time.deltaTime;
-            }
-            else
-            {
-                MaxForce = 5;
-            }
-        }
 
-        if (CurrentForce > 0)
-        {
-            UseJetPack();
-            isflying = true;
-            Rigidbody.useGravity = false;
-        }
-        else
-        {
-            isflying = false;
-            Rigidbody.useGravity = true;
+            if (!Input.GetKey(KeyCode.Space))
+            {
+                if (CurrentForce > 0)
+                {
+                    CurrentForce -= Time.deltaTime;
+                }
+                else
+                {
+                    CurrentForce = 0;
+                }
+                if (MaxForce < 1)
+                {
+                    MaxForce += Time.deltaTime / 3;
+                }
+                else
+                {
+                    MaxForce = 1;
+                }
+            }
+
+            if (CurrentForce > 0)
+            {
+                UseJetPack();
+                isflying = true;
+                Rigidbody.useGravity = false;
+            }
+            else
+            {
+                isflying = false;
+                Rigidbody.useGravity = true;
+            }
         }
     }
 
@@ -315,7 +329,14 @@ public class PlayerMovement : MonoBehaviour
         currentVector += transform.right * Input.GetAxis("Horizontal");
         currentVector += transform.forward * Input.GetAxis("Vertical");
 
-        controller.Move((currentVector * walkSpeed * Time.deltaTime - controller.velocity * Time.deltaTime) * CurrentForce);
+        if (Input.GetKey(sprintKey))
+        {
+            controller.Move((currentVector * 7 * Time.deltaTime - controller.velocity * Time.deltaTime) * CurrentForce);
+        }
+        else
+        {
+            controller.Move((currentVector * walkSpeed * Time.deltaTime - controller.velocity * Time.deltaTime) * CurrentForce);
+        }
 
         gravity = -4.9f;
     }
