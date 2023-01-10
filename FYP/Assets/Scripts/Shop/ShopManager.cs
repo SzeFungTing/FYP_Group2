@@ -74,7 +74,7 @@ public class ShopManager : MonoBehaviour
 
                         if (shopItems[3, i] != 0) 
                         {
-                            GameObject Go = 
+                           
                             var stuff = Instantiate(ButtonRef.GetComponent<ButtonInfo>().SItem, ShootingP.position, Random.rotation);
                             stuff.GetComponentInChildren<Rigidbody>().velocity = ShootingP.forward * Speed;
                             Anim_Drone.SetBool("is_Shooted", false);
