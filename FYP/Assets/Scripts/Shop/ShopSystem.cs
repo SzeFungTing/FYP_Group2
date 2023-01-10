@@ -37,10 +37,8 @@ public class ShopSystem : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.C))                        //open/ close shop UI
         {
             drone.SetActive(!drone.activeSelf);                   //open/ close drone                
-            if (shopUI.activeInHierarchy)                       //if shopUI is display, close shopUI
-            {
-                shopUI.SetActive(!shopUI.activeSelf);
-            }
+            shopUI.SetActive(!shopUI.activeSelf);
+            
         }
         if (Input.GetKeyDown(KeyCode.Escape))                     //Escape to close shopUI  
         {
