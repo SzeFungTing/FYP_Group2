@@ -14,6 +14,7 @@ public class MouseLook : MonoBehaviour
 
     [SerializeField] GameObject pauseUI;
     [SerializeField] GameObject settingUI;
+    [SerializeField] GameObject shopUI;
 
     // Start is called before the first frame update
     void Start()
@@ -56,6 +57,17 @@ public class MouseLook : MonoBehaviour
 
     public void InternalLockUpdate()
     {
+        if (Input.GetKey(KeyCode.LeftAlt))
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
+        else if (Input.GetKeyUp(KeyCode.LeftAlt))
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
+
         if (Input.GetKeyUp(KeyCode.Escape))
         {
             Cursor.lockState = CursorLockMode.None;
@@ -69,5 +81,6 @@ public class MouseLook : MonoBehaviour
                 Cursor.visible = false;
             }
         }
+        
     }
 }
