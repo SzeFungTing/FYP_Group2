@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7346646680861421508}
   - component: {fileID: 8337939867219611056}
   - component: {fileID: 6502536007431914282}
+  - component: {fileID: 7110072118067728634}
   m_Layer: 0
   m_Name: Cylinder
   m_TagString: Untagged
@@ -82,6 +83,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &7110072118067728634
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 826153418203610101}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.922969, y: 0.91059947, z: 0.078804865}
+  m_Center: {x: -0.0027701068, y: -0.036355965, z: -0.040049806}
 --- !u!1 &2863910378126076047
 GameObject:
   m_ObjectHideFlags: 0
@@ -177,6 +191,9 @@ GameObject:
   - component: {fileID: 3319056240267078001}
   - component: {fileID: -4137249021427924421}
   - component: {fileID: -1058629207539902866}
+  - component: {fileID: 9144259823931272408}
+  - component: {fileID: 6344959055938172016}
+  - component: {fileID: 4235140471002922045}
   m_Layer: 0
   m_Name: Watermelon
   m_TagString: Food
@@ -266,7 +283,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 0
   m_CollisionDetection: 0
 --- !u!65 &-1058629207539902866
 BoxCollider:
@@ -276,11 +293,54 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3823367382236530852}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.020002656, y: 0.020000573, z: 0.01885444}
-  m_Center: {x: 0.000029894989, y: 0.000009221489, z: 0.0003157751}
+  m_Size: {x: 0.031484533, y: 0.030725231, z: 0.02721471}
+  m_Center: {x: 0.00042351484, y: -0.0013038353, z: 0.00095702865}
+--- !u!114 &9144259823931272408
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3823367382236530852}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97fe856ee74a7fa44afc5a281299a2e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  noiseStrength: 0.25
+  objectHeight: 1
+  isAte: 0
+  height: 0
+--- !u!114 &6344959055938172016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3823367382236530852}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4507c138325a46c41854a0622a6f1a99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isVacuum: 0
+  maxHeight: 80
+--- !u!114 &4235140471002922045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3823367382236530852}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69cc6bbaa03dc054988569c3108b1659, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item: {fileID: 11400000, guid: d7f34fa21ad85e34f88958d1e60338dd, type: 2}
 --- !u!1 &9131743472389986018
 GameObject:
   m_ObjectHideFlags: 0
