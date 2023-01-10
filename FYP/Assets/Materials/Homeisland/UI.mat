@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: AnimoCh
-  m_Shader: {fileID: -6465566751694194690, guid: 502a201cb48b44c4ab3d2ef1cfa1a58e, type: 3}
+  m_Name: UI
+  m_Shader: {fileID: -6465566751694194690, guid: 42097cc36583612448a3d3c8dcc24505, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -33,10 +33,14 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - FresnelPower: -0.53
-    - GlowSpeed: 7.22
+    - BottomLine: 0.718
+    - Metallic: 1
+    - Smoothness: 0
+    - TopLine: 0.63
+    - Transparent: 0.5
+    - _Float: 2.04
     m_Colors:
-    - FresnelColor: {r: 1, g: 0.9095725, b: 0.29716977, a: 1}
-    - InteriorColor: {r: 0, g: 0, b: 0, a: 1}
-    - InteriorPos: {r: 2.7, g: 0.01, b: 4.42, a: -2.91}
+    - BaseColor: {r: 0.5943396, g: 0.5943396, b: 0.5943396, a: 1}
+    - BottomColor: {r: 0, g: 1.7206175, b: 5.2164755, a: 1}
+    - TopColor: {r: 9.297699, g: 0, b: 13.76636, a: 1}
   m_BuildTextureStacks: []

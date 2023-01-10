@@ -90,7 +90,7 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-        if (shopManager.isBought)
+        if (shopManager && shopManager.isBought)
         {
             FillBar.fillAmount = MaxForce;
 

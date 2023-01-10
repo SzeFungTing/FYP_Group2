@@ -40,9 +40,9 @@ public class GunVacuum : MonoBehaviour
 
     private void Update()
     {
-        if (!pauseUI.activeInHierarchy && !settingUI.activeInHierarchy)
+        if ((pauseUI && settingUI) && !pauseUI.activeInHierarchy && !settingUI.activeInHierarchy)
         {
-            if (!shopUI.activeInHierarchy)
+            if (shopUI && !shopUI.activeInHierarchy)
             {
                 if (Input.GetMouseButtonDown(1))
                 {
@@ -115,7 +115,7 @@ public class GunVacuum : MonoBehaviour
         if (other.transform.CompareTag("Target"))
         {
             anim = other.transform.gameObject.GetComponentInChildren<Animator>();
-            if(other.transform.childCount > 0)         //new
+            if(other.transform.childCount > 0 && other.transform.GetComponentInChildren<CapsuleCollider>())         //new
                 other.transform.GetChild(1).gameObject.GetComponentInChildren<CapsuleCollider>().enabled = true;
             other.transform.gameObject.GetComponent<Target>().isVacuum = false;
             if (anim)
@@ -129,7 +129,7 @@ public class GunVacuum : MonoBehaviour
 
     public void VacuumTarget(Collider other)
     {
-        Debug.Log("inhaling");
+        //Debug.Log("inhaling");
         if (Vector3.Distance(other.transform.position, gunPoint.position) > 0.3f)
         {
             //old version (Vector3.MoveTowards)
@@ -156,7 +156,7 @@ public class GunVacuum : MonoBehaviour
 
         else
         {
-            Debug.Log("inhaled");
+            //Debug.Log("inhaled");
             //inventory system
             var item = other.transform.GetComponent<WorldItem>().item;
             if (item)

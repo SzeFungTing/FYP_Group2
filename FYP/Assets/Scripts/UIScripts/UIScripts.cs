@@ -45,7 +45,7 @@ public class UIScripts : MonoBehaviour
             Cursor.lockState = CursorLockMode.Locked;
         }
 
-        if (shopUI.activeInHierarchy)
+        if (shopUI && shopUI.activeInHierarchy)
         {
             Cursor.lockState = CursorLockMode.None;
         }

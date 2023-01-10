@@ -45,6 +45,7 @@ public enum ItemType
     Capsule,
     Cylinder,
     House,
+    Material
 }
 
 public enum ActionType
