@@ -57,17 +57,6 @@ public class MouseLook : MonoBehaviour
 
     public void InternalLockUpdate()
     {
-        if (Input.GetKey(KeyCode.LeftAlt))
-        {
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
-        }
-        else if (Input.GetKeyUp(KeyCode.LeftAlt))
-        {
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
-        }
-
         if (Input.GetKeyUp(KeyCode.Escape))
         {
             Cursor.lockState = CursorLockMode.None;
@@ -81,6 +70,19 @@ public class MouseLook : MonoBehaviour
                 Cursor.visible = false;
             }
         }
-        
+
+        if (Input.GetKeyUp(KeyCode.C))
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
+        else if (pauseUI.activeInHierarchy || settingUI.activeInHierarchy)
+        {
+            if (Input.GetKeyUp(KeyCode.C))
+            {
+                Cursor.lockState = CursorLockMode.Locked;
+                Cursor.visible = false;
+            }
+        }
     }
 }

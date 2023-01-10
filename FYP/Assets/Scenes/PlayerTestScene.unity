@@ -5899,6 +5899,37 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isVacuum: 0
   maxHeight: 80
+--- !u!1 &1158941302
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1158941303}
+  m_Layer: 0
+  m_Name: otherFajro
+  m_TagString: Fajro
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1158941303
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1158941302}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.7, y: 0, z: 5.79}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1554974707}
+  m_Father: {fileID: 0}
+  m_RootOrder: 16
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1251159185
 GameObject:
   m_ObjectHideFlags: 0
@@ -6027,46 +6058,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isVacuum: 0
   maxHeight: 80
---- !u!1 &1274640892 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7932083041662162503, guid: cd4ee46b53265e64788586c66a35d198, type: 3}
-  m_PrefabInstance: {fileID: 7932083041784067889}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1274640893
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1274640892}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bdb6a6d557da9ef49be50e50fd199222, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animoType1: 0
-  animoType2: 2
---- !u!114 &1274640894
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1274640892}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd7e6cff09ba6664c8c54d5cc6008991, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  FajroWillNotEat:
-  - {fileID: 2259442092407703965, guid: bbcbb24d181360749bd471bdaeccfbe7, type: 3}
-  ListOfMixedAnimoPrefab:
-  - {fileID: 3499233398691345192, guid: 9d6baea7fa3bfae4aaf74e298bf4e752, type: 3}
-  _eat: {fileID: 7932083041784067890}
-  _aIMovement: {fileID: 7932083041784067891}
-  movementSpeed: 1
-  rotationSpeed: 100
-  findFajroDistance: 300
 --- !u!1 &1400641099 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100002, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
@@ -6228,12 +6219,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1554974701}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: 5}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_Father: {fileID: 1158941303}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1636701259
 GameObject:
@@ -11296,6 +11287,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8200000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
 --- !u!143 &1866116889 stripped
@@ -11880,21 +11875,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -406338546799173149, guid: cd4ee46b53265e64788586c66a35d198, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7932083041662162503, guid: cd4ee46b53265e64788586c66a35d198, type: 3}
       propertyPath: m_Name
       value: Chicken
-      objectReference: {fileID: 0}
-    - target: {fileID: 7932083041662162506, guid: cd4ee46b53265e64788586c66a35d198, type: 3}
-      propertyPath: _eat
-      value: 
-      objectReference: {fileID: 7932083041784067890}
-    - target: {fileID: 7932083041662162506, guid: cd4ee46b53265e64788586c66a35d198, type: 3}
-      propertyPath: findFoodDistance
-      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 7932083041662162507, guid: cd4ee46b53265e64788586c66a35d198, type: 3}
       propertyPath: m_RootOrder
@@ -11942,25 +11925,3 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cd4ee46b53265e64788586c66a35d198, type: 3}
---- !u!114 &7932083041784067890 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: -406338546799173149, guid: cd4ee46b53265e64788586c66a35d198, type: 3}
-  m_PrefabInstance: {fileID: 7932083041784067889}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1274640892}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c07b0be5f82d574db88402f539d6321, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &7932083041784067891 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7932083041662162506, guid: cd4ee46b53265e64788586c66a35d198, type: 3}
-  m_PrefabInstance: {fileID: 7932083041784067889}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1274640892}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d20b0cb93fbd8f94da02778dd67fa471, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

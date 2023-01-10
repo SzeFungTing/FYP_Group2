@@ -24,13 +24,15 @@ public class EatFajro : MonoBehaviour
     private bool hvFajro = false;
     private bool isRotatingToFajro = false;
     private bool isWalkingToFajro = false;
+    private bool isStoping = false;
 
     private GameObject closestFajro;
+    private Rigidbody rb;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        rb = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -59,7 +61,14 @@ public class EatFajro : MonoBehaviour
 
         if (isWalkingToFajro)
         {
-            transform.position = Vector3.Lerp(transform.position, closestFajro.transform.position, 0.005f);
+            //transform.position = Vector3.Lerp(transform.position, closestFajro.transform.position, 0.005f);
+            rb.AddForce((closestFajro.transform.position - transform.position) * _aIMovement.movementSpeed * 0.3f);
+        }
+
+        if (isStoping)
+        {
+            //Debug.Log("isStoping");
+            Stop();
         }
     }
 
@@ -67,6 +76,7 @@ public class EatFajro : MonoBehaviour
     {
         int rotationTime = Random.Range(1, 3);
         int eatWait = Random.Range(1, 5);
+        int stopTime = Random.Range(1, 5);
 
         if (hvFajro)
             isEatingFajro = true;
@@ -79,6 +89,9 @@ public class EatFajro : MonoBehaviour
         yield return new WaitForSeconds(eatWait);
         isWalkingToFajro = false;
 
+        isStoping = true;
+        yield return new WaitForSeconds(stopTime);
+
         isEatingFajro = false;
     }
 
@@ -86,31 +99,38 @@ public class EatFajro : MonoBehaviour
     {
         if (other.tag == "Fajro")
         {
-            //for (int i = 0; i < FajroWillNotEat.Length; i++)
-            //{
-            //    Debug.Log("FajroWillNotEat fajro type :" + FajroWillNotEat[i].GetComponent<Fajro>().fajroType.ToString());
-            //    Debug.Log("other fajro type : " + other.GetComponent<Fajro>().fajroType.ToString());
-
-            //    if (FajroWillNotEat[i].GetComponent<Fajro>().fajroType == other.GetComponent<Fajro>().fajroType)
-            //    {
-            //        return;
-            //    }
-            //}
-
-            Destroy(other.gameObject);
-
-            for (int i = 0; i < ListOfMixedAnimoPrefab.Length; i++)
+            /*for (int i = 0; i < FajroWillNotEat.Length; i++)
             {
-                if ((ListOfMixedAnimoPrefab[i].GetComponent<Animo>().animoType1.ToString() == gameObject.GetComponent<Animo>().animoType1.ToString()            /*animo prefab type1 == this animo type1*/
-                    || ListOfMixedAnimoPrefab[i].GetComponent<Animo>().animoType2.ToString() == gameObject.GetComponent<Animo>().animoType1.ToString())         /*animo prefab type2 == this animo type1*/
-                    && (ListOfMixedAnimoPrefab[i].GetComponent<Animo>().animoType1.ToString() == other.gameObject.GetComponent<Fajro>().fajroType.ToString()    /*animo prefab type1 == fajro ate type*/
-                    || ListOfMixedAnimoPrefab[i].GetComponent<Animo>().animoType2.ToString() == other.gameObject.GetComponent<Fajro>().fajroType.ToString()))   /*animo prefab type2 == fajro ate type*/
-                {
-                    Instantiate(ListOfMixedAnimoPrefab[i], transform.position, transform.rotation);
-                }
-            }
+                Debug.Log("FajroWillNotEat fajro type :" + FajroWillNotEat[i].GetComponent<Fajro>().fajroType.ToString());
+                Debug.Log("other fajro type : " + other.GetComponent<Fajro>().fajroType.ToString());
 
-            Destroy(gameObject);
+                if (FajroWillNotEat[i].GetComponent<Fajro>().fajroType == other.GetComponent<Fajro>().fajroType)
+                {
+                    return;
+                }
+            }*/
+
+            if (/*other != _eat.FajroCore*/gameObject.GetComponent<Animo>().animoType1.ToString() != other.gameObject.GetComponent<Fajro>().fajroType.ToString()
+                        && gameObject.GetComponent<Animo>().animoType2.ToString() != other.gameObject.GetComponent<Fajro>().fajroType.ToString())
+            {
+                Destroy(other.gameObject.transform.parent.gameObject);
+
+                for (int i = 0; i < ListOfMixedAnimoPrefab.Length; i++)
+                {
+                    if ((ListOfMixedAnimoPrefab[i].GetComponent<Animo>().animoType1.ToString() == gameObject.GetComponent<Animo>().animoType1.ToString()            /*animo prefab type1 == this animo type1*/
+                        || ListOfMixedAnimoPrefab[i].GetComponent<Animo>().animoType2.ToString() == gameObject.GetComponent<Animo>().animoType1.ToString())         /*animo prefab type2 == this animo type1*/
+                        && (ListOfMixedAnimoPrefab[i].GetComponent<Animo>().animoType1.ToString() == other.gameObject.GetComponent<Fajro>().fajroType.ToString()    /*animo prefab type1 == fajro ate type*/
+                        || ListOfMixedAnimoPrefab[i].GetComponent<Animo>().animoType2.ToString() == other.gameObject.GetComponent<Fajro>().fajroType.ToString())   /*animo prefab type2 == fajro ate type*/
+                        && gameObject.GetComponent<Animo>().animoType1.ToString() != other.gameObject.GetComponent<Fajro>().fajroType.ToString()
+                        && gameObject.GetComponent<Animo>().animoType2.ToString() != other.gameObject.GetComponent<Fajro>().fajroType.ToString())
+                    {
+                        Instantiate(ListOfMixedAnimoPrefab[i], transform.position + Vector3.up, transform.rotation);
+                    }
+                }
+
+                Destroy(gameObject);
+            }
+            
         }
     }
 
@@ -122,7 +142,7 @@ public class EatFajro : MonoBehaviour
         float distance = Mathf.Infinity;
         foreach (GameObject fajro in fajros)
         {
-            if (fajro != _eat.FajroCore)
+            if (fajro.transform.parent != _eat.FajroCore)
             {
                 Vector3 diff = fajro.transform.position - transform.position;
                 float curDistance = diff.sqrMagnitude;
@@ -144,5 +164,16 @@ public class EatFajro : MonoBehaviour
             hvFajro = false;
             return null;
         }
+    }
+
+    public bool GetHvFajro()
+    {
+        //Debug.Log(hvFajro);
+        return hvFajro;
+    }
+
+    private void Stop()
+    {
+        rb.velocity = rb.velocity * 0.995f;
     }
 }

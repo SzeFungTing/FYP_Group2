@@ -87,8 +87,13 @@ public class ShopManager : MonoBehaviour
         {
             if (Anim_Drone.GetCurrentAnimatorStateInfo(0).IsName("TurnAround") && Anim_Drone.GetCurrentAnimatorStateInfo(0).normalizedTime > 1)         //check animation end?, Instantiate ther
             {
-                var stuff = Instantiate(ButtonRef.GetComponent<ButtonInfo>().SItem, ShootingP.position, Random.rotation);
-                stuff.GetComponentInChildren<Rigidbody>().velocity = ShootingP.forward * Speed;
+                if(ButtonRef.GetComponent<ButtonInfo>().ItemID != 2)
+                {
+                    var stuff = Instantiate(ButtonRef.GetComponent<ButtonInfo>().SItem, ShootingP.position, Random.rotation);
+                    stuff.GetComponentInChildren<Rigidbody>().velocity = ShootingP.forward * Speed;
+
+                }
+                
                 Anim_Drone.SetBool("is_Shooted", false);
                 isBought = false;
             }
@@ -122,7 +127,7 @@ public class ShopManager : MonoBehaviour
                 Anim_Drone.SetBool("is_Shooted", true);
                 isBought = true;
 
-                if (Anim_Drone.GetCurrentAnimatorStateInfo(0).IsName("TurnAround") && Anim_Drone.GetCurrentAnimatorStateInfo(0).normalizedTime > 1)
+                if ((Anim_Drone.GetCurrentAnimatorStateInfo(0).IsName("TurnAround") && Anim_Drone.GetCurrentAnimatorStateInfo(0).normalizedTime > 1) || Anim_Drone.GetCurrentAnimatorStateInfo(0).IsName("Start"))
                 {
                     /*coins*/ MoneyManager.instance.coins -= shopItems[2, ButtonRef.GetComponent<ButtonInfo>().ItemID];
 

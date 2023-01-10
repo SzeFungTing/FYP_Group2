@@ -1316,22 +1316,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 712354773842833166, guid: ed56b7259823e924f8655037667597dd, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 712354773842833166, guid: ed56b7259823e924f8655037667597dd, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1529838721}
-    - target: {fileID: 712354773842833166, guid: ed56b7259823e924f8655037667597dd, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 712354774174834363, guid: ed56b7259823e924f8655037667597dd, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 712354774191546970, guid: ed56b7259823e924f8655037667597dd, type: 3}
       propertyPath: pauseUI
       value: 
@@ -1341,18 +1325,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1529838721}
     - target: {fileID: 712354774191546971, guid: ed56b7259823e924f8655037667597dd, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 712354774234072763, guid: ed56b7259823e924f8655037667597dd, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 712354774261075864, guid: ed56b7259823e924f8655037667597dd, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 712354774561914219, guid: ed56b7259823e924f8655037667597dd, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
@@ -1446,16 +1418,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 712354774570182733, guid: ed56b7259823e924f8655037667597dd, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 712354775926187457, guid: ed56b7259823e924f8655037667597dd, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 959505746}
-    - target: {fileID: 712354775926187457, guid: ed56b7259823e924f8655037667597dd, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: SetActive
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ed56b7259823e924f8655037667597dd, type: 3}
 --- !u!1 &1529838721 stripped
