@@ -19,6 +19,7 @@ public class ShopManager : MonoBehaviour
 
     public bool isBought = false;
     public float Speed = 5f;
+    public ShopSystem Ss;
 
 
 
@@ -62,16 +63,31 @@ public class ShopManager : MonoBehaviour
 
     public void Update()
     {
-        if (isBought)                                           
+        if (!Ss.isUIOpened)
         {
-            if (Anim_Drone.GetCurrentAnimatorStateInfo(0).IsName("TurnAround") && Anim_Drone.GetCurrentAnimatorStateInfo(0).normalizedTime > 1)         //check animation end?, Instantiate ther
-            {
-                var stuff = Instantiate(ButtonRef.GetComponent<ButtonInfo>().SItem, ShootingP.position, Random.rotation);
-                stuff.GetComponentInChildren<Rigidbody>().velocity = ShootingP.forward * Speed;
-                Anim_Drone.SetBool("is_Shooted", false);
-                isBought = false;
-            }
+
+           
+               /* if (Anim_Drone.GetCurrentAnimatorStateInfo(0).IsName("TurnAround") && Anim_Drone.GetCurrentAnimatorStateInfo(0).normalizedTime > 1)  */       //check animation end?, Instantiate ther
+                {
+                    for(int i = 1; i < 5; i++)
+                    {
+
+                        if (shopItems[3, i] != 0) 
+                        {
+                            GameObject Go = 
+                            var stuff = Instantiate(ButtonRef.GetComponent<ButtonInfo>().SItem, ShootingP.position, Random.rotation);
+                            stuff.GetComponentInChildren<Rigidbody>().velocity = ShootingP.forward * Speed;
+                            Anim_Drone.SetBool("is_Shooted", false);
+                            shopItems[3, i] = 0;
+                        }
+                    
+                    }
+                  
+                }
+            
+
         }
+        
 
 
         if (shopItems[4, 2] <= 0)

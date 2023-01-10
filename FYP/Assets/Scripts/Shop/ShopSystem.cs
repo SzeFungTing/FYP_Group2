@@ -11,7 +11,7 @@ public class ShopSystem : MonoBehaviour
 
     Animator Anim_Drone;
 
-    bool isUIOpened = false;
+    public bool isUIOpened = false;
   
     // Start is called before the first frame update
     void Start()
