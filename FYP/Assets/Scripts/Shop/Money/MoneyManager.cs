@@ -7,14 +7,14 @@ public class MoneyManager : MonoBehaviour
 {
     public static MoneyManager instance;
 
-    public float coins;
+    public float coins = 1000;
 
     public Text coinsText;
 
     private void Awake()
     {
         instance = this;
-        coins = 0;
+        //coins = 0;
         RefreshCoins();
     }
 
@@ -22,13 +22,13 @@ public class MoneyManager : MonoBehaviour
     {
         if(coins - price >= 0)
             coins -= price;
-        RefreshCoins();
+        //RefreshCoins();
     }
 
     public void Sell(float price)
     {
         coins += price;
-        RefreshCoins();
+        //RefreshCoins();
     }
 
     public void RefreshCoins()
