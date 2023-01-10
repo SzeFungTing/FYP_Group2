@@ -34,7 +34,7 @@ public class UIScripts : MonoBehaviour
             }
         }
 
-        if (shopUI.activeInHierarchy || pauseUI.activeInHierarchy || settingUI.activeInHierarchy || SceneManager.GetActiveScene().name == "Start UI")
+        if (pauseUI.activeInHierarchy || settingUI.activeInHierarchy || SceneManager.GetActiveScene().name == "Start UI")
         {
             Time.timeScale = 0;     //pause the game time
             Cursor.lockState = CursorLockMode.None;
@@ -42,6 +42,15 @@ public class UIScripts : MonoBehaviour
         else
         {
             Time.timeScale = 1;     //start the game time
+            Cursor.lockState = CursorLockMode.Locked;
+        }
+
+        if (shopUI.activeInHierarchy)
+        {
+            Cursor.lockState = CursorLockMode.None;
+        }
+        else
+        {
             Cursor.lockState = CursorLockMode.Locked;
         }
     }
