@@ -208,6 +208,7 @@ GameObject:
   - component: {fileID: 4005832139829071396}
   - component: {fileID: 4363831846414974265}
   - component: {fileID: 8465384086472591163}
+  - component: {fileID: -6716554582553597462}
   m_Layer: 0
   m_Name: FajroCore
   m_TagString: Target
@@ -287,6 +288,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item: {fileID: 11400000, guid: 4a237872b253c0049b6956007f71843a, type: 2}
+--- !u!114 &-6716554582553597462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2939924251695384518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62374bce50ab03e4e9ca01fbadae3183, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fajroType: 0
+  destoryTime: 300
 --- !u!1 &3423228135629588723
 GameObject:
   m_ObjectHideFlags: 0
@@ -348,7 +363,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f325b12b7180e9840b958c5a329b4991, type: 2}
+  - {fileID: 0}
   - {fileID: 2100000, guid: da1aff4e2c375c342aef44b1e314808f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0

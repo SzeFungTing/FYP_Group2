@@ -22,13 +22,13 @@ public class MoneyManager : MonoBehaviour
     {
         if(coins - price >= 0)
             coins -= price;
-        //RefreshCoins();
+        RefreshCoins();
     }
 
     public void Sell(float price)
     {
         coins += price;
-        //RefreshCoins();
+        RefreshCoins();
     }
 
     public void RefreshCoins()

@@ -36,8 +36,24 @@ public class ShopSystem : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.C))                        //open/ close shop UI
         {
-            drone.SetActive(!drone.activeSelf);                   //open/ close drone                
-            shopUI.SetActive(!shopUI.activeSelf);
+            //drone.SetActive(!drone.activeSelf);                   //open/ close drone                
+            //shopUI.SetActive(!shopUI.activeSelf);
+
+            if (shopUI.activeInHierarchy)
+            {
+                CloseShopUI();
+            }
+            else
+            {
+                shopUI.SetActive(true);
+                drone.SetActive(true);
+                Vector3 playerOffset = transform.position;
+                playerOffset.x += 2.5f;
+                playerOffset.y += 2.5f;
+                playerOffset.z += 2.5f;
+                drone.transform.position = playerOffset;
+                isUIOpened = true;
+            }
             
         }
         if (Input.GetKeyDown(KeyCode.Escape))                     //Escape to close shopUI  
