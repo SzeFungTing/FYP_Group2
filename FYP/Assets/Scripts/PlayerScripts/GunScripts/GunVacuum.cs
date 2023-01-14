@@ -93,7 +93,7 @@ public class GunVacuum : MonoBehaviour
             }
             else /*if (Input.GetMouseButtonUp(1))*/
             {
-                if(other.transform.childCount > 0 && other.transform.GetComponentInChildren<CapsuleCollider>())         //new
+                if(other.transform.childCount > 0 && other.transform.GetComponentInChildren<CapsuleCollider>() && other.transform.GetChild(1).GetComponent<CapsuleCollider>())         //new
                     other.transform.GetChild(1).gameObject.GetComponentInChildren<CapsuleCollider>().enabled = true;
                 other.transform.gameObject.GetComponent<Target>().isVacuum = false;
 

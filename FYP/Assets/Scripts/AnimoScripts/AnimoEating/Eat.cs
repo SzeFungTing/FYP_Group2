@@ -50,9 +50,11 @@ public class Eat : MonoBehaviour
                     //GameObject food = Instantiate(Food, transform.position, Quaternion.identity,transform);
                     //food.transform.localScale = scaleChange;
 
-                    offset = transform.position;            //Fajro spawn point offset
-                    offset.x += 0.8f;
-                    offset.y += 0.2f;
+                    //offset = transform.position;            //Fajro spawn point offset
+                    //offset.x += 0.8f;
+                    //offset.y += 0.2f;
+                    offset = SpawnAroundWithRadius();
+
                     Instantiate(FajroCore, offset, Quaternion.identity);        //Fajro spawn
                     //Ftime =3;
                 }
@@ -70,20 +72,37 @@ public class Eat : MonoBehaviour
             if (other.tag == "Food")
             {
                 Food = other.gameObject;
-                Food.GetComponent<Collider>().enabled = false;
+                Food.transform.GetChild(0).GetComponent<Collider>().enabled = false;
+                Food.GetComponent<Rigidbody>().useGravity = false;
                 Food.transform.position = transform.position;
                 Food.transform.SetParent(transform);
                 Food.transform.localScale = scaleChange;
-                Food.GetComponent<DissolveObject>().isAte = true;
+                Food.GetComponentInChildren<DissolveObject>().isAte = true;
                 //Destroy(other.gameObject);
 
                 isEaten = true;
                 
 
             }
+        }   
+    }
 
+    private Vector3 SpawnAroundWithRadius()
+    {
+        float radius = 0.8f;
+        Vector3 randomPos = Random.insideUnitSphere * radius;  //get a random point inside or on a sphere with radius     
+        randomPos += transform.position;            //the randomPos well based on this gameObject
+        randomPos.y = transform.position.y + 1;         //the randomPosY set to same at this gameObject
 
-        }
-        
+        Vector3 direction = randomPos - transform.position;
+        direction.Normalize();
+
+        float dotProduct = Vector3.Dot(transform.forward, direction);
+        float dotProductAngle = Mathf.Acos(dotProduct / transform.forward.magnitude * direction.magnitude);
+
+        randomPos.x = Mathf.Cos(dotProductAngle) * radius + transform.position.x;
+        randomPos.z = Mathf.Sin(dotProductAngle * (Random.value > 0.5f ? 1f : -1f)) * radius + transform.position.z;
+
+        return randomPos;
     }
 }
