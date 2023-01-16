@@ -44,7 +44,7 @@ public class PlayerMovement : MonoBehaviour
     public Vector3 currentVector = Vector3.up;
     public float CurrentForce = 0;
     public float MaxForce = 5;
-    bool isflying;
+    public bool isflying;
 
     public Image FillBar;
     public ShopManager shopManager;
@@ -187,6 +187,10 @@ public class PlayerMovement : MonoBehaviour
             controller.Move(moveDirection * Time.deltaTime);
 
             gravity = -9.8f;
+        }
+        else
+        {
+            controller.Move(Vector3.zero * Time.deltaTime);
         }
     }
 
