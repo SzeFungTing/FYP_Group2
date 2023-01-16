@@ -78,7 +78,8 @@ public class GunVacuum : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.transform.CompareTag("Target"))
+        if (other.transform.gameObject.GetComponent<Target>())          //new change
+        //if (other.transform.CompareTag("Target"))
         {
             anim = other.transform.gameObject.GetComponentInChildren<Animator>();
             if (other.transform.gameObject.layer == 7)
@@ -113,7 +114,8 @@ public class GunVacuum : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.transform.CompareTag("Target"))
+        if (other.transform.gameObject.GetComponent<Target>())      //new change
+        //if (other.transform.CompareTag("Target"))
         {
             anim = other.transform.gameObject.GetComponentInChildren<Animator>();
             if(other.transform.childCount > 0 && other.transform.GetComponentInChildren<CapsuleCollider>())         //new

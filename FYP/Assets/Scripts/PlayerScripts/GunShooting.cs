@@ -14,7 +14,7 @@ public class GunShooting : MonoBehaviour
     Vector3 gunLoaclPos;
     public GameObject shootingPoint;
 
-    public Animator Anim_Gun;
+    //public Animator Anim_Gun;
 
 
 

@@ -11,8 +11,10 @@ public class Eat : MonoBehaviour
     float time/*,Ftime*/;
     public GameObject FajroCore;
     public GameObject Food;
-    Vector3 offset;
-    Vector3 scaleChange;
+    Vector3 offset;                         //the fajrpCore spwan point
+
+    Vector3 foodScaleChange;                    //the food scale change after Animo ate
+    public float foodScaleChangeValue = 0.3f;
 
 
 
@@ -22,7 +24,7 @@ public class Eat : MonoBehaviour
         Food = null;
         time = 180;
         //Ftime = 3;
-        scaleChange = new Vector3(0.3f, 0.3f, 0.3f);
+        foodScaleChange = new Vector3(foodScaleChangeValue, foodScaleChangeValue, foodScaleChangeValue);
     }
 
     // Update is called once per frame
@@ -72,12 +74,14 @@ public class Eat : MonoBehaviour
             if (other.tag == "Food")
             {
                 Food = other.gameObject;
-                Food.transform.GetChild(0).GetComponent<Collider>().enabled = false;
-                Food.GetComponent<Rigidbody>().useGravity = false;
-                Food.transform.position = transform.position;
-                Food.transform.SetParent(transform);
-                Food.transform.localScale = scaleChange;
-                Food.GetComponentInChildren<DissolveObject>().isAte = true;
+                Food.transform.GetComponent<Target>().enabled = false;                  //close the "Target" script, so player can not inhale the food
+                Food.transform.GetComponent<Collider>().enabled = false;                //close the isTrigger Collider, the food will not run the fnuction again
+                Food.transform.GetChild(0).GetComponent<Collider>().enabled = false;    //close the Collider, so the food will not collider with the Animo
+                Food.GetComponent<Rigidbody>().isKinematic = true;                      //close the Rigidbody, so the food will not drop down
+                Food.transform.position = transform.position;                           //the food delivery into the Animo
+                Food.transform.SetParent(transform);                                    //set the food parent be the Animo
+                Food.transform.localScale = foodScaleChange;                            //scale the food size
+                Food.GetComponentInChildren<DissolveObject>().isAte = true;             //the food start to Digestion
                 //Destroy(other.gameObject);
 
                 isEaten = true;
