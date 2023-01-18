@@ -94,22 +94,25 @@ public class PlayerMovement : MonoBehaviour
         {
             FillBar.fillAmount = MaxForce;
 
-            if (Input.GetKeyUp(KeyCode.Space))
+            if (MaxForce >= 0)
             {
-                MaxForce -= Time.deltaTime * 10;
-            }
-
-            if (Input.GetKey(KeyCode.Space) && MaxForce > 0)
-            {
-                MaxForce -= Time.deltaTime / 3;
-
-                if (CurrentForce < 1)
+                if (Input.GetKeyUp(KeyCode.Space))
                 {
-                    CurrentForce += Time.deltaTime * 10;
+                    MaxForce -= Time.deltaTime * 10;
                 }
-                else
+
+                if (Input.GetKey(KeyCode.Space) && MaxForce > 0)
                 {
-                    CurrentForce = 1;
+                    MaxForce -= Time.deltaTime / 3;
+
+                    if (CurrentForce < 1)
+                    {
+                        CurrentForce += Time.deltaTime * 10;
+                    }
+                    else
+                    {
+                        CurrentForce = 1;
+                    }
                 }
             }
 
