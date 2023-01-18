@@ -45,6 +45,7 @@ public class PlayerMovement : MonoBehaviour
     public float CurrentForce = 0;
     public float MaxForce = 5;
     public bool isflying;
+    public float clickTime;
 
     public Image FillBar;
     public ShopManager shopManager;
@@ -96,12 +97,17 @@ public class PlayerMovement : MonoBehaviour
 
             if (MaxForce >= 0)
             {
+                if (Input.GetKeyDown(KeyCode.Space))
+                {
+                    clickTime = Time.time;
+                }
+
                 if (Input.GetKeyUp(KeyCode.Space))
                 {
                     MaxForce -= Time.deltaTime * 10;
                 }
 
-                if (Input.GetKey(KeyCode.Space) && MaxForce > 0)
+                if (Input.GetKey(KeyCode.Space) && MaxForce > 0 && (Time.time - clickTime) > 0.5)
                 {
                     MaxForce -= Time.deltaTime / 3;
 
