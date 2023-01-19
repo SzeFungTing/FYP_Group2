@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4421697761770601439}
   - component: {fileID: 4421697761770601424}
   - component: {fileID: 4421697761770601425}
+  - component: {fileID: -8746619081789328486}
   m_Layer: 0
   m_Name: CageSmall
   m_TagString: Target
@@ -91,6 +92,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item: {fileID: 11400000, guid: 82575295c8fd6014aa6aa4d051cd0bde, type: 2}
+--- !u!114 &-8746619081789328486
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4421697761770601426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c03d0f95e0ed1c842ad35cd9a67349ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprite: {fileID: 21300000, guid: 5ebea6ef4138a76438a1b75384b91f96, type: 3}
+  inputItemSOList:
+  - {fileID: 11400000, guid: b70292e44ce4fed449b9b8c72f59ff04, type: 2}
+  - {fileID: 11400000, guid: 0acb75d02374e8a468838277126e486b, type: 2}
+  - {fileID: 11400000, guid: 732af611cd11b7f42819587860de555b, type: 2}
+  outputItemSO: {fileID: 4421697761770601426}
 --- !u!1001 &4421697762076275342
 PrefabInstance:
   m_ObjectHideFlags: 0

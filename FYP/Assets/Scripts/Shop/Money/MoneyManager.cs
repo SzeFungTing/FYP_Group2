@@ -33,6 +33,7 @@ public class MoneyManager : MonoBehaviour
 
     public void RefreshCoins()
     {
+        if(coinsText)
         coinsText.text = "Coins: " + coins;
     }
 }

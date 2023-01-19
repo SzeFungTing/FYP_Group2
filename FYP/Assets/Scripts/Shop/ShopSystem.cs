@@ -16,8 +16,12 @@ public class ShopSystem : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        drone.SetActive(false);
-        shopUI.SetActive(false);
+        if (drone && shopUI)
+        {
+            drone.SetActive(false);
+            shopUI.SetActive(false);
+        }
+        
 
         Anim_Drone = drone.GetComponent<Animator>();
 
@@ -27,7 +31,7 @@ public class ShopSystem : MonoBehaviour
     void Update()
     {
 
-        if (Anim_Drone.GetCurrentAnimatorStateInfo(0).IsName("Start") && Anim_Drone.GetCurrentAnimatorStateInfo(0).normalizedTime > 1 && !isUIOpened)            //drone animation end, open shopUI
+        if (Anim_Drone && Anim_Drone.GetCurrentAnimatorStateInfo(0).IsName("Start") && Anim_Drone.GetCurrentAnimatorStateInfo(0).normalizedTime > 1 && !isUIOpened)            //drone animation end, open shopUI
         {
             shopUI.SetActive(true);
             isUIOpened = true;

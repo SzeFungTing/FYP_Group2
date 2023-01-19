@@ -36,6 +36,11 @@ public class GunVacuum : MonoBehaviour
 
     private void Start()
     {
+        pauseUI = UIScripts.instance.pauseUI;
+        settingUI = UIScripts.instance.settingUI;
+        shopUI = UIScripts.instance.shopUI;
+        backPackUI = UIScripts.instance.backPackUI;
+
         gunAnim = gun.GetComponent<Animator>();
     }
 

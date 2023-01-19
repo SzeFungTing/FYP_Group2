@@ -294,6 +294,7 @@ GameObject:
   - component: {fileID: 7821197875280942786}
   - component: {fileID: 7821197875280942787}
   - component: {fileID: 7821197875280942788}
+  - component: {fileID: 6816604981075719629}
   m_Layer: 0
   m_Name: Watermelon_v2
   m_TagString: Food
@@ -372,6 +373,24 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &6816604981075719629
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7821197875280942789}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c03d0f95e0ed1c842ad35cd9a67349ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprite: {fileID: 21300000, guid: bfca3bb2d3f17bd4785b3427a0e905cd, type: 3}
+  inputItemSOList:
+  - {fileID: 11400000, guid: b70292e44ce4fed449b9b8c72f59ff04, type: 2}
+  - {fileID: 11400000, guid: b70292e44ce4fed449b9b8c72f59ff04, type: 2}
+  - {fileID: 11400000, guid: b70292e44ce4fed449b9b8c72f59ff04, type: 2}
+  outputItemSO: {fileID: 7821197875280942789}
 --- !u!1 &8285181745711804549
 GameObject:
   m_ObjectHideFlags: 0

@@ -5,10 +5,23 @@ using UnityEngine.SceneManagement;
 
 public class UIScripts : MonoBehaviour
 {
-    [SerializeField] GameObject pauseUI;
-    [SerializeField] GameObject settingUI;
-    [SerializeField] GameObject shopUI;
-    [SerializeField] GameObject backPackUI;
+    public static UIScripts instance;
+
+    public GameObject pauseUI;
+    public GameObject settingUI;
+    public GameObject shopUI;
+    public GameObject backPackUI;
+    public GameObject hotBarUI;
+    public GameObject buttonIndicationUI;
+
+    private void Awake()
+    {
+        instance = this;
+    }
+    private void Start()
+    {
+        buttonIndicationUI.SetActive(false);
+    }
 
     private void Update()
     {

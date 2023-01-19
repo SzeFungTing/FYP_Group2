@@ -29,6 +29,9 @@ public class InventoryManager5 : MonoBehaviour
 
     private void Start()
     {
+        inventoryUI = UIScripts.instance.backPackUI;
+        hotBarUI = UIScripts.instance.hotBarUI;
+
         inventoryUI.SetActive(false);
         hotBarUI.SetActive(true);
         ChangeSelectedSlot(0);

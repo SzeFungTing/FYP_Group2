@@ -38,14 +38,18 @@ public class Item5 : ScriptableObject
 public enum ItemType
 {
     BuildingBlock,
-    Tool,
+    Food,
+    Material,
+    Ghost,
+    FajroCore,
+
     Traget,
-    ChickenGhost,
     Cube,
     Capsule,
     Cylinder,
     House,
-    Material
+    Tool,
+
 }
 
 public enum ActionType
