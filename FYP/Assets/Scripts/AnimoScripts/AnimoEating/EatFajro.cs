@@ -10,8 +10,11 @@ public class EatFajro : MonoBehaviour
     [SerializeField]
     private GameObject[] ListOfMixedAnimoPrefab;
 
+    //[SerializeField]
+    //private Eat _eat;
+
     [SerializeField]
-    private Eat _eat;
+    private EatFood _eatFood;
 
     [SerializeField]
     private AIMovement _aIMovement;
@@ -43,12 +46,16 @@ public class EatFajro : MonoBehaviour
         if (hvFajro)
         {
             _aIMovement.enabled = false;
+            _eatFood.enabled = false;
             if (!isEatingFajro)
+            {
                 StartCoroutine(EatingFajro());
+            }
         }
         else
         {
             _aIMovement.enabled = true;
+            _eatFood.enabled = true;
         }
 
         if (isRotatingToFajro)
@@ -91,6 +98,7 @@ public class EatFajro : MonoBehaviour
 
         isStoping = true;
         yield return new WaitForSeconds(stopTime);
+        isStoping = false;
 
         isEatingFajro = false;
     }
@@ -142,7 +150,7 @@ public class EatFajro : MonoBehaviour
         float distance = Mathf.Infinity;
         foreach (GameObject fajro in fajros)
         {
-            if (fajro.transform.parent != _eat.FajroCore)
+            if (fajro.transform.parent != _eatFood.FajroCore)
             {
                 Vector3 diff = fajro.transform.position - transform.position;
                 float curDistance = diff.sqrMagnitude;

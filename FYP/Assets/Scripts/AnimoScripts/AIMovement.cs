@@ -10,7 +10,8 @@ public class AIMovement : MonoBehaviour
     public float eatCooldown = 200f;
     public float findFoodDistance = 500f;
 
-    [SerializeField] Eat _eat;
+    //[SerializeField] Eat _eat;
+    [SerializeField] EatFood _eatFood;
     [SerializeField] EatFajro _eatFajro;
 
     private bool isWandering = false;
@@ -20,13 +21,13 @@ public class AIMovement : MonoBehaviour
     private bool isFlyingUp = false;
     private bool isFlyingDown = false;
     private bool isStoping = false;
-    private bool isHungry = true;
-    private bool hvFood = false;
-    private bool isWalkingToFood = false;
-    private bool isRotatingToFood = false;
+    //private bool isHungry = true;
+    //private bool hvFood = false;
+    //private bool isWalkingToFood = false;
+    //private bool isRotatingToFood = false;
 
-    private float perviousEatTime = 0f;
-    private GameObject closestFood;
+    //private float perviousEatTime = 0f;
+    //private GameObject closestFood;
 
     Rigidbody rb;
 
@@ -40,17 +41,22 @@ public class AIMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Time.deltaTime - perviousEatTime > eatCooldown)
-        {
-            isHungry = true;
-        }
+        //if (Time.deltaTime - perviousEatTime > eatCooldown)
+        //{
+        //    isHungry = true;
+        //}
 
-        if (isHungry)
-        {
-            closestFood = FindClosestFood();
-        }
+        //if (isHungry)
+        //{
+        //    closestFood = FindClosestFood();
+        //}
 
         if (_eatFajro.GetHvFajro())
+        {
+            StopCoroutine(Wander());
+        }
+
+        if (_eatFood.GetHvFood())
         {
             StopCoroutine(Wander());
         }
@@ -60,30 +66,30 @@ public class AIMovement : MonoBehaviour
             StartCoroutine(Wander());
         }
 
-        if (isRotatingToFood)
-        {
-            Vector3 lookPos = closestFood.transform.position - transform.position;
-            Quaternion rotation = Quaternion.LookRotation(lookPos);
-            transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * 1.5f);
-            //transform.LookAt(lookPos);
-        }
+        //if (isRotatingToFood)
+        //{
+        //    Vector3 lookPos = closestFood.transform.position - transform.position;
+        //    Quaternion rotation = Quaternion.LookRotation(lookPos);
+        //    transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * 1.5f);
+        //    //transform.LookAt(lookPos);
+        //}
 
-        if (isWalkingToFood)
-        {
-            //Vector3 lookPos = closestFood.transform.position - transform.position;
+        //if (isWalkingToFood)
+        //{
+        //    //Vector3 lookPos = closestFood.transform.position - transform.position;
 
-            //rb.AddForce(transform.forward * movementSpeed);
-            //if (lookPos.y > transform.position.y)
-            //{
-            //    rb.AddForce(transform.up * movementSpeed);
-            //}
-            //else
-            //{
-            //    rb.AddForce(transform.up * -movementSpeed);
-            //}
-            //transform.position = Vector3.MoveTowards(transform.position, closestFood.transform.position, 0.01f);
-            transform.position = Vector3.Lerp(transform.position, closestFood.transform.position, 0.001f);
-        }
+        //    //rb.AddForce(transform.forward * movementSpeed);
+        //    //if (lookPos.y > transform.position.y)
+        //    //{
+        //    //    rb.AddForce(transform.up * movementSpeed);
+        //    //}
+        //    //else
+        //    //{
+        //    //    rb.AddForce(transform.up * -movementSpeed);
+        //    //}
+        //    //transform.position = Vector3.MoveTowards(transform.position, closestFood.transform.position, 0.01f);
+        //    transform.position = Vector3.Lerp(transform.position, closestFood.transform.position, 0.001f);
+        //}
 
         if (isRotatingRight)
         {
@@ -141,22 +147,22 @@ public class AIMovement : MonoBehaviour
 
         isWandering = true;
 
-        if (isHungry)
-        {
-            if (hvFood)
-            {
-                isRotatingToFood = true;
-                yield return new WaitForSeconds(rotationTime);
-                isRotatingToFood = false;
+        //if (isHungry)
+        //{
+        //    if (hvFood)
+        //    {
+        //        isRotatingToFood = true;
+        //        yield return new WaitForSeconds(rotationTime);
+        //        isRotatingToFood = false;
 
-                isWalkingToFood = true;
-                yield return new WaitForSeconds(10);
-                isWalkingToFood = false;
+        //        isWalkingToFood = true;
+        //        yield return new WaitForSeconds(10);
+        //        isWalkingToFood = false;
 
-                hvFood = false;
-                isHungry = false;
-            }
-        }
+        //        hvFood = false;
+        //        isHungry = false;
+        //    }
+        //}
 
         if (flyOrWalk == 1)
         {
@@ -189,20 +195,20 @@ public class AIMovement : MonoBehaviour
         yield return new WaitForSeconds(stopTime);
         isStoping = false;
 
-        if (isHungry)
-        {
-            if (hvFood)
-            {
-                yield return new WaitForSeconds(rotationTime);
+        //if (isHungry)
+        //{
+        //    if (hvFood)
+        //    {
+        //        yield return new WaitForSeconds(rotationTime);
 
-                isWalkingToFood = true;
-                yield return new WaitForSeconds(eatWait);
-                isWalkingToFood = false;
+        //        isWalkingToFood = true;
+        //        yield return new WaitForSeconds(eatWait);
+        //        isWalkingToFood = false;
 
-                hvFood = false;
-                isHungry = false;
-            }
-        }
+        //        hvFood = false;
+        //        isHungry = false;
+        //    }
+        //}
 
         yield return new WaitForSeconds(rotateWait);
 
@@ -228,37 +234,37 @@ public class AIMovement : MonoBehaviour
         rb.velocity = rb.velocity * 0.995f;
     }
 
-    private GameObject FindClosestFood()
-    {
-        GameObject[] foods;
-        foods = GameObject.FindGameObjectsWithTag("Food");
-        GameObject closest = null;
-        float distance = Mathf.Infinity;
-        foreach (GameObject food in foods)
-        {
-            if (food == _eat.Food)
-            {
-                Vector3 diff = food.transform.position - transform.position;
-                float curDistance = diff.sqrMagnitude;
-                if (curDistance < distance)
-                {
-                    closest = food;
-                    distance = curDistance;
-                }
-            }
-        }
+    //private GameObject FindClosestFood()
+    //{
+    //    GameObject[] foods;
+    //    foods = GameObject.FindGameObjectsWithTag("Food");
+    //    GameObject closest = null;
+    //    float distance = Mathf.Infinity;
+    //    foreach (GameObject food in foods)
+    //    {
+    //        if (food == _eat.Food)
+    //        {
+    //            Vector3 diff = food.transform.position - transform.position;
+    //            float curDistance = diff.sqrMagnitude;
+    //            if (curDistance < distance)
+    //            {
+    //                closest = food;
+    //                distance = curDistance;
+    //            }
+    //        }
+    //    }
 
-        //Debug.Log("distance: " + distance);
+    //    //Debug.Log("distance: " + distance);
 
-        if (distance <= findFoodDistance)
-        {
-            hvFood = true;
-            return closest;
-        }
-        else
-        {
-            hvFood = false;
-            return null;
-        }
-    }
+    //    if (distance <= findFoodDistance)
+    //    {
+    //        hvFood = true;
+    //        return closest;
+    //    }
+    //    else
+    //    {
+    //        hvFood = false;
+    //        return null;
+    //    }
+    //}
 }
