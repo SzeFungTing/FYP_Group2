@@ -202,12 +202,22 @@ public class InventoryManager5 : MonoBehaviour
             }
             else                //close backpack
             {
-                isOpenBackpack = false;
-                gunShooting.enabled = true;
-                inventoryUI.SetActive(false);
-                hotBarUI.transform.position = new Vector3(959.9999389648438f, 90.0f, 0.5400000214576721f);      //down
-                hotBarUI.transform.localScale = new Vector3(1f, 1f, 1f);
+                //isOpenBackpack = false;
+                //gunShooting.enabled = true;
+                //inventoryUI.SetActive(false);
+                //hotBarUI.transform.position = new Vector3(959.9999389648438f, 90.0f, 0.5400000214576721f);      //down
+                //hotBarUI.transform.localScale = new Vector3(1f, 1f, 1f);
+                CloseUI();
             }
         }
     } 
+
+    public void CloseUI()
+    {
+        isOpenBackpack = false;
+        gunShooting.enabled = true;
+        inventoryUI.SetActive(false);
+        hotBarUI.transform.position = new Vector3(959.9999389648438f, 90.0f, 0.5400000214576721f);      //down
+        hotBarUI.transform.localScale = new Vector3(1f, 1f, 1f);
+    }
 }

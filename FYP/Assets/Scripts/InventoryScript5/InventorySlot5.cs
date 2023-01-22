@@ -90,7 +90,7 @@ public class InventorySlot5 : MonoBehaviour, IDropHandler, IPointerEnterHandler,
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        Debug.Log(gameObject.name + ": is highlighted");
+        //Debug.Log(gameObject.name + ": is highlighted");
         onHighlight = true;
         //Debug.Log("transform.GetComponentInChildren<InventoryItem>().gameObject.name: " + transform.GetComponentInChildren<InventoryItem>().gameObject.name);
         if (transform.GetComponentInChildren<InventoryItem>())
@@ -103,7 +103,7 @@ public class InventorySlot5 : MonoBehaviour, IDropHandler, IPointerEnterHandler,
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        Debug.Log(gameObject.name + ": is not highlighted");
+        //Debug.Log(gameObject.name + ": is not highlighted");
         onHighlight = false;
     }
 

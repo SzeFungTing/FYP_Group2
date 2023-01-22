@@ -12,6 +12,7 @@ public class Item5 : ScriptableObject
     public int maxStackSize = 10;
     public float price;
     public GameObject objectPrefab;
+    public int id;
    
 
     [Header("Only UI")]

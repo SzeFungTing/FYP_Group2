@@ -13,6 +13,7 @@ public class UIScripts : MonoBehaviour
     public GameObject backPackUI;
     public GameObject hotBarUI;
     public GameObject buttonIndicationUI;
+    public GameObject CraftingUI;
 
     private void Awake()
     {
@@ -29,6 +30,8 @@ public class UIScripts : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Escape) && SceneManager.GetActiveScene().name != "Start UI")
             {
+                //Debug.Log("5");
+
                 //PauseUI.SetActive(!PauseUI.activeInHierarchy);
                 OpenUI(pauseUI);
             }
@@ -37,36 +40,60 @@ public class UIScripts : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Escape))
             {
+                //Debug.Log("6");
+
                 CloseUI(pauseUI);
             }
         }
-        else if(!pauseUI.activeInHierarchy && settingUI.activeInHierarchy)
+        else if (!pauseUI.activeInHierarchy && settingUI.activeInHierarchy)
         {
             if (Input.GetKeyDown(KeyCode.Escape))
             {
+                //Debug.Log("7");
+
                 CloseUI(settingUI);
             }
         }
 
         if (pauseUI.activeInHierarchy || settingUI.activeInHierarchy || SceneManager.GetActiveScene().name == "Start UI")
         {
+            //Debug.Log("8");
+
             Time.timeScale = 0;     //pause the game time
             Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
         }
-        else
+        else if(shopUI.activeInHierarchy || backPackUI.activeInHierarchy || CraftingUI.activeInHierarchy)
         {
+            //Debug.Log("10");
+
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+
+        }
+        else                                             //if no UI
+        {
+            //Debug.Log("9");
+
             Time.timeScale = 1;     //start the game time
             Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
         }
 
-        if (shopUI.activeInHierarchy)
-        {
-            Cursor.lockState = CursorLockMode.None;
-        }
-        else if (backPackUI.activeInHierarchy)
-        {
-            Cursor.lockState = CursorLockMode.None;
-        }
+        
+        //else if ()
+        //{
+        //    Cursor.lockState = CursorLockMode.None;
+        //}
+
+        //float interactDistance = 3f;
+        //if (Physics.Raycast(playerCameraTransform.position, playerCameraTransform.forward, out RaycastHit raycastHit, interactDistance))
+        //{
+        //    if (raycastHit.transform.TryGetComponent(out CraftingTable craftingTable) /*|| (raycastHit.transform.GetComponent<CraftingTable>() && raycastHit.transform.GetComponent<CraftingTable>().recipeImage.transform.parent)*/)
+        //    {
+
+        //    }
+        //}
     }
 
     public void QuitGame()
@@ -88,4 +115,9 @@ public class UIScripts : MonoBehaviour
     {
         SceneManager.LoadScene(sceneName);
     }
+
+    //public void InteractiveLicense()
+    //{
+    //    Cursor.lockState = CursorLockMode.Confined;
+    //}
 }
