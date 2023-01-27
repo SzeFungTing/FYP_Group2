@@ -9,8 +9,8 @@ public class InventoryManager5 : MonoBehaviour
     //public int maxStackedItems = 4;
     public InventorySlot5[] inventorySlots;
     public GameObject inventoryItemPrefab;
-    public GameObject inventoryUI;
-    public GameObject hotBarUI;
+    [HideInInspector]public GameObject inventoryUI;
+    [HideInInspector] public GameObject hotBarUI;
     public GunShooting gunShooting;
 
     //Synchronize Hot Bar

@@ -88,13 +88,13 @@ public class MouseLook : MonoBehaviour
         //    }
         //}
 
-        if((shopUI.activeInHierarchy || backPackUI.activeInHierarchy || craftingSystemUI.activeInHierarchy /*|| pauseUI.activeInHierarchy || settingUI.activeInHierarchy*/))
+        if((shopUI|| backPackUI || craftingSystemUI) &&(shopUI.activeInHierarchy || backPackUI.activeInHierarchy || craftingSystemUI.activeInHierarchy /*|| pauseUI.activeInHierarchy || settingUI.activeInHierarchy*/))
         {
             //Debug.Log("11");
 
             lockViewMoving = true;
         }
-        else if (lockViewMoving && (!shopUI.activeInHierarchy || !backPackUI.activeInHierarchy || !craftingSystemUI.activeInHierarchy|| !pauseUI.activeInHierarchy || !settingUI.activeInHierarchy))
+        else if ((shopUI || backPackUI || craftingSystemUI || pauseUI || settingUI) && lockViewMoving && (!shopUI.activeInHierarchy || !backPackUI.activeInHierarchy || !craftingSystemUI.activeInHierarchy|| !pauseUI.activeInHierarchy || !settingUI.activeInHierarchy))
         {
             //Debug.Log("12");
 
