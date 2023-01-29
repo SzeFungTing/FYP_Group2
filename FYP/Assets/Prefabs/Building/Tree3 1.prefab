@@ -62,8 +62,8 @@ LODGroup:
     - renderer: {fileID: 2795978934917138015}
     - renderer: {fileID: 3750420469814413631}
   m_Enabled: 1
---- !u!64 &1395018637520481572
-MeshCollider:
+--- !u!136 &8102975794461922953
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -72,10 +72,10 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 855131390749405241, guid: 93f0f60c0920b8944a7392c2d1d66da1, type: 3}
+  m_Radius: 0.0038170302
+  m_Height: 0.0998517
+  m_Direction: 2
+  m_Center: {x: -0.00017944111, y: 0.0009411791, z: -0.025090978}
 --- !u!1001 &1395018637520481571
 PrefabInstance:
   m_ObjectHideFlags: 0
