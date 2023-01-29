@@ -22,6 +22,11 @@ public class Item5 : ScriptableObject
     [Header("Both")]
     public Sprite image;
 
+    [Header("Shop")]
+    public string itemDisplayName;
+    public float originalPrice;
+    public int limit;
+
 
     //public ItemType GetItemType()
     //{
