@@ -21,7 +21,7 @@ public class UIScripts : MonoBehaviour
     }
     private void Start()
     {
-        buttonIndicationUI.SetActive(false);
+        //buttonIndicationUI.SetActive(false);
     }
 
     private void Update()
