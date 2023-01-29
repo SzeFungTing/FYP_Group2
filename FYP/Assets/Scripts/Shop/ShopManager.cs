@@ -23,13 +23,13 @@ public class ShopManager : MonoBehaviour
 
 
 
-    //Animator Anim_Drone;
+    Animator Anim_Drone;
 
     // Start is called before the first frame update
     void Start()
     {
-        //Anim_Drone = ShootingP.gameObject.GetComponent<Animator>();
-        //Anim_Drone.SetBool("is_Shooted", false);
+        Anim_Drone = ShootingP.gameObject.GetComponent<Animator>();
+        Anim_Drone.SetBool("is_Shooted", false);
         Jetpack.SetActive(false);
 
         CoinsTXT.text = "Coins: $" + /*coins*/MoneyManager.instance.coins.ToString();
@@ -85,7 +85,7 @@ public class ShopManager : MonoBehaviour
 
         if (isBought)
         {
-            //if (Anim_Drone.GetCurrentAnimatorStateInfo(0).IsName("TurnAround") && Anim_Drone.GetCurrentAnimatorStateInfo(0).normalizedTime > 1)         //check animation end?, Instantiate ther
+            if (Anim_Drone.GetCurrentAnimatorStateInfo(0).IsName("TurnAround") && Anim_Drone.GetCurrentAnimatorStateInfo(0).normalizedTime > 1)         //check animation end?, Instantiate ther
             {
                 if(ButtonRef.GetComponent<ButtonInfo>().ItemID != 2)
                 {
@@ -94,7 +94,7 @@ public class ShopManager : MonoBehaviour
 
                 }
                 
-                //Anim_Drone.SetBool("is_Shooted", false);
+                Anim_Drone.SetBool("is_Shooted", false);
                 isBought = false;
             }
         }
@@ -124,10 +124,10 @@ public class ShopManager : MonoBehaviour
 
             if (/*coins*/MoneyManager.instance.coins >= shopItems[2, ButtonRef.GetComponent<ButtonInfo>().ItemID])
             {
-                //Anim_Drone.SetBool("is_Shooted", true);
+                Anim_Drone.SetBool("is_Shooted", true);
                 isBought = true;
 
-                //if ((Anim_Drone.GetCurrentAnimatorStateInfo(0).IsName("TurnAround") && Anim_Drone.GetCurrentAnimatorStateInfo(0).normalizedTime > 1) || Anim_Drone.GetCurrentAnimatorStateInfo(0).IsName("Start"))
+                if ((Anim_Drone.GetCurrentAnimatorStateInfo(0).IsName("TurnAround") && Anim_Drone.GetCurrentAnimatorStateInfo(0).normalizedTime > 1) || Anim_Drone.GetCurrentAnimatorStateInfo(0).IsName("Start"))
                 {
                     /*coins*/ MoneyManager.instance.coins -= shopItems[2, ButtonRef.GetComponent<ButtonInfo>().ItemID];
 

@@ -23,7 +23,7 @@ public class ShopSystem : MonoBehaviour
         }
         
 
-        Anim_Drone = drone.GetComponent<Animator>();
+        Anim_Drone = drone.transform.GetComponentInChildren<Animator>();
 
     }
 
@@ -46,16 +46,29 @@ public class ShopSystem : MonoBehaviour
             if (shopUI.activeInHierarchy)
             {
                 CloseShopUI();
+
             }
             else
             {
+                UIScripts.instance.hotBarUI.SetActive(false);
+
                 shopUI.SetActive(true);
                 drone.SetActive(true);
-                Vector3 playerOffset = transform.position;
-                playerOffset.x += 2.5f;
-                playerOffset.y += 2.5f;
-                playerOffset.z += 2.5f;
-                drone.transform.position = playerOffset;
+                //Vector3 playerPos = transform.position;
+                //Debug.Log("transform.position: "  + transform.position);
+                //playerPos.y += 1f;
+
+                //Vector3 playerDirection = transform.forward;
+                //Debug.Log("playerDirection: " + playerDirection);
+
+                //Vector3 spawnOffset = playerPos + playerDirection *5f;
+                //Debug.Log("spawnOffset: " + spawnOffset);
+
+                //spawnOffset.x -= 0.7f;
+                //spawnOffset.z += 3.39f;
+                drone.transform.position = /*spawnOffset*/transform.GetChild(4).position;
+                //Debug.Log("drone.transform.position: " + drone.transform.position);
+
                 isUIOpened = true;
             }
             
@@ -71,6 +84,8 @@ public class ShopSystem : MonoBehaviour
 
     public void CloseShopUI()
     {
+        UIScripts.instance.hotBarUI.SetActive(true);
+
         shopUI.SetActive(false);
         drone.SetActive(false);
         isUIOpened = false;
