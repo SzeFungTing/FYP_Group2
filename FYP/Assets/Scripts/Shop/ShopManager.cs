@@ -87,37 +87,48 @@ public class ShopManager : MonoBehaviour
 
     }
 
+    #region emitItem
+    int purchasingIdx = 0;
+    float emitTime = 0;
+    float emitInterval = 1f;
+    #endregion
+
     public void Update()
     {
         if (isBought)
         {
-            //Debug.Log("isBought");
-            if (Anim_Drone.GetCurrentAnimatorStateInfo(0).IsName("TurnAround") && Anim_Drone.GetCurrentAnimatorStateInfo(0).normalizedTime > 1)         //check animation end?, Instantiate ther
+            if(purchasingIdx < purchaseList.Count)
             {
-
-                foreach (GameObject item in purchaseList)
-                //for(int i =0;i< purchaseList.Count;i++)
+                //Debug.Log("isBought");
+                if (Anim_Drone.GetCurrentAnimatorStateInfo(0).IsName("TurnAround") && Anim_Drone.GetCurrentAnimatorStateInfo(0).normalizedTime > 1 && Time.time > emitTime+ emitInterval)         //check animation end?, Instantiate ther
                 {
-                    //if (ButtonRef.GetComponent<ButtonInfo>().ItemID != 2)
-                    {
-                       
-                        Debug.Log("spawn");
-                        GameObject stuff = Instantiate(item, ShootingP.position, Random.rotation);
-                        //GameObject stuff = Instantiate(purchaseList[i], ShootingP.position, Random.rotation);
-                        stuff.GetComponentInChildren<Rigidbody>().velocity = ShootingP.forward * Speed;
-                        //purchaseList.Remove(item);
-                        //yield return new WaitForSeconds(1);
 
-                    }
+                    //foreach (GameObject item in purchaseList)
+                    ////for(int i =0;i< purchaseList.Count;i++)
+                    //{
+                    //    {
+
+                Debug.Log("spawn, normalized time:"+ Anim_Drone.GetCurrentAnimatorStateInfo(0).normalizedTime);
+                GameObject stuff = Instantiate(purchaseList[purchasingIdx++], ShootingP.position, Random.rotation);
+
+                stuff.GetComponentInChildren<Rigidbody>().velocity = ShootingP.forward * Speed;
+                emitTime = Time.time;
+
+                    //    }
+                    //}
                 }
-                //StartCoroutine(SpawnObject());
-
+            }
+            else
+            {
                 purchaseList = new List<GameObject>();
                 Anim_Drone.SetBool("is_Shooted", false);
                 Debug.Log("End Aimation");
                 isBought = false;
 
+                purchasingIdx = 0;
+                emitTime = 0;
             }
+
         }
 
 
