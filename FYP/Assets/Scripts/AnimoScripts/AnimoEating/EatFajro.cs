@@ -61,7 +61,7 @@ public class EatFajro : MonoBehaviour
         if (isRotatingToFajro)
         {
             Vector3 lookPos = closestFajro.transform.position - transform.position;
-            Quaternion rotation = Quaternion.LookRotation(lookPos);
+            Quaternion rotation = new Quaternion(0f, Quaternion.LookRotation(lookPos).y, 0f, transform.rotation.w);
             transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * 1.5f);
             //transform.LookAt(lookPos);
         }

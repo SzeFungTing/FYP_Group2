@@ -24,7 +24,7 @@ public class Eat : MonoBehaviour
         Food = null;
         time = 180;
         //Ftime = 3;
-        foodScaleChange = new Vector3(foodScaleChangeValue, foodScaleChangeValue, foodScaleChangeValue);
+        foodScaleChange = Vector3.one * foodScaleChangeValue;
     }
 
     // Update is called once per frame

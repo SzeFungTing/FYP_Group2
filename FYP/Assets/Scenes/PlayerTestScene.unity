@@ -5310,6 +5310,11 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!4 &466947971 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7932083041662162507, guid: cd4ee46b53265e64788586c66a35d198, type: 3}
+  m_PrefabInstance: {fileID: 7932083041784067889}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &591342638
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11266,6 +11271,36 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1693755752
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1693755753}
+  m_Layer: 0
+  m_Name: DissolvePoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1693755753
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1693755752}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.3657142, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 466947971}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1802466107
 GameObject:
   m_ObjectHideFlags: 0
@@ -12020,21 +12055,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -406338546799173149, guid: cd4ee46b53265e64788586c66a35d198, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4431501029914263003, guid: cd4ee46b53265e64788586c66a35d198, type: 3}
-      propertyPath: Food
+      propertyPath: dissolvePoint
       value: 
-      objectReference: {fileID: 7821197875280942789, guid: 3e4e7f3f632455b479bca77d88284221, type: 3}
+      objectReference: {fileID: 1693755753}
     - target: {fileID: 4431501029914263003, guid: cd4ee46b53265e64788586c66a35d198, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4431501029914263003, guid: cd4ee46b53265e64788586c66a35d198, type: 3}
-      propertyPath: findFoodDistance
-      value: 10000
+      propertyPath: foodScaleChangeValue
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7932083041662162503, guid: cd4ee46b53265e64788586c66a35d198, type: 3}
       propertyPath: m_Name
@@ -12083,6 +12110,14 @@ PrefabInstance:
     - target: {fileID: 7932083041662162507, guid: cd4ee46b53265e64788586c66a35d198, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7932083043028831268, guid: cd4ee46b53265e64788586c66a35d198, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7932083043028831272, guid: cd4ee46b53265e64788586c66a35d198, type: 3}
+      propertyPath: m_Constraints
+      value: 112
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cd4ee46b53265e64788586c66a35d198, type: 3}
