@@ -33,7 +33,7 @@ public class DissolveObject : MonoBehaviour
                 if (height <= transform.position.y - (objectHeight / 2))
                 {
                     
-                    transform.GetComponentInParent<Eat>().canPoo = true;
+                    transform.GetComponentInParent<EatFood>().canPoo = true;
                     Destroy(transform.parent.gameObject);
                 }
                 else

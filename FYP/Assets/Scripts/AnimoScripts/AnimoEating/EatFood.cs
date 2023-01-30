@@ -15,6 +15,8 @@ public class EatFood : MonoBehaviour
     Vector3 foodScaleChange;                    //the food scale change after Animo ate
     public float foodScaleChangeValue = 0.3f;
 
+    [SerializeField] private Transform dissolvePoint;
+
     //for eat food AI
     private bool isHungry = true;
     private bool hvFood = false;
@@ -83,7 +85,7 @@ public class EatFood : MonoBehaviour
         if (isWalkingToFood)
         {
             //transform.position = Vector3.Lerp(transform.position, closestFood.transform.position, 0.001f);
-            rb.AddForce((closestFood.transform.position - transform.position) * _aIMovement.movementSpeed * 0.1f);
+            rb.AddForce((closestFood.transform.position - transform.position) * _aIMovement.movementSpeed * 0.08f);
         }
 
         if (isStoping)
@@ -142,7 +144,7 @@ public class EatFood : MonoBehaviour
                 Food.transform.GetComponent<Collider>().enabled = false;                //close the isTrigger Collider, the food will not run the fnuction again
                 Food.transform.GetChild(0).GetComponent<Collider>().enabled = false;    //close the Collider, so the food will not collider with the Animo
                 Food.GetComponent<Rigidbody>().isKinematic = true;                      //close the Rigidbody, so the food will not drop down
-                Food.transform.position = transform.position;                           //the food delivery into the Animo
+                Food.transform.position = dissolvePoint.position;                           //the food delivery into the Animo
                 Food.transform.SetParent(transform);                                    //set the food parent be the Animo
                 Food.transform.localScale = foodScaleChange;                            //scale the food size
                 Food.GetComponentInChildren<DissolveObject>().isAte = true;             //the food start to Digestion
