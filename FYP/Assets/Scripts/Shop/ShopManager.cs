@@ -90,7 +90,7 @@ public class ShopManager : MonoBehaviour
     #region emitItem
     int purchasingIdx = 0;
     float emitTime = 0;
-    float emitInterval = 1f;
+    float emitInterval = 0.5f;
     #endregion
 
     public void Update()
@@ -99,30 +99,26 @@ public class ShopManager : MonoBehaviour
         {
             if(purchasingIdx < purchaseList.Count)
             {
-                //Debug.Log("isBought");
                 if (Anim_Drone.GetCurrentAnimatorStateInfo(0).IsName("TurnAround") && Anim_Drone.GetCurrentAnimatorStateInfo(0).normalizedTime > 1 && Time.time > emitTime+ emitInterval)         //check animation end?, Instantiate ther
                 {
 
-                    //foreach (GameObject item in purchaseList)
-                    ////for(int i =0;i< purchaseList.Count;i++)
-                    //{
-                    //    {
+                 
 
-                Debug.Log("spawn, normalized time:"+ Anim_Drone.GetCurrentAnimatorStateInfo(0).normalizedTime);
+                //Debug.Log("spawn, normalized time:"+ Anim_Drone.GetCurrentAnimatorStateInfo(0).normalizedTime);
                 GameObject stuff = Instantiate(purchaseList[purchasingIdx++], ShootingP.position, Random.rotation);
 
                 stuff.GetComponentInChildren<Rigidbody>().velocity = ShootingP.forward * Speed;
                 emitTime = Time.time;
+                    
 
-                    //    }
-                    //}
+
                 }
             }
             else
             {
+
                 purchaseList = new List<GameObject>();
                 Anim_Drone.SetBool("is_Shooted", false);
-                Debug.Log("End Aimation");
                 isBought = false;
 
                 purchasingIdx = 0;
@@ -132,42 +128,6 @@ public class ShopManager : MonoBehaviour
         }
 
 
-
-        //if (!Ss.isUIOpened)
-        //{
-
-
-        //        if (Anim_Drone.GetCurrentAnimatorStateInfo(0).IsName("TurnAround") && Anim_Drone.GetCurrentAnimatorStateInfo(0).normalizedTime > 1)         //check animation end?, Instantiate ther
-        //        {
-        //            for(int i = 1; i < 5; i++)
-        //            {
-
-        //                if (shopItems[3, i] != 0) 
-        //                {
-        //                    var stuff = Instantiate(ButtonRef.GetComponent<ButtonInfo>().SItem, ShootingP.position, Random.rotation);
-        //                    stuff.GetComponentInChildren<Rigidbody>().velocity = ShootingP.forward * Speed;
-        //                    Anim_Drone.SetBool("is_Shooted", false);
-        //                    shopItems[3, i] = 0;
-        //                }
-        //            }
-        //        }
-        //}
-
-        //if (isBought)
-        //{
-        //    if (Anim_Drone.GetCurrentAnimatorStateInfo(0).IsName("TurnAround") && Anim_Drone.GetCurrentAnimatorStateInfo(0).normalizedTime > 1)         //check animation end?, Instantiate ther
-        //    {
-        //        if(ButtonRef.GetComponent<ButtonInfo>().ItemID != 2)
-        //        {
-        //            var stuff = Instantiate(ButtonRef.GetComponent<ButtonInfo>().SItem, ShootingP.position, Random.rotation);
-        //            stuff.GetComponentInChildren<Rigidbody>().velocity = ShootingP.forward * Speed;
-
-        //        }
-
-        //        Anim_Drone.SetBool("is_Shooted", false);
-        //        isBought = false;
-        //    }
-        //}
 
 
 
@@ -186,13 +146,6 @@ public class ShopManager : MonoBehaviour
 
         /*GameObject*/
         ButtonRef = GameObject.FindGameObjectWithTag("Event").GetComponent<EventSystem>().currentSelectedGameObject;
-
-        //int tempLimit;
-        //int.TryParse(ButtonRef.GetComponent<ButtonInfo>().LimitTxt.text, out tempLimit);
-        //int tempPrice;
-        //int.TryParse(ButtonRef.GetComponent<ButtonInfo>().PriceTxt.text, out tempPrice);
-        //int tempQuantity;
-        //int.TryParse(ButtonRef.GetComponent<ButtonInfo>().QuantityTxt.text, out tempQuantity);
 
 
         //if (shopItems[4, ButtonRef.GetComponent<ButtonInfo>().ItemID] > 0)
@@ -259,38 +212,7 @@ public class ShopManager : MonoBehaviour
 
     }
 
-    IEnumerator SpawnObject()
-    {
-        Debug.Log("call");
-
-        //if (Anim_Drone.GetCurrentAnimatorStateInfo(0).IsName("TurnAround") && Anim_Drone.GetCurrentAnimatorStateInfo(0).normalizedTime > 1)         //check animation end?, Instantiate ther
-        //{
-        //    Debug.Log("Start");
-
-        foreach (GameObject item in purchaseList)
-        //for(int i =0;i< purchaseList.Count;i++)
-        {
-            //if (ButtonRef.GetComponent<ButtonInfo>().ItemID != 2)
-            {
-                Debug.Log("spawn");
-
-                GameObject stuff = Instantiate(item, ShootingP.position, Random.rotation);
-                //GameObject stuff = Instantiate(purchaseList[i], ShootingP.position, Random.rotation);
-                stuff.GetComponentInChildren<Rigidbody>().velocity = ShootingP.forward * Speed;
-                //purchaseList.Remove(item);
-                yield return new WaitForSeconds(3f);
-
-            }
-        }
-       
-        //Debug.Log("end");
-
-        //purchaseList = new List<GameObject>();
-        //Anim_Drone.SetBool("is_Shooted", false);
-        //isBought = false;
-
-        //}
-    }
+   
 
  
 

@@ -56,7 +56,7 @@ public class AIMovement : MonoBehaviour
             StopCoroutine(Wander());
         }
 
-        if (_eatFood.GetHvFood())
+        if (_eatFood && _eatFood.GetHvFood())
         {
             StopCoroutine(Wander());
         }
