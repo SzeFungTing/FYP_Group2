@@ -29,7 +29,7 @@ public class PlayerCrafting : MonoBehaviour
                     {
                         //next recipe
                         //craftingTable.NextRecipe();
-                        UIScripts.instance.CraftingUI.SetActive(!UIScripts.instance.CraftingUI.activeSelf);
+                        UIScripts.instance.craftingUI.SetActive(!UIScripts.instance.craftingUI.activeSelf);
                         //if(UIScripts.instance.CraftingUI.activeInHierarchy)
                         //    UIScripts.instance.CraftingUI.SetActive(false);
                     }

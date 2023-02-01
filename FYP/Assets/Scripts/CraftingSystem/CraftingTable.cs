@@ -29,7 +29,7 @@ public class CraftingTable : MonoBehaviour
 
     private void Awake()
     {
-        craftingUI = UIScripts.instance.CraftingUI;
+        craftingUI = UIScripts.instance.craftingUI;
         previewCraftingUI = transform.GetChild(0).GetChild(0).gameObject;
         displayList = new List<Transform>();
         previewDisplayList = new List<Transform>();

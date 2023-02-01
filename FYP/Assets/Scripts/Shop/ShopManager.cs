@@ -118,6 +118,7 @@ public class ShopManager : MonoBehaviour
             {
 
                 purchaseList = new List<GameObject>();
+                if(Anim_Drone)
                 Anim_Drone.SetBool("is_Shooted", false);
                 isBought = false;
 
@@ -205,7 +206,7 @@ public class ShopManager : MonoBehaviour
         if (purchaseList.Count > 0)
         {
             Anim_Drone.SetBool("is_Shooted", true);
-            Debug.Log("purchaseList.Count > 0");
+            //Debug.Log("purchaseList.Count > 0");
 
             isBought = true;
         }

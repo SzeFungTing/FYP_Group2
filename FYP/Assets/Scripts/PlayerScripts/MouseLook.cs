@@ -29,7 +29,7 @@ public class MouseLook : MonoBehaviour
         settingUI = UIScripts.instance.settingUI;
         shopUI = UIScripts.instance.shopUI;
         backPackUI = UIScripts.instance.backPackUI;
-        craftingSystemUI = UIScripts.instance.CraftingUI;
+        craftingSystemUI = UIScripts.instance.craftingUI;
     }
 
     // Update is called once per frame
@@ -88,13 +88,13 @@ public class MouseLook : MonoBehaviour
         //    }
         //}
 
-        if((shopUI|| backPackUI || craftingSystemUI) &&(shopUI.activeInHierarchy || backPackUI.activeInHierarchy || craftingSystemUI.activeInHierarchy /*|| pauseUI.activeInHierarchy || settingUI.activeInHierarchy*/))
+        if((shopUI && shopUI.activeInHierarchy) || (backPackUI && backPackUI.activeInHierarchy) || (craftingSystemUI && craftingSystemUI.activeInHierarchy) /*|| pauseUI.activeInHierarchy || settingUI.activeInHierarchy*/)
         {
             //Debug.Log("11");
 
             lockViewMoving = true;
         }
-        else if ((shopUI || backPackUI || craftingSystemUI || pauseUI || settingUI) && lockViewMoving && (!shopUI.activeInHierarchy || !backPackUI.activeInHierarchy || !craftingSystemUI.activeInHierarchy|| !pauseUI.activeInHierarchy || !settingUI.activeInHierarchy))
+        else if (lockViewMoving && ((shopUI && !shopUI.activeInHierarchy) || (backPackUI && !backPackUI.activeInHierarchy) || (craftingSystemUI && !craftingSystemUI.activeInHierarchy)|| (pauseUI && !pauseUI.activeInHierarchy) || (settingUI && !settingUI.activeInHierarchy)))
         {
             //Debug.Log("12");
 

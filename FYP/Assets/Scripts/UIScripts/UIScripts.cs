@@ -13,7 +13,7 @@ public class UIScripts : MonoBehaviour
     public GameObject backPackUI;
     public GameObject hotBarUI;
     public GameObject buttonIndicationUI;
-    public GameObject CraftingUI;
+    public GameObject craftingUI;
 
     private void Awake()
     {
@@ -63,7 +63,7 @@ public class UIScripts : MonoBehaviour
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
         }
-        else if(shopUI.activeInHierarchy || backPackUI.activeInHierarchy || CraftingUI.activeInHierarchy)
+        else if((shopUI && shopUI.activeInHierarchy) || (backPackUI && backPackUI.activeInHierarchy) || (craftingUI && craftingUI.activeInHierarchy))
         {
             //Debug.Log("10");
 
