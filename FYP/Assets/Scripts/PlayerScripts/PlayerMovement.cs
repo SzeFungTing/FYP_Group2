@@ -91,7 +91,7 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-        if (shopManager && shopManager.isBought)
+        if (shopManager && (shopManager.Jetpack && shopManager.Jetpack.activeInHierarchy))
         {
             FillBar.fillAmount = MaxForce;
 
