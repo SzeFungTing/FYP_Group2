@@ -119,7 +119,7 @@ public class ShopManager : MonoBehaviour
 
                 purchaseList = new List<GameObject>();
                 if(Anim_Drone)
-                Anim_Drone.SetBool("is_Shooted", false);
+                    Anim_Drone.SetBool("is_Shooted", false);
                 isBought = false;
 
                 purchasingIdx = 0;
@@ -132,18 +132,19 @@ public class ShopManager : MonoBehaviour
 
 
 
-        if (shopItems[4, 2] <= 0)
-        {
-            Jetpack.SetActive(true);
-            isBought = true;
-        }
+        //if (shopItems[4, 2] <= 0 /*&& !Jetpack*/)
+        //{
+        //    Debug.Log("Jetpack");
+        //    Jetpack.SetActive(true);
+        //    //isBought = true;
+        //}
     }
 
 
     // Update is called once per frame
     public void Buy()
     {
-        Debug.Log("buy");
+        //Debug.Log("buy");
 
         /*GameObject*/
         ButtonRef = GameObject.FindGameObjectWithTag("Event").GetComponent<EventSystem>().currentSelectedGameObject;
@@ -152,7 +153,6 @@ public class ShopManager : MonoBehaviour
         //if (shopItems[4, ButtonRef.GetComponent<ButtonInfo>().ItemID] > 0)
         if (ButtonRef.GetComponent<ButtonInfo>().limit > 0)
         {
-
 
             if (/*coins*/MoneyManager.instance.coins >= /*shopItems[2, ButtonRef.GetComponent<ButtonInfo>().ItemID]*/ButtonRef.GetComponent<ButtonInfo>().price)
             {
@@ -170,12 +170,18 @@ public class ShopManager : MonoBehaviour
                     /*shopItems[3, ButtonRef.GetComponent<ButtonInfo>().ItemID]*/
                     ButtonRef.GetComponent<ButtonInfo>().quantity++;
 
+
                     CoinsTXT.text = "Coins: $" + MoneyManager.instance.coins.ToString(); //update the coins player have
                     //ButtonRef.GetComponent<ButtonInfo>().QuantityTxt.text = /*shopItems[3, ButtonRef.GetComponent<ButtonInfo>().ItemID]*/tempQuantity.ToString();
                     //ButtonRef.GetComponent<ButtonInfo>().LimitTxt.text = /*shopItems[4, ButtonRef.GetComponent<ButtonInfo>().ItemID]*/tempLimit.ToString();
                     ButtonRef.GetComponent<ButtonInfo>().RefreshTemplate();
 
-                    purchaseList.Add(ButtonRef.GetComponent<ButtonInfo>().SItem);
+                    if(ButtonRef.GetComponent<ButtonInfo>().SItem)
+                        purchaseList.Add(ButtonRef.GetComponent<ButtonInfo>().SItem);
+
+                    if(ButtonRef.GetComponent<ButtonInfo>().ItemID == 2)
+                        Jetpack.SetActive(true);
+
                 }
 
 

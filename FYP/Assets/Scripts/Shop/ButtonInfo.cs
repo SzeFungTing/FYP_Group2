@@ -22,10 +22,11 @@ public class ButtonInfo : MonoBehaviour
 
     private void Start()
     {
-
+        if (ItemID == 2)
+            SetJetpackValue();
         //price = itemInfo.originalPrice;
 
-        //limit = itemInfo.limit;
+            //limit = itemInfo.limit;
 
 
     }
@@ -63,5 +64,17 @@ public class ButtonInfo : MonoBehaviour
     {
         LimitTxt.text = limit.ToString();
         QuantityTxt.text = quantity.ToString();
+    }
+
+    void SetJetpackValue()
+    {
+        price = ShopManager.GetComponent<ShopManager>().shopItems[2, ItemID];
+        PriceTxt.text = "Price: $" + price;
+
+        quantity = 0;
+        QuantityTxt.text = quantity.ToString();
+
+        limit = ShopManager.GetComponent<ShopManager>().shopItems[4, ItemID];
+        LimitTxt.text = limit.ToString();
     }
 }
