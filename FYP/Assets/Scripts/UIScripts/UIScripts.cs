@@ -26,21 +26,34 @@ public class UIScripts : MonoBehaviour
 
     private void Update()
     {
+
         if (!pauseUI.activeInHierarchy && !settingUI.activeInHierarchy)
         {
+
             if (Input.GetKeyDown(KeyCode.Escape) && SceneManager.GetActiveScene().name != "Start UI")
             {
-                //Debug.Log("5");
+                if (shopUI.activeInHierarchy || backPackUI.activeInHierarchy || craftingUI.activeInHierarchy)
+                {
+                    Debug.Log("5");
 
-                //PauseUI.SetActive(!PauseUI.activeInHierarchy);
-                OpenUI(pauseUI);
+                    CloseUI(shopUI);
+                    CloseUI(backPackUI);
+                    CloseUI(craftingUI);
+
+                    //PauseUI.SetActive(!PauseUI.activeInHierarchy);
+
+                }
+                else {
+                    Debug.Log("2");
+                    OpenUI(pauseUI); }
             }
+           
         }
         else if (pauseUI.activeInHierarchy && !settingUI.activeInHierarchy)
         {
             if (Input.GetKeyDown(KeyCode.Escape))
             {
-                //Debug.Log("6");
+                Debug.Log("6");
 
                 CloseUI(pauseUI);
             }
@@ -49,7 +62,7 @@ public class UIScripts : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Escape))
             {
-                //Debug.Log("7");
+                Debug.Log("7");
 
                 CloseUI(settingUI);
             }
@@ -57,7 +70,7 @@ public class UIScripts : MonoBehaviour
 
         if (pauseUI.activeInHierarchy || settingUI.activeInHierarchy || SceneManager.GetActiveScene().name == "Start UI")
         {
-            //Debug.Log("8");
+            Debug.Log("8");
 
             Time.timeScale = 0;     //pause the game time
             Cursor.lockState = CursorLockMode.None;
@@ -65,7 +78,7 @@ public class UIScripts : MonoBehaviour
         }
         else if((shopUI && shopUI.activeInHierarchy) || (backPackUI && backPackUI.activeInHierarchy) || (craftingUI && craftingUI.activeInHierarchy))
         {
-            //Debug.Log("10");
+            Debug.Log("10");
 
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
@@ -73,7 +86,7 @@ public class UIScripts : MonoBehaviour
         }
         else                                             //if no UI
         {
-            //Debug.Log("9");
+            Debug.Log("9");
 
             Time.timeScale = 1;     //start the game time
             Cursor.lockState = CursorLockMode.Locked;
