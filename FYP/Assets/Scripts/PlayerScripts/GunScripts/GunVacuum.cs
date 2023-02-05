@@ -81,8 +81,29 @@ public class GunVacuum : MonoBehaviour
         }
     }
 
+    float emitTime = 0;
+    float emitInterval = 0.5f;
+
     private void OnTriggerStay(Collider other)
     {
+        if (Input.GetMouseButton(1) && Physics.Raycast(transform.parent.parent.position, transform.parent.parent.forward, out RaycastHit raycastHit, 3f))//inhale item in the crafting table
+        {
+            if (raycastHit.transform.TryGetComponent(out CraftingTable craftingTable))
+            {
+                //Debug.Log("Time.time: " + Time.time);
+                //Debug.Log("emitTime + emitInterval: " + emitTime + emitInterval);
+                if(Time.time > emitTime + emitInterval)
+                {
+                    craftingTable.RemoveInputMaterial();
+                    emitTime = Time.time;
+
+
+                }
+
+            }
+        }
+
+
         if (other.transform.gameObject.GetComponent<Target>())          //new change
         //if (other.transform.CompareTag("Target"))
         {
@@ -94,6 +115,8 @@ public class GunVacuum : MonoBehaviour
             }
             if (Input.GetMouseButton(1))
             {
+                
+
                 other.transform.gameObject.GetComponent<Target>().isVacuum = true;
                 VacuumTarget(other);
             }
@@ -134,6 +157,8 @@ public class GunVacuum : MonoBehaviour
         
         }
     }
+
+
 
     public void VacuumTarget(Collider other)
     {

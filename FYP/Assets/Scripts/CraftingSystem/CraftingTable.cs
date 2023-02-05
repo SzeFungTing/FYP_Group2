@@ -11,6 +11,7 @@ public class CraftingTable : MonoBehaviour
     [SerializeField] private BoxCollider placeItemsAreaBoxCollider;
     [SerializeField] private Transform itemSpawnPoint;
     [SerializeField] private Transform returnMaterialPoint;
+    [SerializeField] private Transform returnMaterialPointByPlayer;
 
     private CraftingRecipeSO craftingRecipeSO;
 
@@ -22,7 +23,7 @@ public class CraftingTable : MonoBehaviour
     GameObject craftingUI;
     GameObject previewCraftingUI;
 
-
+    Animator animator;
     //ConsumeItem consumeItem;
 
     //Collider[] colliderArray;
@@ -39,6 +40,8 @@ public class CraftingTable : MonoBehaviour
 
     private void Start()
     {
+        animator = transform.GetComponent<Animator>();
+        animator.SetBool("OpenInputMaterialDoor", true);
         //consumeItemGameObjectList = new List<GameObject>();
         //consumeItem = GetComponentInChildren<ConsumeItem>();
 
@@ -109,61 +112,33 @@ public class CraftingTable : MonoBehaviour
     public void Craft()
     {
         Debug.Log("Craft");
-        //Collider[] colliderArray = Physics.OverlapBox(
-        //    transform.position + placeItemsAreaBoxCollider.center,
-        //    placeItemsAreaBoxCollider.size,
-        //    placeItemsAreaBoxCollider.transform.rotation);
-
-
-        //inputItemList = new List<Item5>(craftingRecipeSO.inputItemSOList);
-        //consumeItemGameObjectList = new List<GameObject>();
-
-        //foreach (Collider collider in colliderArray)
-        //{
-        //    if (collider.TryGetComponent(out WorldItem worldItem))
-        //    {
-        //        if (inputItemList.Contains(worldItem.item))
-        //        {
-        //            Debug.Log(collider.gameObject);
-
-        //            inputItemList.Remove(worldItem.item);
-        //            consumeItemGameObjectList.Add(collider.gameObject);
-        //            //Destroy(collider.gameObject);
-        //            //DestroyObject(collider.gameObject);
-        //        }
-        //    }
-        //}
-
-        //foreach (GameObject go in consumeItemGameObjectList)
-        //    Debug.Log("2consumeItemGameObjectList: " + go);
-        //foreach (Item5 item in inputItemList)
-        //    Debug.Log("2inputItemList: " + item);
+        
 
         if (inputItemList != null && inputItemList.Count == 0)        //Have all the required item to craft
         {
             Debug.Log("Yes");
-            //Transform spawnedItemTransform = 
-            Instantiate(craftingRecipeSO.outputItemSO, itemSpawnPoint.position, itemSpawnPoint.rotation);
 
-            //foreach(GameObject consumeItemGameObject in consumeItemGameObjectList)
-            //{
-            //    Destroy(consumeItemGameObject);
-            //}
-            //Debug.Log("displayList");
-            foreach (Transform displayItem in displayList)
+            animator.SetBool("OpenOutputItemDoor", true);
+            if (animator.GetCurrentAnimatorStateInfo(0).IsName("OpenOutputItemDoor") && animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1)
             {
-                displayItem.transform.GetChild(1).GetComponent<Text>().text = 0.ToString();
+                GameObject item = Instantiate(craftingRecipeSO.outputItemSO, itemSpawnPoint.position, itemSpawnPoint.rotation);
+                item.GetComponent<Rigidbody>().velocity = 8f * itemSpawnPoint.transform.forward;
+
+                foreach (Transform displayItem in displayList)
+                {
+                    displayItem.transform.GetChild(1).GetComponent<Text>().text = 0.ToString();
+                }
+
+
+                foreach (Transform previewDisplay in previewDisplayList)
+                {
+                    previewDisplay.transform.GetChild(1).GetComponent<Text>().text = 0.ToString();
+                }
             }
+            
 
 
-
-            //Debug.Log("displayList");
-            foreach (Transform previewDisplay in previewDisplayList)
-            {
-                previewDisplay.transform.GetChild(1).GetComponent<Text>().text = 0.ToString();
-            }
-
-
+            animator.SetBool("OpenOutputItemDoor", false);
 
             inputItemList = null;
             consumeItemGameObjectList = null;
@@ -175,11 +150,7 @@ public class CraftingTable : MonoBehaviour
         }
     }
 
-    //public void DestroyObject(GameObject gameObject)
-    //{
-    //    Debug.Log("Destroy: " + gameObject);
-    //    Destroy(gameObject);
-    //}
+
 
     public void ConsumeMaterial(/*WorldItem worldItem*/)
     {
@@ -219,73 +190,10 @@ public class CraftingTable : MonoBehaviour
                 }
             }
         }
-
-        //if (inputItemList.Contains(worldItem.item))
-        //{
-        //    inputItemList.Remove(worldItem.item);
-        //    consumeItemGameObjectList.Add(worldItem.item.objectPrefab);
-        //    consumeItem.canDestroy = true;
-        //}
     }
 
-    public void DisplayRecipe_Material()
+    public void DisplayRecipe_Material()            //set and display the needed Material
     {
-        //foreach (Item5 inputItem in craftingRecipeSO.inputItemSOList)
-        //{
-        //    Transform consumeItemSlot = null;
-        //    if (consumeItemSlot == null)
-        //    {
-
-        //    }
-
-
-        //    consumeItemSlot.GetComponent<Image>().sprite = inputItem.image;
-        //    consumeItemSlot.GetComponentInChildren<Text>().text = 0 + " / " + inputItem;
-
-        //    Item5 previousItem = inputItem;
-        //    if (previousItem.objectPrefab == inputItem.objectPrefab)
-        //    {
-
-        //    }
-
-        //    consumeItemSlot = Instantiate(craftingUI.transform.GetChild(1).GetChild(0), craftingUI.transform.GetChild(1));
-        //    consumeItemSlot.gameObject.SetActive(true);
-
-        //}
-
-
-
-        //int inputItemCount = 0;
-        //Item5 previousItem;
-        //Transform consumeItemSlot = null;
-
-        //foreach (Item5 inputItem in craftingRecipeSO.inputItemSOList)
-        //{
-        //    previousItem = inputItem;
-        //    if (previousItem.objectPrefab == inputItem.objectPrefab)
-        //    {
-        //        inputItemCount++;
-        //        consumeItemSlot.GetComponentInChildren<Text>().text = 0 + " / " + inputItemCount;
-        //        return;
-        //    }
-        //}
-
-        //foreach (Item5 inputItem in craftingRecipeSO.inputItemSOList)
-        //{
-        //    previousItem = inputItem;
-        //    //Transform consumeItemSlot = null;
-        //    if (consumeItemSlot == null)
-        //    {
-        //        consumeItemSlot = Instantiate(craftingUI.transform.GetChild(1).GetChild(0), craftingUI.transform.GetChild(1));
-        //        consumeItemSlot.gameObject.SetActive(true);
-
-        //        consumeItemSlot.GetComponent<Image>().sprite = inputItem.image;
-        //        inputItemCount++;
-        //        consumeItemSlot.GetComponentInChildren<Text>().text = 0 + " / " + inputItemCount;
-
-        //    }
-        //}
-
 
 
         bool itemAlreadyInInventory = false;
@@ -347,7 +255,7 @@ public class CraftingTable : MonoBehaviour
         }
     }
 
-    public void DisplayInputMaterial(Item5 InputItem)
+    public void DisplayInputMaterial(Item5 InputItem)               //if the input item is same at the list, the number of the material in the UI will add
     {
         //Debug.Log("DisplayInputMaterial");
 
@@ -376,7 +284,48 @@ public class CraftingTable : MonoBehaviour
         }
     }
 
-    public void UpdateDisplayList()
+    public void RemoveInputMaterial()               //if the input item is same at the list, the number of the material in the UI will remove
+    {
+        //Debug.Log("call RemoveInputMaterial");
+        if (consumeItemGameObjectList.Count > 0)
+        {
+            //Debug.Log("call consumeItemGameObjectList.Count > 0");
+            //Debug.Log("consumeItemGameObjectList[consumeItemGameObjectList.Count - 1]: " + consumeItemGameObjectList[consumeItemGameObjectList.Count - 1]);
+            Item5 removeItem = consumeItemGameObjectList[consumeItemGameObjectList.Count - 1].GetComponent<WorldItem>().item;
+
+            foreach (Transform displayItem in displayList)
+            {
+                if (removeItem.image == displayItem.GetComponent<Image>().sprite)
+                {
+                    int inputItemCount;
+                    int.TryParse(displayItem.transform.GetChild(1).GetComponent<Text>().text, out inputItemCount);
+
+                    inputItemCount--;
+                    displayItem.transform.GetChild(1).GetComponent<Text>().text = inputItemCount.ToString();
+                }
+            }
+
+            foreach (Transform previewDisplay in previewDisplayList)
+            {
+                if (removeItem.image == previewDisplay.GetComponent<Image>().sprite)
+                {
+                    int inputItemCount;
+                    int.TryParse(previewDisplay.transform.GetChild(1).GetComponent<Text>().text, out inputItemCount);
+
+                    inputItemCount--;
+                    previewDisplay.transform.GetChild(1).GetComponent<Text>().text = inputItemCount.ToString();
+                }
+            }
+
+            GameObject item = Instantiate(consumeItemGameObjectList[consumeItemGameObjectList.Count - 1], returnMaterialPointByPlayer.position, returnMaterialPointByPlayer.rotation);
+            item.GetComponent<WorldItem>().canConsume = false;
+            consumeItemGameObjectList.Remove(consumeItemGameObjectList[consumeItemGameObjectList.Count - 1]);
+            inputItemList.Add(removeItem);
+        }
+
+    }
+
+    public void UpdateDisplayList()                 //delete the display preview
     {
         if (displayList != null)
         {

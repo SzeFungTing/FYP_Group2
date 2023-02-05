@@ -9,7 +9,10 @@ public class PlayerCrafting : MonoBehaviour
 
     Transform recipeUI;
 
-
+    private void Start()
+    {
+        UIScripts.instance.craftingUI.SetActive(false);
+    }
 
     // Update is called once per frame
     void Update()
@@ -29,7 +32,8 @@ public class PlayerCrafting : MonoBehaviour
                     {
                         //next recipe
                         //craftingTable.NextRecipe();
-                        UIScripts.instance.craftingUI.SetActive(!UIScripts.instance.craftingUI.activeSelf);
+                        ControlUI();
+
                         //if(UIScripts.instance.CraftingUI.activeInHierarchy)
                         //    UIScripts.instance.CraftingUI.SetActive(false);
                     }
@@ -59,5 +63,11 @@ public class PlayerCrafting : MonoBehaviour
         //    UIScripts.instance.buttonIndicationUI.SetActive(false);
 
         //}
+    }
+
+    public void ControlUI()
+    {
+        UIScripts.instance.craftingUI.SetActive(!UIScripts.instance.craftingUI.activeSelf);
+        UIScripts.instance.hotBarUI.SetActive(!UIScripts.instance.hotBarUI.activeSelf);
     }
 }
