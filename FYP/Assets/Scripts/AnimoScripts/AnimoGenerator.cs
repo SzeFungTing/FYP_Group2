@@ -13,7 +13,7 @@ public class AnimoGenerator : MonoBehaviour
     {
         for (int i = 0; i < targetNum; i++)
         {
-            Rigidbody rb = Instantiate(animoPrefab, transform.position + Vector3.up * i, transform.rotation);
+            Rigidbody rb = Instantiate(animoPrefab, transform.position + Vector3.up * i * 1.2f, transform.rotation);
             rb.velocity = transform.up * speed;
         }
     }
