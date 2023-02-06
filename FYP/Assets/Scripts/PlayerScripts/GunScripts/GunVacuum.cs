@@ -90,6 +90,7 @@ public class GunVacuum : MonoBehaviour
         {
             if (raycastHit.transform.TryGetComponent(out CraftingTable craftingTable))
             {
+                //Debug.Log("raycastHit.transform.TryGetComponent(out CraftingTable craftingTable)");
                 //Debug.Log("Time.time: " + Time.time);
                 //Debug.Log("emitTime + emitInterval: " + emitTime + emitInterval);
                 if(Time.time > emitTime + emitInterval)
