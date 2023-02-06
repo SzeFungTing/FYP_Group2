@@ -104,7 +104,6 @@ GameObject:
   - component: {fileID: 5948187629902824851}
   - component: {fileID: 2928850683914948789}
   - component: {fileID: 3409716149995591035}
-  - component: {fileID: 1846082113885284994}
   m_Layer: 7
   m_Name: CharacterCollisionBlocker
   m_TagString: Untagged
@@ -156,20 +155,6 @@ CapsuleCollider:
   m_Height: 1
   m_Direction: 1
   m_Center: {x: 7.25, y: -10.3, z: 43.1}
---- !u!114 &1846082113885284994
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 681535405701524373}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb5dd88f5ee735a4d8e97c44324e8188, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  characterCollider: {fileID: 0}
-  characterBlockerCollider: {fileID: 3409716149995591035}
 --- !u!1 &732006838863081556
 GameObject:
   m_ObjectHideFlags: 0
