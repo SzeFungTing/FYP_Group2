@@ -41,6 +41,7 @@ public class PlayerCrafting : MonoBehaviour
                     {
                         //start craft
                         craftingTable.Craft();
+                        //craftingTable.isCrafting = true;
                     }
                 }
                 //else

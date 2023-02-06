@@ -9034,6 +9034,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 376621237}
   m_CullTransparentMesh: 1
+--- !u!1 &384716098 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -516098083770646512, guid: 0e43e2adeb647d448889dc7ac3bfe5f3, type: 3}
+  m_PrefabInstance: {fileID: 2132826780}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &384716100
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 384716098}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4493585093827132993, guid: 0e43e2adeb647d448889dc7ac3bfe5f3, type: 3}
 --- !u!1 &395350659
 GameObject:
   m_ObjectHideFlags: 0
@@ -13561,7 +13580,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1304702244}
+      - m_Target: {fileID: 1506023109}
         m_TargetAssemblyTypeName: CraftingTable, Assembly-CSharp
         m_MethodName: NextRecipe
         m_Mode: 1
@@ -19044,6 +19063,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1208672720}
   m_CullTransparentMesh: 1
+--- !u!1 &1217461730 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -8391222552659086748, guid: 0e43e2adeb647d448889dc7ac3bfe5f3, type: 3}
+  m_PrefabInstance: {fileID: 2132826780}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &1217461732
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1217461730}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -5495902117074765545, guid: 0e43e2adeb647d448889dc7ac3bfe5f3, type: 3}
 --- !u!1001 &1228541715
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19165,7 +19203,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1231331104}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.186, z: -0.334}
+  m_LocalPosition: {x: 1.69, y: -0.186, z: -0.334}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2132826781}
@@ -20041,7 +20079,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1304702244
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20062,6 +20100,7 @@ MonoBehaviour:
   itemSpawnPoint: {fileID: 38652078}
   returnMaterialPoint: {fileID: 1830887879}
   returnMaterialPointByPlayer: {fileID: 38652078}
+  isCrafting: 0
 --- !u!65 &1304702245
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -22056,6 +22095,40 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1506023109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1506023107}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 083a68c020f89ee4b907be2fb82c4d1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  recipeImage: {fileID: 475253838}
+  craftingRecipeSOList:
+  - {fileID: -8746619081789328486, guid: 71e19f72af916034aa65917ea99e0de1, type: 3}
+  - {fileID: 6816604981075719629, guid: 3e4e7f3f632455b479bca77d88284221, type: 3}
+  placeItemsAreaBoxCollider: {fileID: 1748843859}
+  itemSpawnPoint: {fileID: 1010190727}
+  returnMaterialPoint: {fileID: 1231331105}
+  returnMaterialPointByPlayer: {fileID: 1231331105}
+  isCrafting: 0
+--- !u!65 &1506023110
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1506023107}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 2.1476786, z: 1}
+  m_Center: {x: 0, y: 0.63281494, z: 0}
 --- !u!114 &1508579094 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5133612980998620161, guid: de4bdaae2b0d1dc49967e0d1b5993a38, type: 3}
@@ -27869,6 +27942,25 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!1 &1599527782 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8416272007918961125, guid: 0e43e2adeb647d448889dc7ac3bfe5f3, type: 3}
+  m_PrefabInstance: {fileID: 2132826780}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &1599527784
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1599527782}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -1550514412580984892, guid: 0e43e2adeb647d448889dc7ac3bfe5f3, type: 3}
 --- !u!1 &1605817055
 GameObject:
   m_ObjectHideFlags: 0
@@ -42141,7 +42233,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1304702244}
+      - m_Target: {fileID: 1506023109}
         m_TargetAssemblyTypeName: CraftingTable, Assembly-CSharp
         m_MethodName: Craft
         m_Mode: 1
@@ -43021,7 +43113,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0e43e2adeb647d448889dc7ac3bfe5f3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.4
+      value: 0.538
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0e43e2adeb647d448889dc7ac3bfe5f3, type: 3}
       propertyPath: m_LocalPosition.z

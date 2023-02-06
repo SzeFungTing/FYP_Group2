@@ -24,6 +24,8 @@ public class CraftingTable : MonoBehaviour
     GameObject previewCraftingUI;
 
     Animator animator;
+
+    [HideInInspector] public bool isCrafting;
     //ConsumeItem consumeItem;
 
     //Collider[] colliderArray;
@@ -31,7 +33,7 @@ public class CraftingTable : MonoBehaviour
     private void Awake()
     {
         craftingUI = UIScripts.instance.craftingUI;
-        previewCraftingUI = transform.GetChild(0).GetChild(0).gameObject;
+        previewCraftingUI = transform.GetChild(/*0*/3).GetChild(0).gameObject;
         displayList = new List<Transform>();
         previewDisplayList = new List<Transform>();
 
@@ -41,7 +43,7 @@ public class CraftingTable : MonoBehaviour
     private void Start()
     {
         animator = transform.GetComponent<Animator>();
-        animator.SetBool("OpenInputMaterialDoor", true);
+        //animator.SetBool("OpenInputMaterialDoor", true);
         //consumeItemGameObjectList = new List<GameObject>();
         //consumeItem = GetComponentInChildren<ConsumeItem>();
 
@@ -49,7 +51,45 @@ public class CraftingTable : MonoBehaviour
 
     private void Update()
     {
-        ConsumeMaterial();
+        if (animator.GetCurrentAnimatorStateInfo(0).IsName("OpenInputMaterialDoor") && animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1)
+            ConsumeMaterial();
+
+
+        if (isCrafting)
+        {
+            //Craft();
+            if (animator.GetCurrentAnimatorStateInfo(0).IsName("OpenOutputItemDoor") && animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1)
+            {
+                GameObject item = Instantiate(craftingRecipeSO.outputItemSO, itemSpawnPoint.position, itemSpawnPoint.rotation);
+                item.GetComponent<Rigidbody>().velocity = 8f * -itemSpawnPoint.transform.forward;
+
+                foreach (Transform displayItem in displayList)
+                {
+                    displayItem.transform.GetChild(1).GetComponent<Text>().text = 0.ToString();
+                }
+
+
+                foreach (Transform previewDisplay in previewDisplayList)
+                {
+                    previewDisplay.transform.GetChild(1).GetComponent<Text>().text = 0.ToString();
+                }
+
+
+
+                inputItemList = null;
+                consumeItemGameObjectList = null;
+
+                animator.SetBool("isOpenOutputDoor", false);
+                isCrafting = false;
+                //transform.GetComponent<Collider>().enabled = true;
+                transform.GetChild(0).GetComponent<Collider>().enabled = true;
+
+
+            }
+
+        }
+
+
 
         if (Input.GetKeyDown(KeyCode.P))
         {
@@ -118,30 +158,32 @@ public class CraftingTable : MonoBehaviour
         {
             Debug.Log("Yes");
 
-            animator.SetBool("OpenOutputItemDoor", true);
-            if (animator.GetCurrentAnimatorStateInfo(0).IsName("OpenOutputItemDoor") && animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1)
-            {
-                GameObject item = Instantiate(craftingRecipeSO.outputItemSO, itemSpawnPoint.position, itemSpawnPoint.rotation);
-                item.GetComponent<Rigidbody>().velocity = 8f * itemSpawnPoint.transform.forward;
+            animator.SetBool("isOpenOutputDoor", true);
+            //transform.GetComponent<Collider>().enabled = false;
+            transform.GetChild(0).GetComponent<Collider>().enabled = false;
+            isCrafting = true;
+            //if (animator.GetCurrentAnimatorStateInfo(0).IsName("OpenOutputItemDoor") && animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1)
+            //{
+            //    GameObject item = Instantiate(craftingRecipeSO.outputItemSO, itemSpawnPoint.position, itemSpawnPoint.rotation);
+            //    item.GetComponent<Rigidbody>().velocity = 8f * itemSpawnPoint.transform.forward;
 
-                foreach (Transform displayItem in displayList)
-                {
-                    displayItem.transform.GetChild(1).GetComponent<Text>().text = 0.ToString();
-                }
+            //    foreach (Transform displayItem in displayList)
+            //    {
+            //        displayItem.transform.GetChild(1).GetComponent<Text>().text = 0.ToString();
+            //    }
 
 
-                foreach (Transform previewDisplay in previewDisplayList)
-                {
-                    previewDisplay.transform.GetChild(1).GetComponent<Text>().text = 0.ToString();
-                }
-            }
+            //    foreach (Transform previewDisplay in previewDisplayList)
+            //    {
+            //        previewDisplay.transform.GetChild(1).GetComponent<Text>().text = 0.ToString();
+            //    }
+
+            //    isCrafting = false;
+            //}
+
+
+
             
-
-
-            animator.SetBool("OpenOutputItemDoor", false);
-
-            inputItemList = null;
-            consumeItemGameObjectList = null;
         }
         else
         {

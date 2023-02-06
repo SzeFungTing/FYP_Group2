@@ -41,7 +41,7 @@ public class ShopManager : MonoBehaviour
         itemPlane = shopUI.transform.GetChild(1).GetChild(3).GetChild(0).GetChild(0);
 
         Anim_Drone = ShootingP.gameObject.GetComponent<Animator>();
-        Anim_Drone.SetBool("is_Shooted", false);
+        //Anim_Drone.SetBool("is_Shooted", false);
         Jetpack.SetActive(false);
 
         CoinsTXT.text = "Coins: $" + /*coins*/MoneyManager.instance.coins.ToString();
@@ -211,6 +211,7 @@ public class ShopManager : MonoBehaviour
     {
         if (purchaseList.Count > 0)
         {
+            //by legolas 
             Anim_Drone.SetBool("is_Shooted", true);
             //Debug.Log("purchaseList.Count > 0");
 
