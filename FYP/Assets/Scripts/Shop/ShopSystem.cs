@@ -24,6 +24,7 @@ public class ShopSystem : MonoBehaviour
         
 
         Anim_Drone = drone.transform.GetComponentInChildren<Animator>();
+        //Anim_Drone = drone.transform.GetComponent<Animator>();
 
     }
 
@@ -31,7 +32,7 @@ public class ShopSystem : MonoBehaviour
     void Update()
     {
 
-        if (Anim_Drone && Anim_Drone.GetCurrentAnimatorStateInfo(0).IsName("Start") && Anim_Drone.GetCurrentAnimatorStateInfo(0).normalizedTime > 1 && !isUIOpened)            //drone animation end, open shopUI
+        if (Anim_Drone && Anim_Drone.GetCurrentAnimatorStateInfo(0).IsName("Drone_fly") && Anim_Drone.GetCurrentAnimatorStateInfo(0).normalizedTime > 1 && !isUIOpened)            //drone animation end, open shopUI
         {
             shopUI.SetActive(true);
             isUIOpened = true;

@@ -40,7 +40,9 @@ public class ShopManager : MonoBehaviour
         equipmentPlane = shopUI.transform.GetChild(1).GetChild(2).GetChild(0).GetChild(0);
         itemPlane = shopUI.transform.GetChild(1).GetChild(3).GetChild(0).GetChild(0);
 
-        Anim_Drone = ShootingP.gameObject.GetComponent<Animator>();
+        Anim_Drone = ShootingP.gameObject.transform.GetComponent<Animator>();
+        //Anim_Drone = ShootingP.gameObject.transform.parent.transform.GetComponent<Animator>();
+        //Anim_Drone = ShootingP.gameObject.transform.parent.parent.transform.GetComponent<Animator>();
         //Anim_Drone.SetBool("is_Shooted", false);
         Jetpack.SetActive(false);
 
@@ -99,7 +101,7 @@ public class ShopManager : MonoBehaviour
         {
             if(purchasingIdx < purchaseList.Count)
             {
-                if (Anim_Drone.GetCurrentAnimatorStateInfo(0).IsName("TurnAround") && Anim_Drone.GetCurrentAnimatorStateInfo(0).normalizedTime > 1 && Time.time > emitTime+ emitInterval)         //check animation end?, Instantiate ther
+                if (Anim_Drone.GetCurrentAnimatorStateInfo(0).IsName("Drone_rotate2") && Anim_Drone.GetCurrentAnimatorStateInfo(0).normalizedTime > 1 && Time.time > emitTime+ emitInterval)         //check animation end?, Instantiate ther
                 {
 
                  
