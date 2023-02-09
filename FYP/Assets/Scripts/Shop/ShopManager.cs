@@ -14,10 +14,10 @@ public class ShopManager : MonoBehaviour
     public GameObject Select;
     public GameObject Jetpack;
 
-    public GameObject shopUI;
+    GameObject shopUI;
     Transform buildingPlane, upgradePlane, equipmentPlane, itemPlane;
     public Button building, upgrade, equipment, item;
-    GameObject ButtonRef;
+    //GameObject ButtonRef;
 
     public bool isBought = false;
     public float Speed = 5f;
@@ -35,20 +35,19 @@ public class ShopManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        shopUI = UIScripts.instance.shopUI;
+
         buildingPlane = shopUI.transform.GetChild(1).GetChild(0).GetChild(0).GetChild(0);
         upgradePlane = shopUI.transform.GetChild(1).GetChild(1).GetChild(0).GetChild(0);
         equipmentPlane = shopUI.transform.GetChild(1).GetChild(2).GetChild(0).GetChild(0);
         itemPlane = shopUI.transform.GetChild(1).GetChild(3).GetChild(0).GetChild(0);
 
-        Anim_Drone = ShootingP.gameObject.transform.GetComponent<Animator>();
-        //Anim_Drone = ShootingP.gameObject.transform.parent.transform.GetComponent<Animator>();
-        //Anim_Drone = ShootingP.gameObject.transform.parent.parent.transform.GetComponent<Animator>();
-        //Anim_Drone.SetBool("is_Shooted", false);
+        Anim_Drone = ShootingP.GetComponent<Animator>();
         Jetpack.SetActive(false);
 
         CoinsTXT.text = "Coins: $" + /*coins*/MoneyManager.instance.coins.ToString();
 
-        foreach (GameObject sellingItem in sellingItems)
+        foreach (GameObject sellingItem in sellingItems)                                                //display the selling items
         {
             //Debug.Log("spawn");
             GameObject temp = Instantiate(sellingTemplate, Classification(sellingItem));
@@ -62,29 +61,29 @@ public class ShopManager : MonoBehaviour
 
         }
 
-        //ID
-        shopItems[1, 1] = 1;
-        shopItems[1, 2] = 2;
-        shopItems[1, 3] = 3;
-        shopItems[1, 4] = 4;
+        ////ID
+        //shopItems[1, 1] = 1;
+        //shopItems[1, 2] = 2;
+        //shopItems[1, 3] = 3;
+        //shopItems[1, 4] = 4;
 
-        //Price
-        shopItems[2, 1] = 30;
-        shopItems[2, 2] = 1000; //jetpack
-        shopItems[2, 3] = 10;
-        shopItems[2, 4] = 20;
+        ////Price
+        //shopItems[2, 1] = 30;
+        //shopItems[2, 2] = 1000; //jetpack
+        //shopItems[2, 3] = 10;
+        //shopItems[2, 4] = 20;
 
-        //Quantity
-        shopItems[3, 1] = 0;
-        shopItems[3, 2] = 0;
-        shopItems[3, 3] = 0;
-        shopItems[3, 4] = 0;
+        ////Quantity
+        //shopItems[3, 1] = 0;
+        //shopItems[3, 2] = 0;
+        //shopItems[3, 3] = 0;
+        //shopItems[3, 4] = 0;
 
-        //Limit
-        shopItems[4, 1] = 3;
-        shopItems[4, 2] = 1;
-        shopItems[4, 3] = 20;
-        shopItems[4, 4] = 10;
+        ////Limit
+        //shopItems[4, 1] = 3;
+        //shopItems[4, 2] = 1;
+        //shopItems[4, 3] = 20;
+        //shopItems[4, 4] = 10;
 
 
     }
@@ -101,7 +100,9 @@ public class ShopManager : MonoBehaviour
         {
             if(purchasingIdx < purchaseList.Count)
             {
-                if (Anim_Drone.GetCurrentAnimatorStateInfo(0).IsName("Drone_rotate2") && Anim_Drone.GetCurrentAnimatorStateInfo(0).normalizedTime > 1 && Time.time > emitTime+ emitInterval)         //check animation end?, Instantiate ther
+                if (((Anim_Drone.GetCurrentAnimatorStateInfo(0).IsName("Rotate") && Anim_Drone.GetCurrentAnimatorStateInfo(0).normalizedTime > 1) 
+                    || Anim_Drone.GetCurrentAnimatorStateInfo(0).IsName("BladeRotation")) 
+                    && Time.time > emitTime+ emitInterval)         //check animation end?, Instantiate ther
                 {
 
                  
@@ -109,7 +110,7 @@ public class ShopManager : MonoBehaviour
                 //Debug.Log("spawn, normalized time:"+ Anim_Drone.GetCurrentAnimatorStateInfo(0).normalizedTime);
                 GameObject stuff = Instantiate(purchaseList[purchasingIdx++], ShootingP.position, Random.rotation);
 
-                stuff.GetComponentInChildren<Rigidbody>().velocity = ShootingP.forward * Speed;
+                stuff.GetComponent<Rigidbody>().velocity = ShootingP.up * Speed;
                 emitTime = Time.time;
                     
 
@@ -148,8 +149,7 @@ public class ShopManager : MonoBehaviour
     {
         //Debug.Log("buy");
 
-        /*GameObject*/
-        ButtonRef = GameObject.FindGameObjectWithTag("Event").GetComponent<EventSystem>().currentSelectedGameObject;
+        GameObject ButtonRef = GameObject.FindGameObjectWithTag("Event").GetComponent<EventSystem>().currentSelectedGameObject;
 
 
         //if (shopItems[4, ButtonRef.GetComponent<ButtonInfo>().ItemID] > 0)

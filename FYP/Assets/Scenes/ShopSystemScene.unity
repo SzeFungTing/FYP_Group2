@@ -522,7 +522,6 @@ MonoBehaviour:
   price: 0
   quantity: 0
   limit: 0
-  ShopManager: {fileID: 0}
 --- !u!114 &30665494
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1050,7 +1049,6 @@ MonoBehaviour:
   price: 0
   quantity: 0
   limit: 0
-  ShopManager: {fileID: 543187597}
 --- !u!114 &46118860
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11226,7 +11224,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   drone: {fileID: 433398815}
-  shopUI: {fileID: 35786434}
   isUIOpened: 0
 --- !u!65 &404018446
 BoxCollider:
@@ -13204,10 +13201,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coins: 10000
   CoinsTXT: {fileID: 314292424}
-  ShootingP: {fileID: 433398820}
+  ShootingP: {fileID: 1604978233}
   Select: {fileID: 2134285243}
   Jetpack: {fileID: 1153514872}
-  shopUI: {fileID: 35786434}
   building: {fileID: 163658838}
   upgrade: {fileID: 373506212}
   equipment: {fileID: 196075360}
@@ -13215,9 +13211,9 @@ MonoBehaviour:
   isBought: 0
   Speed: 5
   sellingItems:
-  - {fileID: 7713532688134291900, guid: d060b9928f673b14c96c51a8fc86a915, type: 3}
-  - {fileID: 3577600395696242698, guid: 15991e441023e7e4a87440372c23ec0d, type: 3}
   - {fileID: 869978943048476007, guid: c2c83adc65de36a448de984c38b75f9c, type: 3}
+  - {fileID: 3577600395696242698, guid: 15991e441023e7e4a87440372c23ec0d, type: 3}
+  - {fileID: 7713532688134291900, guid: d060b9928f673b14c96c51a8fc86a915, type: 3}
   sellingTemplate: {fileID: 5463033886544887856, guid: ac296707cb0b64649a8c2ee6b93288f3, type: 3}
   purchaseList: []
 --- !u!4 &543187599
@@ -13560,7 +13556,6 @@ MonoBehaviour:
   price: 0
   quantity: 0
   limit: 0
-  ShopManager: {fileID: 0}
 --- !u!114 &587905054
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14716,7 +14711,6 @@ MonoBehaviour:
   price: 0
   quantity: 0
   limit: 0
-  ShopManager: {fileID: 0}
 --- !u!114 &668226478
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16600,8 +16594,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b516e8cdf5520194398177ed6eccca8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  drone: {fileID: 255915810}
-  shopUI: {fileID: 35786434}
+  drone: {fileID: 1810004997}
   isUIOpened: 0
 --- !u!114 &791665411
 MonoBehaviour:
@@ -18598,11 +18591,10 @@ MonoBehaviour:
   QuantityTxt: {fileID: 802832551}
   LimitTxt: {fileID: 508725895}
   NameTxt: {fileID: 0}
-  SItem: {fileID: 2119356594}
+  SItem: {fileID: 0}
   price: 0
   quantity: 0
   limit: 0
-  ShopManager: {fileID: 543187597}
 --- !u!114 &943544034
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24526,15 +24518,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8341395f85f0f824582435924528dd85, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: -90
+      value: -83.22155
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8341395f85f0f824582435924528dd85, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 90
+      value: -142.19325
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8341395f85f0f824582435924528dd85, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 90
+      value: -161.34908
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 8341395f85f0f824582435924528dd85, type: 3}
       propertyPath: m_Materials.Array.data[1]
@@ -24542,27 +24534,27 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: d9972136fdfb5174794b21ce203a4e6f, type: 2}
     - target: {fileID: -7493596028755563170, guid: 8341395f85f0f824582435924528dd85, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 67.46608
+      value: -36.52677
       objectReference: {fileID: 0}
     - target: {fileID: -7493596028755563170, guid: 8341395f85f0f824582435924528dd85, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 43.14901
+      value: 89.77521
       objectReference: {fileID: 0}
     - target: {fileID: -7493596028755563170, guid: 8341395f85f0f824582435924528dd85, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 40.203537
+      value: 87.15566
       objectReference: {fileID: 0}
     - target: {fileID: -1538112130698044685, guid: 8341395f85f0f824582435924528dd85, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 67.47127
+      value: -36.517094
       objectReference: {fileID: 0}
     - target: {fileID: -1538112130698044685, guid: 8341395f85f0f824582435924528dd85, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -43.333286
+      value: -90
       objectReference: {fileID: 0}
     - target: {fileID: -1538112130698044685, guid: 8341395f85f0f824582435924528dd85, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: -43.333286
+      value: -90
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 8341395f85f0f824582435924528dd85, type: 3}
       propertyPath: m_Name
@@ -26913,8 +26905,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1552846149}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.2, y: 1.4, z: 4.55}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1.76, y: 0.73999965, z: 3.86}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 791665417}
@@ -32850,7 +32842,6 @@ MonoBehaviour:
   price: 0
   quantity: 0
   limit: 0
-  ShopManager: {fileID: 543187597}
 --- !u!114 &1660155907
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -39968,7 +39959,6 @@ MonoBehaviour:
   price: 0
   quantity: 0
   limit: 0
-  ShopManager: {fileID: 0}
 --- !u!114 &1811654920
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -43851,7 +43841,6 @@ MonoBehaviour:
   price: 0
   quantity: 0
   limit: 0
-  ShopManager: {fileID: 543187597}
 --- !u!224 &2089139083 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5133612981005862268, guid: de4bdaae2b0d1dc49967e0d1b5993a38, type: 3}

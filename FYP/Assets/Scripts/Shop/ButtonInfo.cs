@@ -17,7 +17,7 @@ public class ButtonInfo : MonoBehaviour
     [HideInInspector] public int quantity;
     [HideInInspector] public int limit;
 
-    public GameObject ShopManager;
+    //public GameObject ShopManager;
 
 
     private void Start()
@@ -68,13 +68,13 @@ public class ButtonInfo : MonoBehaviour
 
     void SetJetpackValue()
     {
-        price = ShopManager.GetComponent<ShopManager>().shopItems[2, ItemID];
+        price = /*ShopManager.GetComponent<ShopManager>().shopItems[2, ItemID]*/1000;
         PriceTxt.text = "Price: $" + price;
 
         quantity = 0;
         QuantityTxt.text = quantity.ToString();
 
-        limit = ShopManager.GetComponent<ShopManager>().shopItems[4, ItemID];
+        limit = /*ShopManager.GetComponent<ShopManager>().shopItems[4, ItemID]*/1;
         LimitTxt.text = limit.ToString();
     }
 }
