@@ -6,6 +6,7 @@ public class LerpColor : MonoBehaviour
     public Renderer hexagon;
     public GameObject all;
     public List<GameObject> list;
+    public List<GameObject> P_list;
     public GameObject Light;
 
     [SerializeField] private Transform playerCameraTransform;
@@ -13,6 +14,7 @@ public class LerpColor : MonoBehaviour
     int colorIdx = 0;
     float emitTime = 0;
     float emitInterval = 0.5f;
+    float emissiveIntensity = 1.5f;
 
     bool isDone;
 
@@ -41,7 +43,7 @@ public class LerpColor : MonoBehaviour
                 }
 
 
-                all.transform.GetChild(num).GetComponent<Renderer>().materials[1].SetColor("_EmissionColor", Color.red);
+                all.transform.GetChild(num).GetComponent<Renderer>().materials[1].SetColor("_EmissionColor", emissiveIntensity * Color.red);
                 list.Add(all.transform.GetChild(num).gameObject);
 
                 emitTime = Time.time;
@@ -71,10 +73,26 @@ public class LerpColor : MonoBehaviour
             if (Physics.Raycast(playerCameraTransform.position, playerCameraTransform.forward, out RaycastHit raycastHit, interactDistance))
             {
                 Debug.Log(raycastHit.transform.gameObject);
-               
+
                 if (Input.GetKeyDown(KeyCode.K))
                 {
-                    raycastHit.transform.GetComponent<Renderer>().materials[1].SetColor("_EmissionColor", Color.blue);
+
+                    for (int i = 0; i < 25; i++)
+                    {
+                        if (!P_list.Contains(all.transform.GetChild(i).gameObject))
+                        {
+                            raycastHit.transform.GetComponent<Renderer>().materials[1].SetColor("_EmissionColor", emissiveIntensity * new Color(12 / 255f, 28 / 255f, 191 / 255f));
+                            P_list.Add(raycastHit.transform.gameObject);
+
+                            if (P_list != list)
+                            {
+                                foreach (Transform all in transform)
+                                {
+                                    all.GetComponent<Renderer>().materials[1].SetColor("_EmissionColor", Color.red);
+                                }
+                            }
+                        }
+                    }
                 }
             }
         }
