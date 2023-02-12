@@ -25,10 +25,17 @@ public class CraftingTable : MonoBehaviour
 
     Animator animator;
 
-    [HideInInspector] public bool isCrafting;
+    public bool isCrafting = false;
+    bool waitCollider;
+
+    public ParticleSystem craftingEffect;
+    public ParticleSystem craftingEffect2;
     //ConsumeItem consumeItem;
 
     //Collider[] colliderArray;
+
+    float emitTime = 0;
+    float emitInterval = 0.5f;
 
     private void Awake()
     {
@@ -42,6 +49,7 @@ public class CraftingTable : MonoBehaviour
 
     private void Start()
     {
+
         animator = transform.GetComponent<Animator>();
         //animator.SetBool("OpenInputMaterialDoor", true);
         //consumeItemGameObjectList = new List<GameObject>();
@@ -58,8 +66,9 @@ public class CraftingTable : MonoBehaviour
         if (isCrafting)
         {
             //Craft();
-            if (animator.GetCurrentAnimatorStateInfo(0).IsName("OpenOutputItemDoor") && animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1)
+            if (animator.GetCurrentAnimatorStateInfo(0).IsName("OpenOutputItemDoor") && animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1 && !waitCollider)
             {
+                craftingEffect.Play(true);
                 GameObject item = Instantiate(craftingRecipeSO.outputItemSO, itemSpawnPoint.position, itemSpawnPoint.rotation);
                 item.GetComponent<Rigidbody>().velocity = 8f * -itemSpawnPoint.transform.forward;
 
@@ -78,13 +87,22 @@ public class CraftingTable : MonoBehaviour
 
                 inputItemList = null;
                 consumeItemGameObjectList = null;
+                
 
                 animator.SetBool("isOpenOutputDoor", false);
-                isCrafting = false;
-                //transform.GetComponent<Collider>().enabled = true;
+             
+                emitTime = Time.time;
+                waitCollider = true;
+
+
+
+            }
+            else if (animator.GetCurrentAnimatorStateInfo(0).IsName("OpenInputMaterialDoor") && waitCollider && Time.time > emitTime + emitInterval)
+            {
                 transform.GetChild(0).GetComponent<Collider>().enabled = true;
-
-
+                isCrafting = false;
+                waitCollider = false;
+                craftingEffect.Stop(true);
             }
 
         }
