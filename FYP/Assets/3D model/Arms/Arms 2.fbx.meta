@@ -1,14 +1,44 @@
 fileFormatVersion: 2
-guid: a2979d0b5a407fd4596f07847fe02f0a
+guid: a34b1adf2b1895647a4853ed4b07a767
 ModelImporter:
   serializedVersion: 21100
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      74: -5189603869508835534
+    second: Torus|Torus.002Action
+  - first:
+      74: -6892660587647262754
+    second: Torus.001|Torus.002Action
+  - first:
+      74: 1371452129406350709
+    second: Torus.002|BezierCurveAction.002
+  - first:
+      74: -5770713183457694718
+    second: Torus.002|Torus.002Action
+  - first:
+      74: -3932624039416958020
+    second: Sphere.007|Torus.002Action
+  - first:
+      74: -5301346205424985287
+    second: Sphere.008|Torus.002Action
+  - first:
+      74: 9135039429981115759
+    second: Sphere.009|Torus.002Action
+  - first:
+      74: 4577622158389463166
+    second: Armature|Torus.002Action
+  - first:
+      74: -7071476556000471243
+    second: Empty.002|Torus.002Action
+  - first:
+      74: 8886096997778938642
+    second: Empty.003|Torus.002Action
   externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
     materialSearch: 1
-    materialLocation: 1
+    materialLocation: 0
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
@@ -30,11 +60,40 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Torus.002|Torus.002Action
+      takeName: Torus.002|Torus.002Action
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 20
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 0
   meshes:
     lODScreenPercentages: []
-    globalScale: 1
+    globalScale: 20
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
@@ -85,7 +144,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 0.01
+    globalScale: 0.19999999
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0
