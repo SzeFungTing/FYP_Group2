@@ -59,14 +59,14 @@ public class CraftingTable : MonoBehaviour
 
     private void Update()
     {
-        if (animator.GetCurrentAnimatorStateInfo(0).IsName("OpenInputMaterialDoor") && animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1)
+        if (animator.GetCurrentAnimatorStateInfo(0).IsName("OpenOutputItemDoor") && animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1)
             ConsumeMaterial();
 
 
         if (isCrafting)
         {
             //Craft();
-            if (animator.GetCurrentAnimatorStateInfo(0).IsName("OpenOutputItemDoor") && animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1 && !waitCollider)
+            if (animator.GetCurrentAnimatorStateInfo(0).IsName("OpenInputMaterialDoor") && animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1 && !waitCollider)
             {
                 craftingEffect.Play(true);
                 GameObject item = Instantiate(craftingRecipeSO.outputItemSO, itemSpawnPoint.position, itemSpawnPoint.rotation);
@@ -97,7 +97,7 @@ public class CraftingTable : MonoBehaviour
 
 
             }
-            else if (animator.GetCurrentAnimatorStateInfo(0).IsName("OpenInputMaterialDoor") && waitCollider && Time.time > emitTime + emitInterval)
+            else if (animator.GetCurrentAnimatorStateInfo(0).IsName("OpenOutputItemDoor") && waitCollider && Time.time > emitTime + emitInterval)
             {
                 transform.GetChild(0).GetComponent<Collider>().enabled = true;
                 isCrafting = false;
