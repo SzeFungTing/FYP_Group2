@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1693755752
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1693755753}
+  m_Layer: 0
+  m_Name: DissolvePoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1693755753
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1693755752}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.3657142, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7932083041662162507}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &7932083041615502498
 Animator:
   serializedVersion: 3
@@ -56,6 +86,7 @@ Transform:
   m_Children:
   - {fileID: 7610752404466242591}
   - {fileID: 7932083043028831271}
+  - {fileID: 1693755753}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
@@ -102,6 +133,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item: {fileID: 11400000, guid: 750e84631ce635447aee1477d77348a5, type: 2}
+  canConsume: 0
 --- !u!136 &7932083041662162502
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -131,7 +163,8 @@ MonoBehaviour:
   canPoo: 0
   FajroCore: {fileID: 7218352860177095795, guid: 573451189ba818749b3c068eb6036b4b, type: 3}
   Food: {fileID: 7821197875280942789, guid: 3e4e7f3f632455b479bca77d88284221, type: 3}
-  foodScaleChangeValue: 0.3
+  foodScaleChangeValue: 2
+  dissolvePoint: {fileID: 1693755753}
   findFoodDistance: 10000
   eatCooldown: 200
   _aIMovement: {fileID: 7932083041662162506}
@@ -151,7 +184,7 @@ MonoBehaviour:
   FajroWillNotEat:
   - {fileID: 4412189065272060378, guid: caa9559322c218e4ebcba3ada46131ba, type: 3}
   ListOfMixedAnimoPrefab:
-  - {fileID: 721902943697316613, guid: 1166d7b0f0c96b74ca1e14b1f3531654, type: 3}
+  - {fileID: 5585107490973820705, guid: b5c12d25c51ad774789b81c20ad303ad, type: 3}
   _eatFood: {fileID: 4431501029914263003}
   _aIMovement: {fileID: 7932083041662162506}
   movementSpeed: 1
@@ -190,6 +223,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animoType1: 0
   animoType2: 2
+  originalXRotation: 0
+  originalZRotation: 0
+  rotateSpeed: 1
 --- !u!1 &7932083043028831268
 GameObject:
   m_ObjectHideFlags: 0
@@ -208,7 +244,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7932083043028831271
 Transform:
   m_ObjectHideFlags: 0
@@ -237,7 +273,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 1
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!136 &7932083043028831273
 CapsuleCollider:

@@ -190,6 +190,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item: {fileID: 11400000, guid: 4a237872b253c0049b6956007f71843a, type: 2}
+  canConsume: 0
 --- !u!114 &4552208266253456437
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -202,7 +203,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62374bce50ab03e4e9ca01fbadae3183, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fajroType: 0
+  fajroType1: 0
+  fajroType2: 1
   destoryTime: 300
 --- !u!1 &4173548415555979383
 GameObject:

@@ -5,7 +5,9 @@ using UnityEngine;
 public class Fajro : MonoBehaviour
 {
     public enum FajroType {Chicken, Cat};
-    public FajroType fajroType;
+    public FajroType fajroType1;
+    public FajroType fajroType2;
+
     public float destoryTime = 300f;
 
     float destoryCountDown;

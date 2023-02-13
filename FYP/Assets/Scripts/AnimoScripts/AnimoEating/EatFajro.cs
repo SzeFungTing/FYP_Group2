@@ -31,11 +31,13 @@ public class EatFajro : MonoBehaviour
 
     private GameObject closestFajro;
     private Rigidbody rb;
+    private Animo _animo;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        _animo = GetComponent<Animo>();
     }
 
     // Update is called once per frame
@@ -118,19 +120,19 @@ public class EatFajro : MonoBehaviour
                 }
             }*/
 
-            if (/*other != _eat.FajroCore*/gameObject.GetComponent<Animo>().animoType1.ToString() != other.gameObject.GetComponent<Fajro>().fajroType.ToString()
-                        && gameObject.GetComponent<Animo>().animoType2.ToString() != other.gameObject.GetComponent<Fajro>().fajroType.ToString())
+            if (/*other != _eat.FajroCore*/gameObject.GetComponent<Animo>().animoType1.ToString() != other.gameObject.GetComponent<Fajro>().fajroType1.ToString()
+                        && gameObject.GetComponent<Animo>().animoType2.ToString() != other.gameObject.GetComponent<Fajro>().fajroType1.ToString())
             {
-                Destroy(other.gameObject.transform.parent.gameObject);
+                Destroy(other.gameObject);
 
                 for (int i = 0; i < ListOfMixedAnimoPrefab.Length; i++)
                 {
                     if ((ListOfMixedAnimoPrefab[i].GetComponent<Animo>().animoType1.ToString() == gameObject.GetComponent<Animo>().animoType1.ToString()            /*animo prefab type1 == this animo type1*/
                         || ListOfMixedAnimoPrefab[i].GetComponent<Animo>().animoType2.ToString() == gameObject.GetComponent<Animo>().animoType1.ToString())         /*animo prefab type2 == this animo type1*/
-                        && (ListOfMixedAnimoPrefab[i].GetComponent<Animo>().animoType1.ToString() == other.gameObject.GetComponent<Fajro>().fajroType.ToString()    /*animo prefab type1 == fajro ate type*/
-                        || ListOfMixedAnimoPrefab[i].GetComponent<Animo>().animoType2.ToString() == other.gameObject.GetComponent<Fajro>().fajroType.ToString())   /*animo prefab type2 == fajro ate type*/
-                        && gameObject.GetComponent<Animo>().animoType1.ToString() != other.gameObject.GetComponent<Fajro>().fajroType.ToString()
-                        && gameObject.GetComponent<Animo>().animoType2.ToString() != other.gameObject.GetComponent<Fajro>().fajroType.ToString())
+                        && (ListOfMixedAnimoPrefab[i].GetComponent<Animo>().animoType1.ToString() == other.gameObject.GetComponent<Fajro>().fajroType1.ToString()    /*animo prefab type1 == fajro ate type*/
+                        || ListOfMixedAnimoPrefab[i].GetComponent<Animo>().animoType2.ToString() == other.gameObject.GetComponent<Fajro>().fajroType1.ToString())   /*animo prefab type2 == fajro ate type*/
+                        && gameObject.GetComponent<Animo>().animoType1.ToString() != other.gameObject.GetComponent<Fajro>().fajroType1.ToString()
+                        && gameObject.GetComponent<Animo>().animoType2.ToString() != other.gameObject.GetComponent<Fajro>().fajroType1.ToString())
                     {
                         Instantiate(ListOfMixedAnimoPrefab[i], transform.position + Vector3.up, transform.rotation);
                     }
@@ -150,7 +152,12 @@ public class EatFajro : MonoBehaviour
         float distance = Mathf.Infinity;
         foreach (GameObject fajro in fajros)
         {
-            if (fajro.transform.parent != _eatFood.FajroCore)
+            if (/*fajro.transform.parent != _eatFood.FajroCore*/ 
+                _animo.animoType1.ToString() != fajro.GetComponent<Fajro>().fajroType1.ToString() &&
+                _animo.animoType2.ToString() != fajro.GetComponent<Fajro>().fajroType1.ToString() &&
+                _animo.animoType1.ToString() != fajro.GetComponent<Fajro>().fajroType2.ToString() &&
+                _animo.animoType2.ToString() != fajro.GetComponent<Fajro>().fajroType2.ToString()
+                )
             {
                 Vector3 diff = fajro.transform.position - transform.position;
                 float curDistance = diff.sqrMagnitude;

@@ -355,7 +355,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62374bce50ab03e4e9ca01fbadae3183, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fajroType: 1
+  fajroType1: 1
+  fajroType2: 1
   destoryTime: 300
 --- !u!114 &3452229527979954141
 MonoBehaviour:
@@ -370,6 +371,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item: {fileID: 11400000, guid: 2d747e1f3b733694e8ae3c9860a0c919, type: 2}
+  canConsume: 0
 --- !u!114 &3452229527979954140
 MonoBehaviour:
   m_ObjectHideFlags: 0
