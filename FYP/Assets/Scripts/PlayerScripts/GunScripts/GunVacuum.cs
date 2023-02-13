@@ -54,7 +54,7 @@ public class GunVacuum : MonoBehaviour
                 {
                     gunAnim.SetBool("isInhale", true);
                     gunAnim.SetBool("canShoot", true);
-                    gunAnim.speed = 1f;
+                    //gunAnim.speed = 1f;
                     farPointInhale.Play(true);
                     nearPoint.Play(true);
                     inhale.Play();

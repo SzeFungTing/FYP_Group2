@@ -134,7 +134,7 @@ public class EatFajro : MonoBehaviour
                         && gameObject.GetComponent<Animo>().animoType1.ToString() != other.gameObject.GetComponent<Fajro>().fajroType1.ToString()
                         && gameObject.GetComponent<Animo>().animoType2.ToString() != other.gameObject.GetComponent<Fajro>().fajroType1.ToString())
                     {
-                        Instantiate(ListOfMixedAnimoPrefab[i], transform.position + Vector3.up, transform.rotation);
+                        Instantiate(ListOfMixedAnimoPrefab[i], transform.position/* + Vector3.up*/, transform.rotation);
                     }
                 }
 

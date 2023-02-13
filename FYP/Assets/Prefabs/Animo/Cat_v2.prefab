@@ -597,7 +597,6 @@ GameObject:
   - component: {fileID: 1291877586897863912}
   - component: {fileID: 5285491356069908935}
   - component: {fileID: 5166639174861352932}
-  - component: {fileID: 6186417170919115132}
   m_Layer: 7
   m_Name: CharacterCollisionBlocker
   m_TagString: Untagged
@@ -613,7 +612,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2780586723579180473}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.6002698, y: 3.594059, z: -13.548192}
+  m_LocalPosition: {x: -2.08427, y: 3.594059, z: -13.548192}
   m_LocalScale: {x: 0.35, y: 0.35, z: 0.35}
   m_Children: []
   m_Father: {fileID: 5218905358650662544}
@@ -649,20 +648,6 @@ CapsuleCollider:
   m_Height: 1
   m_Direction: 1
   m_Center: {x: 7.4, y: -10.3, z: 38.7}
---- !u!114 &6186417170919115132
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2780586723579180473}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb5dd88f5ee735a4d8e97c44324e8188, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  characterCollider: {fileID: 0}
-  characterBlockerCollider: {fileID: 5166639174861352932}
 --- !u!1 &2965531196859377185
 GameObject:
   m_ObjectHideFlags: 0
@@ -778,7 +763,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4569277890236434525}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.12973022, y: 3.594059, z: -17.058193}
+  m_LocalPosition: {x: 0.64573, y: 3.594059, z: -17.058193}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3125188524131787257}
@@ -999,7 +984,7 @@ GameObject:
   - component: {fileID: 2144841842564564193}
   - component: {fileID: 2144841842564564192}
   - component: {fileID: 2144841842564564199}
-  - component: {fileID: 2144841842564564198}
+  - component: {fileID: -1780657158516325565}
   m_Layer: 0
   m_Name: Cat_v2
   m_TagString: Untagged
@@ -1020,6 +1005,7 @@ Transform:
   m_Children:
   - {fileID: 3756713081018159847}
   - {fileID: 1291877586897863912}
+  - {fileID: 8564259947632705632}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1052,7 +1038,7 @@ CapsuleCollider:
   m_Radius: 0.58
   m_Height: 0.005
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0.5, y: 0, z: 0}
 --- !u!114 &2144841842564564195
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1065,12 +1051,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d20b0cb93fbd8f94da02778dd67fa471, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flySpeed: 0.1
-  movementSpeed: 0.1
+  flySpeed: 0.3
+  movementSpeed: 0.3
   rotationSpeed: 100
   eatCooldown: 200
   findFoodDistance: 200
-  _eatFood: {fileID: 0}
+  _eatFood: {fileID: -1780657158516325565}
   _eatFajro: {fileID: 2144841842564564199}
 --- !u!114 &2144841842564564194
 MonoBehaviour:
@@ -1085,6 +1071,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item: {fileID: 11400000, guid: 5735a16b8b41cd443a11f932e52c8e11, type: 2}
+  canConsume: 0
 --- !u!114 &2144841842564564193
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1132,13 +1119,13 @@ MonoBehaviour:
   - {fileID: 661993006479710007, guid: d461a8478897dc746a126629e94ca863, type: 3}
   - {fileID: 3830881004686457369, guid: 4425211253e77564a9be8cc2daea25bf, type: 3}
   ListOfMixedAnimoPrefab:
-  - {fileID: 721902943697316613, guid: 1166d7b0f0c96b74ca1e14b1f3531654, type: 3}
-  _eatFood: {fileID: 0}
+  - {fileID: 5585107490973820705, guid: b5c12d25c51ad774789b81c20ad303ad, type: 3}
+  _eatFood: {fileID: -1780657158516325565}
   _aIMovement: {fileID: 2144841842564564195}
   movementSpeed: 1
   rotationSpeed: 100
   findFajroDistance: 300
---- !u!114 &2144841842564564198
+--- !u!114 &-1780657158516325565
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1147,13 +1134,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 5739741456531598524}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c07b0be5f82d574db88402f539d6321, type: 3}
+  m_Script: {fileID: 11500000, guid: 526e5bed8cc49ab42b9c0a1515d4f7f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   canPoo: 0
-  FajroCore: {fileID: 661993006479710007, guid: d461a8478897dc746a126629e94ca863, type: 3}
-  Food: {fileID: 3823367382236530852, guid: a49529092d40801499e8b4ff89b69361, type: 3}
-  foodScaleChangeValue: 0.3
+  FajroCore: {fileID: 3452229527979954143, guid: 213d345b240c3a046ba72639cd4cf11d, type: 3}
+  Food: {fileID: 7821197875280942789, guid: 3e4e7f3f632455b479bca77d88284221, type: 3}
+  foodScaleChangeValue: 1
+  dissolvePoint: {fileID: 8564259947632705632}
+  findFoodDistance: 500
+  eatCooldown: 200
+  _aIMovement: {fileID: 2144841842564564195}
+  _eatFajro: {fileID: 2144841842564564199}
 --- !u!1 &5927352836794555517
 GameObject:
   m_ObjectHideFlags: 0
@@ -1349,6 +1341,36 @@ Transform:
   m_Children: []
   m_Father: {fileID: 298254688922042148}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8099767351143581913
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8564259947632705632}
+  m_Layer: 0
+  m_Name: DissolvePoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8564259947632705632
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8099767351143581913}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.516, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 5218905358650662544}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8369008306923929263
 GameObject:
