@@ -19,6 +19,7 @@ public class LerpColor : MonoBehaviour
     float emissiveIntensity = 1.5f;
 
     bool isDone;
+    bool toReset;
 
     void Start()
     {
@@ -39,37 +40,44 @@ public class LerpColor : MonoBehaviour
 
         if (isDone)
         {
-            if (Physics.Raycast(playerCameraTransform.position, playerCameraTransform.forward, out RaycastHit raycastHit, interactDistance))
+            Debug.DrawLine(Camera.main.transform.position, Camera.main.ScreenPointToRay(new Vector2(Screen.width / 2, Screen.height / 2)).GetPoint(50), Color.green);
+            if (Physics.Raycast(/*playerCameraTransform.position, playerCameraTransform.forward*/Camera.main.ScreenPointToRay(new Vector2(Screen.width/2,Screen.height/2)), out RaycastHit raycastHit, interactDistance))
             {
-                Debug.Log(raycastHit.transform.gameObject);
-                Debug.DrawRay(playerCameraTransform.position, playerCameraTransform.TransformDirection(Vector3.forward) * 1000, Color.white);
+                //Debug.Log(raycastHit.transform.gameObject);
+                //Debug.DrawRay(playerCameraTransform.position, playerCameraTransform.TransformDirection(Vector3.forward) * 1000, Color.white);
 
-                if (index != 9)
+
+                if (index != 5)
                 {
                     if (Input.GetKeyDown(KeyCode.K))
                     {
-
-                            if (raycastHit.transform.gameObject == list[index] && !P_list.Contains(raycastHit.transform.gameObject))
+                        if (P_list.Contains(raycastHit.transform.gameObject))
+                        {
+                            return;
+                        }
+                        else if (raycastHit.transform.gameObject == list[index] && !P_list.Contains(raycastHit.transform.gameObject))
+                        {
+                            Debug.Log("raycastHit.transform.gameObject1: " + raycastHit.transform.gameObject);
+                            Debug.Log("list[index]1: " + list[index]);
+                            raycastHit.transform.GetComponent<Renderer>().materials[1].SetColor("_EmissionColor", emissiveIntensity * new Color(12 / 255f, 28 / 255f, 191 / 255f));
+                            P_list.Add(raycastHit.transform.gameObject);
+                            index++;
+                            emitTime = Time.time;
+                        }
+                        else if (raycastHit.transform.gameObject != list[index])
+                        {
+                            Debug.Log("raycastHit.transform.gameObject2: " + raycastHit.transform.gameObject);
+                            Debug.Log("list[index]2: " + list[index]);
+                            foreach (Transform all in transform)
                             {
-                                Debug.Log("t1: " + raycastHit.transform.gameObject);
-                                Debug.Log("g1: " + list[index]);
-                                raycastHit.transform.GetComponent<Renderer>().materials[1].SetColor("_EmissionColor", emissiveIntensity * new Color(12 / 255f, 28 / 255f, 191 / 255f));
-                                P_list.Add(raycastHit.transform.gameObject);
-                                index++;
-                                emitTime = Time.time;
+                                all.GetComponent<Renderer>().materials[1].SetColor("_EmissionColor", emissiveIntensity * Color.red);
                             }
-                            else if (raycastHit.transform.gameObject != list[index])
-                            {
-                                Debug.Log("t2: " + raycastHit.transform.gameObject);
-                                Debug.Log("g2: " + list[index]);
-                                foreach (Transform all in transform)
-                                {
-                                    all.GetComponent<Renderer>().materials[1].SetColor("_EmissionColor", emissiveIntensity * Color.red);
+                            emitTime = Time.time;
+                            toReset = true;
+                            
 
-                                }
-                                RandomV();
-                            }
-                        
+                        }
+
 
                     }
                 }
@@ -88,13 +96,29 @@ public class LerpColor : MonoBehaviour
                
             }
         }
-       
+
+        if (toReset &&Time.time > emitTime + emitInterval + 2)
+        {
+            foreach (Transform all in transform)
+            {
+                all.GetComponent<Renderer>().materials[1].SetColor("_EmissionColor", emissiveIntensity * Color.black);
+            }
+            list = new List<GameObject>();
+            P_list = new List<GameObject>();
+            colorIdx = 0;
+            isDone = false;
+            //RandomV();
+
+            toReset = false;
+            emitTime = Time.time;
+        }
+
 
     }
 
     private void RandomV()
     {
-        if (colorIdx < 10)
+        if (colorIdx < 6)
         {
             if (Time.time > emitTime + emitInterval)
             {
@@ -102,12 +126,13 @@ public class LerpColor : MonoBehaviour
 
                 if (list.Contains(all.transform.GetChild(num).gameObject))
                 {
+                    list.Remove(all.transform.GetChild(num).gameObject);
                     num = Random.Range(0, all.transform.childCount);
 
                 }
 
 
-                all.transform.GetChild(num).GetComponent<Renderer>().materials[1].SetColor("_EmissionColor", emissiveIntensity * Color.red);
+                all.transform.GetChild(num).GetComponent<Renderer>().materials[1].SetColor("_EmissionColor", emissiveIntensity * new Color(12 / 255f, 28 / 255f, 191 / 255f));
                 list.Add(all.transform.GetChild(num).gameObject);
 
                 emitTime = Time.time;
@@ -115,7 +140,7 @@ public class LerpColor : MonoBehaviour
 
             }
         }
-        if (colorIdx == 10 && Time.time > emitTime + emitInterval && !isDone)
+        if (colorIdx == 6 && Time.time > emitTime + emitInterval && !isDone)
         {
             foreach (Transform all in transform)
             {
@@ -128,6 +153,19 @@ public class LerpColor : MonoBehaviour
                 isDone = true;
             }
 
+        }
+    }
+
+    public static Vector3 GetMouseWorldPosition()
+    {
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        if (Physics.Raycast(ray, out RaycastHit raycastHit))
+        {
+            return raycastHit.point;
+        }
+        else
+        {
+            return Vector3.zero;
         }
     }
 }   
