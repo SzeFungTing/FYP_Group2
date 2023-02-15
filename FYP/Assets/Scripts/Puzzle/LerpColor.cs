@@ -9,6 +9,7 @@ public class LerpColor : MonoBehaviour
     public List<GameObject> P_list;
     public GameObject Light;
 
+
     int index = 0;
 
     [SerializeField] private Transform playerCameraTransform;
@@ -23,11 +24,7 @@ public class LerpColor : MonoBehaviour
 
     void Start()
     {
-        foreach (Transform all in transform)
-        {
-            all.GetComponent<Renderer>().materials[1].SetColor("_EmissionColor", Color.black);
-        }
-        Light.SetActive(false);
+
 
     }
 
@@ -36,12 +33,12 @@ public class LerpColor : MonoBehaviour
         RandomV();
 
         float interactDistance = 10f;
-      
+
 
         if (isDone)
         {
             Debug.DrawLine(Camera.main.transform.position, Camera.main.ScreenPointToRay(new Vector2(Screen.width / 2, Screen.height / 2)).GetPoint(50), Color.green);
-            if (Physics.Raycast(/*playerCameraTransform.position, playerCameraTransform.forward*/Camera.main.ScreenPointToRay(new Vector2(Screen.width/2,Screen.height/2)), out RaycastHit raycastHit, interactDistance))
+            if (Physics.Raycast(/*playerCameraTransform.position, playerCameraTransform.forward*/Camera.main.ScreenPointToRay(new Vector2(Screen.width / 2, Screen.height / 2)), out RaycastHit raycastHit, interactDistance))
             {
                 //Debug.Log(raycastHit.transform.gameObject);
                 //Debug.DrawRay(playerCameraTransform.position, playerCameraTransform.TransformDirection(Vector3.forward) * 1000, Color.white);
@@ -74,7 +71,7 @@ public class LerpColor : MonoBehaviour
                             }
                             emitTime = Time.time;
                             toReset = true;
-                            
+
 
                         }
 
@@ -83,7 +80,7 @@ public class LerpColor : MonoBehaviour
                 }
                 else
                 {
-                    if (Time.time > emitTime + emitInterval+2 )
+                    if (Time.time > emitTime + emitInterval + 2)
                     {
                         foreach (Transform all in transform)
                         {
@@ -91,13 +88,13 @@ public class LerpColor : MonoBehaviour
 
                         }
                     }
-                   
+
                 }
-               
+
             }
         }
 
-        if (toReset &&Time.time > emitTime + emitInterval + 2)
+        if (toReset && Time.time > emitTime + emitInterval + 2)
         {
             foreach (Transform all in transform)
             {
@@ -156,16 +153,15 @@ public class LerpColor : MonoBehaviour
         }
     }
 
-    public static Vector3 GetMouseWorldPosition()
+    private void OnTriggerEnter(Collider other)
     {
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        if (Physics.Raycast(ray, out RaycastHit raycastHit))
+        if (other.gameObject.tag == "room2")
         {
-            return raycastHit.point;
-        }
-        else
-        {
-            return Vector3.zero;
+            foreach (Transform all in transform)
+            {
+                all.GetComponent<Renderer>().materials[1].SetColor("_EmissionColor", Color.black);
+            }
+            Light.SetActive(false);
         }
     }
-}   
+}
