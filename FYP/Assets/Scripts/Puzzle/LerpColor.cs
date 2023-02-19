@@ -9,6 +9,8 @@ public class LerpColor : MonoBehaviour
     public List<GameObject> P_list;
     public GameObject Light;
 
+    public Wall wall;
+
 
     int index = 0;
 
@@ -25,12 +27,22 @@ public class LerpColor : MonoBehaviour
     void Start()
     {
 
+        foreach (Transform all in transform)
+        {
+            all.GetComponent<Renderer>().materials[1].SetColor("_EmissionColor", Color.black);
+        }
+        Light.SetActive(false);
 
     }
 
     private void Update()
     {
-        RandomV();
+        if (wall.istriggered)
+        {
+            
+                RandomV();
+            
+        }
 
         float interactDistance = 10f;
 
@@ -85,6 +97,8 @@ public class LerpColor : MonoBehaviour
                         foreach (Transform all in transform)
                         {
                             all.GetComponent<Renderer>().materials[1].SetColor("_EmissionColor", emissiveIntensity * new Color(12 / 255f, 28 / 255f, 191 / 255f));
+                            all.GetComponent<Rigidbody>().isKinematic = true;
+                            all.GetComponent<Rigidbody>().useGravity = true;
 
                         }
                     }
@@ -104,6 +118,7 @@ public class LerpColor : MonoBehaviour
             P_list = new List<GameObject>();
             colorIdx = 0;
             isDone = false;
+            Light.SetActive(false);
             //RandomV();
 
             toReset = false;
@@ -115,7 +130,9 @@ public class LerpColor : MonoBehaviour
 
     private void RandomV()
     {
-        if (colorIdx < 6)
+        
+
+        if (colorIdx < 5)
         {
             if (Time.time > emitTime + emitInterval)
             {
@@ -123,21 +140,25 @@ public class LerpColor : MonoBehaviour
 
                 if (list.Contains(all.transform.GetChild(num).gameObject))
                 {
-                    list.Remove(all.transform.GetChild(num).gameObject);
+                    //list.Remove(all.transform.GetChild(num).gameObject);
+                    Debug.Log("hi");
                     num = Random.Range(0, all.transform.childCount);
 
                 }
+                else if(colorIdx<5)
+                {
 
+                    all.transform.GetChild(num).GetComponent<Renderer>().materials[1].SetColor("_EmissionColor", emissiveIntensity * new Color(12 / 255f, 28 / 255f, 191 / 255f));
+                    list.Add(all.transform.GetChild(num).gameObject);
 
-                all.transform.GetChild(num).GetComponent<Renderer>().materials[1].SetColor("_EmissionColor", emissiveIntensity * new Color(12 / 255f, 28 / 255f, 191 / 255f));
-                list.Add(all.transform.GetChild(num).gameObject);
+                    emitTime = Time.time;
+                    colorIdx++;
 
-                emitTime = Time.time;
-                colorIdx++;
+                }
 
             }
         }
-        if (colorIdx == 6 && Time.time > emitTime + emitInterval && !isDone)
+        if (colorIdx == 5 && Time.time > emitTime + emitInterval && !isDone)
         {
             foreach (Transform all in transform)
             {
@@ -153,15 +174,5 @@ public class LerpColor : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.tag == "room2")
-        {
-            foreach (Transform all in transform)
-            {
-                all.GetComponent<Renderer>().materials[1].SetColor("_EmissionColor", Color.black);
-            }
-            Light.SetActive(false);
-        }
-    }
+   
 }
