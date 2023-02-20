@@ -1008,6 +1008,12 @@ MonoBehaviour:
   originalXRotation: 0
   originalZRotation: 0
   rotateSpeed: 1
+  wonderingSounds:
+  - {fileID: 8300000, guid: 3a5ed0e837897ad4b97b69efbb4454cc, type: 3}
+  - {fileID: 8300000, guid: e3f52779dce9b1c40a9a35940affc82c, type: 3}
+  - {fileID: 8300000, guid: 8b0a97395448c8742972323653abb12f, type: 3}
+  - {fileID: 8300000, guid: 9ebe5706efe9d20409848dcf4994a83c, type: 3}
+  - {fileID: 8300000, guid: 1127c67b45df9bf4a825a94b7ea2b113, type: 3}
 --- !u!114 &1672522638087641377
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1030,6 +1036,8 @@ MonoBehaviour:
   movementSpeed: 1
   rotationSpeed: 100
   findFajroDistance: 300
+  eatSound: {fileID: 8300000, guid: 6d77aaddf27269246affabc63489ee29, type: 3}
+  mergeSound: {fileID: 8300000, guid: e446c13ebed51ae42b820b5a9e53c541, type: 3}
 --- !u!114 &7906114841089613445
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1047,6 +1055,8 @@ MonoBehaviour:
   Food: {fileID: 7821197875280942789, guid: 3e4e7f3f632455b479bca77d88284221, type: 3}
   foodScaleChangeValue: 1
   dissolvePoint: {fileID: 8947422367558606246}
+  eatSound: {fileID: 8300000, guid: 6d77aaddf27269246affabc63489ee29, type: 3}
+  pooSound: {fileID: 8300000, guid: fdedc0ea9d796f543901c80a698cffee, type: 3}
   findFoodDistance: 500
   eatCooldown: 200
   _aIMovement: {fileID: 1672522638087641381}

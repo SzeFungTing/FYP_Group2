@@ -37,6 +37,8 @@ public class CraftingTable : MonoBehaviour
     float emitTime = 0;
     float emitInterval = 0.5f;
 
+    [SerializeField] AudioClip emitSound;
+
     private void Awake()
     {
         craftingUI = UIScripts.instance.craftingUI;
@@ -70,6 +72,8 @@ public class CraftingTable : MonoBehaviour
             {
                 craftingEffect.Play(true);
                 GameObject item = Instantiate(craftingRecipeSO.outputItemSO, itemSpawnPoint.position, itemSpawnPoint.rotation);
+                AudioSource.PlayClipAtPoint(emitSound, itemSpawnPoint.position);
+
                 item.GetComponent<Rigidbody>().velocity = 8f * -itemSpawnPoint.transform.forward;
 
                 foreach (Transform displayItem in displayList)

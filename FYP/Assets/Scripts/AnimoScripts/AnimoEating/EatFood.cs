@@ -16,6 +16,7 @@ public class EatFood : MonoBehaviour
     public float foodScaleChangeValue = 0.3f;
 
     [SerializeField] private Transform dissolvePoint;
+    [SerializeField] private AudioClip eatSound, pooSound;
 
     //for eat food AI
     private bool isHungry = true;
@@ -82,7 +83,7 @@ public class EatFood : MonoBehaviour
             transform.rotation = Quaternion.Slerp(transform.rotation, new Quaternion(0f, rotation.y, 0f, rotation.w), Time.deltaTime * 1.5f);
         }
 
-        if (isWalkingToFood)
+        if (isWalkingToFood && closestFood != null)
         {
             //transform.position = Vector3.Lerp(transform.position, closestFood.transform.position, 0.001f);
             rb.AddForce((closestFood.transform.position - transform.position) * _aIMovement.movementSpeed * 0.08f);
@@ -123,6 +124,7 @@ public class EatFood : MonoBehaviour
                     offset = SpawnAroundWithRadius();
 
                     Instantiate(FajroCore, offset, Quaternion.identity);        //Fajro spawn
+                    AudioSource.PlayClipAtPoint(pooSound, transform.position);
                     //Ftime =3;
                 }
 
@@ -148,6 +150,7 @@ public class EatFood : MonoBehaviour
                 Food.transform.SetParent(transform);                                    //set the food parent be the Animo
                 Food.transform.localScale = foodScaleChange;                            //scale the food size
                 Food.GetComponentInChildren<DissolveObject>().isAte = true;             //the food start to Digestion
+                AudioSource.PlayClipAtPoint(eatSound, transform.position);
                 //Destroy(other.gameObject);
 
                 isEaten = true;

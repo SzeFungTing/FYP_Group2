@@ -33,6 +33,8 @@ public class EatFajro : MonoBehaviour
     private Rigidbody rb;
     private Animo _animo;
 
+    [SerializeField] AudioClip eatSound, mergeSound;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -60,7 +62,7 @@ public class EatFajro : MonoBehaviour
             _eatFood.enabled = true;
         }
 
-        if (isRotatingToFajro)
+        if (isRotatingToFajro && closestFajro != null)
         {
             Vector3 lookPos = closestFajro.transform.position - transform.position;
             Quaternion rotation = new Quaternion(0f, Quaternion.LookRotation(lookPos).y, 0f, transform.rotation.w);
@@ -68,7 +70,7 @@ public class EatFajro : MonoBehaviour
             //transform.LookAt(lookPos);
         }
 
-        if (isWalkingToFajro)
+        if (isWalkingToFajro && closestFajro != null)
         {
             //transform.position = Vector3.Lerp(transform.position, closestFajro.transform.position, 0.005f);
             rb.AddForce((closestFajro.transform.position - transform.position) * _aIMovement.movementSpeed * 0.3f);
@@ -124,6 +126,7 @@ public class EatFajro : MonoBehaviour
                         && gameObject.GetComponent<Animo>().animoType2.ToString() != other.gameObject.GetComponent<Fajro>().fajroType1.ToString())
             {
                 Destroy(other.gameObject);
+                AudioSource.PlayClipAtPoint(eatSound, transform.position);
 
                 for (int i = 0; i < ListOfMixedAnimoPrefab.Length; i++)
                 {
@@ -135,6 +138,7 @@ public class EatFajro : MonoBehaviour
                         && gameObject.GetComponent<Animo>().animoType2.ToString() != other.gameObject.GetComponent<Fajro>().fajroType1.ToString())
                     {
                         Instantiate(ListOfMixedAnimoPrefab[i], transform.position/* + Vector3.up*/, transform.rotation);
+                        AudioSource.PlayClipAtPoint(mergeSound, transform.position);
                     }
                 }
 
