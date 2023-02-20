@@ -5,6 +5,7 @@ using UnityEngine;
 public class AnimoGenerator : MonoBehaviour
 {
     [SerializeField] private Rigidbody animoPrefab;
+    [SerializeField] private AudioClip generateSound;
 
     public float generationInterval = 0.5f;
     public float speed = 0.5f;
@@ -14,6 +15,7 @@ public class AnimoGenerator : MonoBehaviour
         for (int i = 0; i < targetNum; i++)
         {
             Rigidbody rb = Instantiate(animoPrefab, transform.position + Vector3.up * i * 1.2f, transform.rotation);
+            AudioSource.PlayClipAtPoint(generateSound, transform.position + Vector3.up * i * 1.2f);
             rb.velocity = transform.up * speed;
         }
     }
