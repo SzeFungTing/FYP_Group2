@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Shader Graphs_CrystalShader 1
-  m_Shader: {fileID: -6465566751694194690, guid: 42097cc36583612448a3d3c8dcc24505, type: 3}
+  m_Name: Shader Graphs_AnimoShaderGraph
+  m_Shader: {fileID: -6465566751694194690, guid: 502a201cb48b44c4ab3d2ef1cfa1a58e, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -33,14 +33,10 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - BottomLine: 1
-    - Metallic: 0.6
-    - Smoothness: 0
-    - TopLine: 1
-    - Transparent: 0.71
-    - _Float: 11.56
+    - FresnelPower: 5.87
+    - GlowSpeed: -2.4
     m_Colors:
-    - BaseColor: {r: 0.2264151, g: 0.2264151, b: 0.2264151, a: 1}
-    - BottomColor: {r: 1.1353015, g: 0.45174298, b: 0.029719934, a: 1}
-    - TopColor: {r: 20.865906, g: 11.046438, b: 0, a: 1}
+    - FresnelColor: {r: 1, g: 1, b: 1, a: 0}
+    - InteriorColor: {r: 8, g: 8, b: 8, a: 1}
+    - InteriorPos: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []

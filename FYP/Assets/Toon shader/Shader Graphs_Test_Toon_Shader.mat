@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Shader Graphs_CrystalShader 1
-  m_Shader: {fileID: -6465566751694194690, guid: 42097cc36583612448a3d3c8dcc24505, type: 3}
+  m_Name: Shader Graphs_Test_Toon_Shader
+  m_Shader: {fileID: -6465566751694194690, guid: 1a1121ab398f50e4a98a48aa354ef18a, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -19,6 +19,10 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: cb4c13a68d3c198419fef62baaab599f, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -33,14 +37,12 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - BottomLine: 1
-    - Metallic: 0.6
-    - Smoothness: 0
-    - TopLine: 1
-    - Transparent: 0.71
-    - _Float: 11.56
+    - Vector1_7A26C0DF: 0
+    - Vector1_8CA290E3: -15.5
+    - Vector1_A208836A: 0.03
     m_Colors:
-    - BaseColor: {r: 0.2264151, g: 0.2264151, b: 0.2264151, a: 1}
-    - BottomColor: {r: 1.1353015, g: 0.45174298, b: 0.029719934, a: 1}
-    - TopColor: {r: 20.865906, g: 11.046438, b: 0, a: 1}
+    - Color_99F9ED08: {r: 0.8867924, g: 0, b: 0, a: 0}
+    - Color_ABD0D7B1: {r: 0.5943396, g: 0.5943396, b: 0.5943396, a: 0}
+    - Color_DF55D64F: {r: 8, g: 8, b: 8, a: 0}
+    - Color_FB0ECDA7: {r: 1, g: 1, b: 1, a: 0}
   m_BuildTextureStacks: []
