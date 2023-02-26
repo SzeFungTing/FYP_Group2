@@ -37,7 +37,7 @@ public class CraftingTable : MonoBehaviour
     float emitTime = 0;
     float emitInterval = 0.5f;
 
-    [SerializeField] AudioClip emitSound;
+    [SerializeField] AudioClip inhaleSound, emitSound;
 
     private void Awake()
     {
@@ -251,6 +251,7 @@ public class CraftingTable : MonoBehaviour
                     Destroy(collider.gameObject);
                     //Debug.Log(collider.gameObject);
 
+                    AudioSource.PlayClipAtPoint(inhaleSound, transform.position);
                 }
             }
         }

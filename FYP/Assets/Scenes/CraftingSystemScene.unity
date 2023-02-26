@@ -24905,6 +24905,7 @@ MonoBehaviour:
   isCrafting: 0
   craftingEffect: {fileID: 0}
   craftingEffect2: {fileID: 0}
+  inhaleSound: {fileID: 0}
   emitSound: {fileID: 0}
 --- !u!65 &1304702245
 BoxCollider:
@@ -26923,7 +26924,8 @@ MonoBehaviour:
   isCrafting: 0
   craftingEffect: {fileID: 1562936395}
   craftingEffect2: {fileID: 717232409}
-  emitSound: {fileID: 8300000, guid: d244575201455aa4e9dd3665c4691e0b, type: 3}
+  inhaleSound: {fileID: 8300000, guid: 39d29b801a214a2498202726f82dd3c1, type: 3}
+  emitSound: {fileID: 8300000, guid: 648bfe00822503040ab0031921089d3e, type: 3}
 --- !u!65 &1506023110
 BoxCollider:
   m_ObjectHideFlags: 0
