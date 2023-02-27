@@ -8,6 +8,8 @@ public class LerpColor : MonoBehaviour
     public List<GameObject> list;
     public List<GameObject> P_list;
     public GameObject Light;
+    public GameObject PortalTrigger;
+    public ParticleSystem Portal;
 
     public Wall wall;
 
@@ -32,7 +34,7 @@ public class LerpColor : MonoBehaviour
             all.GetComponent<Renderer>().materials[1].SetColor("_EmissionColor", Color.black);
         }
         Light.SetActive(false);
-
+        PortalTrigger.SetActive(false);
     }
 
     private void Update()
@@ -58,7 +60,7 @@ public class LerpColor : MonoBehaviour
 
                 if (index != 5)
                 {
-                    if (Input.GetKeyDown(KeyCode.K))
+                    if (Input.GetKeyDown(KeyCode.E))
                     {
                         if (P_list.Contains(raycastHit.transform.gameObject))
                         {
@@ -97,9 +99,11 @@ public class LerpColor : MonoBehaviour
                         foreach (Transform all in transform)
                         {
                             all.GetComponent<Renderer>().materials[1].SetColor("_EmissionColor", emissiveIntensity * new Color(12 / 255f, 28 / 255f, 191 / 255f));
-                            all.GetComponent<Rigidbody>().isKinematic = true;
-                            all.GetComponent<Rigidbody>().useGravity = true;
-
+                            all.GetComponent<MeshCollider>().enabled = false;
+                            all.GetComponent<Rigidbody>().isKinematic = false;
+                            all.GetComponent<Rigidbody>().useGravity = true;                           
+                            PortalTrigger.SetActive(true);
+                            Portal.Play();
                         }
                     }
 
