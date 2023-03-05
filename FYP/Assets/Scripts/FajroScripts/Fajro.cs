@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Fajro : MonoBehaviour
 {
-    public enum FajroType {Chicken, Cat};
+    public enum FajroType { Bear, Cat, Chicken, Deer, Demon, Dog, Dragon, Peacock, Pig, Rabbit };
     public FajroType fajroType1;
     public FajroType fajroType2;
 

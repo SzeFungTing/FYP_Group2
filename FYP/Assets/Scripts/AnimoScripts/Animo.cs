@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Animo : MonoBehaviour
 {
-    public enum AnimoType {Chicken, Cat, Null};
+    public enum AnimoType {Bear, Cat, Chicken, Deer, Demon, Dog, Dragon, Peacock, Pig, Rabbit, Null};
     //public enum AnimoType2 {Chicken, Cat, Null};
     public AnimoType animoType1;
     public AnimoType animoType2;
