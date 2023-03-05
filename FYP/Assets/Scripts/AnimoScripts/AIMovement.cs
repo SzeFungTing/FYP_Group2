@@ -8,7 +8,7 @@ public class AIMovement : MonoBehaviour
     public float movementSpeed = 1f;
     public float rotationSpeed = 100f;
     public float eatCooldown = 200f;
-    public float findFoodDistance = 500f;
+    public float findFoodDistance = 200f;
 
     //[SerializeField] Eat _eat;
     [SerializeField] EatFood _eatFood;
