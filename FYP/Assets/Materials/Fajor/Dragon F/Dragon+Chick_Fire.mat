@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Pig+Chick
-  m_Shader: {fileID: -6465566751694194690, guid: 42097cc36583612448a3d3c8dcc24505, type: 3}
+  m_Name: Dragon+Chick_Fire
+  m_Shader: {fileID: -6465566751694194690, guid: ea65e3bd017f62946996605dface5531, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -19,6 +19,10 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: 8ee26eb672e1c324da7e53e6274b2afb, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -33,14 +37,12 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - BottomLine: 0.657
-    - Metallic: 1
-    - Smoothness: 1
-    - TopLine: 0.727
-    - Transparent: 0.9
-    - _Float: 0.64
+    - Color_Bottom: 1.95
+    - _FireDetail: 4.25
+    - _FirePower: 0.21
+    - _Firethreshold: -1
     m_Colors:
-    - BaseColor: {r: 0.17254902, g: 0.17254902, b: 0.17254902, a: 1}
-    - BottomColor: {r: 2.5867863, g: 1.2189045, b: 0, a: 1}
-    - TopColor: {r: 2.7201202, g: 0.44148546, b: 0.6266245, a: 1}
+    - Bottom_Color: {r: 1.7177881, g: 1.415783, b: 1.2056928, a: 1}
+    - _Color: {r: 1, g: 1, b: 1, a: 0}
+    - _FireColor: {r: 0.58609587, g: 4.867144, b: 0, a: 1}
   m_BuildTextureStacks: []

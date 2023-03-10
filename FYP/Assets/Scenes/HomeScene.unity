@@ -51925,79 +51925,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!1001 &1146776047
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1412528626670091249, guid: bbcbb24d181360749bd471bdaeccfbe7, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: b9b64844b467e9e42a1b3af7edd80687, type: 2}
-    - target: {fileID: 1445926167314338599, guid: bbcbb24d181360749bd471bdaeccfbe7, type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1445926167314338599, guid: bbcbb24d181360749bd471bdaeccfbe7, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 626.19745
-      objectReference: {fileID: 0}
-    - target: {fileID: 1445926167314338599, guid: bbcbb24d181360749bd471bdaeccfbe7, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 45.07206
-      objectReference: {fileID: 0}
-    - target: {fileID: 1445926167314338599, guid: bbcbb24d181360749bd471bdaeccfbe7, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 496.46695
-      objectReference: {fileID: 0}
-    - target: {fileID: 1445926167314338599, guid: bbcbb24d181360749bd471bdaeccfbe7, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1445926167314338599, guid: bbcbb24d181360749bd471bdaeccfbe7, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1445926167314338599, guid: bbcbb24d181360749bd471bdaeccfbe7, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1445926167314338599, guid: bbcbb24d181360749bd471bdaeccfbe7, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1445926167314338599, guid: bbcbb24d181360749bd471bdaeccfbe7, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1445926167314338599, guid: bbcbb24d181360749bd471bdaeccfbe7, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1445926167314338599, guid: bbcbb24d181360749bd471bdaeccfbe7, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2259442092407703965, guid: bbcbb24d181360749bd471bdaeccfbe7, type: 3}
-      propertyPath: m_Name
-      value: FajroCore
-      objectReference: {fileID: 0}
-    - target: {fileID: 3213895412239475203, guid: bbcbb24d181360749bd471bdaeccfbe7, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 28ccd10440fa9c144a65084969287532, type: 2}
-    - target: {fileID: 3213895412239475203, guid: bbcbb24d181360749bd471bdaeccfbe7, type: 3}
-      propertyPath: m_Materials.Array.data[1]
-      value: 
-      objectReference: {fileID: 2100000, guid: 1591bbeaeea14584b9f30cab61544a27, type: 2}
-    - target: {fileID: 4679736187581226919, guid: bbcbb24d181360749bd471bdaeccfbe7, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 4766400543baa57409a2ddaf982e6b93, type: 2}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: bbcbb24d181360749bd471bdaeccfbe7, type: 3}
 --- !u!1 &1148791938
 GameObject:
   m_ObjectHideFlags: 0
@@ -107807,6 +107734,63 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1001 &398094532169780999
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1267383887817717199, guid: 9cb54ce0731aef04787be4ef60c5e073, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1267383887817717199, guid: 9cb54ce0731aef04787be4ef60c5e073, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 626.19745
+      objectReference: {fileID: 0}
+    - target: {fileID: 1267383887817717199, guid: 9cb54ce0731aef04787be4ef60c5e073, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 45.07206
+      objectReference: {fileID: 0}
+    - target: {fileID: 1267383887817717199, guid: 9cb54ce0731aef04787be4ef60c5e073, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 496.46695
+      objectReference: {fileID: 0}
+    - target: {fileID: 1267383887817717199, guid: 9cb54ce0731aef04787be4ef60c5e073, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1267383887817717199, guid: 9cb54ce0731aef04787be4ef60c5e073, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1267383887817717199, guid: 9cb54ce0731aef04787be4ef60c5e073, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1267383887817717199, guid: 9cb54ce0731aef04787be4ef60c5e073, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1267383887817717199, guid: 9cb54ce0731aef04787be4ef60c5e073, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1267383887817717199, guid: 9cb54ce0731aef04787be4ef60c5e073, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1267383887817717199, guid: 9cb54ce0731aef04787be4ef60c5e073, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1935833443931647861, guid: 9cb54ce0731aef04787be4ef60c5e073, type: 3}
+      propertyPath: m_Name
+      value: FajroCore
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9cb54ce0731aef04787be4ef60c5e073, type: 3}
 --- !u!114 &423606015498216654
 MonoBehaviour:
   m_ObjectHideFlags: 0
