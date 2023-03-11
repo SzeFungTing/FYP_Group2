@@ -156,6 +156,8 @@ public class EatFajro : MonoBehaviour
         float distance = Mathf.Infinity;
         foreach (GameObject fajro in fajros)
         {
+            //Debug.Log(fajro.name);
+
             if (/*fajro.transform.parent != _eatFood.FajroCore*/ 
                 _animo.animoType1.ToString() != fajro.GetComponent<Fajro>().fajroType1.ToString() &&
                 _animo.animoType2.ToString() != fajro.GetComponent<Fajro>().fajroType1.ToString() &&
@@ -170,6 +172,9 @@ public class EatFajro : MonoBehaviour
                     closest = fajro;
                     distance = curDistance;
                 }
+
+                //Debug.Log("right: " + fajro.name);
+                //Debug.Log(distance);
             }
         }
 
