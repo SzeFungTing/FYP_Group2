@@ -13,8 +13,13 @@ public class ControlBuildingSystem : MonoBehaviour
     GunShooting gunShooting;
     GunVacuum gunVacuum;
 
+    public GameObject buildingView;
+
     private void Start()
     {
+        if (buildingView)
+            buildingView.SetActive(false);
+
         buildingGrid.SetActive(false);
 
         buildingSystem = buildingGrid.GetComponent<BuildingSystem>();
@@ -33,6 +38,8 @@ public class ControlBuildingSystem : MonoBehaviour
             if (!buildingGrid.activeInHierarchy)                        //open building system
             {
                 buildingGrid.SetActive(true);
+                if(buildingView)
+                    buildingView.SetActive(true);
                 gunShooting.enabled = false;
                 gunVacuum.enabled = false;
             }
@@ -48,6 +55,8 @@ public class ControlBuildingSystem : MonoBehaviour
 
 
                 buildingGrid.SetActive(false);
+                if (buildingView)
+                    buildingView.SetActive(false);
 
                 gunShooting.enabled = true;
                 gunVacuum.enabled = true;
