@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 2473966914440351054}
   - component: {fileID: 7884858508143653588}
   - component: {fileID: 5005631803735341391}
-  - component: {fileID: 1561784838330034098}
   m_Layer: 0
   m_Name: Fire
   m_TagString: Untagged
@@ -83,20 +82,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &1561784838330034098
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1226770547325575818}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1593183085458267419
 GameObject:
   m_ObjectHideFlags: 0
@@ -108,7 +93,6 @@ GameObject:
   - component: {fileID: 1593183085458267423}
   - component: {fileID: 1593183085458267416}
   - component: {fileID: 1593183085458267417}
-  - component: {fileID: 1593183085458267418}
   m_Layer: 0
   m_Name: Fire
   m_TagString: Untagged
@@ -181,20 +165,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &1593183085458267418
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1593183085458267419}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1935833443931647861
 GameObject:
   m_ObjectHideFlags: 0
@@ -207,7 +177,7 @@ GameObject:
   - component: {fileID: 398094531998868798}
   - component: {fileID: 398094531998868797}
   m_Layer: 0
-  m_Name: FajroCore
+  m_Name: Bear+Chick_F
   m_TagString: Fajro
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -255,7 +225,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fajroType1: 0
-  fajroType2: 0
+  fajroType2: 2
   destoryTime: 300
 --- !u!1 &2130339096874377280
 GameObject:
@@ -268,8 +238,6 @@ GameObject:
   - component: {fileID: 2731152233018207914}
   - component: {fileID: 6636707078726342708}
   - component: {fileID: 2962343840483214571}
-  - component: {fileID: 398094532767541845}
-  - component: {fileID: 398094532767541844}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Fajro
@@ -342,32 +310,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &398094532767541845
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2130339096874377280}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 0
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -5495902117074765545, guid: 36cd4bd8af9e840468177e853427089a, type: 3}
---- !u!114 &398094532767541844
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2130339096874377280}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62374bce50ab03e4e9ca01fbadae3183, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fajroType1: 0
-  fajroType2: 0
-  destoryTime: 300

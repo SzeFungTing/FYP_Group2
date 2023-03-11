@@ -38,7 +38,7 @@ public class Animo : MonoBehaviour
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotateSpeed * Time.deltaTime);
         }
 
-        if (!isPlayingSound)
+        if (!isPlayingSound && !IsWonderingSoundsEmpty())
         {
             StartCoroutine(PlayWonderingSound());
         }
@@ -61,5 +61,23 @@ public class Animo : MonoBehaviour
         hvPlayed = false;
 
         isPlayingSound = false;
+    }
+
+    private bool IsWonderingSoundsEmpty()
+    {
+        if (wonderingSounds == null || wonderingSounds.Length == 0)
+        {
+            return true;
+        }
+            
+        for (int i = 0; i < wonderingSounds.Length; i++)
+        {
+            if (wonderingSounds[i] != null)
+            {
+                return false;
+            }
+        }
+
+        return true;
     }
 }

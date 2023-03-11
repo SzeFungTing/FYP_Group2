@@ -11366,7 +11366,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2259442092407703965, guid: bbcbb24d181360749bd471bdaeccfbe7, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bbcbb24d181360749bd471bdaeccfbe7, type: 3}
@@ -13236,6 +13236,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4865232117999879409, guid: 0163509a4a887c344ba46362b26d1e48, type: 3}
+      propertyPath: animoPrefab
+      value: 
+      objectReference: {fileID: 7588972991196968891, guid: f0fbd35f3f553b04e9e2716415aae8e8, type: 3}
     - target: {fileID: 4865232117999879414, guid: 0163509a4a887c344ba46362b26d1e48, type: 3}
       propertyPath: m_Name
       value: AnimoGenerator
