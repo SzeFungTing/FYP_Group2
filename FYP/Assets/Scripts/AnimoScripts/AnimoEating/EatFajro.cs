@@ -140,6 +140,8 @@ public class EatFajro : MonoBehaviour
                         && gameObject.GetComponent<Animo>().animoType1.ToString() != other.gameObject.GetComponent<Fajro>().fajroType1.ToString()
                         && gameObject.GetComponent<Animo>().animoType2.ToString() != other.gameObject.GetComponent<Fajro>().fajroType1.ToString())
                     {
+                        Debug.Log("Prefab: " + ListOfMixedAnimoPrefab[i].name);
+
                         Instantiate(ListOfMixedAnimoPrefab[i], transform.position/* + Vector3.up*/, transform.rotation);
                         AudioSource.PlayClipAtPoint(mergeSound, transform.position);
                     }
@@ -159,9 +161,9 @@ public class EatFajro : MonoBehaviour
         float distance = Mathf.Infinity;
         foreach (GameObject fajro in fajros)
         {
-            //Debug.Log(fajro.name);
+            //Debug.Log("Fajro name: " + fajro.name);
 
-            Debug.Log(fajro.GetComponent<Fajro>().fajroType1.ToString());
+            Debug.Log("fajroType1: " + fajro.GetComponent<Fajro>().fajroType1.ToString());
 
             if (
                 _animo.animoType1.ToString() != fajro.GetComponent<Fajro>().fajroType1.ToString() &&
