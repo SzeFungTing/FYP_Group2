@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class EatFajro : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject[] FajroWillNotEat;
+    //[SerializeField]
+    //private GameObject[] FajroWillNotEat;
 
     [SerializeField]
     private GameObject[] ListOfMixedAnimoPrefab;
@@ -45,7 +45,10 @@ public class EatFajro : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        closestFajro = FindClosestFajro();
+        if (_animo.animoType1.ToString() == _animo.animoType2.ToString())
+        {
+            closestFajro = FindClosestFajro();
+        }
 
         if (hvFajro)
         {

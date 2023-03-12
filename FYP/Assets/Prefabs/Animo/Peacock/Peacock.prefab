@@ -271,7 +271,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4457137236220073335
 Transform:
   m_ObjectHideFlags: 0
@@ -373,8 +373,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd7e6cff09ba6664c8c54d5cc6008991, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FajroWillNotEat: []
-  ListOfMixedAnimoPrefab: []
+  ListOfMixedAnimoPrefab:
+  - {fileID: 7386587048574869408, guid: 446d8f5f589a520429a98da9a3788341, type: 3}
+  - {fileID: 3767769991321690261, guid: af1715bcd7097e4439819719442bd6b1, type: 3}
+  - {fileID: 4425496653239530818, guid: 5e5d146e5e68a614a84360ffddfcc2ad, type: 3}
+  - {fileID: 6495855377574080008, guid: 2d220d246587b724db9da5139c999b4e, type: 3}
+  - {fileID: 4100186756994017748, guid: 3a1f68edc4e462e4393c34f53fbbf4c1, type: 3}
+  - {fileID: 4041945985135804457, guid: 18ba113b27f038548b97374785d1dbf8, type: 3}
+  - {fileID: 5554182020646176702, guid: cdbdadade192c3c4ea83cc4de603112b, type: 3}
+  - {fileID: 7764632102550037109, guid: d4a206d29b30a3348acd8b7b541d7a8c, type: 3}
   _eatFood: {fileID: 3208844232423062470}
   _aIMovement: {fileID: 4439133532814806565}
   movementSpeed: 1
@@ -395,7 +402,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canPoo: 0
-  FajroCore: {fileID: 0}
+  FajroCore: {fileID: 3905893737638088997, guid: 19f2982bd2012d04d9ae2075fcebbecc, type: 3}
   Food: {fileID: 7821197875280942789, guid: 3e4e7f3f632455b479bca77d88284221, type: 3}
   foodScaleChangeValue: 0.3
   dissolvePoint: {fileID: 4457137236220073335}
