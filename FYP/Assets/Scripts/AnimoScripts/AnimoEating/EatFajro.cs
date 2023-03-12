@@ -161,7 +161,9 @@ public class EatFajro : MonoBehaviour
         {
             //Debug.Log(fajro.name);
 
-            if (/*fajro.transform.parent != _eatFood.FajroCore*/ 
+            Debug.Log(fajro.GetComponent<Fajro>().fajroType1.ToString());
+
+            if (
                 _animo.animoType1.ToString() != fajro.GetComponent<Fajro>().fajroType1.ToString() &&
                 _animo.animoType2.ToString() != fajro.GetComponent<Fajro>().fajroType1.ToString() &&
                 _animo.animoType1.ToString() != fajro.GetComponent<Fajro>().fajroType2.ToString() &&
