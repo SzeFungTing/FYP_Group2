@@ -112,7 +112,7 @@ public class EatFajro : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Fajro")
+        if (other.tag == "Fajro" && _animo.animoType1.ToString() == _animo.animoType2.ToString())
         {
             /*for (int i = 0; i < FajroWillNotEat.Length; i++)
             {
@@ -139,7 +139,7 @@ public class EatFajro : MonoBehaviour
                         || ListOfMixedAnimoPrefab[i].GetComponent<Animo>().animoType2.ToString() == other.gameObject.GetComponent<Fajro>().fajroType1.ToString())   /*animo prefab type2 == fajro ate type*/
                         && gameObject.GetComponent<Animo>().animoType1.ToString() != other.gameObject.GetComponent<Fajro>().fajroType1.ToString()
                         && gameObject.GetComponent<Animo>().animoType2.ToString() != other.gameObject.GetComponent<Fajro>().fajroType1.ToString()
-                        && other.gameObject.GetComponent<Fajro>().fajroType1.ToString() == other.gameObject.GetComponent<Fajro>().fajroType2.ToString())
+                        && other.gameObject.GetComponent<Fajro>().fajroType1.ToString() != other.gameObject.GetComponent<Fajro>().fajroType2.ToString())
                     {
                         Debug.Log("Prefab: " + ListOfMixedAnimoPrefab[i].name);
 
