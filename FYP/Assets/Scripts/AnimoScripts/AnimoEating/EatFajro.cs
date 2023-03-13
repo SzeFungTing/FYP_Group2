@@ -138,7 +138,8 @@ public class EatFajro : MonoBehaviour
                         && (ListOfMixedAnimoPrefab[i].GetComponent<Animo>().animoType1.ToString() == other.gameObject.GetComponent<Fajro>().fajroType1.ToString()    /*animo prefab type1 == fajro ate type*/
                         || ListOfMixedAnimoPrefab[i].GetComponent<Animo>().animoType2.ToString() == other.gameObject.GetComponent<Fajro>().fajroType1.ToString())   /*animo prefab type2 == fajro ate type*/
                         && gameObject.GetComponent<Animo>().animoType1.ToString() != other.gameObject.GetComponent<Fajro>().fajroType1.ToString()
-                        && gameObject.GetComponent<Animo>().animoType2.ToString() != other.gameObject.GetComponent<Fajro>().fajroType1.ToString())
+                        && gameObject.GetComponent<Animo>().animoType2.ToString() != other.gameObject.GetComponent<Fajro>().fajroType1.ToString()
+                        && other.gameObject.GetComponent<Fajro>().fajroType1.ToString() == other.gameObject.GetComponent<Fajro>().fajroType2.ToString())
                     {
                         Debug.Log("Prefab: " + ListOfMixedAnimoPrefab[i].name);
 
@@ -162,14 +163,21 @@ public class EatFajro : MonoBehaviour
         foreach (GameObject fajro in fajros)
         {
             //Debug.Log("Fajro name: " + fajro.name);
-
-            Debug.Log("fajroType1: " + fajro.GetComponent<Fajro>().fajroType1.ToString());
+            //try
+            //{
+            //    Debug.Log(this.gameObject.name + "instance id: " + transform.GetInstanceID() + "fajroType1: " + fajro.GetComponent<Fajro>().fajroType1.ToString());
+            //}
+            //catch
+            //{
+            //    Debug.Log(fajro.name+": "+ fajro.GetInstanceID());
+            //}
 
             if (
                 _animo.animoType1.ToString() != fajro.GetComponent<Fajro>().fajroType1.ToString() &&
                 _animo.animoType2.ToString() != fajro.GetComponent<Fajro>().fajroType1.ToString() &&
                 _animo.animoType1.ToString() != fajro.GetComponent<Fajro>().fajroType2.ToString() &&
-                _animo.animoType2.ToString() != fajro.GetComponent<Fajro>().fajroType2.ToString()
+                _animo.animoType2.ToString() != fajro.GetComponent<Fajro>().fajroType2.ToString() &&
+                fajro.GetComponent<Fajro>().fajroType1.ToString() == fajro.GetComponent<Fajro>().fajroType2.ToString()
                 )
             {
                 Vector3 diff = fajro.transform.position - transform.position;
