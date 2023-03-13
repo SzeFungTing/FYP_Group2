@@ -183,7 +183,7 @@ public class BuildingSystem : MonoBehaviour
 
         foreach(var b in baseArray)
         {
-            if(b == null)
+            if(b == null || b!= whiteTile)
             {
                 return false;
             }
