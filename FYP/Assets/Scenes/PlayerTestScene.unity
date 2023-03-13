@@ -11809,10 +11809,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bear+Rabbit
       objectReference: {fileID: 0}
-    - target: {fileID: 461385575515071921, guid: b5e21f33d685241429a62f7c32112c6a, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 949409668137025291, guid: b5e21f33d685241429a62f7c32112c6a, type: 3}
       propertyPath: m_RootOrder
       value: 23
@@ -12101,10 +12097,6 @@ PrefabInstance:
     - target: {fileID: 6341667371599458568, guid: 10e7f5dee3e87a340871ac9306bc8856, type: 3}
       propertyPath: m_Name
       value: Bear+Pig
-      objectReference: {fileID: 0}
-    - target: {fileID: 6341667371599458568, guid: 10e7f5dee3e87a340871ac9306bc8856, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 10e7f5dee3e87a340871ac9306bc8856, type: 3}
@@ -12651,10 +12643,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bear+Dog
       objectReference: {fileID: 0}
-    - target: {fileID: 1125746350203123347, guid: de181d0988c005646b6358bedbeb9a5d, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: de181d0988c005646b6358bedbeb9a5d, type: 3}
 --- !u!1001 &3829193897285133690
@@ -13034,10 +13022,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bear
       objectReference: {fileID: 0}
-    - target: {fileID: 5885582996287332423, guid: 3eefeec3ed3126b438be0fc1ae9c21fc, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6549951440708270845, guid: 3eefeec3ed3126b438be0fc1ae9c21fc, type: 3}
       propertyPath: m_RootOrder
       value: 24
@@ -13278,10 +13262,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bear+Chick
       objectReference: {fileID: 0}
-    - target: {fileID: 258690693533132429, guid: 7764be19fba9c844aa0629ed33f2442a, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 638628772698766391, guid: 7764be19fba9c844aa0629ed33f2442a, type: 3}
       propertyPath: m_RootOrder
       value: 20
@@ -13328,30 +13308,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7764be19fba9c844aa0629ed33f2442a, type: 3}
---- !u!1 &5177688781031346301 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 258690693533132429, guid: 7764be19fba9c844aa0629ed33f2442a, type: 3}
-  m_PrefabInstance: {fileID: 5177688781031346300}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &5177688781031346302
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5177688781031346301}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 2142e708600d47946a549b4abb15781c, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &5770977395197535430
 PrefabInstance:
   m_ObjectHideFlags: 0
