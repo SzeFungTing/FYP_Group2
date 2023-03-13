@@ -1,24 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!95 &844005649
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 919132149494967735}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: a55a609aa1916634eae204ff8c8664ce, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &493804234
 GameObject:
   m_ObjectHideFlags: 0
@@ -618,6 +599,10 @@ MonoBehaviour:
   mouseSensitivity: 100
   playerBody: {fileID: 3805550522536465332}
   lockCursor: 1
+  pauseUI: {fileID: 0}
+  settingUI: {fileID: 0}
+  shopUI: {fileID: 0}
+  backPackUI: {fileID: 0}
 --- !u!1 &1788712138
 GameObject:
   m_ObjectHideFlags: 0
@@ -5778,6 +5763,25 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!95 &844005649
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132149494967735}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a55a609aa1916634eae204ff8c8664ce, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &3805550522536465334
 GameObject:
   m_ObjectHideFlags: 0
@@ -5794,6 +5798,9 @@ GameObject:
   - component: {fileID: 1924446918}
   - component: {fileID: 1093483571342652032}
   - component: {fileID: 7045988737216485152}
+  - component: {fileID: 1410641701218349242}
+  - component: {fileID: -6000425748591906214}
+  - component: {fileID: -5594568916566018870}
   m_Layer: 0
   m_Name: FPSController
   m_TagString: Player
@@ -5869,6 +5876,13 @@ MonoBehaviour:
   target: {fileID: 1623549465}
   WalkingInGrass: {fileID: 1253862623}
   RunningInGrass: {fileID: 1973599315}
+  currentVector: {x: 0, y: 1, z: 0}
+  CurrentForce: 0
+  MaxForce: 5
+  isflying: 0
+  clickTime: 0
+  FillBar: {fileID: 0}
+  shopManager: {fileID: 0}
   state: 4
 --- !u!136 &1924446919
 CapsuleCollider:
@@ -5936,6 +5950,60 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 438db309757dea64ea599075734d435e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1410641701218349242
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3805550522536465334}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 951099334
+  AlwaysReplicateAsRoot: 0
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
+--- !u!114 &-6000425748591906214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3805550522536465334}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e96cb6065543e43c4a752faaa1468eb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SyncPositionX: 0
+  SyncPositionY: 0
+  SyncPositionZ: 0
+  SyncRotAngleX: 0
+  SyncRotAngleY: 0
+  SyncRotAngleZ: 0
+  SyncScaleX: 0
+  SyncScaleY: 0
+  SyncScaleZ: 0
+  PositionThreshold: 0.001
+  RotAngleThreshold: 0.01
+  ScaleThreshold: 0.01
+  InLocalSpace: 0
+  Interpolate: 1
+--- !u!114 &-5594568916566018870
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3805550522536465334}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6c0be61502bb534f922ebb746851216, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &5908125070697154886
@@ -6070,6 +6138,10 @@ MonoBehaviour:
   mouseSensitivity: 100
   playerBody: {fileID: 3805550522536465332}
   lockCursor: 1
+  pauseUI: {fileID: 0}
+  settingUI: {fileID: 0}
+  shopUI: {fileID: 0}
+  backPackUI: {fileID: 0}
 --- !u!1001 &464410810
 PrefabInstance:
   m_ObjectHideFlags: 0
