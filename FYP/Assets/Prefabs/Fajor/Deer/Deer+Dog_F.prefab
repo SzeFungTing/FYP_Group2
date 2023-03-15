@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 5497215694129509215}
   - component: {fileID: 5497215694129509212}
   - component: {fileID: 4071140446814998599}
+  - component: {fileID: -3247974893691730170}
+  - component: {fileID: -8498863839207486394}
   m_Layer: 0
   m_Name: Deer+Dog_F
   m_TagString: Fajro
@@ -79,6 +81,34 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &-3247974893691730170
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5985616028175317268}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4507c138325a46c41854a0622a6f1a99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isVacuum: 0
+  maxHeight: 80
+--- !u!114 &-8498863839207486394
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5985616028175317268}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69cc6bbaa03dc054988569c3108b1659, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item: {fileID: 11400000, guid: e0f86e5c45895ef46b4a196171d64317, type: 2}
+  canConsume: 0
 --- !u!1 &6078773511798208033
 GameObject:
   m_ObjectHideFlags: 0

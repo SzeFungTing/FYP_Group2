@@ -177,6 +177,8 @@ GameObject:
   - component: {fileID: 1444076031897831055}
   - component: {fileID: 1444076031897831052}
   - component: {fileID: 6935529514760250775}
+  - component: {fileID: 2496355760376890001}
+  - component: {fileID: 2312748325381166537}
   m_Layer: 0
   m_Name: Dragon+Rabbit_F
   m_TagString: Fajro
@@ -244,6 +246,34 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &2496355760376890001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 815509849375870148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4507c138325a46c41854a0622a6f1a99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isVacuum: 0
+  maxHeight: 80
+--- !u!114 &2312748325381166537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 815509849375870148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69cc6bbaa03dc054988569c3108b1659, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item: {fileID: 11400000, guid: 48e8d2b8e82fb324ab551cb37858ad36, type: 2}
+  canConsume: 0
 --- !u!1 &872660108544214001
 GameObject:
   m_ObjectHideFlags: 0

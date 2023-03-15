@@ -110,6 +110,8 @@ GameObject:
   - component: {fileID: 1968916761672766631}
   - component: {fileID: 1968916761672766628}
   - component: {fileID: 8027507430969178047}
+  - component: {fileID: -6632489287744627674}
+  - component: {fileID: 6206032437899743653}
   m_Layer: 0
   m_Name: Peacock+Bear_F
   m_TagString: Fajro
@@ -177,6 +179,34 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &-6632489287744627674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 291003070486011628}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4507c138325a46c41854a0622a6f1a99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isVacuum: 0
+  maxHeight: 80
+--- !u!114 &6206032437899743653
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 291003070486011628}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69cc6bbaa03dc054988569c3108b1659, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item: {fileID: 11400000, guid: a857fc1c31561c9499abf618af3c06c8, type: 2}
+  canConsume: 0
 --- !u!1 &632949338127379586
 GameObject:
   m_ObjectHideFlags: 0

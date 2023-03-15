@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 4525595054052169610}
   - component: {fileID: 4525595054052169609}
   - component: {fileID: 5403110775762187410}
+  - component: {fileID: 8156029082455693030}
+  - component: {fileID: 7726158769567419573}
   m_Layer: 0
   m_Name: Dragon+Deer_F
   m_TagString: Fajro
@@ -79,6 +81,34 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &8156029082455693030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2419842734950440385}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4507c138325a46c41854a0622a6f1a99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isVacuum: 0
+  maxHeight: 80
+--- !u!114 &7726158769567419573
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2419842734950440385}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69cc6bbaa03dc054988569c3108b1659, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item: {fileID: 11400000, guid: ce06b211599fe574fa5e7384a7c04044, type: 2}
+  canConsume: 0
 --- !u!1 &2798996481586549492
 GameObject:
   m_ObjectHideFlags: 0

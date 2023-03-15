@@ -110,6 +110,8 @@ GameObject:
   - component: {fileID: 815411312692256488}
   - component: {fileID: 815411312692256491}
   - component: {fileID: 9179880176814915056}
+  - component: {fileID: 5727988640867735426}
+  - component: {fileID: -8771325673486609464}
   m_Layer: 0
   m_Name: Cat_F
   m_TagString: Fajro
@@ -177,6 +179,34 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &5727988640867735426
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1444471134997697699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4507c138325a46c41854a0622a6f1a99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isVacuum: 0
+  maxHeight: 80
+--- !u!114 &-8771325673486609464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1444471134997697699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69cc6bbaa03dc054988569c3108b1659, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item: {fileID: 11400000, guid: 3c7ca1f6e795a3e45946acb12d5d04a9, type: 2}
+  canConsume: 0
 --- !u!1 &1786419465130125005
 GameObject:
   m_ObjectHideFlags: 0

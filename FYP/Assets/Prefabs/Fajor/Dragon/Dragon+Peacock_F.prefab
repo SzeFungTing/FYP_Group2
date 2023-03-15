@@ -177,6 +177,8 @@ GameObject:
   - component: {fileID: 8626304724418169638}
   - component: {fileID: 8626304724418169637}
   - component: {fileID: 253145336628947006}
+  - component: {fileID: -8139868712594099662}
+  - component: {fileID: -5228730462104905153}
   m_Layer: 0
   m_Name: Dragon+Peacock_F
   m_TagString: Fajro
@@ -244,6 +246,34 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &-8139868712594099662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7560959854361477485}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4507c138325a46c41854a0622a6f1a99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isVacuum: 0
+  maxHeight: 80
+--- !u!114 &-5228730462104905153
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7560959854361477485}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69cc6bbaa03dc054988569c3108b1659, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item: {fileID: 11400000, guid: a8f6d4246cb84474dbb6a0ff77d22bb5, type: 2}
+  canConsume: 0
 --- !u!1 &8043682579846237784
 GameObject:
   m_ObjectHideFlags: 0

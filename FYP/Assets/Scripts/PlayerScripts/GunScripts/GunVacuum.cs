@@ -194,11 +194,14 @@ public class GunVacuum : MonoBehaviour
             //inventory system
             var item = other.transform.GetComponent<WorldItem>().item;
             if (item)
-                InventoryManager5.instance.AddItem(item);
-            
+            {
+                if(InventoryManager5.instance.AddItem(item))
+                    Destroy(other.transform.gameObject);
+
+            }
 
 
-            Destroy(other.transform.gameObject);
+
             //collision.transform.gameObject.SetActive(false);
         }
         if (Vector3.Distance(other.transform.position, gunPoint.position) < 1.0f)

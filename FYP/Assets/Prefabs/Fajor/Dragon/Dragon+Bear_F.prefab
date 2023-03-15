@@ -110,6 +110,8 @@ GameObject:
   - component: {fileID: 8879479743684273017}
   - component: {fileID: 8879479743684273018}
   - component: {fileID: 1085279476083540065}
+  - component: {fileID: -2532270392420946047}
+  - component: {fileID: 8481510701683658338}
   m_Layer: 0
   m_Name: Dragon+Bear_F
   m_TagString: Fajro
@@ -177,6 +179,34 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &-2532270392420946047
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7233090328719223090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4507c138325a46c41854a0622a6f1a99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isVacuum: 0
+  maxHeight: 80
+--- !u!114 &8481510701683658338
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7233090328719223090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69cc6bbaa03dc054988569c3108b1659, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item: {fileID: 11400000, guid: 499831baede4a1a43a8e5ede1ee3378a, type: 2}
+  canConsume: 0
 --- !u!1 &7539149493433015132
 GameObject:
   m_ObjectHideFlags: 0

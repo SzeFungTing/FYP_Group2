@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 943949113242398278}
   - component: {fileID: 943949113242398277}
   - component: {fileID: 8731358800020442462}
+  - component: {fileID: 6402324850666941977}
+  - component: {fileID: 2686912406604632911}
   m_Layer: 0
   m_Name: Cat+Pig_F
   m_TagString: Fajro
@@ -79,6 +81,34 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &6402324850666941977
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1315809940037116941}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4507c138325a46c41854a0622a6f1a99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isVacuum: 0
+  maxHeight: 80
+--- !u!114 &2686912406604632911
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1315809940037116941}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69cc6bbaa03dc054988569c3108b1659, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item: {fileID: 11400000, guid: 0c35f29c77265294590580ab68289426, type: 2}
+  canConsume: 0
 --- !u!1 &1517634419116485432
 GameObject:
   m_ObjectHideFlags: 0

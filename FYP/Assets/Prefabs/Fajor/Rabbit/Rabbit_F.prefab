@@ -177,6 +177,8 @@ GameObject:
   - component: {fileID: 5001911957738517186}
   - component: {fileID: 5001911957738517185}
   - component: {fileID: 3557786850517111258}
+  - component: {fileID: -2393562910089872567}
+  - component: {fileID: -4651197421242905180}
   m_Layer: 0
   m_Name: Rabbit_F
   m_TagString: Fajro
@@ -244,6 +246,34 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &-2393562910089872567
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6499110909586503817}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4507c138325a46c41854a0622a6f1a99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isVacuum: 0
+  maxHeight: 80
+--- !u!114 &-4651197421242905180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6499110909586503817}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69cc6bbaa03dc054988569c3108b1659, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item: {fileID: 11400000, guid: 1f55a3146c739914e86bcffd13cd549a, type: 2}
+  canConsume: 0
 --- !u!1 &6736383033660405692
 GameObject:
   m_ObjectHideFlags: 0
