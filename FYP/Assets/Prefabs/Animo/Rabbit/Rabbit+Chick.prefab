@@ -304,6 +304,7 @@ GameObject:
   - component: {fileID: 7357579745027356141}
   - component: {fileID: 2429065181267691231}
   - component: {fileID: 2153547611104622568}
+  - component: {fileID: 1209086381821458854}
   m_Layer: 0
   m_Name: Rabbit+Chick
   m_TagString: Untagged
@@ -472,6 +473,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item: {fileID: 11400000, guid: 0ba095bd89a0ec44686526d80d54c4a4, type: 2}
   canConsume: 0
+--- !u!95 &1209086381821458854
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3127492157082741594}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 51e86a59bcfe76641a1d03a9ff9def55, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &3624942190194965680
 GameObject:
   m_ObjectHideFlags: 0

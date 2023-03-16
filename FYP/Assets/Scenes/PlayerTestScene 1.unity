@@ -11884,6 +11884,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bear+Rabbit
       objectReference: {fileID: 0}
+    - target: {fileID: 461385575515071921, guid: b5e21f33d685241429a62f7c32112c6a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 949409668137025291, guid: b5e21f33d685241429a62f7c32112c6a, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -12193,6 +12197,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bear+Pig
       objectReference: {fileID: 0}
+    - target: {fileID: 6341667371599458568, guid: 10e7f5dee3e87a340871ac9306bc8856, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 10e7f5dee3e87a340871ac9306bc8856, type: 3}
 --- !u!4 &1443978680793215584 stripped
@@ -12471,6 +12479,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1649044714}
     m_Modifications:
+    - target: {fileID: -6029242270142480163, guid: e686aff8fc16ab9459ea1ead6bc3cb27, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: fdc746ebd95834f448c14fe62d08b2d0, type: 2}
     - target: {fileID: 5129940550135474968, guid: e686aff8fc16ab9459ea1ead6bc3cb27, type: 3}
       propertyPath: m_Name
       value: Rabbit+Pig
@@ -12777,6 +12789,10 @@ PrefabInstance:
     - target: {fileID: 1125746350203123347, guid: de181d0988c005646b6358bedbeb9a5d, type: 3}
       propertyPath: m_Name
       value: Bear+Dog
+      objectReference: {fileID: 0}
+    - target: {fileID: 1125746350203123347, guid: de181d0988c005646b6358bedbeb9a5d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: de181d0988c005646b6358bedbeb9a5d, type: 3}
@@ -13192,6 +13208,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bear
       objectReference: {fileID: 0}
+    - target: {fileID: 5885582996287332423, guid: 3eefeec3ed3126b438be0fc1ae9c21fc, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6549951440708270845, guid: 3eefeec3ed3126b438be0fc1ae9c21fc, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -13447,6 +13467,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bear+Chick
       objectReference: {fileID: 0}
+    - target: {fileID: 258690693533132429, guid: 7764be19fba9c844aa0629ed33f2442a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 638628772698766391, guid: 7764be19fba9c844aa0629ed33f2442a, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -13491,30 +13515,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 7764be19fba9c844aa0629ed33f2442a, type: 3}
---- !u!1 &5177688781031346301 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 258690693533132429, guid: 7764be19fba9c844aa0629ed33f2442a, type: 3}
-  m_PrefabInstance: {fileID: 5177688781031346300}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5177688781031346302 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 638628772698766391, guid: 7764be19fba9c844aa0629ed33f2442a, type: 3}
   m_PrefabInstance: {fileID: 5177688781031346300}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &5177688781031346312
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5177688781031346301}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ebcd7953be288d4386ee55b4b96a974, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &5770977395197535430
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14820,7 +14828,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6708338278069933157, guid: 19409f41073d3fc458ce66529972e965, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 19409f41073d3fc458ce66529972e965, type: 3}

@@ -5589,6 +5589,7 @@ GameObject:
   - component: {fileID: 5489687479722306788}
   - component: {fileID: 2591295032272972131}
   - component: {fileID: 8361252342497826333}
+  - component: {fileID: -4129370095462291123}
   m_Layer: 0
   m_Name: Dragon+Peacock
   m_TagString: Untagged
@@ -5761,6 +5762,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item: {fileID: 11400000, guid: 4b8cafe6439ecc74bb72504e74f6b9cf, type: 2}
   canConsume: 0
+--- !u!95 &-4129370095462291123
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7764632102550037109}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0169c00ff056ee24982bd167f883496f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &7836772605405382631
 GameObject:
   m_ObjectHideFlags: 0

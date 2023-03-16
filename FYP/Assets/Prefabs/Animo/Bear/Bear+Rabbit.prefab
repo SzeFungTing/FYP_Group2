@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 5818956436436991825}
   - component: {fileID: 5723873064331919962}
   - component: {fileID: 1893584959833759571}
+  - component: {fileID: -5163799738606953900}
   m_Layer: 0
   m_Name: Bear+Rabbit
   m_TagString: Untagged
@@ -184,6 +185,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item: {fileID: 11400000, guid: 3d1884f0672bb024db54de6d4b87999f, type: 2}
   canConsume: 0
+--- !u!95 &-5163799738606953900
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 461385575515071921}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2f85156944647374cb047c3547f66690, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &599251511166982389
 GameObject:
   m_ObjectHideFlags: 0

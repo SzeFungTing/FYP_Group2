@@ -5678,6 +5678,7 @@ GameObject:
   - component: {fileID: 3031427059801089324}
   - component: {fileID: 6887835998394341998}
   - component: {fileID: 5121159969061127184}
+  - component: {fileID: 4073781131552477771}
   m_Layer: 0
   m_Name: Dragon+Bear
   m_TagString: Untagged
@@ -5849,6 +5850,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item: {fileID: 11400000, guid: 594dfa81eafa76347bb36faeb55b7ce8, type: 2}
   canConsume: 0
+--- !u!95 &4073781131552477771
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8378875530528464312}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 00ca432e464182b48851e6cfcabacd07, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &9096260716611751495
 GameObject:
   m_ObjectHideFlags: 0

@@ -5133,6 +5133,7 @@ GameObject:
   - component: {fileID: 4021946879607384331}
   - component: {fileID: 2864717084569409218}
   - component: {fileID: 2178083646343109684}
+  - component: {fileID: 7749868375935295107}
   m_Layer: 0
   m_Name: Chick
   m_TagString: Untagged
@@ -5309,6 +5310,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item: {fileID: 11400000, guid: 86d10acd0eb08474dade857d3d7b4e2f, type: 2}
   canConsume: 0
+--- !u!95 &7749868375935295107
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7339140687540903793}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ab12e2accab949641a507509722ebbf9, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &7982053261195287904
 GameObject:
   m_ObjectHideFlags: 0

@@ -5331,6 +5331,7 @@ GameObject:
   - component: {fileID: 932171735745728437}
   - component: {fileID: 670034027305417010}
   - component: {fileID: 2990973825061590394}
+  - component: {fileID: -1726781878006637386}
   m_Layer: 0
   m_Name: Cat+Pig
   m_TagString: Untagged
@@ -5504,6 +5505,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item: {fileID: 11400000, guid: bb80615f32aba3543a12d0cc6f0945c2, type: 2}
   canConsume: 0
+--- !u!95 &-1726781878006637386
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5805325107966345773}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0699a75f3aaa9bb4d9f10cda1750850e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &6198106725666396439
 GameObject:
   m_ObjectHideFlags: 0

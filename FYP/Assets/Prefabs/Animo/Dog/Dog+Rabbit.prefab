@@ -80,6 +80,7 @@ GameObject:
   - component: {fileID: 5423577017004663301}
   - component: {fileID: 6067950025642765731}
   - component: {fileID: 5312676453856108846}
+  - component: {fileID: 4389372051051618372}
   m_Layer: 0
   m_Name: Dog+Rabbit
   m_TagString: Untagged
@@ -249,6 +250,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item: {fileID: 11400000, guid: 15f867b2680116740b92add5d6783f6e, type: 2}
   canConsume: 0
+--- !u!95 &4389372051051618372
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1205456419325812714}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3c62ea3c08944384e9b3e9f647ce50d0, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1395583209184310681
 GameObject:
   m_ObjectHideFlags: 0

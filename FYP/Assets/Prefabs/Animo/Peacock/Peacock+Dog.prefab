@@ -207,6 +207,7 @@ GameObject:
   - component: {fileID: 6034731053344072173}
   - component: {fileID: 550228654985913279}
   - component: {fileID: 5432234031815812186}
+  - component: {fileID: -1545577277792176126}
   m_Layer: 0
   m_Name: Peacock+Dog
   m_TagString: Untagged
@@ -381,6 +382,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item: {fileID: 11400000, guid: ef9fefd9c872e53439fc0d4f8883f753, type: 2}
   canConsume: 0
+--- !u!95 &-1545577277792176126
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3506847679430344301}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 875042557f4b5d3408b7e1f7023b16f9, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &3578859619254740533
 GameObject:
   m_ObjectHideFlags: 0

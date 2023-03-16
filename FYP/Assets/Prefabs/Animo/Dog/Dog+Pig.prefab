@@ -5233,6 +5233,7 @@ GameObject:
   - component: {fileID: 957538105283715475}
   - component: {fileID: 9159976342699711347}
   - component: {fileID: 8848984920266507413}
+  - component: {fileID: 4541539395210080694}
   m_Layer: 0
   m_Name: Dog+Pig
   m_TagString: Untagged
@@ -5407,6 +5408,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item: {fileID: 11400000, guid: 63e15d4eb31fbaa418d4e9b526046494, type: 2}
   canConsume: 0
+--- !u!95 &4541539395210080694
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3332580472157545587}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 05ca4504fa84b1b40b2612200557faab, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &3440136604867176330
 GameObject:
   m_ObjectHideFlags: 0
