@@ -146,7 +146,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &6549951440708270845
 Transform:
   m_ObjectHideFlags: 0
@@ -162,6 +162,7 @@ Transform:
   - {fileID: 7257978086151132972}
   - {fileID: 8325931710439933717}
   - {fileID: 1327024475674446932}
+  - {fileID: 982916407278067695}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -256,7 +257,7 @@ MonoBehaviour:
   - {fileID: 3618643295102058951, guid: d9bceb3f55c8b9a4cbb26811d450e19a, type: 3}
   - {fileID: 4540800391501920018, guid: 98d420b51a7802547b8d7d17d2c2f651, type: 3}
   - {fileID: 8378875530528464312, guid: d67075546f3eab54a86beeda407d5101, type: 3}
-  - {fileID: 7386587048574869408, guid: 446d8f5f589a520429a98da9a3788341, type: 3}
+  - {fileID: 8473572846725450181, guid: cc1a7ff8750d948419122ab119f4c3b3, type: 3}
   _eatFood: {fileID: 7499255556847608791}
   _aIMovement: {fileID: 6469219887145436905}
   movementSpeed: 1
@@ -280,7 +281,7 @@ MonoBehaviour:
   FajroCore: {fileID: 1050791316068159479, guid: 77175d7e7569a7f45af1a374825c3272, type: 3}
   Food: {fileID: 7821197875280942789, guid: 3e4e7f3f632455b479bca77d88284221, type: 3}
   foodScaleChangeValue: 0.3
-  dissolvePoint: {fileID: 6549951440708270845}
+  dissolvePoint: {fileID: 982916407278067695}
   eatSound: {fileID: 8300000, guid: 6d77aaddf27269246affabc63489ee29, type: 3}
   pooSound: {fileID: 8300000, guid: 41c0a009cc49082448c3bd1ebce376cb, type: 3}
   findFoodDistance: 500
@@ -571,6 +572,36 @@ Transform:
   - {fileID: 1933599084347734288}
   m_Father: {fileID: 1328371165174783501}
   m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6516546248496164429
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 982916407278067695}
+  m_Layer: 0
+  m_Name: DissolvePoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &982916407278067695
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6516546248496164429}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.082, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6549951440708270845}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6754444750551467839
 GameObject:

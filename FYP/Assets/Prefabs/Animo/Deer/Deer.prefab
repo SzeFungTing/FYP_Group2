@@ -167,6 +167,7 @@ Transform:
   - {fileID: 4989399994133882328}
   - {fileID: 6796301363553044587}
   - {fileID: 6953802244816833147}
+  - {fileID: 5821165574966517884}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -259,7 +260,7 @@ MonoBehaviour:
   - {fileID: 1847827112633555015, guid: 919c1b1154568844d80b971eb3294e7b, type: 3}
   - {fileID: 8269215612418767491, guid: 7157247cdbbdee1478c097fba1330ef0, type: 3}
   - {fileID: 6717268741886347549, guid: 6cae7f1e13dd8a44d9368ef6a4a77c73, type: 3}
-  - {fileID: 6495855377574080008, guid: 2d220d246587b724db9da5139c999b4e, type: 3}
+  - {fileID: 6504537742342457293, guid: e6205dc2bbe69954fa282b96e4fc3ce9, type: 3}
   _eatFood: {fileID: 5094133195752022817}
   _aIMovement: {fileID: 2953564364057883506}
   movementSpeed: 1
@@ -283,7 +284,7 @@ MonoBehaviour:
   FajroCore: {fileID: 4326533400444580133, guid: aeaceca65438eaf4999ec741c511558a, type: 3}
   Food: {fileID: 7821197875280942789, guid: 3e4e7f3f632455b479bca77d88284221, type: 3}
   foodScaleChangeValue: 0.3
-  dissolvePoint: {fileID: 1370253703356927049}
+  dissolvePoint: {fileID: 5821165574966517884}
   eatSound: {fileID: 8300000, guid: 6d77aaddf27269246affabc63489ee29, type: 3}
   pooSound: {fileID: 8300000, guid: 41c0a009cc49082448c3bd1ebce376cb, type: 3}
   findFoodDistance: 500
@@ -5464,6 +5465,36 @@ Transform:
   - {fileID: 7887678881998909815}
   m_Father: {fileID: 6659674075760351247}
   m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8169858204421002813
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5821165574966517884}
+  m_Layer: 0
+  m_Name: DissolvePoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5821165574966517884
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8169858204421002813}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.074, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1370253703356927049}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &9058124148146809416
 GameObject:

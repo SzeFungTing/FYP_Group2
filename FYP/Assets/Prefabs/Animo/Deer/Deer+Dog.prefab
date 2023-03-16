@@ -5315,6 +5315,7 @@ Transform:
   - {fileID: 4065955739602575542}
   - {fileID: 5852154757855680127}
   - {fileID: 52877455501915092}
+  - {fileID: 5747024266372449595}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5429,7 +5430,7 @@ MonoBehaviour:
   FajroCore: {fileID: 5985616028175317268, guid: 2faa287338697dd49baf26a310c7a834, type: 3}
   Food: {fileID: 7821197875280942789, guid: 3e4e7f3f632455b479bca77d88284221, type: 3}
   foodScaleChangeValue: 0.3
-  dissolvePoint: {fileID: 5549137838686352978}
+  dissolvePoint: {fileID: 5747024266372449595}
   eatSound: {fileID: 8300000, guid: 6d77aaddf27269246affabc63489ee29, type: 3}
   pooSound: {fileID: 8300000, guid: 41c0a009cc49082448c3bd1ebce376cb, type: 3}
   findFoodDistance: 500
@@ -5591,6 +5592,36 @@ Transform:
   - {fileID: 1839916730307687015}
   m_Father: {fileID: 4065955739602575542}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8532409847870767250
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5747024266372449595}
+  m_Layer: 0
+  m_Name: DissolvePoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5747024266372449595
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8532409847870767250}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.141, z: 0.033}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 5549137838686352978}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8563179514176811656
 GameObject:

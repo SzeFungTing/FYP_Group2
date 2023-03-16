@@ -166,6 +166,36 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.0032375327, y: 0.0031850303, z: -0.00011765701}
     m_Extent: {x: 0.009023126, y: 0.0069142394, z: 0.0069320537}
   m_DirtyAABB: 0
+--- !u!1 &1485326953865732510
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7541739382355518657}
+  m_Layer: 0
+  m_Name: DissolvePoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7541739382355518657
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1485326953865732510}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.091, z: 0.191}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4139881503424781181}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3183249252670757726
 GameObject:
   m_ObjectHideFlags: 0
@@ -265,6 +295,7 @@ Transform:
   - {fileID: 41147553835834337}
   - {fileID: 1909102922784595266}
   - {fileID: 6720035482677565139}
+  - {fileID: 7541739382355518657}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -380,7 +411,7 @@ MonoBehaviour:
   FajroCore: {fileID: 6582727016759301416, guid: 1323e73882c596a43a0822265cd4da92, type: 3}
   Food: {fileID: 7821197875280942789, guid: 3e4e7f3f632455b479bca77d88284221, type: 3}
   foodScaleChangeValue: 0.3
-  dissolvePoint: {fileID: 4139881503424781181}
+  dissolvePoint: {fileID: 7541739382355518657}
   eatSound: {fileID: 8300000, guid: 6d77aaddf27269246affabc63489ee29, type: 3}
   pooSound: {fileID: 8300000, guid: 41c0a009cc49082448c3bd1ebce376cb, type: 3}
   findFoodDistance: 500

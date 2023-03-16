@@ -251,6 +251,7 @@ Transform:
   - {fileID: 6650588452393583158}
   - {fileID: 3326592022740864392}
   - {fileID: 1263987261293055497}
+  - {fileID: 8394872121431758699}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -343,11 +344,11 @@ MonoBehaviour:
   - {fileID: 3332580472157545587, guid: e13526024638a514ab0f74e67abeedb8, type: 3}
   - {fileID: 1205456419325812714, guid: 21a79dbf66fd037468862b6b5bdaf121, type: 3}
   - {fileID: 1125746350203123347, guid: de181d0988c005646b6358bedbeb9a5d, type: 3}
-  - {fileID: 8041536875682851301, guid: dc826a63adc7cf942bd996cd1970c5b1, type: 3}
+  - {fileID: 1711863857590068695, guid: a34778385277aae4186215e6eda8ec26, type: 3}
   - {fileID: 2082731489068802893, guid: 9423f5bbd61b96e4c83e5a0a158156ab, type: 3}
   - {fileID: 5064772607566703848, guid: a0284a2c71b8ff449807c3e9d5b1b437, type: 3}
   - {fileID: 4735798025133951018, guid: 536c1cc143a31a84c89250f4408467d1, type: 3}
-  - {fileID: 4100186756994017748, guid: 3a1f68edc4e462e4393c34f53fbbf4c1, type: 3}
+  - {fileID: 3506847679430344301, guid: 7b7c930557980474d93f3939e71a1f28, type: 3}
   _eatFood: {fileID: 3437139058648341079}
   _aIMovement: {fileID: 7436142751803517082}
   movementSpeed: 1
@@ -371,7 +372,7 @@ MonoBehaviour:
   FajroCore: {fileID: 1156411365401977861, guid: 873da6dc783d03f4eb888da60869a326, type: 3}
   Food: {fileID: 7821197875280942789, guid: 3e4e7f3f632455b479bca77d88284221, type: 3}
   foodScaleChangeValue: 0.3
-  dissolvePoint: {fileID: 6471490970613131418}
+  dissolvePoint: {fileID: 8394872121431758699}
   eatSound: {fileID: 8300000, guid: 6d77aaddf27269246affabc63489ee29, type: 3}
   pooSound: {fileID: 8300000, guid: 41c0a009cc49082448c3bd1ebce376cb, type: 3}
   findFoodDistance: 500
@@ -500,6 +501,36 @@ Transform:
   m_Father: {fileID: 6471490970613131418}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -89.98, y: 90, z: 0}
+--- !u!1 &8088293427757029056
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8394872121431758699}
+  m_Layer: 0
+  m_Name: DissolvePoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8394872121431758699
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8088293427757029056}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.073, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6471490970613131418}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8293174313847673414
 GameObject:
   m_ObjectHideFlags: 0
