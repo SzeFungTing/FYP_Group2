@@ -274,6 +274,7 @@ GameObject:
   - component: {fileID: 9145491785393949538}
   - component: {fileID: 2462951580547415077}
   - component: {fileID: 7876316944362072471}
+  - component: {fileID: 4871511365080413122}
   m_Layer: 0
   m_Name: Cat+Bear
   m_TagString: Untagged
@@ -446,6 +447,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item: {fileID: 11400000, guid: 5714691b6f34c6d48a3bc5fc7a943caf, type: 2}
   canConsume: 0
+--- !u!95 &4871511365080413122
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3618643295102058951}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c5b8269b4f127174db26ff23f81188a1, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &3686384445963299397
 GameObject:
   m_ObjectHideFlags: 0

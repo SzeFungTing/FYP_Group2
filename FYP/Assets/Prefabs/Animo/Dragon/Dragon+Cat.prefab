@@ -480,6 +480,7 @@ GameObject:
   - component: {fileID: 3742885609195067279}
   - component: {fileID: 1403021779560138793}
   - component: {fileID: 5056765287569770585}
+  - component: {fileID: 4751508894088576230}
   m_Layer: 0
   m_Name: Dragon+Cat
   m_TagString: Untagged
@@ -652,6 +653,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item: {fileID: 11400000, guid: 08633ef5034b63746a13931fa30057ee, type: 2}
   canConsume: 0
+--- !u!95 &4751508894088576230
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4224751155827059108}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 28de7544ac54d9740847278985e8d3a1, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &4340334223866391448
 GameObject:
   m_ObjectHideFlags: 0

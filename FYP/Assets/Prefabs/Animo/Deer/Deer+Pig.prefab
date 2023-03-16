@@ -5202,6 +5202,7 @@ GameObject:
   - component: {fileID: 7419805079361156881}
   - component: {fileID: 7084993857506315578}
   - component: {fileID: 372474324698823079}
+  - component: {fileID: 3297607893890105302}
   m_Layer: 0
   m_Name: Deer+Pig
   m_TagString: Untagged
@@ -5372,6 +5373,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item: {fileID: 11400000, guid: e452921647dfaf2458e6b74b79e63835, type: 2}
   canConsume: 0
+--- !u!95 &3297607893890105302
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5185497445222451721}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ca313028a4c88964c9ef48d7977fe6e5, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &6056724165531876780
 GameObject:
   m_ObjectHideFlags: 0

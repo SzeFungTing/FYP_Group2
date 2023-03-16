@@ -179,6 +179,7 @@ GameObject:
   - component: {fileID: 6705741850742555431}
   - component: {fileID: 3008817529451880452}
   - component: {fileID: 2700443274305026922}
+  - component: {fileID: 2232126267629161661}
   m_Layer: 0
   m_Name: Deer+Chick
   m_TagString: Untagged
@@ -349,6 +350,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item: {fileID: 11400000, guid: 0bceca6e3ff383344abdec5da07c32e2, type: 2}
   canConsume: 0
+--- !u!95 &2232126267629161661
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1001144084730146922}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8927c160617001b4eba98ca6159cd576, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1509637159011868844
 GameObject:
   m_ObjectHideFlags: 0

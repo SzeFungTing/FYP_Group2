@@ -48,6 +48,7 @@ GameObject:
   - component: {fileID: 3498741045825867665}
   - component: {fileID: 3808078260367557469}
   - component: {fileID: 3667547347884131371}
+  - component: {fileID: 5282392037200259184}
   m_Layer: 0
   m_Name: Chick+Dog
   m_TagString: Untagged
@@ -222,6 +223,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item: {fileID: 11400000, guid: 4ecdbf7605215254aa8755b6f9643592, type: 2}
   canConsume: 0
+--- !u!95 &5282392037200259184
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2082731489068802893}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c474a231ef9ff7c44971791b924cccb6, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2215753913948381137
 GameObject:
   m_ObjectHideFlags: 0

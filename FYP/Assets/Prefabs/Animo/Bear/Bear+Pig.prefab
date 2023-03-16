@@ -457,6 +457,7 @@ GameObject:
   - component: {fileID: 5288644317399108923}
   - component: {fileID: 7117947662170716679}
   - component: {fileID: 5533284166602211221}
+  - component: {fileID: 153955184432045910}
   m_Layer: 0
   m_Name: Bear+Pig
   m_TagString: Untagged
@@ -629,6 +630,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item: {fileID: 11400000, guid: b7f152f8eacf7c24693846e70326ad85, type: 2}
   canConsume: 0
+--- !u!95 &153955184432045910
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6341667371599458568}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 77f1d8ca38ae8f043b3d88c8ffc85087, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &7273013089414046284
 GameObject:
   m_ObjectHideFlags: 0

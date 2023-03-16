@@ -177,6 +177,7 @@ GameObject:
   - component: {fileID: 8332627080830007205}
   - component: {fileID: 57848627418569666}
   - component: {fileID: 4633426578891815519}
+  - component: {fileID: -3422287540229245225}
   m_Layer: 0
   m_Name: Dragon+Chick
   m_TagString: Untagged
@@ -349,6 +350,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item: {fileID: 11400000, guid: dce8723f7c9e5204d94f0f0554c21a33, type: 2}
   canConsume: 0
+--- !u!95 &-3422287540229245225
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1828787170403626618}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d97f39e3ecc415643ac43caba6f6b0c1, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1881523714604975413
 GameObject:
   m_ObjectHideFlags: 0

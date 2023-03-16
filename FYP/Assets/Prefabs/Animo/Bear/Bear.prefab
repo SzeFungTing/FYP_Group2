@@ -140,6 +140,7 @@ GameObject:
   - component: {fileID: 7499255556847608791}
   - component: {fileID: 3149370483886193267}
   - component: {fileID: 2586332414128203792}
+  - component: {fileID: 1118245080025330055}
   m_Layer: 0
   m_Name: Bear
   m_TagString: Untagged
@@ -316,6 +317,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item: {fileID: 11400000, guid: 8f2d82e5805fd884cb2aeb8bfe5a8b02, type: 2}
   canConsume: 0
+--- !u!95 &1118245080025330055
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5885582996287332423}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2b557fe25cb75fb4f977d3ab740c8cb3, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &6151184775407483555
 GameObject:
   m_ObjectHideFlags: 0

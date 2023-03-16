@@ -5479,6 +5479,7 @@ GameObject:
   - component: {fileID: 9188323459848790161}
   - component: {fileID: 7282841245206286844}
   - component: {fileID: 2607202707443839344}
+  - component: {fileID: 8458902760594865586}
   m_Layer: 0
   m_Name: Cat+Deer
   m_TagString: Untagged
@@ -5650,6 +5651,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item: {fileID: 11400000, guid: f86790222bcc9e6468fce32a3e0c70c4, type: 2}
   canConsume: 0
+--- !u!95 &8458902760594865586
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8269215612418767491}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6ef154ee4e60294499312e158006929e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &9013769511117145629
 GameObject:
   m_ObjectHideFlags: 0

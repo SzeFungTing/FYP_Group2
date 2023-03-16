@@ -5375,6 +5375,7 @@ GameObject:
   - component: {fileID: 3946772097488005433}
   - component: {fileID: 6118391685946492026}
   - component: {fileID: 4995670920991253070}
+  - component: {fileID: 449551447429471665}
   m_Layer: 0
   m_Name: Dragon+Deer
   m_TagString: Untagged
@@ -5544,6 +5545,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item: {fileID: 11400000, guid: cdc4999b8087f784393320a508e454c3, type: 2}
   canConsume: 0
+--- !u!95 &449551447429471665
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6717268741886347549}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: eb34e89ce53a8ef47b979df331757fbc, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &6782279551179465158
 GameObject:
   m_ObjectHideFlags: 0

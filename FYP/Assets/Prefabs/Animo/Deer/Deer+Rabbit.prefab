@@ -115,6 +115,7 @@ GameObject:
   - component: {fileID: 8511908936860903516}
   - component: {fileID: 1677419399019453318}
   - component: {fileID: 3220830673691881068}
+  - component: {fileID: 6365428095115263626}
   m_Layer: 0
   m_Name: Deer+Rabbit
   m_TagString: Untagged
@@ -280,6 +281,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item: {fileID: 11400000, guid: fdaff50cd18c6e24bb83e33df956468a, type: 2}
   canConsume: 0
+--- !u!95 &6365428095115263626
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1847827112633555015}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c6c34fdd54274e64f99d6ac0e6aa2de6, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1886657805057288181
 GameObject:
   m_ObjectHideFlags: 0

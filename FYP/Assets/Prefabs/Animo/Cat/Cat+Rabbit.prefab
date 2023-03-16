@@ -111,6 +111,7 @@ GameObject:
   - component: {fileID: 7837409821690998569}
   - component: {fileID: 1872543975447269341}
   - component: {fileID: 6829962308417322911}
+  - component: {fileID: 7044068961403018725}
   m_Layer: 0
   m_Name: Cat+Rabbit
   m_TagString: Untagged
@@ -279,6 +280,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item: {fileID: 11400000, guid: 45edb975da5c3d74d92de6d9e02f9b8c, type: 2}
   canConsume: 0
+--- !u!95 &7044068961403018725
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 930493103332105735}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 64455c3dde36b5f47a7e2a9e7dedebb4, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1452223519004320461
 GameObject:
   m_ObjectHideFlags: 0

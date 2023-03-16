@@ -5305,6 +5305,7 @@ GameObject:
   - component: {fileID: 5475996656592776478}
   - component: {fileID: 6045579740833255304}
   - component: {fileID: 8054091424325269761}
+  - component: {fileID: 4291750056395091573}
   m_Layer: 0
   m_Name: Dragon+Pig
   m_TagString: Untagged
@@ -5477,6 +5478,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item: {fileID: 11400000, guid: d4588e5cf1e64744891f420b73ddc348, type: 2}
   canConsume: 0
+--- !u!95 &4291750056395091573
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5264086485931633207}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 828c203a1be80564e8f6cb9468fc328b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &6148418890709524033
 GameObject:
   m_ObjectHideFlags: 0

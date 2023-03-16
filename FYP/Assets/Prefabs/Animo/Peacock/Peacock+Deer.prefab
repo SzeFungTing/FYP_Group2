@@ -5287,6 +5287,7 @@ GameObject:
   - component: {fileID: 1416908252223629864}
   - component: {fileID: 3825839378061969016}
   - component: {fileID: 3788996683889499768}
+  - component: {fileID: 6559505251036751808}
   m_Layer: 0
   m_Name: Peacock+Deer
   m_TagString: Untagged
@@ -5457,6 +5458,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item: {fileID: 11400000, guid: 069716dabe1af7841a027186ad19be42, type: 2}
   canConsume: 0
+--- !u!95 &6559505251036751808
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6504537742342457293}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d5cfe201f8d640946930cb96e61b2a2f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &7434247520540103429
 GameObject:
   m_ObjectHideFlags: 0

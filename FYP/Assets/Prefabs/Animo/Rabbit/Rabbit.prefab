@@ -358,6 +358,7 @@ GameObject:
   - component: {fileID: 6592153563320732555}
   - component: {fileID: 6592153563320732552}
   - component: {fileID: 6592153563320732553}
+  - component: {fileID: -6289395433043649881}
   m_Layer: 0
   m_Name: Rabbit
   m_TagString: Untagged
@@ -529,6 +530,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item: {fileID: 11400000, guid: ad9e5750c2fdcd0488996a01a20dc3a9, type: 2}
   canConsume: 0
+--- !u!95 &-6289395433043649881
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6322316571914270373}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: dfeecbf90d84310429713add725980e0, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &6592153562762223912
 GameObject:
   m_ObjectHideFlags: 0

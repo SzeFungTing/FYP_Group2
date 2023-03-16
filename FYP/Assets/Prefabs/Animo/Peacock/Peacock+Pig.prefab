@@ -169,6 +169,7 @@ GameObject:
   - component: {fileID: 7642774352932388725}
   - component: {fileID: 7003533498194827096}
   - component: {fileID: 5961526480925425162}
+  - component: {fileID: 1248946398723694503}
   m_Layer: 0
   m_Name: Peacock+Pig
   m_TagString: Untagged
@@ -342,6 +343,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item: {fileID: 11400000, guid: 42254fd4685f7aa4b9a25a5acf8ba803, type: 2}
   canConsume: 0
+--- !u!95 &1248946398723694503
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4041945985135804457}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c80103e2f3dd89b4c89a02c6b8680b9c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &4071436682884348215
 GameObject:
   m_ObjectHideFlags: 0

@@ -5261,6 +5261,7 @@ GameObject:
   - component: {fileID: 5122878764105010071}
   - component: {fileID: 3887232172298135744}
   - component: {fileID: 3615196082374571983}
+  - component: {fileID: 2248807809724482584}
   m_Layer: 0
   m_Name: Peacock+Chick
   m_TagString: Untagged
@@ -5434,6 +5435,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item: {fileID: 11400000, guid: 786f989f97c1acc4dab47fea1edabc8d, type: 2}
   canConsume: 0
+--- !u!95 &2248807809724482584
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8298631161430569114}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4b0a29a7d20cf8647a72f8c88224eba4, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &8680842304487156739
 GameObject:
   m_ObjectHideFlags: 0

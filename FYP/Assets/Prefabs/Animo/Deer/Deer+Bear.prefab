@@ -336,6 +336,7 @@ GameObject:
   - component: {fileID: 4127865469847355090}
   - component: {fileID: 5471582997950630218}
   - component: {fileID: 5092611710059220471}
+  - component: {fileID: -6450042648952403369}
   m_Layer: 0
   m_Name: Deer+Bear
   m_TagString: Untagged
@@ -505,6 +506,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item: {fileID: 11400000, guid: 052aa4993cc9f0946932dc2155f4f3c4, type: 2}
   canConsume: 0
+--- !u!95 &-6450042648952403369
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4540800391501920018}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ebef42850feb11043ad91ce693f5eab7, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &5371491320421484975
 GameObject:
   m_ObjectHideFlags: 0

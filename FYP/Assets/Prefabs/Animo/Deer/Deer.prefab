@@ -146,6 +146,7 @@ GameObject:
   - component: {fileID: 5094133195752022817}
   - component: {fileID: 9146913481537542355}
   - component: {fileID: 1425200659342763776}
+  - component: {fileID: -1387038860455488060}
   m_Layer: 0
   m_Name: Deer
   m_TagString: Untagged
@@ -319,6 +320,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item: {fileID: 11400000, guid: e546348fa332ad949b80e2ca3561fda1, type: 2}
   canConsume: 0
+--- !u!95 &-1387038860455488060
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1751846203461506803}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c35b78f6d003d254aa177bf8dc1bbf1b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2178387471773469367
 GameObject:
   m_ObjectHideFlags: 0

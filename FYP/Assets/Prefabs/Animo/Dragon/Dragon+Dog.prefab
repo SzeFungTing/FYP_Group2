@@ -5240,6 +5240,7 @@ GameObject:
   - component: {fileID: 2381193993795570281}
   - component: {fileID: 4838186387638928750}
   - component: {fileID: 4374384008695649065}
+  - component: {fileID: 1522169181445436846}
   m_Layer: 0
   m_Name: Dragon+Dog
   m_TagString: Untagged
@@ -5413,6 +5414,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item: {fileID: 11400000, guid: 373804d3463d06f4bb7b3cfe89168239, type: 2}
   canConsume: 0
+--- !u!95 &1522169181445436846
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4735798025133951018}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4e4bcf8a97767264baea88a3e6de620a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &4937373267020043593
 GameObject:
   m_ObjectHideFlags: 0

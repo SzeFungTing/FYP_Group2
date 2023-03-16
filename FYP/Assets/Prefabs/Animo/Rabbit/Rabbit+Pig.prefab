@@ -269,6 +269,7 @@ GameObject:
   - component: {fileID: 7652805899165671449}
   - component: {fileID: 1278557934963452841}
   - component: {fileID: 4137806300432291764}
+  - component: {fileID: -6029242270142480163}
   m_Layer: 0
   m_Name: Rabbit+Pig
   m_TagString: Untagged
@@ -437,6 +438,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item: {fileID: 11400000, guid: b52191c042ea1e84da9ff5134d125fcb, type: 2}
   canConsume: 0
+--- !u!95 &-6029242270142480163
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5129940550135474968}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 51e86a59bcfe76641a1d03a9ff9def55, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &5255470186388402978
 GameObject:
   m_ObjectHideFlags: 0
