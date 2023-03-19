@@ -7,8 +7,18 @@ public class StartGame : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
+    { 
+        
+    }
+    public void exitgame()
     {
-        SceneManager.LoadScene("HomeScene");
+        Application.Quit();
+    }
+
+    public void StartStage()
+    {
+            SceneManager.LoadScene("HomeScene");
+        
     }
 
 }
