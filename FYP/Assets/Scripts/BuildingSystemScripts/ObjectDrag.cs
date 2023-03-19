@@ -8,12 +8,14 @@ public class ObjectDrag : MonoBehaviour
 
     private void Start()
     {
-        offset = transform.position/* - BuildingSystem.GetMouseWorldPosition()*/;
+        //offset = transform.position/* - BuildingSystem.GetMouseWorldPosition()*/;
     }
 
     private void Update()
     {
-        Vector3 pos = BuildingSystem.GetMouseWorldPosition() + offset;
+        //Vector3 pos = Camera.main.ScreenPointToRay(new Vector2(Screen.width / 2, Screen.height / 2)).GetPoint(10) + offset;
+
+        Vector3 pos = BuildingSystem.GetMouseWorldPosition()/* + offset*/;
         transform.position = BuildingSystem.current.SnapCoordinateToGrid(pos);
     }
 
