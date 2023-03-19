@@ -17,9 +17,9 @@ public class SkyboxManagerScript : MonoBehaviour
     void Update()
     {
         RenderSettings.skybox.SetFloat("_Rotation", Time.time * skyboxSpeed);
-        T -= Time.deltaTime;
-        if (T<=0)
-            RenderSettings.skybox = skyMaterial;
+        //T -= Time.deltaTime;
+        //if (T<=0)
+        //    RenderSettings.skybox = skyMaterial;
 
     }
 }
