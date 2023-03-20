@@ -37,6 +37,8 @@ public class PlaceableObject : MonoBehaviour
 
     public Vector3 GetStartPosition()
     {
+        Debug.Log("Vertices[0]: " + Vertices[0]);
+
         return transform.TransformPoint(Vertices[0]);
     }
 

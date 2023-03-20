@@ -16,7 +16,7 @@ public class BuildingSystem : MonoBehaviour
     public GameObject prefab1;
     public GameObject prefab2;
 
-    private PlaceableObject objectToPlace;
+    private PlaceableObject objectToPlace = null;
     private bool canBuild = false;
 
     Item5 previousReceivedItem = null;
@@ -51,10 +51,14 @@ public class BuildingSystem : MonoBehaviour
             if (receivedItem.type == ItemType.BuildingBlock && (canBuild != true || previousReceivedItem != receivedItem))           //if yes, display the object
             {
                 if(objectToPlace && objectToPlace.GetComponent<ObjectDrag>() && previousReceivedItem != receivedItem)
+                {
+                    Debug.Log("destroy(objectToPlace.gameObject)");
                     Destroy(objectToPlace.gameObject);
 
+                }
+
                 InitalizeWithObject(receivedItem.objectPrefab);
-                //CanBePlaced(objectToPlace);
+                CanBePlaced(objectToPlace);
                 canBuild = true;
             }
             else if (receivedItem.type != ItemType.BuildingBlock)               //if switch to other item, close the building object display
@@ -246,33 +250,42 @@ public class BuildingSystem : MonoBehaviour
 
 
 
-                foreach (Transform transform in objectToPlace.transform)
+                foreach (Transform transform in objectToPlace.transform)                        //check gameobjcet child
                 {
                     Debug.Log("1(CanBePlaced)");
 
                     if (transform.TryGetComponent<Renderer>(out Renderer renderer))
                     {
-                        for(int i = 0; i< renderer.materials.Length; i++)
+                        Material[] arrMat = new Material[renderer.materials.Length];        //crate a redMat array
+                        for (int i = 0; i < renderer.materials.Length; i++)                 //change gameobjcet child
                         {
+
                             Debug.Log("2(CanBePlaced)");
                             Debug.Log("renderer.materials[i]: " + renderer.materials[i]);
-
-                            renderer.materials[i] = RedMat;
+                            arrMat[i] = RedMat;
+                            //renderer.materials[i].color = Color.red;
+                            //renderer.materials[i].SetColor("_Color", Color.red);
                         }
+
+                        renderer.materials = arrMat;                                             //gameobject mat array change to redMat array
                     }
                     else
                     {
-                        foreach (Transform tChild in transform)
+                        foreach (Transform tChild in transform)                                 //change gameobjcet child child
                         {
                             Debug.Log("3(CanBePlaced)");
 
                             if (tChild.TryGetComponent<Renderer>(out Renderer renderer2))
                             {
-                                for (int i = 0; i < renderer2.materials.Length; i++)
+                                Material[] arrMat = new Material[renderer2.materials.Length];              //crate a redMat array
+                                for (int i = 0; i < renderer2.materials.Length; i++)                 //change gameobjcet child child
                                 {
                                     Debug.Log("4(CanBePlaced)");
-                                    renderer2.materials[i] = RedMat;
+                                    //renderer2.materials[i] = RedMat;
+                                    arrMat[i] = RedMat;
                                 }
+                                renderer2.materials = arrMat;
+
                             }
                         }
                     }
@@ -285,32 +298,78 @@ public class BuildingSystem : MonoBehaviour
             }
         }
 
-        //int index = 0;
-        //foreach (Transform transform in objectToPlace.transform)
-        //{
-        //    if (transform.TryGetComponent<Renderer>(out Renderer renderer))
-        //    {
-        //        for (int i = 0; i < renderer.materials.Length; i++)
-        //        {
-        //            renderer.materials[i] = tempMaterialsColor[index];
-        //            index++;
-        //        }
-        //    }
-        //    else
-        //    {
-        //        foreach (Transform tChild in transform)
-        //        {
-        //            if (tChild.TryGetComponent<Renderer>(out Renderer renderer2))
-        //            {
-        //                for (int i = 0; i < renderer2.materials.Length; i++)
-        //                {
-        //                    renderer2.materials[i] = tempMaterialsColor[index];
-        //                    index++;
-        //                }
-        //            }
-        //        }
-        //    }
-        //}
+        int index = 0;
+        foreach (Transform transform in objectToPlace.transform)
+        {
+            Debug.Log("5(CanBePlaced(true))");
+
+            if (transform.TryGetComponent<Renderer>(out Renderer renderer))
+            {
+                List<Material> copyTempMaterialsColor = new List<Material>();
+                for (int i = 0; i < renderer.materials.Length; i++)
+                {
+                    copyTempMaterialsColor.Add(tempMaterialsColor[index]);
+                    index++;
+
+                    //foreach (Material m in copyTempMaterialsColor)
+                    //{
+                    //    Debug.Log("m: " + m);
+
+                    //}
+                }
+                Material[] tempMaterialsColorArray = copyTempMaterialsColor.ToArray();
+
+                for (int i = 0; i < renderer.materials.Length; i++)
+                {
+                    Debug.Log("6(CanBePlaced(true))");
+                    //Debug.Log("renderer.materials[i]: " + renderer.materials[i]);
+                    //Debug.Log("tempMaterialsColorArray[index]: " + tempMaterialsColorArray[index]);
+
+
+                    renderer.materials = tempMaterialsColorArray;
+                }
+            }
+            else
+            {
+                foreach (Transform tChild in transform)
+                {
+                    Debug.Log("7(CanBePlaced(true))");
+
+
+
+                    if (tChild.TryGetComponent<Renderer>(out Renderer renderer2))
+                    {
+                        List<Material> copyTempMaterialsColor = new List<Material>();
+                        //Debug.Log("renderer2.materials.Length: " + renderer2.materials.Length);
+
+                        for (int i = 0; i < renderer2.materials.Length; i++)
+                        {
+                            copyTempMaterialsColor.Add(tempMaterialsColor[index]);
+                            index++;
+
+                            //foreach (Material m in copyTempMaterialsColor)
+                            //{
+                            //    Debug.Log("m: " + m);
+
+                            //}
+                        }
+
+                        Material[] tempMaterialsColorArray = copyTempMaterialsColor.ToArray();
+                        for (int i = 0; i < renderer2.materials.Length; i++)
+                        {
+                            Debug.Log("8(CanBePlaced(true))");
+                            //Debug.Log("renderer.materials[i]: " + renderer2.materials[i]);
+                            //Debug.Log("tempMaterialsColorArray[index]: " + tempMaterialsColorArray[index]);
+
+
+                            //renderer2.materials[i] = tempMaterialsColorArray[index];
+                            renderer2.materials = tempMaterialsColorArray;
+                            //index++;
+                        }
+                    }
+                }
+            }
+        }
 
 
         Debug.Log("CanBePlaced: can");
