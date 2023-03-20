@@ -5150,7 +5150,7 @@ Transform:
   m_GameObject: {fileID: 7339140687540903793}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children:
   - {fileID: 3435609484513474001}
   - {fileID: 7005619338469971576}
@@ -5185,7 +5185,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.6
+  m_Radius: 0.55
   m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
@@ -5224,8 +5224,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d20b0cb93fbd8f94da02778dd67fa471, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flySpeed: 1
-  movementSpeed: 1
+  flySpeed: 0.3
+  movementSpeed: 0.3
   rotationSpeed: 100
   eatCooldown: 200
   findFoodDistance: 200
@@ -5274,7 +5274,7 @@ MonoBehaviour:
   canPoo: 0
   FajroCore: {fileID: 3701696311878051388, guid: 0cd9dd39bdeafff479a6ff7b10ecdf56, type: 3}
   Food: {fileID: 7821197875280942789, guid: 3e4e7f3f632455b479bca77d88284221, type: 3}
-  foodScaleChangeValue: 0.3
+  foodScaleChangeValue: 1
   dissolvePoint: {fileID: 8225477997586804766}
   eatSound: {fileID: 8300000, guid: 6d77aaddf27269246affabc63489ee29, type: 3}
   pooSound: {fileID: 8300000, guid: 41c0a009cc49082448c3bd1ebce376cb, type: 3}

@@ -51,6 +51,8 @@ public class PlayerMovement : NetworkBehaviour
     public Image FillBar;
     public ShopManager shopManager;
 
+    Camera _camera;
+
     public MovementState state;
 
     public enum MovementState
@@ -66,6 +68,7 @@ public class PlayerMovement : NetworkBehaviour
     void Start()
     {
         startYScale = transform.localScale.y;
+        _camera = GetComponentInChildren<Camera>();
     }
 
     // Update is called once per frame
@@ -73,8 +76,13 @@ public class PlayerMovement : NetworkBehaviour
     {
         if (!IsOwner)
         {
+            if (IsHost)
+            {
+                Destroy(_camera);
+            }
             return;
         }
+        
 
         isGrounded = Physics.Raycast(transform.position, Vector3.down, controller.height / 2 + 0.1f);
 

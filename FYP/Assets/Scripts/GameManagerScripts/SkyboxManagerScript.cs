@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class SkyboxManagerScript : MonoBehaviour
 {
+    public Transform sun;
     public float skyboxSpeed = 1.5f;
     public Material skyMaterial;
     public float T=0;
+
+    public float cycleInMinutes = 1;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +23,12 @@ public class SkyboxManagerScript : MonoBehaviour
         //T -= Time.deltaTime;
         //if (T<=0)
         //    RenderSettings.skybox = skyMaterial;
-
+        //RotateSun();
     }
+
+    void RotateSun()
+    {
+        sun.Rotate(Vector3.right * Time.deltaTime * 6 / cycleInMinutes);
+    }
+
 }

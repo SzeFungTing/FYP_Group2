@@ -80,7 +80,7 @@ GameObject:
   - component: {fileID: 1607484279543412350}
   - component: {fileID: 1607484279543412351}
   m_Layer: 0
-  m_Name: Dog+Pig 1
+  m_Name: Dog+Pig
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -95,7 +95,7 @@ Transform:
   m_GameObject: {fileID: 1913897619390237480}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children:
   - {fileID: 2415542394911767280}
   - {fileID: 8672087230292280885}
@@ -130,10 +130,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.6
+  m_Radius: 0.55
   m_Height: 1
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: -0.15, z: 0}
 --- !u!114 &1607484279543412338
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -175,8 +175,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d20b0cb93fbd8f94da02778dd67fa471, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flySpeed: 1
-  movementSpeed: 1
+  flySpeed: 0.3
+  movementSpeed: 0.3
   rotationSpeed: 100
   eatCooldown: 200
   findFoodDistance: 200
@@ -217,7 +217,7 @@ MonoBehaviour:
   canPoo: 0
   FajroCore: {fileID: 538544319196824316, guid: 8ff46d42ff87c0a46865020504618173, type: 3}
   Food: {fileID: 7821197875280942789, guid: 3e4e7f3f632455b479bca77d88284221, type: 3}
-  foodScaleChangeValue: 0.3
+  foodScaleChangeValue: 1
   dissolvePoint: {fileID: 8827949907372599069}
   eatSound: {fileID: 8300000, guid: 6d77aaddf27269246affabc63489ee29, type: 3}
   pooSound: {fileID: 8300000, guid: 41c0a009cc49082448c3bd1ebce376cb, type: 3}

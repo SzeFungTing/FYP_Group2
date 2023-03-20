@@ -11,6 +11,7 @@ public class AnimoGeneratorManager : MonoBehaviour
     [SerializeField] int maxNum = 30;
     [SerializeField] AnimoGenerator ag;
     [SerializeField] float cooldown = 300.0f;
+    [SerializeField] int generateNum = 5;
 
     // Start is called before the first frame update
     void Start()
@@ -42,8 +43,8 @@ public class AnimoGeneratorManager : MonoBehaviour
 
                 if (animoCount <= maxNum)
                 {
-                    int generateNum = Random.Range(1, 6);
-                    ag.Generate(generateNum);
+                    int ranGenNum = Random.Range(1, generateNum + 1);
+                    ag.Generate(ranGenNum);
                 }
 
                 canGenerate = false;
