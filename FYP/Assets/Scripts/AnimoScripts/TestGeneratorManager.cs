@@ -2,21 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AnimoGeneratorManager : MonoBehaviour
+public class TestGeneratorManager : MonoBehaviour
 {
     int animoCount = 0;
     bool canGenerate = true;
     float countDown = 0.0f;
 
     [SerializeField] int maxNum = 30;
-    [SerializeField] AnimoGenerator ag;
-    [SerializeField] float cooldown = 300.0f;
-    [SerializeField] int generateNum = 5;
+    [SerializeField] TestGenerator tg;
+    [SerializeField] float cooldown = 60.0f;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -37,21 +36,21 @@ public class AnimoGeneratorManager : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            if(canGenerate)
+            if (canGenerate)
             {
                 animoCount = GameObject.FindGameObjectsWithTag("Target").Length;
 
                 if (animoCount <= maxNum)
                 {
-                    int ranGenNum = Random.Range(1, generateNum + 1);
-                    ag.Generate(ranGenNum);
+                    //int generateNum = Random.Range(1, 6);
+                    tg.TestGenerate();
                 }
 
                 canGenerate = false;
                 countDown = cooldown;
             }
         }
-        
-        
+
+
     }
 }
