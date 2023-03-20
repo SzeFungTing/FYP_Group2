@@ -10,6 +10,11 @@ public class TestGenerator : MonoBehaviour
     public float generationInterval = 0.5f;
     public float speed = 0.5f;
 
+    public void Start()
+    {
+        TestGenerate();
+    }
+
     public void TestGenerate()
     {
         for (int i = 0; i < animoPrefab.Length; i++)
