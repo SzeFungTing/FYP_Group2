@@ -14,8 +14,8 @@ public class AnimoGenerator : MonoBehaviour
         for (int i = 0; i < targetNum; i++)
         {
             int ranNum = Random.Range(0, animoPrefab.Length);
-            Rigidbody rb = Instantiate(animoPrefab[ranNum], transform.position + Vector3.up * i * 1.3f, transform.rotation);
-            AudioSource.PlayClipAtPoint(generateSound, transform.position + Vector3.up * i * 1.3f);
+            Rigidbody rb = Instantiate(animoPrefab[ranNum], transform.position + Vector3.up * i * 3.5f, transform.rotation);
+            AudioSource.PlayClipAtPoint(generateSound, transform.position + Vector3.up * i * 3.5f);
             rb.velocity = transform.up * speed;
         }
     }
