@@ -1,9 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PlayerMovement : MonoBehaviour
+public class NetworkPlayerMovement : NetworkBehaviour
 {
     public CharacterController controller;
     public CapsuleCollider CapsuleCollider;
@@ -50,6 +51,8 @@ public class PlayerMovement : MonoBehaviour
     public Image FillBar;
     public ShopManager shopManager;
 
+    Camera _camera;
+
     public MovementState state;
 
     public enum MovementState
@@ -65,11 +68,21 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         startYScale = transform.localScale.y;
+        _camera = GetComponentInChildren<Camera>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (!IsOwner)
+        {
+            if (IsHost)
+            {
+                Destroy(_camera);
+            }
+            return;
+        }
+
 
         isGrounded = Physics.Raycast(transform.position, Vector3.down, controller.height / 2 + 0.1f);
 
