@@ -50,16 +50,27 @@ public class BuildingSystem : MonoBehaviour
         {
             if (receivedItem.type == ItemType.BuildingBlock && (canBuild != true || previousReceivedItem != receivedItem))           //if yes, display the object
             {
-                if(objectToPlace && objectToPlace.GetComponent<ObjectDrag>() && previousReceivedItem != receivedItem)
+
+                if (objectToPlace && objectToPlace.GetComponent<ObjectDrag>() && previousReceivedItem && previousReceivedItem != receivedItem)
                 {
-                    Debug.Log("destroy(objectToPlace.gameObject)");
+                    //Debug.Log("destroy(objectToPlace.gameObject)");
                     Destroy(objectToPlace.gameObject);
 
                 }
 
+     
+
                 InitalizeWithObject(receivedItem.objectPrefab);
-                CanBePlaced(objectToPlace);
+                previousReceivedItem = receivedItem;
+
+               
                 canBuild = true;
+            }
+            else if (receivedItem.type == ItemType.BuildingBlock && (canBuild != true || previousReceivedItem == receivedItem))         //display can or cannot place
+            {
+                //Debug.Log("check CanBePlaced");
+
+                CanBePlaced(objectToPlace);
             }
             else if (receivedItem.type != ItemType.BuildingBlock)               //if switch to other item, close the building object display
             {
@@ -134,6 +145,7 @@ public class BuildingSystem : MonoBehaviour
 
     #region Utils
 
+    
     public static Vector3 GetMouseWorldPosition()
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -177,6 +189,8 @@ public class BuildingSystem : MonoBehaviour
     //[SerializeField] Material[] tempMaterialsColor2;
     public void InitalizeWithObject(GameObject prefab)
     {
+        //Debug.Log("spawn");
+
         tempMaterialsColor = new List<Material>();
         //tempMaterialsColor2 = null;
 
@@ -189,13 +203,13 @@ public class BuildingSystem : MonoBehaviour
 
         foreach(Transform transform in objectToPlace.transform)
         {
-            Debug.Log("1(transform): " + transform);
+            //Debug.Log("1(transform): " + transform);
 
             if (transform.TryGetComponent<Renderer>(out Renderer renderer))
             {
                 foreach(Material r1 in renderer.materials)
                 {
-                    Debug.Log("2(renderer): " + r1);
+                    //Debug.Log("2(renderer): " + r1);
                     tempMaterialsColor.Add(r1);
                 }
                    
@@ -207,13 +221,13 @@ public class BuildingSystem : MonoBehaviour
             {
                 foreach (Transform tChild in transform)
                 {
-                    Debug.Log("3(tChild): " + tChild);
+                    //Debug.Log("3(tChild): " + tChild);
 
                     if (tChild.TryGetComponent<Renderer>(out Renderer renderer2))
                     {
                         foreach (Material r2 in renderer2.materials)
                         {
-                            Debug.Log("4(renderer2): " + r2);
+                            //Debug.Log("4(renderer2): " + r2);
                             tempMaterialsColor.Add(r2);
                         }
 
@@ -232,7 +246,7 @@ public class BuildingSystem : MonoBehaviour
 
     private bool CanBePlaced(PlaceableObject placeableObject)
     {
-        Debug.Log("CanBePlaced");
+        //Debug.Log("CanBePlaced");
 
         BoundsInt area = new BoundsInt();
         area.position = gridLayout.WorldToCell(objectToPlace.GetStartPosition());
@@ -252,7 +266,7 @@ public class BuildingSystem : MonoBehaviour
 
                 foreach (Transform transform in objectToPlace.transform)                        //check gameobjcet child
                 {
-                    Debug.Log("1(CanBePlaced)");
+                    //Debug.Log("1(CanBePlaced)");
 
                     if (transform.TryGetComponent<Renderer>(out Renderer renderer))
                     {
@@ -260,8 +274,8 @@ public class BuildingSystem : MonoBehaviour
                         for (int i = 0; i < renderer.materials.Length; i++)                 //change gameobjcet child
                         {
 
-                            Debug.Log("2(CanBePlaced)");
-                            Debug.Log("renderer.materials[i]: " + renderer.materials[i]);
+                            //Debug.Log("2(CanBePlaced)");
+                            //Debug.Log("renderer.materials[i]: " + renderer.materials[i]);
                             arrMat[i] = RedMat;
                             //renderer.materials[i].color = Color.red;
                             //renderer.materials[i].SetColor("_Color", Color.red);
@@ -273,14 +287,14 @@ public class BuildingSystem : MonoBehaviour
                     {
                         foreach (Transform tChild in transform)                                 //change gameobjcet child child
                         {
-                            Debug.Log("3(CanBePlaced)");
+                            //Debug.Log("3(CanBePlaced)");
 
                             if (tChild.TryGetComponent<Renderer>(out Renderer renderer2))
                             {
                                 Material[] arrMat = new Material[renderer2.materials.Length];              //crate a redMat array
                                 for (int i = 0; i < renderer2.materials.Length; i++)                 //change gameobjcet child child
                                 {
-                                    Debug.Log("4(CanBePlaced)");
+                                    //Debug.Log("4(CanBePlaced)");
                                     //renderer2.materials[i] = RedMat;
                                     arrMat[i] = RedMat;
                                 }
@@ -292,7 +306,7 @@ public class BuildingSystem : MonoBehaviour
                 }
 
 
-                Debug.Log("CanBePlaced: cannot");
+                //Debug.Log("CanBePlaced: cannot");
 
                 return false;
             }
@@ -301,7 +315,7 @@ public class BuildingSystem : MonoBehaviour
         int index = 0;
         foreach (Transform transform in objectToPlace.transform)
         {
-            Debug.Log("5(CanBePlaced(true))");
+            //Debug.Log("5(CanBePlaced(true))");
 
             if (transform.TryGetComponent<Renderer>(out Renderer renderer))
             {
@@ -321,7 +335,7 @@ public class BuildingSystem : MonoBehaviour
 
                 for (int i = 0; i < renderer.materials.Length; i++)
                 {
-                    Debug.Log("6(CanBePlaced(true))");
+                    //Debug.Log("6(CanBePlaced(true))");
                     //Debug.Log("renderer.materials[i]: " + renderer.materials[i]);
                     //Debug.Log("tempMaterialsColorArray[index]: " + tempMaterialsColorArray[index]);
 
@@ -333,7 +347,7 @@ public class BuildingSystem : MonoBehaviour
             {
                 foreach (Transform tChild in transform)
                 {
-                    Debug.Log("7(CanBePlaced(true))");
+                    //Debug.Log("7(CanBePlaced(true))");
 
 
 
@@ -357,7 +371,7 @@ public class BuildingSystem : MonoBehaviour
                         Material[] tempMaterialsColorArray = copyTempMaterialsColor.ToArray();
                         for (int i = 0; i < renderer2.materials.Length; i++)
                         {
-                            Debug.Log("8(CanBePlaced(true))");
+                            //Debug.Log("8(CanBePlaced(true))");
                             //Debug.Log("renderer.materials[i]: " + renderer2.materials[i]);
                             //Debug.Log("tempMaterialsColorArray[index]: " + tempMaterialsColorArray[index]);
 
@@ -372,7 +386,7 @@ public class BuildingSystem : MonoBehaviour
         }
 
 
-        Debug.Log("CanBePlaced: can");
+        //Debug.Log("CanBePlaced: can");
 
         return true;
     }
