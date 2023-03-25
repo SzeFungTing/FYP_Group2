@@ -123,7 +123,7 @@ public class GunVacuum : MonoBehaviour
             }
             else /*if (Input.GetMouseButtonUp(1))*/
             {
-                if(other.transform.childCount > 0 && other.transform.GetComponentInChildren<CapsuleCollider>() && other.transform.GetChild(1).GetComponent<CapsuleCollider>())         //new
+                if(other.transform.childCount > 1 && other.transform.GetComponentInChildren<CapsuleCollider>() && other.transform.GetChild(1).GetComponent<CapsuleCollider>())         //new
                     other.transform.GetChild(1).gameObject.GetComponentInChildren<CapsuleCollider>().enabled = true;
                 other.transform.gameObject.GetComponent<Target>().isVacuum = false;
 
@@ -147,8 +147,8 @@ public class GunVacuum : MonoBehaviour
         //if (other.transform.CompareTag("Target"))
         {
             anim = other.transform.gameObject.GetComponentInChildren<Animator>();
-            if(other.transform.childCount > 0 && other.transform.GetComponentInChildren<CapsuleCollider>())         //new
-                other.transform.GetChild(1).gameObject.GetComponentInChildren<CapsuleCollider>().enabled = true;
+            if (other.transform.childCount > 1 && other.transform.GetChild(1).TryGetComponent<CapsuleCollider>(out CapsuleCollider capsuleCollider)/*transform.GetComponentInChildren<CapsuleCollider>()*/)         //new
+                /* other.transform.GetChild(1).gameObject.GetComponentInChildren<CapsuleCollider>()*/capsuleCollider.enabled = true;
             other.transform.gameObject.GetComponent<Target>().isVacuum = false;
             if (anim)
             {
@@ -174,8 +174,8 @@ public class GunVacuum : MonoBehaviour
             Vector3 direction = (gunPoint.position - other.transform.position).normalized;
             other.attachedRigidbody.velocity = direction * speed;
 
-            if (other.transform.childCount > 0 && other.transform.GetComponentInChildren<CapsuleCollider>())         //new
-                other.transform.GetChild(1).gameObject.GetComponentInChildren<CapsuleCollider>().enabled = false;
+            if (other.transform.childCount > 1 && other.transform.GetChild(1).TryGetComponent<CapsuleCollider>(out CapsuleCollider capsuleCollider))         //new
+                capsuleCollider.enabled = false;
             anim = other.transform.gameObject.GetComponentInChildren<Animator>();
             if (anim)
             {
