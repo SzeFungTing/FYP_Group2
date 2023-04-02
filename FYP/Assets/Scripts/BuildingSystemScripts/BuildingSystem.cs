@@ -148,7 +148,8 @@ public class BuildingSystem : MonoBehaviour
     
     public static Vector3 GetMouseWorldPosition()
     {
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        //Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        Ray ray = Camera.main.ScreenPointToRay(new Vector2(Screen.width / 2, Screen.height / 2));
         if (Physics.Raycast(ray, out RaycastHit raycastHit))
         {
             return raycastHit.point;

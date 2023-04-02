@@ -47,24 +47,33 @@ public class InventorySlot5 : MonoBehaviour, IDropHandler, IPointerEnterHandler,
 
         if(transform.childCount == 0)
         {
+            Debug.Log("transform.childCount == 0");
+
             InventoryItem inventoryItem = eventData.pointerDrag.GetComponent<InventoryItem>();
             inventoryItem.parentAfterDrag = transform;
         }
         else if (transform.childCount == 1)
         {
+            Debug.Log("transform.childCount == 1");
             InventoryItem inventoryItem = eventData.pointerDrag.GetComponent<InventoryItem>();      //InventoryItem Script of item1
             Item5 item = inventoryItem.item;                                                        //item of item1
+            //Debug.Log("item: " + item);
             Transform inventoryItemParentAfterDrag = inventoryItem.parentAfterDrag;                 //parentAfterDrag of item1 
             inventoryItem.parentAfterDrag = transform;                                              //moving item1 to target position
             //Debug.Log("inventoryItem.name: " + inventoryItem.name);
 
             InventoryItem inventoryItem2 = inventoryItem.parentAfterDrag.GetChild(0).GetComponent<InventoryItem>();
             Item5 item2 = inventoryItem2.GetComponent<InventoryItem>().item;        //item of item2 
+            //Debug.Log("item2: " + item2);
+            inventoryItem2.parentAfterDrag = inventoryItemParentAfterDrag;
+            inventoryItem2.transform.SetParent(inventoryItemParentAfterDrag);
             //Debug.Log("inventoryItem2.name: " + inventoryItem2.name);
 
-            if (item.type == item2.type)
+            if (item.id == item2.id)
             {
-                if(inventoryItem2.count + inventoryItem.count > item2.maxStackSize)     //if the amount more than maxStackSize
+                //Debug.Log("item.type == item2.type");
+
+                if (inventoryItem2.count + inventoryItem.count > item2.maxStackSize)     //if the amount more than maxStackSize
                 {
                    
                     int tempCount = inventoryItem.count - (item2.maxStackSize - inventoryItem2.count);        //Excess quantity
