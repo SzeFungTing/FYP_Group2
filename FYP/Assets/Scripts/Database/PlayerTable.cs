@@ -9,6 +9,7 @@ public class PlayerTable
     public float PosZ { get; set; }
     public int Coin { get; set; }
     public bool HvJetpack { get; set; }
+    public int MapId { get; set; }
 
     public override string ToString()
     {
