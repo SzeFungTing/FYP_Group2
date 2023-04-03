@@ -126,7 +126,7 @@ public class BuildingSystem : MonoBehaviour
         {
             RaycastHit raycastHit;
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(ray, out raycastHit, 100f))
+            if (Physics.Raycast(ray, out raycastHit, 5f))
             {
                 if ((raycastHit.transform != null) && (raycastHit.transform.gameObject.GetComponent<PlaceableObject>() != null) && !raycastHit.transform.gameObject.GetComponent<ObjectDrag>())
                 {
@@ -152,6 +152,7 @@ public class BuildingSystem : MonoBehaviour
         Ray ray = Camera.main.ScreenPointToRay(new Vector2(Screen.width / 2, Screen.height / 2));
         if (Physics.Raycast(ray, out RaycastHit raycastHit))
         {
+            //Debug.Log("raycastHit: " + raycastHit.transform.name);
             return raycastHit.point;
         }
         else
@@ -201,6 +202,10 @@ public class BuildingSystem : MonoBehaviour
         objectToPlace = obj.GetComponent<PlaceableObject>();
         obj.AddComponent<ObjectDrag>();
         obj.layer = LayerMask.NameToLayer("Ignore Raycast");
+        foreach(Collider c in objectToPlace.cs)
+        {
+            c.gameObject.layer = LayerMask.NameToLayer("Ignore Raycast");
+        }
 
         foreach(Transform transform in objectToPlace.transform)
         {

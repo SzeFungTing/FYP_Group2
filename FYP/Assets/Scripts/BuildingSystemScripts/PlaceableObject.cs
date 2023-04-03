@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class PlaceableObject : MonoBehaviour
 {
-   public bool Placed { get; private set; }
+    public bool Placed { get; private set; }
     public Vector3Int Size { get; private set; }
     private Vector3[] Vertices;
 
-    private Collider c;
+    public List<Collider> cs;
 
     private void GetColliderVertexPositionlocal()
     {
@@ -44,8 +44,9 @@ public class PlaceableObject : MonoBehaviour
     {
         GetColliderVertexPositionlocal();
         CalculateSizeInCells();
-        c = GetComponent<Collider>();
-        c.isTrigger = true;
+        //c = GetComponent<Collider>();
+        foreach(Collider c in cs)
+            c.isTrigger = true;
     }
 
     public void Rotate()
@@ -67,9 +68,14 @@ public class PlaceableObject : MonoBehaviour
         ObjectDrag drag = gameObject.GetComponent<ObjectDrag>();
         Destroy(drag);
         this.gameObject.layer = LayerMask.NameToLayer("Default");
+        //foreach (Collider c in cs)
+        //{
+        //    c.gameObject.layer = LayerMask.NameToLayer("Default");
+        //}
 
         Placed = true;
-        c.isTrigger = false;
+        foreach (Collider c in cs)
+            c.isTrigger = false;
 
         //invake events of placment
     }

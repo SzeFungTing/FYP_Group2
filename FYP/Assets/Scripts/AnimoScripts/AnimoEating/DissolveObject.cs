@@ -11,6 +11,7 @@ public class DissolveObject : MonoBehaviour
     private Material material;
 
     public bool isAte;
+    float originalHeight;
     [SerializeField]float height;
     float digestionTime = 3f;
 
@@ -19,6 +20,7 @@ public class DissolveObject : MonoBehaviour
         material = GetComponent<Renderer>().material;
         isAte = false;
         height = transform.position.y + (objectHeight / 2) + 1;
+        originalHeight = transform.position.y;
         SetHeight(height);
     }
 
@@ -30,19 +32,30 @@ public class DissolveObject : MonoBehaviour
             digestionTime -= Time.deltaTime;
             if (digestionTime <= 0)
             {
-                if (height <= transform.position.y - (objectHeight / 2))
+                if (height <= transform.position.y - (objectHeight / 2))                //if end the disappear, start poo 
                 {
                     
                     transform.GetComponentInParent<EatFood>().canPoo = true;
                     Destroy(transform.parent.gameObject);
                 }
-                else
+                else                                                            //start to disappear
                 {
                     height -= Time.deltaTime;
                     SetHeight(height);
                 }
             }
             
+        }
+        else
+        {
+            Debug.Log("else");
+            if(originalHeight + 1 < transform.position.y || transform.position.y > originalHeight - 1)
+            {
+                Debug.Log("SetHeight");
+
+                height = transform.position.y + (objectHeight / 2) + 1;
+                SetHeight(height);
+            }
         }
         
     }
