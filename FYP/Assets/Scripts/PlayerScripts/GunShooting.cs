@@ -55,25 +55,29 @@ public class GunShooting : MonoBehaviour
 
         //inventory system
 
-        Item5 receivedItem = InventoryManager5.instance.GetSelectedItem(false);
-        //if (receivedItem != null)
-        //    Debug.Log("use item: " + receivedItem);
-        //else
-        //    Debug.Log("no item use ");
-
-        if (receivedItem && receivedItem.type != ItemType.BuildingBlock)
+        if (InventoryManager5.instance)
         {
-            //Debug.Log("spawn");
-            //if(Anim_Gun.GetCurrentAnimatorStateInfo(0).IsName("Arm1_shoot") && Anim_Gun.GetCurrentAnimatorStateInfo(0).normalizedTime > 1)
-            {
-                receivedItem = InventoryManager5.instance.GetSelectedItem(true);
+            Item5 receivedItem = InventoryManager5.instance.GetSelectedItem(false);
+            //if (receivedItem != null)
+            //    Debug.Log("use item: " + receivedItem);
+            //else
+            //    Debug.Log("no item use ");
 
-                GameObject born = Instantiate(receivedItem.objectPrefab, shootingPoint.transform.position/*GetGunPos()*/, ObjectRotation());
-                //Debug.Log("born: " + born);
-                born.GetComponent<Rigidbody>().velocity = speed * shootingPoint.transform.forward;
+            if (receivedItem && receivedItem.type != ItemType.BuildingBlock)
+            {
+                //Debug.Log("spawn");
+                //if(Anim_Gun.GetCurrentAnimatorStateInfo(0).IsName("Arm1_shoot") && Anim_Gun.GetCurrentAnimatorStateInfo(0).normalizedTime > 1)
+                {
+                    receivedItem = InventoryManager5.instance.GetSelectedItem(true);
+
+                    GameObject born = Instantiate(receivedItem.objectPrefab, shootingPoint.transform.position/*GetGunPos()*/, ObjectRotation());
+                    //Debug.Log("born: " + born);
+                    born.GetComponent<Rigidbody>().velocity = speed * shootingPoint.transform.forward;
+                }
+
             }
-           
         }
+        
         
     }
 

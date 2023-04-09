@@ -25,11 +25,15 @@ public class MouseLook : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked; //it make ui button not work!!!!!!!
         Cursor.visible = false;
 
-        pauseUI = UIScripts.instance.pauseUI;
-        settingUI = UIScripts.instance.settingUI;
-        shopUI = UIScripts.instance.shopUI;
-        backPackUI = UIScripts.instance.backPackUI;
-        craftingSystemUI = UIScripts.instance.craftingUI;
+        if (UIScripts.instance)
+        {
+            pauseUI = UIScripts.instance.pauseUI;
+            settingUI = UIScripts.instance.settingUI;
+            shopUI = UIScripts.instance.shopUI;
+            backPackUI = UIScripts.instance.backPackUI;
+            craftingSystemUI = UIScripts.instance.craftingUI;
+        }
+       
     }
 
     // Update is called once per frame
