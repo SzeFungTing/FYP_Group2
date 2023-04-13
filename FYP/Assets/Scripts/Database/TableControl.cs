@@ -45,7 +45,7 @@ public class TableControl : MonoBehaviour
         
     }
 
-    public void InsertPlayerData(GameObject player)
+    public void InsertPlayerData(GameObject player, int id)
     {
         int mapId = 0;
         switch (SceneManager.GetActiveScene().name)
@@ -69,6 +69,7 @@ public class TableControl : MonoBehaviour
 
         var pt = new PlayerTable
         {
+            Id = id,
             PosX = player.transform.position.x,
             PosY = player.transform.position.y,
             PosZ = player.transform.position.z,

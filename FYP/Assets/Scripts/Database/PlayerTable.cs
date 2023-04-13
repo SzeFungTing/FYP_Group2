@@ -2,7 +2,7 @@ using SQLite4Unity3d;
 
 public class PlayerTable
 {
-    [PrimaryKey, AutoIncrement]
+    [PrimaryKey]
     public int Id { get; set; }
     public float PosX { get; set; }
     public float PosY { get; set; }
