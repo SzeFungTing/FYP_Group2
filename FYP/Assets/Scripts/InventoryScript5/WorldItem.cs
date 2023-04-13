@@ -11,4 +11,19 @@ public class WorldItem : MonoBehaviour
     {
         canConsume = false;
     }
+
+    public int GetItemId()
+    {
+        return item.id;
+    }
+
+    public int GetCurrentPrice()
+    {
+        return (int)item.price;
+    }
+
+    public int GetDefaultPrice()
+    {
+        return (int)item.originalPrice;
+    }
 }

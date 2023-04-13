@@ -250,4 +250,9 @@ public class EatFood : MonoBehaviour
     {
         rb.velocity = rb.velocity * 0.995f;
     }
+
+    public bool GetIsHungey()
+    {
+        return isHungry;
+    }
 }
