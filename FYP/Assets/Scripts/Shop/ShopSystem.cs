@@ -11,6 +11,8 @@ public class ShopSystem : MonoBehaviour
 
     Animator Anim_Drone;
 
+    //[SerializeField] ShopManager shopManager;
+
     public bool isUIOpened = false;
   
     // Start is called before the first frame update
@@ -39,6 +41,7 @@ public class ShopSystem : MonoBehaviour
             || Anim_Drone.GetCurrentAnimatorStateInfo(0).IsName("StartBladeRotation")) 
             && !isUIOpened)            //drone animation end, open shopUI
         {
+            UIScripts.instance.hotBarUI.SetActive(false);
             shopUI.SetActive(true);
             isUIOpened = true;
         }
@@ -56,26 +59,28 @@ public class ShopSystem : MonoBehaviour
             }
             else
             {
-                UIScripts.instance.hotBarUI.SetActive(false);
+                if (!drone.activeInHierarchy)
+                {
+                    //shopUI.SetActive(true);
+                    drone.SetActive(true);
+                    //Vector3 playerPos = transform.position;
+                    //Debug.Log("transform.position: "  + transform.position);
+                    //playerPos.y += 1f;
 
-                shopUI.SetActive(true);
-                drone.SetActive(true);
-                //Vector3 playerPos = transform.position;
-                //Debug.Log("transform.position: "  + transform.position);
-                //playerPos.y += 1f;
+                    //Vector3 playerDirection = transform.forward;
+                    //Debug.Log("playerDirection: " + playerDirection);
 
-                //Vector3 playerDirection = transform.forward;
-                //Debug.Log("playerDirection: " + playerDirection);
+                    //Vector3 spawnOffset = playerPos + playerDirection *5f;
+                    //Debug.Log("spawnOffset: " + spawnOffset);
 
-                //Vector3 spawnOffset = playerPos + playerDirection *5f;
-                //Debug.Log("spawnOffset: " + spawnOffset);
+                    //spawnOffset.x -= 0.7f;
+                    //spawnOffset.z += 3.39f;
+                    drone.transform.position = /*spawnOffset*/transform.GetChild(4).position;
+                    //Debug.Log("drone.transform.position: " + drone.transform.position);
 
-                //spawnOffset.x -= 0.7f;
-                //spawnOffset.z += 3.39f;
-                drone.transform.position = /*spawnOffset*/transform.GetChild(4).position;
-                //Debug.Log("drone.transform.position: " + drone.transform.position);
+                    //isUIOpened = true;
+                }
 
-                isUIOpened = true;
             }
             
         }
@@ -90,10 +95,13 @@ public class ShopSystem : MonoBehaviour
 
     public void CloseShopUI()
     {
+        Debug.Log("CloseShopUI");
         UIScripts.instance.hotBarUI.SetActive(true);
 
         shopUI.SetActive(false);
-        drone.SetActive(false);
+        if(!ShopManager.instance.isBought)
+            drone.SetActive(false);
+
         isUIOpened = false;
     }
 }
