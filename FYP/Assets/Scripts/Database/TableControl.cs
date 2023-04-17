@@ -14,6 +14,9 @@ public class TableControl : MonoBehaviour
     public SQLiteConnection FajroConnection;
     public SQLiteConnection MarketConnection;
 
+    public GameObject player;
+    private int count = 0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -42,10 +45,18 @@ public class TableControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (count == 0)
+        {
+            PlayerConnection.DeleteAll<PlayerTable>();
+            InsertPlayerData(player);
+            BackpackConnection.DeleteAll<BackpackTable>();
+            InsertAllBackpackData();
+            count++;
+        }
     }
 
-    public void InsertPlayerData(GameObject player, int id)
+
+    public void InsertPlayerData(GameObject player)
     {
         int mapId = 0;
         switch (SceneManager.GetActiveScene().name)
@@ -69,28 +80,40 @@ public class TableControl : MonoBehaviour
 
         var pt = new PlayerTable
         {
-            Id = id,
             PosX = player.transform.position.x,
             PosY = player.transform.position.y,
             PosZ = player.transform.position.z,
-            //Coin = ,
-            //HvJetpack = ,
+            Coin = (int)MoneyManager.instance.coins,
+            HvJetpack = ShopManager.instance.haveJetpack,
             MapId = mapId
         };
         PlayerConnection.Insert(pt);
     }
 
-    public void InsertBackpackData(int playerId)
+    public void InsertAllBackpackData()
     {
-        var bt = new BackpackTable
+        InventorySlot5[] is5 = InventoryManager5.instance.inventorySlots;
+
+        for (int i = 0; i < is5.Length; i++)
         {
-            PlayerId = playerId,
-            //ItemId = ,
-            //Count = ,
-            //PosId = 
-        };
-        BackpackConnection.Insert(bt);
+            if (is5[i].gameObject.transform.childCount == 1)
+            {
+                InventoryItem item = is5[i].GetComponentInChildren<InventoryItem>();
+
+                Debug.Log("is5[i].GetSelectedItem()" + is5[i].GetSelectedItem());
+
+                var bt = new BackpackTable
+                {
+                    ItemId = item.item.id,
+                    Count = item.count,
+                    PosId = i
+                };
+                BackpackConnection.Insert(bt);
+            }
+        }
+
     }
+
 
     public void InsertAllAnimoData(GameObject[] animos)
     {
@@ -193,4 +216,6 @@ public class TableControl : MonoBehaviour
     //{
 
     //}
+
+
 }

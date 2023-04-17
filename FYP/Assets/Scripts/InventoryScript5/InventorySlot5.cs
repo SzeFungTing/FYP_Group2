@@ -188,4 +188,9 @@ public class InventorySlot5 : MonoBehaviour, IDropHandler, IPointerEnterHandler,
             selectedItem = null;
         }
     }
+
+    public InventoryItem GetSelectedItem()
+    {
+        return selectedItem;
+    }
 }
