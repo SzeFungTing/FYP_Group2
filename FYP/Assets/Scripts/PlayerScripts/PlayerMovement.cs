@@ -48,7 +48,7 @@ public class PlayerMovement : MonoBehaviour
     public float clickTime;
 
     public Image FillBar;
-    public ShopManager shopManager;
+    //public ShopManager shopManager;
 
     public MovementState state;
 
@@ -92,7 +92,7 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-        if (shopManager && (shopManager.Jetpack && shopManager.Jetpack.activeInHierarchy))
+        if (ShopManager.instance.haveJetpack)
         {
             FillBar.fillAmount = MaxForce;
 

@@ -13,6 +13,7 @@ public class ShopManager : MonoBehaviour
     public Transform ShootingP;
     public GameObject Select;
     public GameObject Jetpack;
+    public bool haveJetpack = false;
 
     GameObject shopUI;
     Transform buildingPlane, upgradePlane, equipmentPlane, itemPlane;
@@ -25,6 +26,8 @@ public class ShopManager : MonoBehaviour
 
     public List<GameObject> sellingItems;
     public GameObject sellingTemplate;
+
+    [SerializeField] int sellingItemsNum;
 
     public List<GameObject> purchaseList;
 
@@ -52,19 +55,7 @@ public class ShopManager : MonoBehaviour
 
         CoinsTXT.text = "Coins: $" + /*coins*/MoneyManager.instance.coins.ToString();
 
-        foreach (GameObject sellingItem in sellingItems)                                                //display the selling items
-        {
-            //Debug.Log("spawn");
-            GameObject temp = Instantiate(sellingTemplate, Classification(sellingItem));
-
-            ButtonInfo buttonInfo = temp.GetComponent<ButtonInfo>();
-            buttonInfo.SetTemplate(sellingItem);
-
-
-            Button btn = buttonInfo.GetComponent<Button>();
-            btn.onClick.AddListener(Buy);
-
-        }
+        
 
         ////ID
         //shopItems[1, 1] = 1;
@@ -197,7 +188,10 @@ public class ShopManager : MonoBehaviour
                         purchaseList.Add(ButtonRef.GetComponent<ButtonInfo>().SItem);
 
                     if(ButtonRef.GetComponent<ButtonInfo>().ItemID == 2)
+                    {
                         Jetpack.SetActive(true);
+                        haveJetpack = true;
+                    }
 
                 }
 
@@ -223,6 +217,38 @@ public class ShopManager : MonoBehaviour
 
         }
     }
+
+    public void DisplayItems()
+    {
+        if (sellingItemsNum <= sellingItems.Count)
+        {
+            for (int i = 0; i < sellingItemsNum; i++)
+            //foreach (GameObject sellingItem in sellingItems)                                                //display the selling items
+            {
+                //Debug.Log("spawn");
+                //foreach way
+                //GameObject temp = Instantiate(sellingTemplate, Classification(sellingItem));
+
+                //ButtonInfo buttonInfo = temp.GetComponent<ButtonInfo>();
+                //buttonInfo.SetTemplate(sellingItem);
+
+                //Button btn = buttonInfo.GetComponent<Button>();
+                //btn.onClick.AddListener(Buy);
+
+
+                //for way
+                GameObject temp = Instantiate(sellingTemplate, Classification(sellingItems[i]));
+
+                ButtonInfo buttonInfo = temp.GetComponent<ButtonInfo>();
+                buttonInfo.SetTemplate(sellingItems[i]);
+
+                Button btn = buttonInfo.GetComponent<Button>();
+                btn.onClick.AddListener(Buy);
+            }
+        }
+           
+    }
+
 
     public void PlaceAnOrder()
     {
