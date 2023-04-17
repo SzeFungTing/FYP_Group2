@@ -71,6 +71,12 @@ public class NetworkPlayerMovement : NetworkBehaviour
         _camera = GetComponentInChildren<Camera>();
     }
 
+    public override void OnNetworkSpawn()
+    {
+        transform.position = new Vector3(Random.Range(656, 666), 45, Random.Range(366, 386));
+        transform.rotation = new Quaternion(0, 180, 0, 0);
+    }
+
     // Update is called once per frame
     void Update()
     {
