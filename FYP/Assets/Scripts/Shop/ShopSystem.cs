@@ -95,7 +95,7 @@ public class ShopSystem : MonoBehaviour
 
     public void CloseShopUI()
     {
-        Debug.Log("CloseShopUI");
+        //Debug.Log("CloseShopUI");
         UIScripts.instance.hotBarUI.SetActive(true);
 
         shopUI.SetActive(false);

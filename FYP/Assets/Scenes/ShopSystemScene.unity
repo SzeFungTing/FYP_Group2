@@ -11418,6 +11418,7 @@ MonoBehaviour:
   ShootingP: {fileID: 1604978233}
   Select: {fileID: 2134285243}
   Jetpack: {fileID: 1153514872}
+  haveJetpack: 0
   building: {fileID: 163658838}
   upgrade: {fileID: 373506212}
   equipment: {fileID: 196075360}
@@ -11429,7 +11430,9 @@ MonoBehaviour:
   - {fileID: 3577600395696242698, guid: 15991e441023e7e4a87440372c23ec0d, type: 3}
   - {fileID: 7713532688134291900, guid: d060b9928f673b14c96c51a8fc86a915, type: 3}
   sellingTemplate: {fileID: 5463033886544887856, guid: ac296707cb0b64649a8c2ee6b93288f3, type: 3}
+  sellingItemsNum: 2
   purchaseList: []
+  tempLists: []
 --- !u!4 &543187599
 Transform:
   m_ObjectHideFlags: 0
@@ -14044,7 +14047,6 @@ MonoBehaviour:
   isflying: 0
   clickTime: 0
   FillBar: {fileID: 325344157}
-  shopManager: {fileID: 543187598}
   state: 4
 --- !u!114 &791665412
 MonoBehaviour:

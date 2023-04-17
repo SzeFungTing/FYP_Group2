@@ -24,7 +24,7 @@ public class ShopManager : MonoBehaviour
     public float Speed = 5f;
     //public ShopSystem Ss;
 
-    public List<GameObject> sellingItems;
+    public List<GameObject> sellingItems;           //can sell items
     public GameObject sellingTemplate;
 
     [SerializeField] int sellingItemsNum;
@@ -34,6 +34,11 @@ public class ShopManager : MonoBehaviour
     Animator Anim_Drone;
 
     public static ShopManager instance;
+
+    List<ButtonInfo> tempLists = new List<ButtonInfo>();         //selling items
+
+    //private List<InflationItem> inflationItemLists;
+
 
 
     //float timer = 0f;
@@ -55,7 +60,7 @@ public class ShopManager : MonoBehaviour
 
         CoinsTXT.text = "Coins: $" + /*coins*/MoneyManager.instance.coins.ToString();
 
-        
+        DisplayItems();
 
         ////ID
         //shopItems[1, 1] = 1;
@@ -92,7 +97,13 @@ public class ShopManager : MonoBehaviour
 
     public void Update()
     {
-        if (isBought)
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            ResetSellingItems();
+        }
+
+
+            if (isBought)
         {
 
             if (purchasingIdx < purchaseList.Count)
@@ -149,7 +160,8 @@ public class ShopManager : MonoBehaviour
     }
 
 
-    // Update is called once per frame
+
+
     public void Buy()
     {
         //Debug.Log("buy");
@@ -220,33 +232,74 @@ public class ShopManager : MonoBehaviour
 
     public void DisplayItems()
     {
+        List<GameObject> tempObjectsLists = new List<GameObject>();
+
         if (sellingItemsNum <= sellingItems.Count)
         {
-            for (int i = 0; i < sellingItemsNum; i++)
-            //foreach (GameObject sellingItem in sellingItems)                                                //display the selling items
+            for (int i = 0; i < sellingItemsNum; i++)                                               //display the selling items
             {
                 //Debug.Log("spawn");
-                //foreach way
-                //GameObject temp = Instantiate(sellingTemplate, Classification(sellingItem));
+                int randomItem = Random.Range(0, sellingItemsNum+1);
+                //Debug.Log("randomItem: " + randomItem );
 
-                //ButtonInfo buttonInfo = temp.GetComponent<ButtonInfo>();
-                //buttonInfo.SetTemplate(sellingItem);
+                if (tempObjectsLists.Contains(sellingItems[randomItem]))
+                {
+                    i--;
+                    continue;
+                }
 
-                //Button btn = buttonInfo.GetComponent<Button>();
-                //btn.onClick.AddListener(Buy);
 
+                GameObject temp = Instantiate(sellingTemplate, Classification(sellingItems[randomItem]));
 
-                //for way
-                GameObject temp = Instantiate(sellingTemplate, Classification(sellingItems[i]));
 
                 ButtonInfo buttonInfo = temp.GetComponent<ButtonInfo>();
-                buttonInfo.SetTemplate(sellingItems[i]);
+                buttonInfo.SetTemplate(sellingItems[randomItem]);
+
+                tempObjectsLists.Add(sellingItems[randomItem]);
+                tempLists.Add(buttonInfo);
+
 
                 Button btn = buttonInfo.GetComponent<Button>();
                 btn.onClick.AddListener(Buy);
             }
         }
-           
+
+        //foreach (GameObject sellingItem in sellingItems)                                                //display the selling items
+        //{
+            //Debug.Log("spawn");
+            //foreach way
+            //GameObject temp = Instantiate(sellingTemplate, Classification(sellingItem));
+
+            //ButtonInfo buttonInfo = temp.GetComponent<ButtonInfo>();
+            //buttonInfo.SetTemplate(sellingItem);
+
+            //Button btn = buttonInfo.GetComponent<Button>();
+            //btn.onClick.AddListener(Buy);
+
+
+        //}
+
+    }
+
+    //public void Inflation()
+    //{
+    //    int resetDay = 0;
+
+    //}
+
+
+    public void ResetSellingItems()
+    {
+        if (tempLists.Count == 0)
+            return;
+
+        foreach (ButtonInfo tempList in tempLists)
+        {
+            Destroy(tempList.gameObject);
+        }
+        tempLists = new List<ButtonInfo>();
+
+        DisplayItems();
     }
 
 
