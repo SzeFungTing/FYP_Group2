@@ -53,6 +53,15 @@ public class TableControl : MonoBehaviour
             InsertAllBackpackData();
             count++;
         }
+        if (count == 1)
+        {
+            var playerData = GetPlayerData();
+            foreach (var p in playerData)
+            {
+                Debug.Log("player position:" + p.PosX + ", " + p.PosY + ", " + p.PosZ);
+            }
+            count++;
+        }
     }
 
 
@@ -113,7 +122,6 @@ public class TableControl : MonoBehaviour
         }
 
     }
-
 
     public void InsertAllAnimoData(GameObject[] animos)
     {
@@ -217,5 +225,45 @@ public class TableControl : MonoBehaviour
 
     //}
 
+    public TableQuery<PlayerTable> GetPlayerData()
+    {
+        var data = PlayerConnection.Table<PlayerTable>();
+        return data;
+    }
 
+    public TableQuery<BackpackTable> GetBackpackData()
+    {
+        var data = BackpackConnection.Table<BackpackTable>();
+        return data;
+    }
+
+    public TableQuery<AnimoTable> GetAnimoData()
+    {
+        var data = AnimoConnection.Table<AnimoTable>();
+        return data;
+    }
+
+    public TableQuery<BuildingTable> GetBuildingData()
+    {
+        var data = BuildingConnection.Table<BuildingTable>();
+        return data;
+    }
+
+    public TableQuery<PuzzleTable> GetPuzzleData()
+    {
+        var data = PuzzleConnection.Table<PuzzleTable>();
+        return data;
+    }
+
+    public TableQuery<FajroTable> GetFajroData()
+    {
+        var data = FajroConnection.Table<FajroTable>();
+        return data;
+    }
+
+    public TableQuery<MarketTable> GetMarketData()
+    {
+        var data = MarketConnection.Table<MarketTable>();
+        return data;
+    }
 }
