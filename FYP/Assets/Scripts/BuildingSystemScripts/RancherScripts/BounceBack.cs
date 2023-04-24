@@ -38,6 +38,8 @@ public class BounceBack : MonoBehaviour
                 Debug.Log(transform.name + " out");
                 Debug.Log("collision.collider: " + collision.collider );
 
+                animo.tag = "Pet";
+
                 Physics.IgnoreCollision(GetComponent<Collider>(), collision.collider, false);
             }
             else                                                        //go inside

@@ -13,6 +13,8 @@ public class InventoryManager5 : MonoBehaviour
     [HideInInspector] public GameObject hotBarUI;
     public GunShooting gunShooting;
 
+    Transform hotBarPos;
+
     //Synchronize Hot Bar
     //public InventorySlot5[] backpackHotbarSlots;
     //public InventorySlot5[] hotbarSlots;
@@ -29,6 +31,8 @@ public class InventoryManager5 : MonoBehaviour
 
     private void Start()
     {
+        hotBarPos = inventoryUI.transform.GetChild(0);
+
         inventoryUI = UIScripts.instance.backPackUI;
         hotBarUI = UIScripts.instance.hotBarUI;
 
@@ -196,7 +200,7 @@ public class InventoryManager5 : MonoBehaviour
                 gunShooting.enabled = false;
                 inventoryUI.SetActive(true);
                 //SynchronizeHotBar();
-                hotBarUI.transform.position = new Vector3(959.9999389648438f, 995.0f, 0.5400000214576721f);     //up
+                hotBarUI.transform.position = /*new Vector3(Screen.width / 2, (inventorySlots[4].transform.position.y)+50, 0.5400000214576721f)*/hotBarPos.position;     //up
                 hotBarUI.transform.localScale = new Vector3(0.7f, 0.7f, 0.7f);
                 
             }
@@ -217,7 +221,7 @@ public class InventoryManager5 : MonoBehaviour
         isOpenBackpack = false;
         gunShooting.enabled = true;
         inventoryUI.SetActive(false);
-        hotBarUI.transform.position = new Vector3(959.9999389648438f, 90.0f, 0.5400000214576721f);      //down
+        hotBarUI.transform.position = new Vector3(Screen.width / 2, Screen.height * 90.0f/1080, 0.5400000214576721f);      //down
         hotBarUI.transform.localScale = new Vector3(1f, 1f, 1f);
     }
 }

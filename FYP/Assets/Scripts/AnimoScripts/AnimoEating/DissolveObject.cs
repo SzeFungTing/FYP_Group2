@@ -48,10 +48,10 @@ public class DissolveObject : MonoBehaviour
         }
         else
         {
-            Debug.Log("else");
+            //Debug.Log("else");
             if(originalHeight + 1 < transform.position.y || transform.position.y > originalHeight - 1)
             {
-                Debug.Log("SetHeight");
+                //Debug.Log("SetHeight");
 
                 height = transform.position.y + (objectHeight / 2) + 1;
                 SetHeight(height);
