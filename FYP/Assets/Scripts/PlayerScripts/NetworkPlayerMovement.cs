@@ -48,6 +48,8 @@ public class NetworkPlayerMovement : NetworkBehaviour
     public bool isflying;
     public float clickTime;
 
+    public Animator characterAnim;
+
     public Image FillBar;
     public ShopManager shopManager;
 
@@ -184,11 +186,13 @@ public class NetworkPlayerMovement : NetworkBehaviour
     void HandleMovementInput()
     {
         currectInput = new Vector2(walkSpeed * Input.GetAxis("Vertical"), walkSpeed * Input.GetAxis("Horizontal"));
+        characterAnim.SetBool("isWalked", true);
 
         isWalking = true;
         if (currectInput.x == 0 && currectInput.y == 0)
         {
             isWalking = false;
+            characterAnim.SetBool("isWalked", false);
         }
 
         float moveDirectionY = moveDirection.y;

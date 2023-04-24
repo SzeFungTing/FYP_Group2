@@ -19084,8 +19084,8 @@ MonoBehaviour:
   MaxForce: 5
   isflying: 0
   clickTime: 0
+  characterAnim: {fileID: 0}
   FillBar: {fileID: 775741241}
-  shopManager: {fileID: 1909826110}
   state: 4
 --- !u!114 &219095486
 MonoBehaviour:
@@ -43567,8 +43567,8 @@ MonoBehaviour:
   MaxForce: 5
   isflying: 0
   clickTime: 0
+  characterAnim: {fileID: 0}
   FillBar: {fileID: 775741241}
-  shopManager: {fileID: 1909826110}
   state: 4
 --- !u!114 &758878539
 MonoBehaviour:
@@ -49096,6 +49096,67 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5b7c2a6571946b540b5e6c6ff434f967, type: 3}
+--- !u!1001 &966990890
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 01a12b2c5483c694181caa00990f2e11, type: 3}
+      propertyPath: m_RootOrder
+      value: 36
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 01a12b2c5483c694181caa00990f2e11, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 654.35
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 01a12b2c5483c694181caa00990f2e11, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 44.06
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 01a12b2c5483c694181caa00990f2e11, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 367.1756
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 01a12b2c5483c694181caa00990f2e11, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 01a12b2c5483c694181caa00990f2e11, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 01a12b2c5483c694181caa00990f2e11, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 01a12b2c5483c694181caa00990f2e11, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 01a12b2c5483c694181caa00990f2e11, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 01a12b2c5483c694181caa00990f2e11, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 01a12b2c5483c694181caa00990f2e11, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 01a12b2c5483c694181caa00990f2e11, type: 3}
+      propertyPath: m_Name
+      value: Idle
+      objectReference: {fileID: 0}
+    - target: {fileID: 5866666021909216657, guid: 01a12b2c5483c694181caa00990f2e11, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: c2f0d63396358eb4bacdf45af4eb2b3a, type: 2}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 01a12b2c5483c694181caa00990f2e11, type: 3}
 --- !u!1 &968990176
 GameObject:
   m_ObjectHideFlags: 0
@@ -98804,6 +98865,7 @@ MonoBehaviour:
   ShootingP: {fileID: 813233663}
   Select: {fileID: 668041478}
   Jetpack: {fileID: 506174578}
+  haveJetpack: 0
   building: {fileID: 2054149207}
   upgrade: {fileID: 294288003}
   equipment: {fileID: 1095329666}
@@ -98812,6 +98874,7 @@ MonoBehaviour:
   Speed: 5
   sellingItems: []
   sellingTemplate: {fileID: 5463033886544887856, guid: ac296707cb0b64649a8c2ee6b93288f3, type: 3}
+  sellingItemsNum: 0
   purchaseList: []
 --- !u!4 &1909826111
 Transform:
@@ -100670,6 +100733,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4174595679752486636, guid: 685a042f7ac1d4c4c84286a976b93a65, type: 3}
+      propertyPath: NetworkConfig.PlayerPrefab
+      value: 
+      objectReference: {fileID: 8784250360415336700, guid: 6719448d7f0738649976cbf2d0ee99c1, type: 3}
+    - target: {fileID: 4174595679752486636, guid: 685a042f7ac1d4c4c84286a976b93a65, type: 3}
+      propertyPath: NetworkConfig.NetworkPrefabs.Array.data[0].Prefab
+      value: 
+      objectReference: {fileID: 8784250360415336700, guid: 6719448d7f0738649976cbf2d0ee99c1, type: 3}
     - target: {fileID: 4174595679752486637, guid: 685a042f7ac1d4c4c84286a976b93a65, type: 3}
       propertyPath: m_RootOrder
       value: 32
@@ -100717,6 +100788,10 @@ PrefabInstance:
     - target: {fileID: 4174595679752486638, guid: 685a042f7ac1d4c4c84286a976b93a65, type: 3}
       propertyPath: m_Name
       value: NetworkManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 4174595679752486638, guid: 685a042f7ac1d4c4c84286a976b93a65, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 685a042f7ac1d4c4c84286a976b93a65, type: 3}
@@ -111632,8 +111707,8 @@ MonoBehaviour:
   MaxForce: 5
   isflying: 0
   clickTime: 0
+  characterAnim: {fileID: 0}
   FillBar: {fileID: 0}
-  shopManager: {fileID: 0}
   state: 4
 --- !u!143 &3805550522838860380
 CharacterController:
