@@ -56,7 +56,7 @@ public class ShopManager : MonoBehaviour
         itemPlane = shopUI.transform.GetChild(1).GetChild(3).GetChild(0).GetChild(0);
 
         Anim_Drone = ShootingP.GetComponent<Animator>();
-        Jetpack.SetActive(false);
+        //Jetpack.SetActive(false);
 
         CoinsTXT.text = "Coins: $" + /*coins*/MoneyManager.instance.coins.ToString();
 
@@ -147,7 +147,10 @@ public class ShopManager : MonoBehaviour
 
         }
 
-
+        if (haveJetpack)
+        {
+            Jetpack.SetActive(true);
+        }
 
 
 

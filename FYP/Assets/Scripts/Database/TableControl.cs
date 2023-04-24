@@ -45,22 +45,29 @@ public class TableControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (count == 0)
+        if (Input.GetKeyDown(KeyCode.Z))
         {
             PlayerConnection.DeleteAll<PlayerTable>();
             InsertPlayerData(player);
             BackpackConnection.DeleteAll<BackpackTable>();
             InsertAllBackpackData();
-            count++;
         }
-        if (count == 1)
+        if (Input.GetKeyDown(KeyCode.X))
         {
             var playerData = GetPlayerData();
             foreach (var p in playerData)
             {
-                Debug.Log("player position:" + p.PosX + ", " + p.PosY + ", " + p.PosZ);
+                player.transform.position = new Vector3(p.PosX, p.PosY, p.PosZ);
+                MoneyManager.instance.coins = (float)p.Coin;
+                MoneyManager.instance.RefreshCoins();
+                ShopManager.instance.haveJetpack = p.HvJetpack;
             }
-            count++;
+
+            var backpackData = GetBackpackData();
+            foreach(var b in backpackData)
+            {
+                InventoryManager5.instance.SpawnNewItem(ItemDictionary.instance.GetItem(b.ItemId), InventoryManager5.instance.inventorySlots[b.PosId], b.Count);
+            }
         }
     }
 

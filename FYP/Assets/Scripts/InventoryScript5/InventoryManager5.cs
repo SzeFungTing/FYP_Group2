@@ -94,18 +94,18 @@ public class InventoryManager5 : MonoBehaviour
             InventoryItem itemInSlot = slot.GetComponentInChildren<InventoryItem>();
             if(itemInSlot == null)
             {
-                SpawnNewItem(item, slot);
+                SpawnNewItem(item, slot, 1);
                 return true;
             }
         }
         return false;
    }
 
-    void SpawnNewItem(Item5 item, InventorySlot5 slot)
+    public void SpawnNewItem(Item5 item, InventorySlot5 slot, int count)
     {
         GameObject newItemGo = Instantiate(inventoryItemPrefab, slot.transform);
         InventoryItem inventoryItem = newItemGo.GetComponent<InventoryItem>();
-        inventoryItem.InitialiseItem(item);
+        inventoryItem.InitialiseItem(item, count);
     }
 
     public Item5 GetSelectedItem(bool use)

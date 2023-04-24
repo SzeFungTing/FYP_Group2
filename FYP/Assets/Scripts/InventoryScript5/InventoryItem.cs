@@ -16,11 +16,11 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     [HideInInspector] public Transform parentAfterDrag;
 
 
-    public void InitialiseItem(Item5 newItem)
+    public void InitialiseItem(Item5 newItem, int c)
     {
         item = newItem;
         image.sprite = newItem.image;
-        //count = Random.Range(1, 4);
+        count = c;
         RefreshCount();
     }
 
