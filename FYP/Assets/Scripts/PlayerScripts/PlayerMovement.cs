@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
 
     bool isWalking;
     bool isGrounded;
+    bool isRan;
     public float walkSpeed;
     public float sprintSpeed;
 
@@ -102,12 +103,16 @@ public class PlayerMovement : MonoBehaviour
             {
                 if (Input.GetKeyDown(KeyCode.Space))
                 {
+                    characterAnim.SetTrigger("isJumped");
                     clickTime = Time.time;
+                    Jump();
                 }
 
                 if (Input.GetKeyUp(KeyCode.Space))
                 {
+                    characterAnim.SetTrigger("isJumped");
                     MaxForce -= Time.deltaTime * 10;
+                    Jump();
                 }
 
                 if (Input.GetKey(KeyCode.Space) && MaxForce > 0 && (Time.time - clickTime) > 0.5)
@@ -166,14 +171,21 @@ public class PlayerMovement : MonoBehaviour
 
     void HandleMovementInput()
     {
+        //walking
         currectInput = new Vector2(walkSpeed * Input.GetAxis("Vertical"), walkSpeed * Input.GetAxis("Horizontal"));
-        characterAnim.SetBool("isWalked", true);
+        if (isRan)
+            characterAnim.SetBool("isRan", true);
+        else
+            characterAnim.SetBool("isWalked", true);
 
         isWalking = true;
         if (currectInput.x == 0 && currectInput.y == 0)
         {
             isWalking = false;
-            characterAnim.SetBool("isWalked", false);
+            if(isRan)
+                characterAnim.SetBool("isRan", false);
+            else
+               characterAnim.SetBool("isWalked", false);
         }
 
         float moveDirectionY = moveDirection.y;
@@ -213,7 +225,6 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetButtonDown("Jump") && controller.isGrounded)
         {
             moveDirection.y = jumpForce;
-            characterAnim.SetTrigger("isJumped");
         }
     }
 
@@ -240,6 +251,7 @@ public class PlayerMovement : MonoBehaviour
         }
         else if (controller.isGrounded && Input.GetKey(sprintKey))
         {
+            isRan = true;
             state = MovementState.sprinting;
             walkSpeed = sprintSpeed;
             characterAnim.SetBool("isRan", true);
@@ -251,6 +263,7 @@ public class PlayerMovement : MonoBehaviour
         }
         else if (controller.isGrounded)
         {
+            isRan = false;
             state = MovementState.standing;
             characterAnim.SetBool("isRan", false);
             characterAnim.SetBool("isCrounched", false);
