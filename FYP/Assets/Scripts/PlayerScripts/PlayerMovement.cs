@@ -213,6 +213,7 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetButtonDown("Jump") && controller.isGrounded)
         {
             moveDirection.y = jumpForce;
+            characterAnim.SetTrigger("isJumped");
         }
     }
 
@@ -235,11 +236,13 @@ public class PlayerMovement : MonoBehaviour
         {
             state = MovementState.crouching;
             walkSpeed = crouchSpeed;
+            characterAnim.SetBool("isCrounched", true);
         }
         else if (controller.isGrounded && Input.GetKey(sprintKey))
         {
             state = MovementState.sprinting;
             walkSpeed = sprintSpeed;
+            characterAnim.SetBool("isRan", true);
         }
         else if (controller.isGrounded && isWalking)
         {
@@ -249,6 +252,8 @@ public class PlayerMovement : MonoBehaviour
         else if (controller.isGrounded)
         {
             state = MovementState.standing;
+            characterAnim.SetBool("isRan", false);
+            characterAnim.SetBool("isCrounched", false);
         }
         else
         {
