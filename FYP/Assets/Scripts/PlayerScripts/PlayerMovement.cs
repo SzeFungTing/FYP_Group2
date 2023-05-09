@@ -12,6 +12,8 @@ public class PlayerMovement : MonoBehaviour
     bool isWalking;
     bool isGrounded;
     bool isRan;
+    bool isJumped;
+    bool isCrounched;
     public float walkSpeed;
     public float sprintSpeed;
 
@@ -73,6 +75,16 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //jump
+        if (!isJumped)
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+            isJumped = true;
+        }
+            
+
+        if (isJumped)
+            Jump();       
 
         isGrounded = Physics.Raycast(transform.position, Vector3.down, controller.height / 2 + 0.1f);
 
@@ -85,7 +97,7 @@ public class PlayerMovement : MonoBehaviour
             HandleMovementInput();
             ApplyFinalMovements();
             StateHandles();
-            CrouchScale();
+            //CrouchScale();
             SlideOnSlope();
             FootStep();
 
@@ -99,20 +111,16 @@ public class PlayerMovement : MonoBehaviour
         {
             FillBar.fillAmount = MaxForce;
 
-            if (MaxForce >= 0)
             {
                 if (Input.GetKeyDown(KeyCode.Space))
                 {
-                    characterAnim.SetTrigger("isJumped");
+                    isJumped = true;
                     clickTime = Time.time;
-                    Jump();
                 }
 
                 if (Input.GetKeyUp(KeyCode.Space))
                 {
-                    characterAnim.SetTrigger("isJumped");
                     MaxForce -= Time.deltaTime * 10;
-                    Jump();
                 }
 
                 if (Input.GetKey(KeyCode.Space) && MaxForce > 0 && (Time.time - clickTime) > 0.5)
@@ -140,6 +148,7 @@ public class PlayerMovement : MonoBehaviour
                 if (CurrentForce > 0)
                 {
                     CurrentForce -= Time.deltaTime;
+                    
                 }
                 else
                 {
@@ -147,6 +156,7 @@ public class PlayerMovement : MonoBehaviour
                 }
                 if (MaxForce < 1)
                 {
+
                     MaxForce += Time.deltaTime / 3;
                 }
                 else
@@ -163,6 +173,7 @@ public class PlayerMovement : MonoBehaviour
             }
             else
             {
+
                 isflying = false;
                 Rigidbody.useGravity = true;
             }
@@ -174,9 +185,20 @@ public class PlayerMovement : MonoBehaviour
         //walking
         currectInput = new Vector2(walkSpeed * Input.GetAxis("Vertical"), walkSpeed * Input.GetAxis("Horizontal"));
         if (isRan)
+        {
             characterAnim.SetBool("isRan", true);
+            characterAnim.SetBool("isWalked", false);
+        }
+            
+        else if (isCrounched)
+        {
+            characterAnim.SetBool("isCrounched", true);
+            characterAnim.SetBool("isWalked", false);
+        }
+            
         else
             characterAnim.SetBool("isWalked", true);
+
 
         isWalking = true;
         if (currectInput.x == 0 && currectInput.y == 0)
@@ -184,6 +206,8 @@ public class PlayerMovement : MonoBehaviour
             isWalking = false;
             if(isRan)
                 characterAnim.SetBool("isRan", false);
+            else if (isCrounched)
+                characterAnim.SetBool("isCrounched", false);
             else
                characterAnim.SetBool("isWalked", false);
         }
@@ -193,6 +217,7 @@ public class PlayerMovement : MonoBehaviour
         moveDirection.y = moveDirectionY;
         if (!isSliding && !isflying)
         {
+            isJumped = true;
             Jump();
         }
     }
@@ -224,27 +249,31 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Input.GetButtonDown("Jump") && controller.isGrounded)
         {
+            if(isJumped)
+                characterAnim.SetTrigger("isJumped");
             moveDirection.y = jumpForce;
+            isJumped = false;
         }
     }
 
-    void CrouchScale()
-    {
-        if (Input.GetKeyDown(crouchKey))
-        {
-            transform.localScale = new Vector3(transform.localScale.x, crouchScale, transform.localScale.z);
-        }
+    //void CrouchScale()
+    //{
+    //    if (Input.GetKeyDown(crouchKey))
+    //    {
+    //        transform.localScale = new Vector3(transform.localScale.x, crouchScale, transform.localScale.z);
+    //    }
 
-        if (Input.GetKeyUp(crouchKey))
-        {
-            transform.localScale = new Vector3(transform.localScale.x, startYScale, transform.localScale.z);
-        }
-    }
+    //    if (Input.GetKeyUp(crouchKey))
+    //    {
+    //        transform.localScale = new Vector3(transform.localScale.x, startYScale, transform.localScale.z);
+    //    }
+    //}
 
     void StateHandles()
     {
         if (controller.isGrounded && Input.GetKey(crouchKey))
         {
+            isCrounched = true;
             state = MovementState.crouching;
             walkSpeed = crouchSpeed;
             characterAnim.SetBool("isCrounched", true);
@@ -263,10 +292,12 @@ public class PlayerMovement : MonoBehaviour
         }
         else if (controller.isGrounded)
         {
+            isCrounched = false;
             isRan = false;
             state = MovementState.standing;
             characterAnim.SetBool("isRan", false);
             characterAnim.SetBool("isCrounched", false);
+
         }
         else
         {
