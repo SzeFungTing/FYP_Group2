@@ -16,6 +16,7 @@ public class TableControl : MonoBehaviour
 
     public GameObject player;
     private int count = 0;
+    private int currentMap = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -40,6 +41,25 @@ public class TableControl : MonoBehaviour
 
         MarketConnection = new SQLiteConnection(Application.streamingAssetsPath + "/MarketTable.db", SQLiteOpenFlags.ReadWrite | SQLiteOpenFlags.Create);
         MarketConnection.CreateTable<MarketTable>();
+
+        switch (SceneManager.GetActiveScene().name)
+        {
+            case "HomeScene":
+                currentMap = 1;
+                break;
+
+            case "IslandScene":
+                currentMap = 2;
+                break;
+
+            case "DesertScene":
+                currentMap = 3;
+                break;
+
+            default:
+                currentMap = 0;
+                break;
+        }
     }
 
     // Update is called once per frame
@@ -51,6 +71,14 @@ public class TableControl : MonoBehaviour
             InsertPlayerData(player);
             BackpackConnection.DeleteAll<BackpackTable>();
             InsertAllBackpackData();
+            AnimoConnection.DeleteAll<AnimoTable>();
+            Animo[] animos = FindObjectsOfType<Animo>();
+            GameObject[] animoObjs = new GameObject[animos.Length];
+            for (int i = 0; i < animos.Length; i++)
+            {
+                animoObjs[i] = animos[i].gameObject;
+            }
+            InsertAllAnimoData(animoObjs);
         }
         if (Input.GetKeyDown(KeyCode.X))
         {
@@ -66,7 +94,20 @@ public class TableControl : MonoBehaviour
             var backpackData = GetBackpackData();
             foreach(var b in backpackData)
             {
+                //Debug.Log("backpack: " + ItemDictionary.instance.GetItem(b.ItemId));
                 InventoryManager5.instance.SpawnNewItem(ItemDictionary.instance.GetItem(b.ItemId), InventoryManager5.instance.inventorySlots[b.PosId], b.Count);
+            }
+
+            Animo[] animos = FindObjectsOfType<Animo>();
+            for (int i = 0; i < animos.Length; i++)
+            {
+                Destroy(animos[i].gameObject);
+            }
+            var animoData = GetAnimoData();
+            foreach (var a in animoData)
+            {
+                //Debug.Log("animo: " + ItemDictionary.instance.GetItem(a.Id).GetItemPrefab());
+                Instantiate(ItemDictionary.instance.GetItem(a.Id).objectPrefab, new Vector3(a.PosX, a.PosY, a.PosZ), Quaternion.identity);
             }
         }
     }
@@ -246,13 +287,13 @@ public class TableControl : MonoBehaviour
 
     public TableQuery<AnimoTable> GetAnimoData()
     {
-        var data = AnimoConnection.Table<AnimoTable>();
+        var data = AnimoConnection.Table<AnimoTable>().Where(_ => _.MapId == currentMap);
         return data;
     }
 
     public TableQuery<BuildingTable> GetBuildingData()
     {
-        var data = BuildingConnection.Table<BuildingTable>();
+        var data = BuildingConnection.Table<BuildingTable>().Where(_ => _.MapId == currentMap);
         return data;
     }
 

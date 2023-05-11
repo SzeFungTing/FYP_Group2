@@ -5,7 +5,7 @@ using UnityEngine.Tilemaps;
 
 public class BuildingSystem : MonoBehaviour
 {
-    public static BuildingSystem current;
+    public static BuildingSystem instance;
 
     public GridLayout gridLayout;
     private Grid grid;
@@ -28,7 +28,7 @@ public class BuildingSystem : MonoBehaviour
 
     private void Awake()
     {
-        current = this;
+        instance = this;
         grid = gridLayout.gameObject.GetComponent<Grid>();
     }
 

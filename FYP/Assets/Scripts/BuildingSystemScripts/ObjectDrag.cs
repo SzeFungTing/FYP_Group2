@@ -16,7 +16,7 @@ public class ObjectDrag : MonoBehaviour
         //Vector3 pos = Camera.main.ScreenPointToRay(new Vector2(Screen.width / 2, Screen.height / 2)).GetPoint(10) + offset;
 
         Vector3 pos = BuildingSystem.GetMouseWorldPosition()/* + offset*/;
-        transform.position = BuildingSystem.current.SnapCoordinateToGrid(pos);
+        transform.position = BuildingSystem.instance.SnapCoordinateToGrid(pos);
     }
 
     //private void OnMouseDown()

@@ -28,10 +28,10 @@ public class Item5 : ScriptableObject
     public int limit;
 
 
-    //public ItemType GetItemType()
-    //{
-    //    return type;
-    //}
+    public GameObject GetItemPrefab()
+    {
+        return objectPrefab;
+    }
 
     //public bool IsBuildingBlock()
     //{
