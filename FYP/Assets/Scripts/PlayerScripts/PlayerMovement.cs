@@ -76,15 +76,15 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         //jump
-        if (!isJumped)
-        {
-            if (Input.GetKeyDown(KeyCode.Space))
-            isJumped = true;
-        }
-            
+        //if (!isJumped)
+        //{
+        //    if (Input.GetKeyDown(KeyCode.Space))
+        //    isJumped = true;
+        //}
 
-        if (isJumped)
-            Jump();       
+
+        //if (isJumped)
+        //    Jump();       
 
         isGrounded = Physics.Raycast(transform.position, Vector3.down, controller.height / 2 + 0.1f);
 
@@ -193,7 +193,11 @@ public class PlayerMovement : MonoBehaviour
         else if (isCrounched)
         {
             characterAnim.SetBool("isCrounched", true);
-            characterAnim.SetBool("isWalked", false);
+            //characterAnim.SetBool("isWalked", false);
+            if (currectInput.x !=0 && currectInput.y != 0)
+            {
+                characterAnim.SetBool("isWalked", true);
+            }
         }
             
         else
@@ -250,9 +254,13 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetButtonDown("Jump") && controller.isGrounded)
         {
             if(isJumped)
+            {
                 characterAnim.SetTrigger("isJumped");
+            }
+
             moveDirection.y = jumpForce;
             isJumped = false;
+            Debug.Log("Jump");
         }
     }
 

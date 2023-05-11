@@ -11895,7 +11895,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 202534453}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.4916272, y: 0.5383029, z: 4.062737}
+  m_LocalPosition: {x: 656.7706, y: 44.56, z: 367.1756}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -13772,6 +13772,10 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: c2f0d63396358eb4bacdf45af4eb2b3a, type: 2}
+    - target: {fileID: 5866666021909216657, guid: 01a12b2c5483c694181caa00990f2e11, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 01a12b2c5483c694181caa00990f2e11, type: 3}
 --- !u!4 &411627423 stripped
@@ -14293,7 +14297,7 @@ CharacterController:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Height: 4
+  m_Height: 3.6
   m_Radius: 0.5
   m_SlopeLimit: 45
   m_StepOffset: 0.3
