@@ -305,7 +305,6 @@ public class PlayerMovement : MonoBehaviour
         else if (Input.GetKeyUp(sprintKey))
         {
             isRan = false;
-            Debug.Log("A");
         }
         else if (controller.isGrounded && Input.GetKey(sprintKey))
         {
