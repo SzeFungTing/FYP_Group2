@@ -29,10 +29,10 @@ public class GunVacuum : MonoBehaviour
     public AudioSource inhale;
     public AudioSource shoot;
 
-    [SerializeField] GameObject pauseUI;
-    [SerializeField] GameObject settingUI;
-    [SerializeField] GameObject shopUI;
-    [SerializeField] GameObject backPackUI;
+    GameObject pauseUI;
+    GameObject settingUI;
+    GameObject shopUI;
+    GameObject backPackUI;
 
     private void Start()
     {
@@ -51,36 +51,39 @@ public class GunVacuum : MonoBehaviour
 
     private void Update()
     {
-        if ((pauseUI && settingUI) && !pauseUI.activeInHierarchy && !settingUI.activeInHierarchy)
+        if (!UIScripts.instance.isTimeStop)     //have any UI, can not move
         {
-            if (shopUI && !shopUI.activeInHierarchy && !backPackUI.activeInHierarchy)
+            if ((pauseUI && settingUI) && !pauseUI.activeInHierarchy && !settingUI.activeInHierarchy)
             {
-                if (Input.GetMouseButtonDown(1))
+                if (shopUI && !shopUI.activeInHierarchy && !backPackUI.activeInHierarchy)
                 {
-                    gunAnim.SetBool("isInhale", true);
-                    gunAnim.SetBool("canShoot", true);
-                    //gunAnim.speed = 1f;
-                    farPointInhale.Play(true);
-                    nearPoint.Play(true);
-                    inhale.Play();
-                }
-                else if (Input.GetMouseButtonUp(1))
-                {
-                    gunAnim.SetBool("isInhale", false);
-                    farPointInhale.Stop(true);
-                    nearPoint.Stop(true);
-                    inhale.Stop();
-                }
-                if (Input.GetMouseButtonDown(0))
-                {
-                    gunAnim.SetBool("canShoot", true);
-                    shoot.Play();
-                    shootPoint.Play(true);
-                }
-                else if (Input.GetMouseButtonUp(0))
-                {
-                    gunAnim.SetBool("canShoot", false);
-                    shootPoint.Stop(true);
+                    if (Input.GetMouseButtonDown(1))
+                    {
+                        gunAnim.SetBool("isInhale", true);
+                        gunAnim.SetBool("canShoot", true);
+                        //gunAnim.speed = 1f;
+                        farPointInhale.Play(true);
+                        nearPoint.Play(true);
+                        inhale.Play();
+                    }
+                    else if (Input.GetMouseButtonUp(1))
+                    {
+                        gunAnim.SetBool("isInhale", false);
+                        farPointInhale.Stop(true);
+                        nearPoint.Stop(true);
+                        inhale.Stop();
+                    }
+                    if (Input.GetMouseButtonDown(0))
+                    {
+                        gunAnim.SetBool("canShoot", true);
+                        shoot.Play();
+                        shootPoint.Play(true);
+                    }
+                    else if (Input.GetMouseButtonUp(0))
+                    {
+                        gunAnim.SetBool("canShoot", false);
+                        shootPoint.Stop(true);
+                    }
                 }
             }
         }
@@ -91,76 +94,88 @@ public class GunVacuum : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (Input.GetMouseButton(1) && Physics.Raycast(transform.parent.parent.position, transform.parent.parent.forward, out RaycastHit raycastHit, 3f))//inhale item in the crafting table
+        if (!UIScripts.instance.isTimeStop)     //have any UI, can not move
         {
-            if (raycastHit.transform.TryGetComponent(out CraftingTable craftingTable))
-            {
-                //Debug.Log("raycastHit.transform.TryGetComponent(out CraftingTable craftingTable)");
-                //Debug.Log("Time.time: " + Time.time);
-                //Debug.Log("emitTime + emitInterval: " + emitTime + emitInterval);
-                if(Time.time > emitTime + emitInterval)
-                {
-                    craftingTable.RemoveInputMaterial();
-                    emitTime = Time.time;
 
+            if (Input.GetMouseButton(1) && Physics.Raycast(transform.parent.parent.position, transform.parent.parent.forward, out RaycastHit raycastHit, 3f))//inhale item in the crafting table
+            {
+                if (raycastHit.transform.TryGetComponent(out CraftingTable craftingTable))
+                {
+                    //Debug.Log("raycastHit.transform.TryGetComponent(out CraftingTable craftingTable)");
+                    //Debug.Log("Time.time: " + Time.time);
+                    //Debug.Log("emitTime + emitInterval: " + emitTime + emitInterval);
+                    if (Time.time > emitTime + emitInterval)
+                    {
+                        craftingTable.RemoveInputMaterial();
+                        emitTime = Time.time;
+
+
+                    }
 
                 }
-
             }
-        }
 
 
-        if (other.transform.gameObject.GetComponent<Target>())          //new change
-        //if (other.transform.CompareTag("Target"))
-        {
-            anim = other.transform.gameObject.GetComponentInChildren<Animator>();
-            if (other.transform.gameObject.layer == 7)
+            if (other.transform.gameObject.GetComponent<Target>())          //new change
+                                                                            //if (other.transform.CompareTag("Target"))
             {
-                if(other.transform.GetComponent<CapsuleCollider>())     //new
-                    _collider = other.transform.GetChild(0).gameObject.GetComponentInChildren<CapsuleCollider>();
-            }
-            if (Input.GetMouseButton(1))
-            {
-                
-
-                other.transform.gameObject.GetComponent<Target>().isVacuum = true;
-                VacuumTarget(other);
-            }
-            else /*if (Input.GetMouseButtonUp(1))*/
-            {
-                if(other.transform.childCount > 1 && other.transform.GetComponentInChildren<CapsuleCollider>() && other.transform.GetChild(1).GetComponent<CapsuleCollider>())         //new
-                    other.transform.GetChild(1).gameObject.GetComponentInChildren<CapsuleCollider>().enabled = true;
-                other.transform.gameObject.GetComponent<Target>().isVacuum = false;
-
-                if (anim)
+                anim = other.transform.gameObject.GetComponentInChildren<Animator>();
+                if (other.transform.gameObject.layer == 7)
                 {
-                    anim.ResetTrigger("Suck");
-                    anim.SetTrigger("Release");
+                    if (other.transform.GetComponent<CapsuleCollider>())     //new
+                        _collider = other.transform.GetChild(0).gameObject.GetComponentInChildren<CapsuleCollider>();
                 }
-                
+                if (Input.GetMouseButton(1))
+                {
+
+
+                    other.transform.gameObject.GetComponent<Target>().isVacuum = true;
+                    VacuumTarget(other);
+                }
+                else /*if (Input.GetMouseButtonUp(1))*/
+                {
+                    if (other.transform.childCount > 1 && other.transform.GetComponentInChildren<CapsuleCollider>() && other.transform.GetChild(1).GetComponent<CapsuleCollider>())         //new
+                        other.transform.GetChild(1).gameObject.GetComponentInChildren<CapsuleCollider>().enabled = true;
+                    other.transform.gameObject.GetComponent<Target>().isVacuum = false;
+
+                    if (anim)
+                    {
+                        anim.ResetTrigger("Suck");
+                        anim.SetTrigger("Release");
+                    }
+
+                }
+                if (anim && anim.GetCurrentAnimatorStateInfo(0).IsName("ChickenNormal"))
+                {
+                    anim.speed = 1;
+                }
             }
-            if (anim && anim.GetCurrentAnimatorStateInfo(0).IsName("ChickenNormal"))
-            {
-                anim.speed = 1;
-            }
+
+
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.transform.gameObject.GetComponent<Target>())      //new change
-        //if (other.transform.CompareTag("Target"))
+        if (!UIScripts.instance.isTimeStop)     //have any UI, can not move
         {
-            anim = other.transform.gameObject.GetComponentInChildren<Animator>();
-            if (other.transform.childCount > 1 && other.transform.GetChild(1).TryGetComponent<CapsuleCollider>(out CapsuleCollider capsuleCollider)/*transform.GetComponentInChildren<CapsuleCollider>()*/)         //new
-                /* other.transform.GetChild(1).gameObject.GetComponentInChildren<CapsuleCollider>()*/capsuleCollider.enabled = true;
-            other.transform.gameObject.GetComponent<Target>().isVacuum = false;
-            if (anim)
+
+            if (other.transform.gameObject.GetComponent<Target>())      //new change
+                                                                        //if (other.transform.CompareTag("Target"))
             {
-                anim.ResetTrigger("Suck");
-                anim.SetTrigger("Release");
+                anim = other.transform.gameObject.GetComponentInChildren<Animator>();
+                if (other.transform.childCount > 1 && other.transform.GetChild(1).TryGetComponent<CapsuleCollider>(out CapsuleCollider capsuleCollider)/*transform.GetComponentInChildren<CapsuleCollider>()*/)         //new
+                    /* other.transform.GetChild(1).gameObject.GetComponentInChildren<CapsuleCollider>()*/
+                    capsuleCollider.enabled = true;
+                other.transform.gameObject.GetComponent<Target>().isVacuum = false;
+                if (anim)
+                {
+                    anim.ResetTrigger("Suck");
+                    anim.SetTrigger("Release");
+                }
+
             }
-        
+
         }
     }
 

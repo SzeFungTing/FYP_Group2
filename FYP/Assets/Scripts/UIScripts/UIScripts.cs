@@ -12,8 +12,14 @@ public class UIScripts : MonoBehaviour
     public GameObject shopUI;
     public GameObject backPackUI;
     public GameObject hotBarUI;
-    public GameObject buttonIndicationUI;
     public GameObject craftingUI;
+
+    GameObject buttonIndicationUI;
+
+    public GunVacuum gunVacuum;
+    public GunShooting gunShooting;
+
+    public bool isTimeStop = false;     //to pause playerMovement, shooting, inhale function
 
     private void Awake()
     {
@@ -46,7 +52,24 @@ public class UIScripts : MonoBehaviour
                 //else 
                 {
                     //Debug.Log("2");
-                    OpenUI(pauseUI); 
+                    //OpenUI(pauseUI); 
+                }
+
+                if(!((shopUI && shopUI.activeInHierarchy) || (backPackUI && backPackUI.activeInHierarchy) || (craftingUI && craftingUI.activeInHierarchy)))
+                {
+                    OpenUI(pauseUI);
+
+                }
+                else if((shopUI && shopUI.activeInHierarchy) || (backPackUI && backPackUI.activeInHierarchy) || (craftingUI && craftingUI.activeInHierarchy))
+                {
+                    if (shopUI.activeInHierarchy)
+                    {
+                        CloseUI(shopUI);
+                    }
+                    else if(craftingUI.activeInHierarchy)
+                    {
+                        CloseUI(craftingUI);
+                    }
                 }
             }
            
@@ -69,18 +92,23 @@ public class UIScripts : MonoBehaviour
                 CloseUI(settingUI);
             }
         }
+       
 
-        if (pauseUI.activeInHierarchy || settingUI.activeInHierarchy || SceneManager.GetActiveScene().name == "Start UI")
+        if (pauseUI.activeInHierarchy || settingUI.activeInHierarchy || SceneManager.GetActiveScene().name == "Start UI")       //pause the game time, game, lock mouse
         {
             //Debug.Log("8");
+            isTimeStop = true;
 
             Time.timeScale = 0;     //pause the game time
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
         }
-        else if((shopUI && shopUI.activeInHierarchy) || (backPackUI && backPackUI.activeInHierarchy) || (craftingUI && craftingUI.activeInHierarchy))
+        else if((shopUI && shopUI.activeInHierarchy) || (backPackUI && backPackUI.activeInHierarchy) || (craftingUI && craftingUI.activeInHierarchy))       //pause game, lock mouse , not pause game time
         {
             //Debug.Log("10");
+            //isTimeStop = true;
+            isTimeStop = false;
+
 
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
@@ -89,6 +117,7 @@ public class UIScripts : MonoBehaviour
         else                                             //if no UI
         {
             //Debug.Log("9");
+            isTimeStop = false;
 
             Time.timeScale = 1;     //start the game time
             Cursor.lockState = CursorLockMode.Locked;

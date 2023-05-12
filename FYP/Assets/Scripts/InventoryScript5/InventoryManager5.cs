@@ -11,9 +11,10 @@ public class InventoryManager5 : MonoBehaviour
     public GameObject inventoryItemPrefab;
     [HideInInspector]public GameObject inventoryUI;
     [HideInInspector] public GameObject hotBarUI;
-    public GunShooting gunShooting;
+    [HideInInspector] public GunShooting gunShooting;
 
     Transform hotBarPos;
+    Transform originalHotBarPos;
 
     //Synchronize Hot Bar
     //public InventorySlot5[] backpackHotbarSlots;
@@ -31,10 +32,14 @@ public class InventoryManager5 : MonoBehaviour
 
     private void Start()
     {
-        hotBarPos = inventoryUI.transform.GetChild(0);
 
         inventoryUI = UIScripts.instance.backPackUI;
         hotBarUI = UIScripts.instance.hotBarUI;
+        gunShooting = UIScripts.instance.gunShooting;
+
+        hotBarPos = inventoryUI.transform.GetChild(0);
+        originalHotBarPos = hotBarUI.transform;
+
 
         inventoryUI.SetActive(false);
         hotBarUI.SetActive(true);
@@ -43,11 +48,13 @@ public class InventoryManager5 : MonoBehaviour
 
     private void Update()
     {
+        if (!UIScripts.instance.isTimeStop)
+        {
+            ScrollWheelSelectedSlot();
+            ControlUI();
+        }
 
-        ScrollWheelSelectedSlot();
-      
-
-        ControlUI();
+        
         
         //if (inventoryUI.activeInHierarchy)
         //{
@@ -173,11 +180,11 @@ public class InventoryManager5 : MonoBehaviour
     void ScrollWheelSelectedSlot()
     {
         //use mouseScroll to change the SelectedSlot
-        if (Input.GetAxis("Mouse ScrollWheel") < 0)
+        if (Input.GetAxis("Mouse ScrollWheel") > 0)
         {
             hotBarNumber++;
         }
-        else if (Input.GetAxis("Mouse ScrollWheel") > 0)
+        else if (Input.GetAxis("Mouse ScrollWheel") < 0)
         {
             hotBarNumber--;
         }
@@ -202,7 +209,8 @@ public class InventoryManager5 : MonoBehaviour
                 //SynchronizeHotBar();
                 hotBarUI.transform.position = /*new Vector3(Screen.width / 2, (inventorySlots[4].transform.position.y)+50, 0.5400000214576721f)*/hotBarPos.position;     //up
                 hotBarUI.transform.localScale = new Vector3(0.7f, 0.7f, 0.7f);
-                
+
+                Debug.Log("open backpack");
             }
             else                //close backpack
             {
@@ -211,6 +219,9 @@ public class InventoryManager5 : MonoBehaviour
                 //inventoryUI.SetActive(false);
                 //hotBarUI.transform.position = new Vector3(959.9999389648438f, 90.0f, 0.5400000214576721f);      //down
                 //hotBarUI.transform.localScale = new Vector3(1f, 1f, 1f);
+                Debug.Log("close backpack");
+
+
                 CloseUI();
             }
         }
@@ -221,7 +232,7 @@ public class InventoryManager5 : MonoBehaviour
         isOpenBackpack = false;
         gunShooting.enabled = true;
         inventoryUI.SetActive(false);
-        hotBarUI.transform.position = new Vector3(Screen.width / 2, Screen.height * 90.0f/1080, 0.5400000214576721f);      //down
+        hotBarUI.transform.position = new Vector3(Screen.width / 2, Screen.height * 90.0f/1080, 0);      //down
         hotBarUI.transform.localScale = new Vector3(1f, 1f, 1f);
     }
 }

@@ -13,10 +13,10 @@ public class MouseLook : MonoBehaviour
     public bool lockCursor = true;
     bool lockViewMoving = false;
 
-    [SerializeField] GameObject pauseUI;
-    [SerializeField] GameObject settingUI;
-    [SerializeField] GameObject shopUI;
-    [SerializeField] GameObject backPackUI;
+    GameObject pauseUI;
+    GameObject settingUI;
+    GameObject shopUI;
+    GameObject backPackUI;
     GameObject craftingSystemUI;
 
     // Start is called before the first frame update

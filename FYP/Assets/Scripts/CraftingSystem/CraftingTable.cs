@@ -113,13 +113,13 @@ public class CraftingTable : MonoBehaviour
 
 
 
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            foreach (GameObject go in consumeItemGameObjectList)
-                Debug.Log("consumeItemGameObjectList: " + go);
-            foreach (Item5 item in inputItemList)
-                Debug.Log("inputItemList: " + item);
-        }
+        //if (Input.GetKeyDown(KeyCode.P))
+        //{
+        //    foreach (GameObject go in consumeItemGameObjectList)
+        //        Debug.Log("consumeItemGameObjectList: " + go);
+        //    foreach (Item5 item in inputItemList)
+        //        Debug.Log("inputItemList: " + item);
+        //}
     }
 
 
