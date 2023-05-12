@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.UI;
@@ -12,6 +13,9 @@ public class NetworkPlayerMovement : NetworkBehaviour
 
     bool isWalking;
     bool isGrounded;
+    bool isRan;
+    bool isJumped;
+    bool isCrounched;
     public float walkSpeed;
     public float sprintSpeed;
 
@@ -51,7 +55,7 @@ public class NetworkPlayerMovement : NetworkBehaviour
     public Animator characterAnim;
 
     public Image FillBar;
-    public ShopManager shopManager;
+    //public ShopManager shopManager;
 
     Camera _camera;
 
@@ -69,6 +73,17 @@ public class NetworkPlayerMovement : NetworkBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        string currentSceneName = SceneManager.GetActiveScene().name;
+        Transform transform = GetComponent<Transform>();
+        if (currentSceneName == "Volcano")
+        {
+            float scaleAmount = 10.0f;
+            transform.localScale *= scaleAmount;
+            walkSpeed = 25;
+            jumpForce = 25;
+            crouchSpeed = 10;
+            sprintSpeed = 35;
+        }
         startYScale = transform.localScale.y;
         _camera = GetComponentInChildren<Camera>();
     }
@@ -103,7 +118,7 @@ public class NetworkPlayerMovement : NetworkBehaviour
             HandleMovementInput();
             ApplyFinalMovements();
             StateHandles();
-            CrouchScale();
+            //CrouchScale();
             SlideOnSlope();
             FootStep();
 
@@ -113,7 +128,7 @@ public class NetworkPlayerMovement : NetworkBehaviour
             }
         }
 
-        if (shopManager && (shopManager.Jetpack && shopManager.Jetpack.activeInHierarchy))
+        if (ShopManager.instance.haveJetpack)
         {
             FillBar.fillAmount = MaxForce;
 
@@ -121,6 +136,7 @@ public class NetworkPlayerMovement : NetworkBehaviour
             {
                 if (Input.GetKeyDown(KeyCode.Space))
                 {
+                    isJumped = true;
                     clickTime = Time.time;
                 }
 
@@ -186,13 +202,46 @@ public class NetworkPlayerMovement : NetworkBehaviour
     void HandleMovementInput()
     {
         currectInput = new Vector2(walkSpeed * Input.GetAxis("Vertical"), walkSpeed * Input.GetAxis("Horizontal"));
-        characterAnim.SetBool("isWalked", true);
+        if (isRan)
+        {
+            characterAnim.SetBool("isRan", true);
+            if (currectInput.x != 0 || currectInput.y != 0)
+            {
+                characterAnim.SetBool("isWalked", true);
+            }
+            else
+                characterAnim.SetBool("isWalked", false);
+        }
+
+        else if (isCrounched)
+        {
+            characterAnim.SetBool("isCrounched", true);
+            //characterAnim.SetBool("isWalked", false);
+            if (currectInput.x != 0 || currectInput.y != 0)
+            {
+                characterAnim.SetBool("isWalked", true);
+            }
+            else
+                characterAnim.SetBool("isWalked", false);
+        }
+
+        else
+        {
+            characterAnim.SetBool("isWalked", true);
+            characterAnim.SetBool("isRan", false);
+        }
+            //characterAnim.SetBool("isWalked", true);
 
         isWalking = true;
         if (currectInput.x == 0 && currectInput.y == 0)
         {
             isWalking = false;
-            characterAnim.SetBool("isWalked", false);
+            if (isRan)
+                characterAnim.SetBool("isRan", false);
+            else if (isCrounched)
+                characterAnim.SetBool("isCrounched", false);
+            else
+                characterAnim.SetBool("isWalked", false);
         }
 
         float moveDirectionY = moveDirection.y;
@@ -200,6 +249,7 @@ public class NetworkPlayerMovement : NetworkBehaviour
         moveDirection.y = moveDirectionY;
         if (!isSliding && !isflying)
         {
+            isJumped = true;
             Jump();
         }
     }
@@ -219,7 +269,11 @@ public class NetworkPlayerMovement : NetworkBehaviour
         {
             controller.Move(moveDirection * Time.deltaTime);
 
-            gravity = -9.8f;
+            string currentSceneName = SceneManager.GetActiveScene().name;
+            if (currentSceneName == "Volcano")
+                gravity = -10f;
+            else
+                gravity = -9.8f;
         }
         else
         {
@@ -231,7 +285,13 @@ public class NetworkPlayerMovement : NetworkBehaviour
     {
         if (Input.GetButtonDown("Jump") && controller.isGrounded)
         {
+            if (isJumped)
+            {
+                characterAnim.SetTrigger("isJumped");
+            }
+
             moveDirection.y = jumpForce;
+            isJumped = false;
         }
     }
 
@@ -252,13 +312,21 @@ public class NetworkPlayerMovement : NetworkBehaviour
     {
         if (controller.isGrounded && Input.GetKey(crouchKey))
         {
+            isCrounched = true;
             state = MovementState.crouching;
             walkSpeed = crouchSpeed;
+            characterAnim.SetBool("isCrounched", true);
+        }
+        else if (Input.GetKeyUp(sprintKey))
+        {
+            isRan = false;
         }
         else if (controller.isGrounded && Input.GetKey(sprintKey))
         {
+            isRan = true;
             state = MovementState.sprinting;
             walkSpeed = sprintSpeed;
+            characterAnim.SetBool("isRan", true);
         }
         else if (controller.isGrounded && isWalking)
         {
@@ -267,7 +335,11 @@ public class NetworkPlayerMovement : NetworkBehaviour
         }
         else if (controller.isGrounded)
         {
+            isCrounched = false;
+            isRan = false;
             state = MovementState.standing;
+            characterAnim.SetBool("isRan", false);
+            characterAnim.SetBool("isCrounched", false);
         }
         else
         {
