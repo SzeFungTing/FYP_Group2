@@ -173,11 +173,11 @@ public class InventoryManager5 : MonoBehaviour
     void ScrollWheelSelectedSlot()
     {
         //use mouseScroll to change the SelectedSlot
-        if (Input.GetAxis("Mouse ScrollWheel") > 0)
+        if (Input.GetAxis("Mouse ScrollWheel") < 0)
         {
             hotBarNumber++;
         }
-        else if (Input.GetAxis("Mouse ScrollWheel") < 0)
+        else if (Input.GetAxis("Mouse ScrollWheel") > 0)
         {
             hotBarNumber--;
         }
