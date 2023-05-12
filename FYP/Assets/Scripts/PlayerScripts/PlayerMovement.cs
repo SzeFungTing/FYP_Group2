@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -69,6 +70,18 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        string currentSceneName = SceneManager.GetActiveScene().name;
+        Transform transform = GetComponent<Transform>();
+        if (currentSceneName == "Volcano")
+        {
+            float scaleAmount = 10.0f;
+           transform.localScale *= scaleAmount;
+            walkSpeed = 25;
+            jumpForce = 25;
+            crouchSpeed = 10;
+            sprintSpeed = 35;
+        }
+
         startYScale = transform.localScale.y;
     }
 
@@ -232,7 +245,11 @@ public class PlayerMovement : MonoBehaviour
         {
             controller.Move(moveDirection * Time.deltaTime);
 
-            gravity = -9.8f;
+            string currentSceneName = SceneManager.GetActiveScene().name;
+            if (currentSceneName == "Volcano")
+                gravity = -10f;
+            else
+                gravity = -9.8f;
         }
         else
         {
