@@ -75,17 +75,6 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //jump
-        //if (!isJumped)
-        //{
-        //    if (Input.GetKeyDown(KeyCode.Space))
-        //    isJumped = true;
-        //}
-
-
-        //if (isJumped)
-        //    Jump();       
-
         isGrounded = Physics.Raycast(transform.position, Vector3.down, controller.height / 2 + 0.1f);
 
         if (isSwimming)
@@ -194,10 +183,12 @@ public class PlayerMovement : MonoBehaviour
         {
             characterAnim.SetBool("isCrounched", true);
             //characterAnim.SetBool("isWalked", false);
-            if (currectInput.x !=0 && currectInput.y != 0)
+            if (currectInput.x !=0 || currectInput.y != 0)
             {
                 characterAnim.SetBool("isWalked", true);
             }
+            else
+                characterAnim.SetBool("isWalked", false);
         }
             
         else
@@ -260,22 +251,21 @@ public class PlayerMovement : MonoBehaviour
 
             moveDirection.y = jumpForce;
             isJumped = false;
-            Debug.Log("Jump");
         }
     }
 
-    //void CrouchScale()
-    //{
-    //    if (Input.GetKeyDown(crouchKey))
-    //    {
-    //        transform.localScale = new Vector3(transform.localScale.x, crouchScale, transform.localScale.z);
-    //    }
+    void CrouchScale()
+    {
+        if (Input.GetKeyDown(crouchKey))
+        {
+            transform.localScale = new Vector3(transform.localScale.x, crouchScale, transform.localScale.z);
+        }
 
-    //    if (Input.GetKeyUp(crouchKey))
-    //    {
-    //        transform.localScale = new Vector3(transform.localScale.x, startYScale, transform.localScale.z);
-    //    }
-    //}
+        if (Input.GetKeyUp(crouchKey))
+        {
+            transform.localScale = new Vector3(transform.localScale.x, startYScale, transform.localScale.z);
+        }
+    }
 
     void StateHandles()
     {
