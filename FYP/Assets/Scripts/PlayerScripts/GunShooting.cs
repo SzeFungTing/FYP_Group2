@@ -33,11 +33,20 @@ public class GunShooting : MonoBehaviour
     {
         //gunPos = this.transform;
 
-
-        if (Input.GetButtonDown("Fire1"))
+        if (!UIScripts.instance.isTimeStop)     //have any UI, can not move
         {
-            Shoot();
+            if(!UIScripts.instance.backPackUI.activeInHierarchy && !UIScripts.instance.shopUI.activeInHierarchy && !UIScripts.instance.craftingUI.activeInHierarchy)
+            {
+                if (Input.GetButtonDown("Fire1"))
+                {
+                    Debug.Log("shot");
+                    Shoot();
+                }
+            }
+          
+
         }
+       
     }
 
     //public void SetInventory(Inventory2 inventory)

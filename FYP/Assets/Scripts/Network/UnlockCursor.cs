@@ -25,6 +25,5 @@ public class UnlockCursor : MonoBehaviour
     {
         UI.SetActive(true);
         NetworkUI.SetActive(false);
-        Debug.Log("A");
     }
 }

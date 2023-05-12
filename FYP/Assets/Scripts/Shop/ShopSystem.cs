@@ -7,6 +7,7 @@ public class ShopSystem : MonoBehaviour
 {
 
     public GameObject drone;
+    public Transform dronePosition;
     GameObject shopUI;
 
     Animator Anim_Drone;
@@ -75,7 +76,7 @@ public class ShopSystem : MonoBehaviour
 
                     //spawnOffset.x -= 0.7f;
                     //spawnOffset.z += 3.39f;
-                    drone.transform.position = /*spawnOffset*/transform.GetChild(4).position;
+                    drone.transform.position = /*spawnOffset*//*transform.GetChild(4).position*/dronePosition.position;
                     //Debug.Log("drone.transform.position: " + drone.transform.position);
 
                     //isUIOpened = true;
@@ -99,7 +100,7 @@ public class ShopSystem : MonoBehaviour
         UIScripts.instance.hotBarUI.SetActive(true);
 
         shopUI.SetActive(false);
-        if(!ShopManager.instance.isBought)
+        if(ShopManager.instance && !ShopManager.instance.isBought)
             drone.SetActive(false);
 
         isUIOpened = false;
