@@ -189,7 +189,12 @@ public class PlayerMovement : MonoBehaviour
         if (isRan)
         {
             characterAnim.SetBool("isRan", true);
-            characterAnim.SetBool("isWalked", false);
+            if (currectInput.x != 0 || currectInput.y != 0)
+            {
+                characterAnim.SetBool("isWalked", true);
+            }
+            else
+                characterAnim.SetBool("isWalked", false);
         }
             
         else if (isCrounched)
@@ -205,7 +210,11 @@ public class PlayerMovement : MonoBehaviour
         }
             
         else
+        {
             characterAnim.SetBool("isWalked", true);
+            characterAnim.SetBool("isRan", false);
+        }
+            //characterAnim.SetBool("isWalked", true);
 
 
         isWalking = true;
@@ -292,6 +301,10 @@ public class PlayerMovement : MonoBehaviour
             state = MovementState.crouching;
             walkSpeed = crouchSpeed;
             characterAnim.SetBool("isCrounched", true);
+        }
+        else if (Input.GetKeyUp(sprintKey))
+        {
+            isRan = false;
         }
         else if (controller.isGrounded && Input.GetKey(sprintKey))
         {
