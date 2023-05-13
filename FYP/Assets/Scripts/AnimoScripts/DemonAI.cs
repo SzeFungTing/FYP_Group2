@@ -253,6 +253,7 @@ public class DemonAI : MonoBehaviour
             if (other.tag == "Player")
             {
                 //attack player
+                _ = other.GetComponent<PlayerMovement>().playerHP - 5;
                 Debug.Log("attack");
 
                 AudioSource.PlayClipAtPoint(attack, transform.position);
