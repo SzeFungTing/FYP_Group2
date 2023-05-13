@@ -54,6 +54,10 @@ public class PlayerMovement : MonoBehaviour
     public Animator characterAnim;
 
     public Image FillBar;
+
+    public ParticleSystem LeftJetpackFlame;
+    public ParticleSystem RightJetpackFlame;
+
     //public ShopManager shopManager;
 
     public MovementState state;
@@ -172,12 +176,15 @@ public class PlayerMovement : MonoBehaviour
                 UseJetPack();
                 isflying = true;
                 Rigidbody.useGravity = false;
+                LeftJetpackFlame.Play();
+                RightJetpackFlame.Play();
             }
             else
             {
-
                 isflying = false;
                 Rigidbody.useGravity = true;
+                LeftJetpackFlame.Stop();
+                RightJetpackFlame.Stop();
             }
         }
     }
