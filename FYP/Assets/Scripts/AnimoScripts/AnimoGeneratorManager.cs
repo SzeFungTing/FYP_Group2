@@ -47,6 +47,7 @@ public class AnimoGeneratorManager : MonoBehaviour
                     {
                         int ranGenNum = Random.Range(1, generateNum + 1);
                         ag[i].Generate(ranGenNum);
+                        Debug.Log("gen");
                     }
                 }
 

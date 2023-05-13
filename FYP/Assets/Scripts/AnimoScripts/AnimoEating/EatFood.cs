@@ -10,7 +10,7 @@ public class EatFood : MonoBehaviour
     float time/*,Ftime*/;
     public GameObject FajroCore;
     public GameObject Food;
-    Vector3 offset;                         //the fajrpCore spwan point
+    Vector3 offset;                         //the fajroCore spwan point
 
     Vector3 foodScaleChange;                    //the food scale change after Animo ate
     public float foodScaleChangeValue = 0.3f;

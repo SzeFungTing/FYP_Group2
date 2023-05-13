@@ -41,7 +41,7 @@ public class ShopManager : MonoBehaviour
 
 
 
-    //float timer = 0f;
+ 
 
     // Start is called before the first frame update
     void Start()
@@ -56,7 +56,7 @@ public class ShopManager : MonoBehaviour
         itemPlane = shopUI.transform.GetChild(1).GetChild(3).GetChild(0).GetChild(0);
 
         Anim_Drone = ShootingP.GetComponent<Animator>();
-        //Jetpack.SetActive(false);
+        Jetpack.SetActive(false);
 
         CoinsTXT.text = "Coins: $" + /*coins*/MoneyManager.instance.coins.ToString();
 
@@ -95,24 +95,34 @@ public class ShopManager : MonoBehaviour
     float emitInterval = 0.5f;
     #endregion
 
+    float resetTime = 600f;
+    float currentTimer = 600f;
+
     public void Update()
     {
-        if (Input.GetKeyDown(KeyCode.R))
+        //if (Input.GetKeyDown(KeyCode.R))
+        //{
+        //    ResetSellingItems();
+        //}
+        currentTimer -= Time.deltaTime;
+        if(currentTimer <= 0)
         {
             ResetSellingItems();
+            currentTimer = resetTime;
         }
 
 
-            if (isBought)
+
+        if (isBought)
         {
 
             if (purchasingIdx < purchaseList.Count)
             {
 
 
-                if (((Anim_Drone.GetCurrentAnimatorStateInfo(0).IsName("Rotate") && Anim_Drone.GetCurrentAnimatorStateInfo(0).normalizedTime > 1) 
-                    || Anim_Drone.GetCurrentAnimatorStateInfo(0).IsName("BladeRotation")) 
-                    && Time.time > emitTime+ emitInterval)         //check animation end?, Instantiate ther
+                if (((Anim_Drone.GetCurrentAnimatorStateInfo(0).IsName("Rotate") && Anim_Drone.GetCurrentAnimatorStateInfo(0).normalizedTime > 1)
+                    || Anim_Drone.GetCurrentAnimatorStateInfo(0).IsName("BladeRotation"))
+                    && Time.time > emitTime + emitInterval)         //check animation end?, Instantiate ther
                 {
 
 
@@ -120,9 +130,9 @@ public class ShopManager : MonoBehaviour
                     //Debug.Log("spawn, normalized time:"+ Anim_Drone.GetCurrentAnimatorStateInfo(0).normalizedTime);
                     GameObject stuff = Instantiate(purchaseList[purchasingIdx++], ShootingP.position, Random.rotation);
 
-                stuff.GetComponent<Rigidbody>().velocity = ShootingP.up * Speed;
-                emitTime = Time.time;
-                    
+                    stuff.GetComponent<Rigidbody>().velocity = ShootingP.up * Speed;
+                    emitTime = Time.time;
+
 
 
                 }
@@ -131,9 +141,9 @@ public class ShopManager : MonoBehaviour
             {
 
                 purchaseList = new List<GameObject>();
-                if(Anim_Drone)
+                if (Anim_Drone)
                     Anim_Drone.SetBool("is_Shooted", false);
-                
+
                 isBought = false;
                 if (!shopUI.activeInHierarchy /*&& Anim_Drone.GetCurrentAnimatorStateInfo(0).IsName("StartBladeRotation")*/)
                 {
