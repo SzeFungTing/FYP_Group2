@@ -17,6 +17,14 @@ public class Target : MonoBehaviour
     Quaternion startRotation;
     float time;
 
+    private void Awake()
+    {
+        if (SceneManager.GetActiveScene().name == "Volcano")
+        {
+            transform.localScale *= 10;
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -46,7 +54,7 @@ public class Target : MonoBehaviour
             Destroy(gameObject);
         }
 
-        if (SceneManager.GetActiveScene().name == "BlackForest")
+        if (SceneManager.GetActiveScene().name == "BlackForest" || SceneManager.GetActiveScene().name == "Volcano")
         {
             if (gameObject.transform.position.y > maxHeightForTallScene)   //delete target when fly too high
             {
