@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Lava2_Blue
-  m_Shader: {fileID: -6465566751694194690, guid: 950a349004690314ea939b087c256132, type: 3}
+  m_Name: Crystal_pink
+  m_Shader: {fileID: -6465566751694194690, guid: d6d80ac5c5b6368488dcda3049e29aec, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -33,15 +33,13 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - FlowSpeed: 0.2
-    - FoamDensity: 6.98
-    - FoamSpeed: 0.11
-    - FoamThickness: 6.92
-    - MaxHeight: 0.5
-    - WaveHeight: -4.88
-    - WaveSpread: 5.97
+    - BottomLine: 0.86
+    - Metallic: 0.77
+    - Smoothness: 0.1
+    - TopLine: 0.83
+    - Transparent: 1
     m_Colors:
-    - FlowDirection: {r: 0.18, g: 1.2, b: 0, a: 0}
-    - FoamColor: {r: 3.2875628, g: 24.150938, b: 24.150948, a: 0.8392157}
-    - _Color: {r: 0.07058822, g: 0.56078434, b: 0.498037, a: 0}
+    - BaseColor: {r: 0.87058824, g: 0.3647059, b: 0.48696205, a: 1}
+    - BottomColor: {r: 51.377876, g: 0, b: 14.525682, a: 1}
+    - TopColor: {r: 36.329643, g: 11.222245, b: 26.058435, a: 1}
   m_BuildTextureStacks: []
