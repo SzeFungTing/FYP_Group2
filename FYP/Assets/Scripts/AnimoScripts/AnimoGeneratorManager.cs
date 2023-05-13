@@ -9,7 +9,7 @@ public class AnimoGeneratorManager : MonoBehaviour
     float countDown = 0.0f;
 
     [SerializeField] int maxNum = 30;
-    [SerializeField] AnimoGenerator ag;
+    [SerializeField] AnimoGenerator[] ag;
     [SerializeField] float cooldown = 300.0f;
     [SerializeField] int generateNum = 5;
 
@@ -43,8 +43,11 @@ public class AnimoGeneratorManager : MonoBehaviour
 
                 if (animoCount <= maxNum)
                 {
-                    int ranGenNum = Random.Range(1, generateNum + 1);
-                    ag.Generate(ranGenNum);
+                    for (int i = 0; i < ag.Length; i++)
+                    {
+                        int ranGenNum = Random.Range(1, generateNum + 1);
+                        ag[i].Generate(ranGenNum);
+                    }
                 }
 
                 canGenerate = false;

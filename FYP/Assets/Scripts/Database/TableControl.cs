@@ -28,10 +28,10 @@ public class TableControl : MonoBehaviour
         BackpackConnection.CreateTable<BackpackTable>();
 
         AnimoConnection = new SQLiteConnection(Application.streamingAssetsPath + "/AnimoTable.db", SQLiteOpenFlags.ReadWrite | SQLiteOpenFlags.Create);
-        AnimoConnection.CreateTable<AnimoTable>();
+        AnimoConnection.CreateTable<AnimoTable>(CreateFlags.ImplicitPK | CreateFlags.AutoIncPK);
 
         BuildingConnection = new SQLiteConnection(Application.streamingAssetsPath + "/BuildingTable.db", SQLiteOpenFlags.ReadWrite | SQLiteOpenFlags.Create);
-        BuildingConnection.CreateTable<BuildingTable>();
+        BuildingConnection.CreateTable<BuildingTable>(CreateFlags.ImplicitPK | CreateFlags.AutoIncPK);
 
         PuzzleConnection = new SQLiteConnection(Application.streamingAssetsPath + "/PuzzleTable.db", SQLiteOpenFlags.ReadWrite | SQLiteOpenFlags.Create);
         PuzzleConnection.CreateTable<PuzzleTable>();
@@ -60,18 +60,22 @@ public class TableControl : MonoBehaviour
                 currentMap = 0;
                 break;
         }
+
+        TestInsertAnimo();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Z))
+        if (Input.GetKeyDown(KeyCode.Z))    //save
         {
             PlayerConnection.DeleteAll<PlayerTable>();
             InsertPlayerData(player);
+
             BackpackConnection.DeleteAll<BackpackTable>();
             InsertAllBackpackData();
-            AnimoConnection.DeleteAll<AnimoTable>();
+
+            AnimoConnection.Delete(AnimoConnection.Table<AnimoTable>().Where(_ => _.MapId == currentMap));
             Animo[] animos = FindObjectsOfType<Animo>();
             GameObject[] animoObjs = new GameObject[animos.Length];
             for (int i = 0; i < animos.Length; i++)
@@ -79,8 +83,18 @@ public class TableControl : MonoBehaviour
                 animoObjs[i] = animos[i].gameObject;
             }
             InsertAllAnimoData(animoObjs);
+
+            //BuildingConnection.Delete(BuildingConnection.Table<BuildingTable>().Where(_ => _.MapId == currentMap));
+            PlaceableObject[] buildings = FindObjectsOfType<PlaceableObject>();
+            GameObject[] buildingObjs = new GameObject[buildings.Length];
+            for (int i = 0; i < buildings.Length; i++)
+            {
+                buildingObjs[i] = buildings[i].gameObject;
+            }
+            InsertAllBuildingData(buildingObjs);
         }
-        if (Input.GetKeyDown(KeyCode.X))
+
+        if (Input.GetKeyDown(KeyCode.X))    //load
         {
             var playerData = GetPlayerData();
             foreach (var p in playerData)
@@ -107,7 +121,13 @@ public class TableControl : MonoBehaviour
             foreach (var a in animoData)
             {
                 //Debug.Log("animo: " + ItemDictionary.instance.GetItem(a.Id).GetItemPrefab());
-                Instantiate(ItemDictionary.instance.GetItem(a.Id).objectPrefab, new Vector3(a.PosX, a.PosY, a.PosZ), Quaternion.identity);
+                Instantiate(ItemDictionary.instance.GetItem(a.AnimoId).objectPrefab, new Vector3(a.PosX, a.PosY, a.PosZ), Quaternion.identity);
+            }
+
+            var buildingData = GetBuildingData();
+            foreach (var b in buildingData)
+            {
+                Instantiate(ItemDictionary.instance.GetItem(b.BuildingId).objectPrefab, new Vector3(b.PosX, b.PosY, b.PosZ), new Quaternion(0, b.Rotation, 0, 0));
             }
         }
     }
@@ -197,7 +217,7 @@ public class TableControl : MonoBehaviour
         {
             var at = new AnimoTable
             {
-                Id = animos[i].GetComponent<WorldItem>().GetItemId(),
+                AnimoId = animos[i].GetComponent<WorldItem>().GetItemId(),
                 PosX = animos[i].transform.position.x,
                 PosY = animos[i].transform.position.y,
                 PosZ = animos[i].transform.position.z,
@@ -234,10 +254,11 @@ public class TableControl : MonoBehaviour
         {
             var bt = new BuildingTable
             {
-                Id = buildings[i].GetComponent<WorldItem>().GetItemId(),
+                BuildingId = buildings[i].GetComponent<WorldItem>().GetItemId(),
                 PosX = buildings[i].transform.position.x,
                 PosY = buildings[i].transform.position.y,
                 PosZ = buildings[i].transform.position.z,
+                Rotation = buildings[i].transform.rotation.y,
                 MapId = mapId
             };
             AnimoConnection.Insert(bt);
@@ -313,5 +334,20 @@ public class TableControl : MonoBehaviour
     {
         var data = MarketConnection.Table<MarketTable>();
         return data;
+    }
+
+    public void TestInsertAnimo()
+    {
+        var at = new AnimoTable
+        {
+            AnimoId = 16,
+            PosX = 5f,
+            PosY = 5f,
+            PosZ = 5f,
+            IsHungry = true,
+            MapId = currentMap
+        };
+        AnimoConnection.Insert(at);
+        
     }
 }
