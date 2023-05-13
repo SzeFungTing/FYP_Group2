@@ -5561,6 +5561,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: a57cc511d7a451b49a57e48526d83074, type: 3}
   - {fileID: 8300000, guid: 8e403c6090d455046a48452235fc6beb, type: 3}
   - {fileID: 8300000, guid: 21ae992ca5a84eb44bab2ed6c69c09db, type: 3}
+  killTime: 600
 --- !u!114 &8686401064657399141
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5636,7 +5637,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isVacuum: 0
-  maxHeight: 80
+  maxHeight: 150
+  maxHeightForTallScene: 750
 --- !u!114 &2607202707443839344
 MonoBehaviour:
   m_ObjectHideFlags: 0

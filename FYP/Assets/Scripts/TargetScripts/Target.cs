@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Target : MonoBehaviour
 {
     public bool isVacuum = false;
     public float maxHeight = 80f;
+    public float maxHeightForTallScene = 450f;
 
     //private Rigidbody rb;
     private Vector3 originalScale;
@@ -14,6 +16,14 @@ public class Target : MonoBehaviour
 
     Quaternion startRotation;
     float time;
+
+    private void Awake()
+    {
+        if (SceneManager.GetActiveScene().name == "Volcano")
+        {
+            transform.localScale *= 10;
+        }
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -44,9 +54,20 @@ public class Target : MonoBehaviour
             Destroy(gameObject);
         }
 
-        if (gameObject.transform.position.y > maxHeight)   //delete target when fly too high
+        if (SceneManager.GetActiveScene().name == "BlackForest" || SceneManager.GetActiveScene().name == "Volcano")
         {
-            Destroy(gameObject);
+            if (gameObject.transform.position.y > maxHeightForTallScene)   //delete target when fly too high
+            {
+                Destroy(gameObject);
+            }
         }
+        else
+        {
+            if (gameObject.transform.position.y > maxHeight)   //delete target when fly too high
+            {
+                Destroy(gameObject);
+            }
+        }
+
     }
 }

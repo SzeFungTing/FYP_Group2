@@ -432,6 +432,7 @@ MonoBehaviour:
   originalZRotation: 0
   rotateSpeed: 1
   wonderingSounds: []
+  killTime: 600
 --- !u!114 &6592153563320732557
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -515,7 +516,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isVacuum: 0
-  maxHeight: 80
+  maxHeight: 150
+  maxHeightForTallScene: 750
 --- !u!114 &6592153563320732553
 MonoBehaviour:
   m_ObjectHideFlags: 0

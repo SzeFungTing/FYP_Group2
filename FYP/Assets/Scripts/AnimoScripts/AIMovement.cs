@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class AIMovement : MonoBehaviour
 {
@@ -30,6 +31,16 @@ public class AIMovement : MonoBehaviour
     //private GameObject closestFood;
 
     Rigidbody rb;
+
+    private void Awake()
+    {
+        if (SceneManager.GetActiveScene().name == "Volcano")
+        {
+            movementSpeed *= 10;
+            findFoodDistance *= 5;
+            flySpeed *= 10;
+        }
+    }
 
     // Start is called before the first frame update
     void Start()

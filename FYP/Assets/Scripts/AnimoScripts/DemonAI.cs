@@ -54,7 +54,7 @@ public class DemonAI : MonoBehaviour
         closestPlayer = FindClosestPlayer();
         Debug.Log("hvPlayer: " + hvPlayer);
 
-        if (!isWandering)
+        if (!isWandering && !hvPlayer)
         {
             StartCoroutine(Wander());
         }
@@ -68,6 +68,12 @@ public class DemonAI : MonoBehaviour
         {
             StopCoroutine(Wander());
             StartCoroutine(Attack());
+        }
+
+        if (!hvPlayer && isAttacking)
+        {
+            StopCoroutine(Attack());
+            StartCoroutine(Wander());
         }
 
         //if (distanceWithPlayer <= 5f)
