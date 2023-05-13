@@ -14,7 +14,7 @@ OcclusionCullingSettings:
 RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
-  m_Fog: 0
+  m_Fog: 1
   m_FogColor: {r: 0.2867034, g: 0.7002776, b: 0.8584906, a: 1}
   m_FogMode: 1
   m_FogDensity: 0.001
@@ -2711,6 +2711,24 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: ee91ab9d1d2067d4ea05814bc0abacea, type: 3}
   m_PrefabInstance: {fileID: 167991910}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &171666867 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5252682845850649624, guid: 27304b835c7b35b46afbfaea3e488515, type: 3}
+  m_PrefabInstance: {fileID: 744976248}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &171666868
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 171666867}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.0000002, y: 2.0000002, z: 72.40001}
+  m_Center: {x: -0.00000034570692, y: 0.000030517578, z: 35.200005}
 --- !u!1001 &183590748
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4166,6 +4184,7 @@ MonoBehaviour:
   LeftJetpackFlame: {fileID: 0}
   RightJetpackFlame: {fileID: 0}
   state: 4
+  playerHP: 100
 --- !u!136 &299545322
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -8445,6 +8464,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3bd4eefef6f05ab4a8ad97c4cf13848f, type: 3}
+--- !u!1 &810697516 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6014503084441653313, guid: 27304b835c7b35b46afbfaea3e488515, type: 3}
+  m_PrefabInstance: {fileID: 744976248}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &810697520
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 810697516}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.9999999, y: 2, z: 2}
+  m_Center: {x: 0.00000047683716, y: -0.0000076293945, z: 0}
 --- !u!1001 &819571512
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8772,10 +8809,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -3195828791156449804, guid: 5ad8ae510df4f194b84b92d62060a983, type: 3}
+      propertyPath: m_Materials.Array.data[4]
+      value: 
+      objectReference: {fileID: 2100000, guid: 2444ae366818f5c4ca9a56e5e1bec075, type: 2}
     - target: {fileID: 919132149155446097, guid: 5ad8ae510df4f194b84b92d62060a983, type: 3}
       propertyPath: m_Name
       value: Train Station (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5008022236170083033, guid: 5ad8ae510df4f194b84b92d62060a983, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 2444ae366818f5c4ca9a56e5e1bec075, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5ad8ae510df4f194b84b92d62060a983, type: 3}
 --- !u!4 &864163264 stripped
