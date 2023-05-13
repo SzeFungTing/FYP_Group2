@@ -39,18 +39,32 @@ public class CraftingTable : MonoBehaviour
 
     [SerializeField] AudioClip inhaleSound, emitSound;
 
+    Button nextBtn, startBtn;
+
     private void Awake()
     {
+        //craftingUI = UIScripts.instance.craftingUI;
+        //previewCraftingUI = transform.GetChild(/*0*/3).GetChild(0).gameObject;
+        //displayList = new List<Transform>();
+        //previewDisplayList = new List<Transform>();
+
+        //NextRecipe();
+    }
+
+    private void Start()
+    {
         craftingUI = UIScripts.instance.craftingUI;
+        nextBtn = craftingUI.transform.GetChild(3).gameObject.GetComponent<Button>();
+        startBtn = craftingUI.transform.GetChild(4).gameObject.GetComponent<Button>();
+        nextBtn.onClick.AddListener(NextRecipe);
+        startBtn.onClick.AddListener(Craft);
+
+
         previewCraftingUI = transform.GetChild(/*0*/3).GetChild(0).gameObject;
         displayList = new List<Transform>();
         previewDisplayList = new List<Transform>();
 
         NextRecipe();
-    }
-
-    private void Start()
-    {
 
         animator = transform.GetComponent<Animator>();
         //animator.SetBool("OpenInputMaterialDoor", true);
@@ -125,6 +139,7 @@ public class CraftingTable : MonoBehaviour
 
     public void NextRecipe()
     {
+        //Debug.Log("NextRecipe");
         if (craftingRecipeSO == null)
         {
             craftingRecipeSO = craftingRecipeSOList[0];

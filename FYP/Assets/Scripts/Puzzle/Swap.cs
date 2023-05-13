@@ -25,35 +25,44 @@ public class Swap : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other == other.CompareTag("Player"))
+        Debug.Log("enter secen");
+        Debug.Log(transform.name);
+        if (other.CompareTag("Player"))
+        {
+            Debug.Log("is player enter secen");
+            Debug.Log(other.name);
             if (HomeScene)
             {
                 StartCoroutine(LoadSceneAsynchronously(5));
             }
             else if (Maze)
             {
+                Debug.Log("enter Maze");
                 StartCoroutine(LoadSceneAsynchronously(0));
             }
-        if (other.gameObject.name == "Portal_DarkForest")
-        {
-            StartCoroutine(LoadSceneAsynchronously(1));
+
+            if (other.gameObject.name == "Portal_DarkForest")
+            {
+                StartCoroutine(LoadSceneAsynchronously(1));
+            }
+            else if (other.gameObject.name == "Portal_Desert")
+            {
+                StartCoroutine(LoadSceneAsynchronously(2));
+            }
+            else if (other.gameObject.name == "Portal_ice")
+            {
+                StartCoroutine(LoadSceneAsynchronously(3));
+            }
+            else if (other.gameObject.name == "Portal_Volcano")
+            {
+                StartCoroutine(LoadSceneAsynchronously(4));
+            }
+            else if (other.gameObject.name == "Portal_Home")
+            {
+                StartCoroutine(LoadSceneAsynchronously(0));
+            }
         }
-        else if (other.gameObject.name == "Portal_Desert")
-        {
-            StartCoroutine(LoadSceneAsynchronously(2));
-        }
-        else if (other.gameObject.name == "Portal_ice")
-        {
-            StartCoroutine(LoadSceneAsynchronously(3));
-        }
-        else if (other.gameObject.name == "Portal_Volcano")
-        {
-            StartCoroutine(LoadSceneAsynchronously(4));
-        }
-        else if (other.gameObject.name == "Portal_Home")
-        {
-            StartCoroutine(LoadSceneAsynchronously(0));
-        }
+           
     }
 
     IEnumerator LoadSceneAsynchronously(int levelIndex)

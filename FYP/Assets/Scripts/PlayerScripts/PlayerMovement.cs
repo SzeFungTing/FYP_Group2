@@ -65,6 +65,7 @@ public class PlayerMovement : MonoBehaviour
     //attack system
     [HideInInspector] public int playerHP = 100;
 
+
     public enum MovementState
     {
         walking,
@@ -110,6 +111,7 @@ public class PlayerMovement : MonoBehaviour
             SlideOnSlope();
             FootStep();
             Attack();
+            PlayerDies();
 
             if (currectInput.x != 0 || currectInput.y != 0 && OnSlope())
             {
@@ -190,6 +192,14 @@ public class PlayerMovement : MonoBehaviour
                 LeftJetpackFlame.Stop();
                 RightJetpackFlame.Stop();
             }
+        }
+    }
+
+    void PlayerDies()
+    {
+        if (playerHP <= 0)
+        {
+            //transform.position = ;
         }
     }
 

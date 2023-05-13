@@ -53,7 +53,7 @@ public class BounceBack : MonoBehaviour
         else
         {
             //Debug.Log("else");
-            //Debug.Log("collision.collider: " + collision.collider);
+            Debug.Log("collision.collider: " + collision.collider);
 
             Physics.IgnoreCollision(GetComponent<Collider>(), collision.collider, true);
             //Physics.IgnoreCollision(GetComponent<Collider>(), collision.transform.GetComponent<CharacterController>(), true);

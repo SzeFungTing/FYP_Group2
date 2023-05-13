@@ -23,6 +23,9 @@ public class BuildingSystem : MonoBehaviour
     [SerializeField] List<Material> tempMaterialsColor;
     public Material RedMat;
 
+    //Portal
+    Swap swapScript = null;
+
 
     #region Unity methods
 
@@ -107,6 +110,11 @@ public class BuildingSystem : MonoBehaviour
                 TakeArae(start, objectToPlace.Size);
                 receivedItem = InventoryManager5.instance.GetSelectedItem(true);
                 canBuild = false;
+                if (swapScript)
+                {
+                    swapScript.enabled = true;
+                    swapScript = null;
+                }
             }
             else
             {
@@ -205,6 +213,11 @@ public class BuildingSystem : MonoBehaviour
         foreach(Collider c in objectToPlace.cs)
         {
             c.gameObject.layer = LayerMask.NameToLayer("Ignore Raycast");
+            if(TryGetComponent<Swap>(out Swap swap))
+            {
+                swapScript = swap;
+                swapScript.enabled = false;
+            }
         }
 
         foreach(Transform transform in objectToPlace.transform)

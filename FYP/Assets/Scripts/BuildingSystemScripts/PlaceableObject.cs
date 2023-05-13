@@ -46,7 +46,10 @@ public class PlaceableObject : MonoBehaviour
         CalculateSizeInCells();
         //c = GetComponent<Collider>();
         foreach(Collider c in cs)
-            c.isTrigger = true;
+        {
+            //c.isTrigger = true;
+            c.enabled = false;
+        }
     }
 
     public void Rotate()
@@ -75,7 +78,11 @@ public class PlaceableObject : MonoBehaviour
 
         Placed = true;
         foreach (Collider c in cs)
-            c.isTrigger = false;
+        {
+            //c.isTrigger = false;
+            c.enabled = true;
+
+        }
 
         //invake events of placment
     }

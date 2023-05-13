@@ -39,7 +39,7 @@ public class GunShooting : MonoBehaviour
             {
                 if (Input.GetButtonDown("Fire1"))
                 {
-                    Debug.Log("shot");
+                    //Debug.Log("shot");
                     Shoot();
                 }
             }
