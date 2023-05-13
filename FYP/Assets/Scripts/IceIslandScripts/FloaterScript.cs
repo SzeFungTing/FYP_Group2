@@ -36,20 +36,42 @@ public class FloaterScript : MonoBehaviour
 
     public Transform waterPos;
     public float waterHeight = 16;
+
+    public bool otherWay=false;
+    float originPoint;
     // Start is called before the first frame update
     void Start()
     {
         rig = GetComponent<Rigidbody>();
+        originPoint = transform.position.y;
+
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        float y_pos = transform.position.y;
-        if (y_pos < waterHeight)
+        if (!UIScripts.instance.isTimeStop)
         {
-            rig.AddForce(transform.up * buoyancy_force);
+            float y_pos = transform.position.y;
+            if (!otherWay)
+            {
+
+                if (y_pos < waterHeight)
+                {
+                    rig.AddForce(transform.up * buoyancy_force);
+                }
+            }
+            else
+            {
+                if (y_pos < originPoint)
+                {
+                    rig.AddForce(transform.up * buoyancy_force);
+                }
+            }
         }
+        
+        
     }
 
 }
