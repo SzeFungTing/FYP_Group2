@@ -62,6 +62,8 @@ public class PlayerMovement : MonoBehaviour
 
     public MovementState state;
 
+    [HideInInspector] public int playerHP = 100;
+
     public enum MovementState
     {
         walking,
@@ -188,6 +190,14 @@ public class PlayerMovement : MonoBehaviour
             }
         }
     }
+    void Attack()
+    {
+        if (TryGetComponent<DemonAI>(out DemonAI demonAI))
+        {
+
+        }
+    }
+
 
     void HandleMovementInput()
     {
