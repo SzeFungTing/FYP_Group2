@@ -38,7 +38,7 @@ public class InventoryManager5 : MonoBehaviour
         gunShooting = UIScripts.instance.gunShooting;
 
         hotBarPos = inventoryUI.transform.GetChild(0);
-        originalHotBarPos = hotBarUI.transform;
+        //originalHotBarPos = hotBarUI.transform;
 
 
         inventoryUI.SetActive(false);
@@ -232,7 +232,7 @@ public class InventoryManager5 : MonoBehaviour
         isOpenBackpack = false;
         gunShooting.enabled = true;
         inventoryUI.SetActive(false);
-        hotBarUI.transform.position = new Vector3(Screen.width / 2, Screen.height * 90.0f/1080, 0);      //down
+        hotBarUI.transform.position = new Vector3(Screen.width / 2, Screen.height * 90.0f/100, 0);      //down
         hotBarUI.transform.localScale = new Vector3(1f, 1f, 1f);
     }
 }
