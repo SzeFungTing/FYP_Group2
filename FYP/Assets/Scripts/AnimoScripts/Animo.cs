@@ -13,12 +13,14 @@ public class Animo : MonoBehaviour
     [SerializeField] private float originalZRotation = 0f;
     [SerializeField] private float rotateSpeed = 1;
     [SerializeField] private AudioClip[] wonderingSounds;
+    [SerializeField] private float killTime = 6000f;
 
     private float currentYRotation;
     private float currentWRotation;
     private bool isPlayingSound = false;
     private bool hvPlayed = true;
     private int randomSound = 0;
+    private float killTimeCount = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -29,6 +31,11 @@ public class Animo : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (killTimeCount >= killTime)
+        {
+            Destroy(gameObject);
+        }
+
         currentYRotation = transform.rotation.y;
         currentWRotation = transform.rotation.w;
         
@@ -48,6 +55,11 @@ public class Animo : MonoBehaviour
             randomSound = Random.Range(0, wonderingSounds.Length);
             AudioSource.PlayClipAtPoint(wonderingSounds[randomSound], transform.position);
             hvPlayed = true;
+        }
+
+        if (gameObject.tag != "Pet")
+        {
+            killTimeCount += Time.deltaTime;
         }
     }
 
