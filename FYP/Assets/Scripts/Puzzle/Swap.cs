@@ -35,11 +35,12 @@ public class Swap : MonoBehaviour
     {
         timer += Time.deltaTime;
 
-        if(timer >= switchTime)
+        if (timer >= switchTime)
         {
             int nextIndex = Random.Range(0, loadingSprites.Length);
 
-            if (currentIndex == nextIndex) {
+            if (currentIndex == nextIndex)
+            {
                 nextIndex = (currentIndex + 1) % loadingSprites.Length;
             }
             loadingImage.sprite = loadingSprites[nextIndex];
@@ -50,22 +51,16 @@ public class Swap : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("enter secen");
-        Debug.Log(transform.name);
         if (other.CompareTag("Player"))
         {
-            Debug.Log("is player enter secen");
-            Debug.Log(other.name);
             if (HomeScene)
             {
                 StartCoroutine(LoadSceneAsynchronously(5));
             }
             else if (Maze)
             {
-                Debug.Log("enter Maze");
                 StartCoroutine(LoadSceneAsynchronously(0));
             }
-
             if (other.gameObject.name == "Portal_DarkForest")
             {
                 StartCoroutine(LoadSceneAsynchronously(1));
@@ -82,12 +77,12 @@ public class Swap : MonoBehaviour
             {
                 StartCoroutine(LoadSceneAsynchronously(4));
             }
-            else if (other.gameObject.name == "Portal_Home")
+            else if (transform.gameObject.transform.parent.name == "Portal_Home")
             {
                 StartCoroutine(LoadSceneAsynchronously(0));
             }
         }
-           
+            
     }
 
     IEnumerator LoadSceneAsynchronously(int levelIndex)
