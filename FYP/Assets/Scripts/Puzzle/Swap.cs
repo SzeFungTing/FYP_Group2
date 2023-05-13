@@ -10,8 +10,16 @@ public class Swap : MonoBehaviour
     public Slider loadingBar;
     bool HomeScene = false;
     bool Maze = false;
+    public Sprite[] loadingSprites;
+    public Image loadingImage;
+    public float switchTime = 1.0f;
+    private float timer = 0.0f;
+    private int currentIndex = 0;
     void Start()
     {
+        currentIndex = Random.Range(0, loadingSprites.Length);
+        loadingImage.sprite = loadingSprites[currentIndex];
+
         string currentSceneName = SceneManager.GetActiveScene().name;
         if (currentSceneName == "HomeScene")
         {
@@ -20,6 +28,23 @@ public class Swap : MonoBehaviour
         else if (currentSceneName == "Puzzle1")
         {
             Maze = true;
+        }
+    }
+
+    private void Update()
+    {
+        timer += Time.deltaTime;
+
+        if(timer >= switchTime)
+        {
+            int nextIndex = Random.Range(0, loadingSprites.Length);
+
+            if (currentIndex == nextIndex) {
+                nextIndex = (currentIndex + 1) % loadingSprites.Length;
+            }
+            loadingImage.sprite = loadingSprites[nextIndex];
+            timer = 0.0f;
+            currentIndex = nextIndex;
         }
     }
 
