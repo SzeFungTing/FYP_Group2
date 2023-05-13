@@ -75,16 +75,17 @@ public class TableControl : MonoBehaviour
             BackpackConnection.DeleteAll<BackpackTable>();
             InsertAllBackpackData();
 
-            AnimoConnection.Delete(AnimoConnection.Table<AnimoTable>().Where(_ => _.MapId == currentMap));
+            AnimoConnection.DeleteAll<AnimoTable>();
             Animo[] animos = FindObjectsOfType<Animo>();
             GameObject[] animoObjs = new GameObject[animos.Length];
             for (int i = 0; i < animos.Length; i++)
             {
+                if (animos[i].gameObject.tag == "Pet")
                 animoObjs[i] = animos[i].gameObject;
             }
             InsertAllAnimoData(animoObjs);
 
-            //BuildingConnection.Delete(BuildingConnection.Table<BuildingTable>().Where(_ => _.MapId == currentMap));
+            BuildingConnection.DeleteAll<BuildingTable>();
             PlaceableObject[] buildings = FindObjectsOfType<PlaceableObject>();
             GameObject[] buildingObjs = new GameObject[buildings.Length];
             for (int i = 0; i < buildings.Length; i++)
