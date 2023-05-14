@@ -10,9 +10,9 @@ public class TableControl : MonoBehaviour
     public SQLiteConnection BackpackConnection;
     public SQLiteConnection AnimoConnection;
     public SQLiteConnection BuildingConnection;
-    public SQLiteConnection PuzzleConnection;
-    public SQLiteConnection FajroConnection;
-    public SQLiteConnection MarketConnection;
+    //public SQLiteConnection PuzzleConnection;
+    //public SQLiteConnection FajroConnection;
+    //public SQLiteConnection MarketConnection;
 
     private int currentMap = 0;
     private GameObject player;
@@ -32,14 +32,14 @@ public class TableControl : MonoBehaviour
         BuildingConnection = new SQLiteConnection(Application.streamingAssetsPath + "/BuildingTable.db", SQLiteOpenFlags.ReadWrite | SQLiteOpenFlags.Create);
         BuildingConnection.CreateTable<BuildingTable>(CreateFlags.ImplicitPK | CreateFlags.AutoIncPK);
 
-        PuzzleConnection = new SQLiteConnection(Application.streamingAssetsPath + "/PuzzleTable.db", SQLiteOpenFlags.ReadWrite | SQLiteOpenFlags.Create);
-        PuzzleConnection.CreateTable<PuzzleTable>();
+        //PuzzleConnection = new SQLiteConnection(Application.streamingAssetsPath + "/PuzzleTable.db", SQLiteOpenFlags.ReadWrite | SQLiteOpenFlags.Create);
+        //PuzzleConnection.CreateTable<PuzzleTable>();
 
-        FajroConnection = new SQLiteConnection(Application.streamingAssetsPath + "/FajroTable.db", SQLiteOpenFlags.ReadWrite | SQLiteOpenFlags.Create);
-        FajroConnection.CreateTable<FajroTable>();
+        //FajroConnection = new SQLiteConnection(Application.streamingAssetsPath + "/FajroTable.db", SQLiteOpenFlags.ReadWrite | SQLiteOpenFlags.Create);
+        //FajroConnection.CreateTable<FajroTable>();
 
-        MarketConnection = new SQLiteConnection(Application.streamingAssetsPath + "/MarketTable.db", SQLiteOpenFlags.ReadWrite | SQLiteOpenFlags.Create);
-        MarketConnection.CreateTable<MarketTable>();
+        //MarketConnection = new SQLiteConnection(Application.streamingAssetsPath + "/MarketTable.db", SQLiteOpenFlags.ReadWrite | SQLiteOpenFlags.Create);
+        //MarketConnection.CreateTable<MarketTable>();
 
         switch (SceneManager.GetActiveScene().name)
         {
@@ -288,23 +288,23 @@ public class TableControl : MonoBehaviour
         return data;
     }
 
-    public TableQuery<PuzzleTable> GetPuzzleData()
-    {
-        var data = PuzzleConnection.Table<PuzzleTable>();
-        return data;
-    }
+    //public TableQuery<PuzzleTable> GetPuzzleData()
+    //{
+    //    var data = PuzzleConnection.Table<PuzzleTable>();
+    //    return data;
+    //}
 
-    public TableQuery<FajroTable> GetFajroData()
-    {
-        var data = FajroConnection.Table<FajroTable>();
-        return data;
-    }
+    //public TableQuery<FajroTable> GetFajroData()
+    //{
+    //    var data = FajroConnection.Table<FajroTable>();
+    //    return data;
+    //}
 
-    public TableQuery<MarketTable> GetMarketData()
-    {
-        var data = MarketConnection.Table<MarketTable>();
-        return data;
-    }
+    //public TableQuery<MarketTable> GetMarketData()
+    //{
+    //    var data = MarketConnection.Table<MarketTable>();
+    //    return data;
+    //}
 
     public void TestInsertAnimo()
     {
