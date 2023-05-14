@@ -19034,6 +19034,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   drone: {fileID: 813233659}
+  dronePosition: {fileID: 0}
   isUIOpened: 0
 --- !u!114 &219095484
 MonoBehaviour:
@@ -19086,7 +19087,12 @@ MonoBehaviour:
   clickTime: 0
   characterAnim: {fileID: 0}
   FillBar: {fileID: 775741241}
+  LeftJetpackFlame: {fileID: 0}
+  RightJetpackFlame: {fileID: 0}
   state: 4
+  gun: {fileID: 0}
+  playerHP: 100
+  spawnPoint: {fileID: 0}
 --- !u!114 &219095486
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19102,10 +19108,6 @@ MonoBehaviour:
   mouseSensitivity: 100
   playerBody: {fileID: 219095482}
   lockCursor: 1
-  pauseUI: {fileID: 712354773839071203}
-  settingUI: {fileID: 712354774897730611}
-  shopUI: {fileID: 606404534}
-  backPackUI: {fileID: 44532157}
 --- !u!114 &219095487
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -39906,51 +39908,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 614515729}
   m_CullTransparentMesh: 1
---- !u!1 &616048892
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 616048894}
-  - component: {fileID: 616048893}
-  m_Layer: 0
-  m_Name: UnlockCursor
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &616048893
+--- !u!114 &616048893 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 4114703400184005067, guid: f13420ba820394d41860507b84f8aeec, type: 3}
+  m_PrefabInstance: {fileID: 4114703400664787254}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 616048892}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ebdfc67996395204cbb190549eba859d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UI: {fileID: 1928455248}
-  NetworkUI: {fileID: 1445965435}
---- !u!4 &616048894
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 616048892}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 691.9125, y: 266.17554, z: 82.09796}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 33
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &620004962
 GameObject:
   m_ObjectHideFlags: 0
@@ -43569,7 +43537,12 @@ MonoBehaviour:
   clickTime: 0
   characterAnim: {fileID: 0}
   FillBar: {fileID: 775741241}
+  LeftJetpackFlame: {fileID: 0}
+  RightJetpackFlame: {fileID: 0}
   state: 4
+  gun: {fileID: 0}
+  playerHP: 100
+  spawnPoint: {fileID: 0}
 --- !u!114 &758878539
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -43617,10 +43590,6 @@ MonoBehaviour:
   mouseSensitivity: 100
   playerBody: {fileID: 758878537}
   lockCursor: 1
-  pauseUI: {fileID: 712354773839071203}
-  settingUI: {fileID: 712354774897730611}
-  shopUI: {fileID: 0}
-  backPackUI: {fileID: 44532157}
 --- !u!114 &758878541
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -43646,6 +43615,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   drone: {fileID: 813233659}
+  dronePosition: {fileID: 0}
   isUIOpened: 0
 --- !u!136 &758878543
 CapsuleCollider:
@@ -66940,10 +66910,6 @@ MonoBehaviour:
   mouseSensitivity: 100
   playerBody: {fileID: 3805550522838860381}
   lockCursor: 1
-  pauseUI: {fileID: 712354773839071203}
-  settingUI: {fileID: 712354774897730611}
-  shopUI: {fileID: 0}
-  backPackUI: {fileID: 0}
 --- !u!81 &1322203124
 AudioListener:
   m_ObjectHideFlags: 0
@@ -109556,8 +109522,16 @@ MonoBehaviour:
   shopUI: {fileID: 606404534}
   backPackUI: {fileID: 44532157}
   hotBarUI: {fileID: 1964370629}
-  buttonIndicationUI: {fileID: 0}
   craftingUI: {fileID: 54945001}
+  craftingHint: {fileID: 0}
+  gunVacuum: {fileID: 0}
+  gunShooting: {fileID: 0}
+  jetpackUI: {fileID: 0}
+  loadingUI: {fileID: 0}
+  isTimeStop: 0
+  isOpenUI: 0
+  dropDown: {fileID: 0}
+  tc: {fileID: 0}
 --- !u!1 &712354774881016019
 GameObject:
   m_ObjectHideFlags: 0
@@ -110911,10 +110885,6 @@ MonoBehaviour:
   mouseSensitivity: 100
   playerBody: {fileID: 3805550522838860381}
   lockCursor: 1
-  pauseUI: {fileID: 0}
-  settingUI: {fileID: 0}
-  shopUI: {fileID: 0}
-  backPackUI: {fileID: 0}
 --- !u!114 &2044960857378085954
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -111588,7 +111558,12 @@ MonoBehaviour:
   clickTime: 0
   characterAnim: {fileID: 0}
   FillBar: {fileID: 0}
+  LeftJetpackFlame: {fileID: 0}
+  RightJetpackFlame: {fileID: 0}
   state: 4
+  gun: {fileID: 0}
+  playerHP: 100
+  spawnPoint: {fileID: 0}
 --- !u!143 &3805550522838860380
 CharacterController:
   m_ObjectHideFlags: 0
@@ -111711,6 +111686,71 @@ RectTransform:
   m_AnchoredPosition: {x: 24, y: -28}
   m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1001 &4114703400664787254
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4114703400184005064, guid: f13420ba820394d41860507b84f8aeec, type: 3}
+      propertyPath: m_RootOrder
+      value: 33
+      objectReference: {fileID: 0}
+    - target: {fileID: 4114703400184005064, guid: f13420ba820394d41860507b84f8aeec, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 691.9125
+      objectReference: {fileID: 0}
+    - target: {fileID: 4114703400184005064, guid: f13420ba820394d41860507b84f8aeec, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 266.17554
+      objectReference: {fileID: 0}
+    - target: {fileID: 4114703400184005064, guid: f13420ba820394d41860507b84f8aeec, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 82.09796
+      objectReference: {fileID: 0}
+    - target: {fileID: 4114703400184005064, guid: f13420ba820394d41860507b84f8aeec, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4114703400184005064, guid: f13420ba820394d41860507b84f8aeec, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4114703400184005064, guid: f13420ba820394d41860507b84f8aeec, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4114703400184005064, guid: f13420ba820394d41860507b84f8aeec, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4114703400184005064, guid: f13420ba820394d41860507b84f8aeec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4114703400184005064, guid: f13420ba820394d41860507b84f8aeec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4114703400184005064, guid: f13420ba820394d41860507b84f8aeec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4114703400184005066, guid: f13420ba820394d41860507b84f8aeec, type: 3}
+      propertyPath: m_Name
+      value: UnlockCursor
+      objectReference: {fileID: 0}
+    - target: {fileID: 4114703400184005067, guid: f13420ba820394d41860507b84f8aeec, type: 3}
+      propertyPath: UI
+      value: 
+      objectReference: {fileID: 1928455248}
+    - target: {fileID: 4114703400184005067, guid: f13420ba820394d41860507b84f8aeec, type: 3}
+      propertyPath: NetworkUI
+      value: 
+      objectReference: {fileID: 1445965435}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f13420ba820394d41860507b84f8aeec, type: 3}
 --- !u!222 &4202741324937884166
 CanvasRenderer:
   m_ObjectHideFlags: 0

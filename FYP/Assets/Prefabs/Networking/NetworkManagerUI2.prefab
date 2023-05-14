@@ -212,6 +212,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9d79442471e8c840bfb465ebd9aa0aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tc: {fileID: 0}
 --- !u!114 &8517627750342263105
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -519,7 +520,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 9131757884338854967}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4114703400184005067, guid: f13420ba820394d41860507b84f8aeec, type: 3}
+        m_TargetAssemblyTypeName: UnlockCursor, Assembly-CSharp
+        m_MethodName: OnClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &7736514671387604002
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -656,7 +669,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 12176627065897745}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4114703400184005067, guid: f13420ba820394d41860507b84f8aeec, type: 3}
+        m_TargetAssemblyTypeName: UnlockCursor, Assembly-CSharp
+        m_MethodName: OnClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &3390879707602208283
 MonoBehaviour:
   m_ObjectHideFlags: 0

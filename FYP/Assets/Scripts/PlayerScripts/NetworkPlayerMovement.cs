@@ -55,11 +55,20 @@ public class NetworkPlayerMovement : NetworkBehaviour
     public Animator characterAnim;
 
     public Image FillBar;
-    //public ShopManager shopManager;
 
     Camera _camera;
 
     public MovementState state;
+
+    public ParticleSystem LeftJetpackFlame;
+    public ParticleSystem RightJetpackFlame;
+
+
+    public GameObject gun;
+
+    //attack system
+    public int playerHP = 100;
+    [SerializeField] Transform spawnPoint;
 
     public enum MovementState
     {
@@ -115,12 +124,15 @@ public class NetworkPlayerMovement : NetworkBehaviour
         }
         else
         {
-            HandleMovementInput();
-            ApplyFinalMovements();
-            StateHandles();
-            //CrouchScale();
-            SlideOnSlope();
-            FootStep();
+            if (!UIScripts.instance.isOpenUI)
+            {
+                HandleMovementInput();
+                ApplyFinalMovements();
+                StateHandles();
+                //CrouchScale();
+                SlideOnSlope();
+                FootStep();
+            }
 
             if (currectInput.x != 0 || currectInput.y != 0 && OnSlope())
             {
@@ -196,6 +208,18 @@ public class NetworkPlayerMovement : NetworkBehaviour
                 isflying = false;
                 Rigidbody.useGravity = true;
             }
+        }
+    }
+
+    public void BeAttack(int values)
+    {
+        playerHP -= values;
+        if (playerHP <= 0)
+        {
+            //Debug.Log("playerHP <= 0");
+
+            if (spawnPoint)
+                transform.position = spawnPoint.position;
         }
     }
 

@@ -12,7 +12,6 @@ public class UnlockCursor : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
-        UI.SetActive(false);
     }
 
     // Update is called once per frame
@@ -23,7 +22,7 @@ public class UnlockCursor : MonoBehaviour
 
     public void OnClick()
     {
-        UI.SetActive(true);
+        
         NetworkUI.SetActive(false);
     }
 }
