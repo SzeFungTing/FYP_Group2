@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Lava2_Mint
-  m_Shader: {fileID: -6465566751694194690, guid: 950a349004690314ea939b087c256132, type: 3}
+  m_Name: Portal_orange
+  m_Shader: {fileID: -6465566751694194690, guid: faf813bbc1be6b749b299179e7c6d49d, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -19,6 +19,10 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - Mask:
+        m_Texture: {fileID: 10300, guid: 0000000000000000f000000000000000, type: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -33,15 +37,10 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - FlowSpeed: 0.2
-    - FoamDensity: 6.98
-    - FoamSpeed: 0.11
-    - FoamThickness: 6.92
-    - MaxHeight: 0.5
-    - WaveHeight: -0.46
-    - WaveSpread: 5.97
+    - DissolveAmount: 2
+    - Scale: 2.5
+    - Speed: 0.2
+    - TwirlStrenght: 28
     m_Colors:
-    - FlowDirection: {r: 0.18, g: 1.2, b: 0, a: 0}
-    - FoamColor: {r: 3.2875628, g: 24.150938, b: 24.150948, a: 0.8392157}
-    - _Color: {r: 0.07058822, g: 0.56078434, b: 0.498037, a: 0}
+    - _Color: {r: 29.149902, g: 9.058985, b: 0.93499494, a: 0}
   m_BuildTextureStacks: []
