@@ -115,7 +115,7 @@ public class PlayerMovement : MonoBehaviour
                 FootStep();
                 //Attack();
             }
-            PlayerDies();
+            //PlayerDies();
 
 
 
@@ -201,11 +201,26 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    void PlayerDies()
+    //void PlayerDies()
+    //{
+    //    //Debug.Log("PlayerDies()");
+    //    if (playerHP <= 0)
+    //    {
+    //        Debug.Log("playerHP <= 0");
+
+    //        if (spawnPoint)
+    //            transform.position = spawnPoint.position;
+    //    }
+    //}
+
+    public void BeAttack(int values)
     {
+        playerHP -= values;
         if (playerHP <= 0)
         {
-            if(spawnPoint)
+            //Debug.Log("playerHP <= 0");
+
+            if (spawnPoint)
                 transform.position = spawnPoint.position;
         }
     }

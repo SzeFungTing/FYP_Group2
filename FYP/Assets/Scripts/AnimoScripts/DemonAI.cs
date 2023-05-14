@@ -52,7 +52,7 @@ public class DemonAI : MonoBehaviour
         }
 
         closestPlayer = FindClosestPlayer();
-        Debug.Log("hvPlayer: " + hvPlayer);
+        //Debug.Log("hvPlayer: " + hvPlayer);
 
         if (!isWandering && !hvPlayer)
         {
@@ -253,7 +253,10 @@ public class DemonAI : MonoBehaviour
             if (other.tag == "Player")
             {
                 //attack player
-                _ = other.GetComponent<PlayerMovement>().playerHP - 5;
+                //_ = other.GetComponent<PlayerMovement>().playerHP - 50;
+                other.GetComponent<PlayerMovement>().BeAttack(10);
+
+
                 Debug.Log("attack");
 
                 AudioSource.PlayClipAtPoint(attack, transform.position);
