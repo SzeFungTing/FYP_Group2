@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5499598577239266667}
   - component: {fileID: 5499598577239266660}
   - component: {fileID: 5499598577239266661}
+  - component: {fileID: 7311997715974206039}
   m_Layer: 0
   m_Name: Portal_Volcano_Big
   m_TagString: Building
@@ -76,6 +77,20 @@ MonoBehaviour:
   - {fileID: 1949840490071420945}
   - {fileID: 1949840490071420944}
   - {fileID: 1949840490071420951}
+--- !u!114 &7311997715974206039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5499598577239266662}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69cc6bbaa03dc054988569c3108b1659, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item: {fileID: 11400000, guid: 5615a45156dad2141b8820acd5542386, type: 2}
+  canConsume: 0
 --- !u!1001 &471830211946337885
 PrefabInstance:
   m_ObjectHideFlags: 0

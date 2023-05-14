@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6769606683940634837}
   - component: {fileID: 7074242647449926661}
   - component: {fileID: 3953293338615834558}
+  - component: {fileID: 1547794533122291531}
   m_Layer: 0
   m_Name: Portal_DarkForest_Big
   m_TagString: Building
@@ -76,6 +77,20 @@ MonoBehaviour:
   - {fileID: 6709973369671137810}
   - {fileID: 6709973369671137811}
   - {fileID: 6709973369671137812}
+--- !u!114 &1547794533122291531
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5144405949781604315}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69cc6bbaa03dc054988569c3108b1659, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item: {fileID: 11400000, guid: 098b2d854734b634880465e8a89b1cf0, type: 2}
+  canConsume: 0
 --- !u!1001 &4656127939886095454
 PrefabInstance:
   m_ObjectHideFlags: 0

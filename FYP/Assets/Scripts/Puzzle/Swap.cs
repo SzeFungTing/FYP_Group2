@@ -18,6 +18,8 @@ public class Swap : MonoBehaviour
     public TableControl tc;
     void Start()
     {
+        tc = FindObjectOfType<TableControl>();
+
         currentIndex = Random.Range(0, loadingSprites.Length);
         if (loadingSprites.Length > 0)
             loadingImage.sprite = loadingSprites[currentIndex];
@@ -57,8 +59,13 @@ public class Swap : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            tc.SaveBackpack();
             if (HomeScene && transform.name.Contains("Door"))
             {
+                if (HomeScene)
+                {
+                    tc.SaveBuildingAndAnimo();
+                }
                 StartCoroutine(LoadSceneAsynchronously(6));
             }
             else if (Maze)
@@ -68,22 +75,42 @@ public class Swap : MonoBehaviour
 
             if (transform.gameObject.transform.parent.name.Contains("Portal_DarkForest") )
             {
+                if (HomeScene)
+                {
+                    tc.SaveBuildingAndAnimo();
+                }
                 StartCoroutine(LoadSceneAsynchronously(5));
             }
             else if (transform.gameObject.transform.parent.name.Contains("Portal_Desert"))
             {
+                if (HomeScene)
+                {
+                    tc.SaveBuildingAndAnimo();
+                }
                 StartCoroutine(LoadSceneAsynchronously(3));
             }
             else if (transform.gameObject.transform.parent.name.Contains("Portal_ice"))
             {
+                if (HomeScene)
+                {
+                    tc.SaveBuildingAndAnimo();
+                }
                 StartCoroutine(LoadSceneAsynchronously(2));
             }
             else if (transform.gameObject.transform.parent.name.Contains("Portal_Volcano"))
             {
+                if (HomeScene)
+                {
+                    tc.SaveBuildingAndAnimo();
+                }
                 StartCoroutine(LoadSceneAsynchronously(4));
             }
             else if (transform.gameObject.transform.parent.name.Contains("Portal_Home"))
             {
+                if (HomeScene)
+                {
+                    tc.SaveBuildingAndAnimo();
+                }
                 StartCoroutine(LoadSceneAsynchronously(1));
             }
         }

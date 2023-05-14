@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 131835868526080874}
   - component: {fileID: 7327854061899847592}
   - component: {fileID: 8149029685246088431}
+  - component: {fileID: 828559168854729535}
   m_Layer: 0
   m_Name: Portal_ice_Big
   m_TagString: Building
@@ -76,6 +77,20 @@ MonoBehaviour:
   - {fileID: 2042134551223645970}
   - {fileID: 2042134551223645971}
   - {fileID: 2042134551223645972}
+--- !u!114 &828559168854729535
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 131835868526080875}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69cc6bbaa03dc054988569c3108b1659, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item: {fileID: 11400000, guid: 7108394e1c7dcbc4b8ab9d5a5644e917, type: 2}
+  canConsume: 0
 --- !u!1001 &131835869580890462
 PrefabInstance:
   m_ObjectHideFlags: 0
