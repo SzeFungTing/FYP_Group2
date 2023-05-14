@@ -330,6 +330,12 @@ public class TableControl : MonoBehaviour
         InsertAllBackpackData();
     }
 
+    public void SaveBackpack()
+    {
+        BackpackConnection.DeleteAll<BackpackTable>();
+        InsertAllBackpackData();
+    }
+
     public void SaveBuildingAndAnimo()
     {
         AnimoConnection.DeleteAll<AnimoTable>();
