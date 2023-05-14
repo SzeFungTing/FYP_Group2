@@ -14133,7 +14133,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7149474624365901628}
   m_LocalRotation: {x: 9.313226e-10, y: -9.313226e-10, z: -0.0000000044237822, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7149474625869000486}
@@ -14142,7 +14142,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 167, y: -127}
+  m_AnchoredPosition: {x: 167, y: -161}
   m_SizeDelta: {x: 120.2, y: 27.7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7149474624365901504
@@ -22271,7 +22271,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0.0000017480169, y: -0.000030507474}
-  m_SizeDelta: {x: -734.6, y: 300}
+  m_SizeDelta: {x: 0, y: 300}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &7149474624757735267
 MonoBehaviour:
@@ -23648,6 +23648,7 @@ MonoBehaviour:
   craftingUI: {fileID: 7149474625072431661}
   gunVacuum: {fileID: 4416539768445905681}
   gunShooting: {fileID: 7149474625244769744}
+  jetpackUI: {fileID: 7149474624030489804}
   isTimeStop: 0
 --- !u!1 &7149474624913366646
 GameObject:
@@ -45899,7 +45900,7 @@ Canvas:
   m_GameObject: {fileID: 7149474626070981907}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 1
+  m_RenderMode: 0
   m_Camera: {fileID: 7149474624436975982}
   m_PlaneDistance: 0.5
   m_PixelPerfect: 0

@@ -19,6 +19,8 @@ public class UIScripts : MonoBehaviour
     public GunVacuum gunVacuum;
     public GunShooting gunShooting;
 
+    public GameObject jetpackUI;
+
     public bool isTimeStop = false;     //to pause playerMovement, shooting, inhale function
 
     private void Awake()

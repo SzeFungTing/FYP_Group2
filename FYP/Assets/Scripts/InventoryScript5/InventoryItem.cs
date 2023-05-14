@@ -44,6 +44,7 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
     public void OnDrag(PointerEventData eventData)
     {
+        Debug.Log("OnDrag");
         transform.position = Input.mousePosition;
     }
 

@@ -206,6 +206,8 @@ public class InventoryManager5 : MonoBehaviour
                 isOpenBackpack = true;
                 gunShooting.enabled = false;
                 inventoryUI.SetActive(true);
+                if(ShopManager.instance.haveJetpack)
+                    UIScripts.instance.jetpackUI.SetActive(false);
                 //SynchronizeHotBar();
                 hotBarUI.transform.position = /*new Vector3(Screen.width / 2, (inventorySlots[4].transform.position.y)+50, 0.5400000214576721f)*/hotBarPos.position;     //up
                 hotBarUI.transform.localScale = new Vector3(0.7f, 0.7f, 0.7f);
@@ -220,6 +222,8 @@ public class InventoryManager5 : MonoBehaviour
                 //hotBarUI.transform.position = new Vector3(959.9999389648438f, 90.0f, 0.5400000214576721f);      //down
                 //hotBarUI.transform.localScale = new Vector3(1f, 1f, 1f);
                 Debug.Log("close backpack");
+                if (ShopManager.instance.haveJetpack)
+                    UIScripts.instance.jetpackUI.SetActive(true);
 
 
                 CloseUI();
