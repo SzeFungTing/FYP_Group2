@@ -64,6 +64,7 @@ public class PlayerMovement : MonoBehaviour
 
     //attack system
     [HideInInspector] public int playerHP = 100;
+    [SerializeField] Transform spawnPoint;
 
 
     public enum MovementState
@@ -104,14 +105,19 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
-            HandleMovementInput();
-            ApplyFinalMovements();
-            StateHandles();
-            //CrouchScale();
-            SlideOnSlope();
-            FootStep();
-            Attack();
+            if (!UIScripts.instance.isOpenUI)
+            {
+                HandleMovementInput();
+                ApplyFinalMovements();
+                StateHandles();
+                //CrouchScale();
+                SlideOnSlope();
+                FootStep();
+                Attack();
+            }
             PlayerDies();
+
+
 
             if (currectInput.x != 0 || currectInput.y != 0 && OnSlope())
             {
@@ -199,7 +205,8 @@ public class PlayerMovement : MonoBehaviour
     {
         if (playerHP <= 0)
         {
-            //transform.position = ;
+            if(spawnPoint)
+                transform.position = spawnPoint.position;
         }
     }
 

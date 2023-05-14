@@ -70,6 +70,12 @@ public class PlayerCrafting : MonoBehaviour
     public void ControlUI()
     {
         UIScripts.instance.craftingUI.SetActive(!UIScripts.instance.craftingUI.activeSelf);
+
+        if (UIScripts.instance.craftingUI.activeInHierarchy)
+        {
+            UIScripts.instance.craftingHint.SetActive(false);
+        }
+
         UIScripts.instance.hotBarUI.SetActive(!UIScripts.instance.hotBarUI.activeSelf);
     }
 }

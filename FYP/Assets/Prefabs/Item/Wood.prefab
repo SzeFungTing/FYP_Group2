@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 7713532688134291900}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -2.3095715, y: 0.00000011920929, z: -3.948505}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 8240505066894793887}
   m_Father: {fileID: 0}
@@ -49,6 +49,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isVacuum: 0
   maxHeight: 80
+  maxHeightForTallScene: 450
 --- !u!114 &3323973827220970258
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62,6 +63,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item: {fileID: 11400000, guid: 732af611cd11b7f42819587860de555b, type: 2}
+  canConsume: 0
 --- !u!54 &944629460
 Rigidbody:
   m_ObjectHideFlags: 0

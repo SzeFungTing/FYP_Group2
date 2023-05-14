@@ -15,7 +15,7 @@ public class UIScripts : MonoBehaviour
     public GameObject hotBarUI;
     public GameObject craftingUI;
 
-    GameObject buttonIndicationUI;
+    public GameObject craftingHint;
 
     public GunVacuum gunVacuum;
     public GunShooting gunShooting;
@@ -23,6 +23,7 @@ public class UIScripts : MonoBehaviour
     public GameObject jetpackUI;
 
     public bool isTimeStop = false;     //to pause playerMovement, shooting, inhale function
+    public bool isOpenUI = false;
 
     public Dropdown dropDown;
 
@@ -32,7 +33,7 @@ public class UIScripts : MonoBehaviour
     }
     private void Start()
     {
-        //buttonIndicationUI.SetActive(false);
+        craftingHint.SetActive(false);
     }
 
     private void Update()
@@ -103,6 +104,7 @@ public class UIScripts : MonoBehaviour
         {
             //Debug.Log("8");
             isTimeStop = true;
+            isOpenUI = true;
 
             Time.timeScale = 0;     //pause the game time
             Cursor.lockState = CursorLockMode.None;
@@ -113,7 +115,7 @@ public class UIScripts : MonoBehaviour
             //Debug.Log("10");
             //isTimeStop = true;
             isTimeStop = false;
-
+            isOpenUI = true;
 
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
@@ -123,6 +125,7 @@ public class UIScripts : MonoBehaviour
         {
             //Debug.Log("9");
             isTimeStop = false;
+            isOpenUI = false;
 
             Time.timeScale = 1;     //start the game time
             Cursor.lockState = CursorLockMode.Locked;
