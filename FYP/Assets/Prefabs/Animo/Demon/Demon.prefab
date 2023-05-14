@@ -281,7 +281,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4826911156697326167}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.55
   m_Height: 1
@@ -428,6 +428,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2824428017683385095}
   - component: {fileID: 6809873479076231399}
+  - component: {fileID: 3771327974429551871}
   m_Layer: 0
   m_Name: Body.001
   m_TagString: Untagged
@@ -513,6 +514,20 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.003930807, y: 0.24531196, z: 0.02089116}
     m_Extent: {x: 0.49832803, y: 0.61139965, z: 0.7320788}
   m_DirtyAABB: 0
+--- !u!136 &3771327974429551871
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8563466683213303608}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.8
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &4308712059913680011
 PrefabInstance:
   m_ObjectHideFlags: 0
