@@ -275,8 +275,8 @@ public class CraftingTable : MonoBehaviour
     public void DisplayRecipe_Material()            //set and display the needed Material
     {
 
-
-        bool itemAlreadyInInventory = false;
+        //bool isFirstOne = true;
+        //bool itemAlreadyInInventory = false;
         int inputItemCount = 0;
         Transform consumeItemSlot = null;
 
@@ -285,6 +285,7 @@ public class CraftingTable : MonoBehaviour
         //foreach (Item5 inputItem in craftingRecipeSO.inputItemSOList)
         for (int i = 0; i < craftingRecipeSO.inputItemSOList.Count; i++)
         {
+            bool itemAlreadyInInventory = false;
             //Debug.Log("i: " + i);
             Item5 currentInputItem = craftingRecipeSO.inputItemSOList[i];
             //for (int j = -1; i < craftingRecipeSO.inputItemSOList.Count; j++)
@@ -292,26 +293,40 @@ public class CraftingTable : MonoBehaviour
                 //Debug.Log("itemAlreadyInInventory");
 
                 //if (j >= 0)
-                if(i - 1 >=0)
+                if (i - 1 >= 0/* && isFirstOne*/)             //check needed mat is more than one
                 {
                     //Debug.Log("j: " + j);
 
-                    previousInputItem = craftingRecipeSO.inputItemSOList[i-1];
+                    previousInputItem = craftingRecipeSO.inputItemSOList[i - 1];
+                    Debug.Log("set previousInputItem.objectPrefab:" + previousInputItem.objectPrefab);
+                    //isFirstOne = false;
                 }
 
-                if (previousInputItem != null && (previousInputItem.objectPrefab == currentInputItem.objectPrefab))
+
+                if (previousInputItem != null && (previousInputItem.objectPrefab == currentInputItem.objectPrefab))         //if not Already, nmber++
                 {
-                    //Debug.Log("add itemAlreadyInInventory");
+                    Debug.Log("add itemAlreadyInInventory");
+                    Debug.Log("previousInputItem.objectPrefab:" + previousInputItem.objectPrefab);
+                    Debug.Log("currentInputItem.objectPrefab:" + currentInputItem.objectPrefab);
+
+
 
                     inputItemCount++;
                     consumeItemSlot.GetComponentInChildren<Text>().text =  "  / " + inputItemCount;
                     itemAlreadyInInventory = true;
+
+                    //previousInputItem = craftingRecipeSO.inputItemSOList[i - 1];
                 }
+
+                
             }
 
             if (!itemAlreadyInInventory)
             {
-                //Debug.Log("not itemAlreadyInInventory");
+                Debug.Log("not itemAlreadyInInventory");
+                if(previousInputItem)
+                    Debug.Log("previousInputItem.objectPrefab:" + previousInputItem.objectPrefab);
+                Debug.Log("currentInputItem.objectPrefab:" + currentInputItem.objectPrefab);
 
                 consumeItemSlot = Instantiate(craftingUI.transform.GetChild(1).GetChild(0), craftingUI.transform.GetChild(1));
                 consumeItemSlot.gameObject.SetActive(true);
@@ -322,6 +337,8 @@ public class CraftingTable : MonoBehaviour
                 consumeItemSlot.GetComponent<Image>().sprite = currentInputItem.image;
                 displayList.Add(consumeItemSlot);
                 //Debug.Log(item.itemType);
+
+                //previousInputItem = craftingRecipeSO.inputItemSOList[i - 1];
             }
         }
 
