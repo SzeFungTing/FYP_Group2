@@ -288,23 +288,23 @@ public class TableControl : MonoBehaviour
         return data;
     }
 
-    public TableQuery<PuzzleTable> GetPuzzleData()
-    {
-        var data = PuzzleConnection.Table<PuzzleTable>();
-        return data;
-    }
+    //public TableQuery<PuzzleTable> GetPuzzleData()
+    //{
+    //    var data = PuzzleConnection.Table<PuzzleTable>();
+    //    return data;
+    //}
 
-    public TableQuery<FajroTable> GetFajroData()
-    {
-        var data = FajroConnection.Table<FajroTable>();
-        return data;
-    }
+    //public TableQuery<FajroTable> GetFajroData()
+    //{
+    //    var data = FajroConnection.Table<FajroTable>();
+    //    return data;
+    //}
 
-    public TableQuery<MarketTable> GetMarketData()
-    {
-        var data = MarketConnection.Table<MarketTable>();
-        return data;
-    }
+    //public TableQuery<MarketTable> GetMarketData()
+    //{
+    //    var data = MarketConnection.Table<MarketTable>();
+    //    return data;
+    //}
 
     public void TestInsertAnimo()
     {
