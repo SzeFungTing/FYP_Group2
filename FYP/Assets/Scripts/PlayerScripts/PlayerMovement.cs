@@ -87,7 +87,7 @@ public class PlayerMovement : MonoBehaviour
             walkSpeed = 25;
             jumpForce = 25;
             crouchSpeed = 10;
-            sprintSpeed = 35;
+            sprintSpeed = 45;
         }
 
         startYScale = transform.localScale.y;
@@ -295,7 +295,7 @@ public class PlayerMovement : MonoBehaviour
 
             string currentSceneName = SceneManager.GetActiveScene().name;
             if (currentSceneName == "Volcano")
-                gravity = -15f;
+                gravity = -20f;
             else
                 gravity = -9.8f;
         }
