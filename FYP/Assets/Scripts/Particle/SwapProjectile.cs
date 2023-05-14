@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpawnProjectile : MonoBehaviour
+public class SwapProjectile : MonoBehaviour
 {
     public GameObject firePoint;
     public List<GameObject> vfx = new List<GameObject>();
