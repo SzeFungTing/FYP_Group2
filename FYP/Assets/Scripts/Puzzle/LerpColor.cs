@@ -58,7 +58,7 @@ public class LerpColor : MonoBehaviour
                 Debug.DrawRay(playerCameraTransform.position, playerCameraTransform.TransformDirection(Vector3.forward) * 1000, Color.white);
 
 
-                if (index != 5)
+                if (index != 3)
                 {
                     if (Input.GetKeyDown(KeyCode.E))
                     {
@@ -136,7 +136,7 @@ public class LerpColor : MonoBehaviour
     {
         
 
-        if (colorIdx < 5)
+        if (colorIdx < 3)
         {
             if (Time.time > emitTime + emitInterval)
             {
@@ -149,7 +149,7 @@ public class LerpColor : MonoBehaviour
                     num = Random.Range(0, all.transform.childCount);
 
                 }
-                else if(colorIdx<5)
+                else if(colorIdx<3)
                 {
 
                     all.transform.GetChild(num).GetComponent<Renderer>().materials[1].SetColor("_EmissionColor", emissiveIntensity * new Color(12 / 255f, 28 / 255f, 191 / 255f));
@@ -162,7 +162,7 @@ public class LerpColor : MonoBehaviour
 
             }
         }
-        if (colorIdx == 5 && Time.time > emitTime + emitInterval && !isDone)
+        if (colorIdx == 3 && Time.time > emitTime + emitInterval && !isDone)
         {
             foreach (Transform all in transform)
             {
