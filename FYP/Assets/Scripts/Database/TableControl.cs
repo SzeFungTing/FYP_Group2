@@ -82,8 +82,14 @@ public class TableControl : MonoBehaviour
             LoadBackpack();
         }
 
+        //TestInsertAnimo();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
         //secret key command for delete all table data
-        if (Input.GetKeyDown(KeyCode.P) && Input.GetKeyDown(KeyCode.L) && Input.GetKeyDown(KeyCode.M))
+        if (Input.GetKey(KeyCode.P) && Input.GetKey(KeyCode.L) && Input.GetKey(KeyCode.M))
         {
             PlayerConnection.DeleteAll<PlayerTable>();
             AnimoConnection.DeleteAll<AnimoTable>();
@@ -92,12 +98,7 @@ public class TableControl : MonoBehaviour
 
             Debug.Log("Deleted all data");
         }
-        //TestInsertAnimo();
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
         //if (Input.GetKeyDown(KeyCode.Z))    //save
         //{
         //    PlayerConnection.DeleteAll<PlayerTable>();
