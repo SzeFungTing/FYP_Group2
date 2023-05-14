@@ -295,7 +295,7 @@ public class PlayerMovement : MonoBehaviour
 
             string currentSceneName = SceneManager.GetActiveScene().name;
             if (currentSceneName == "Volcano")
-                gravity = -10f;
+                gravity = -15f;
             else
                 gravity = -9.8f;
         }
@@ -354,8 +354,14 @@ public class PlayerMovement : MonoBehaviour
         }
         else if (controller.isGrounded && isWalking)
         {
+
             state = MovementState.walking;
-            walkSpeed = 7;
+            string currentSceneName = SceneManager.GetActiveScene().name;
+            if (currentSceneName == "Volcano")
+                walkSpeed = 25;
+            else
+                walkSpeed = 7;
+
         }
         else if (controller.isGrounded)
         {
