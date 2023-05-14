@@ -496,9 +496,10 @@ GameObject:
   - component: {fileID: 1778026673732898099}
   - component: {fileID: 919132148525605682}
   - component: {fileID: 3213296496585944401}
+  - component: {fileID: 491364571528773029}
   m_Layer: 0
   m_Name: CageBig
-  m_TagString: Untagged
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -552,6 +553,20 @@ MonoBehaviour:
   - {fileID: 8237755470986777372}
   - {fileID: 1096111094}
   - {fileID: 1096111093}
+--- !u!114 &491364571528773029
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1434116631913863049}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69cc6bbaa03dc054988569c3108b1659, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item: {fileID: 11400000, guid: 82575295c8fd6014aa6aa4d051cd0bde, type: 2}
+  canConsume: 0
 --- !u!1 &1458557851495974362
 GameObject:
   m_ObjectHideFlags: 0

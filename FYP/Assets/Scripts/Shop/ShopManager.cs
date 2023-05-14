@@ -40,13 +40,16 @@ public class ShopManager : MonoBehaviour
     //private List<InflationItem> inflationItemLists;
 
 
+    private void Awake()
+    {
+        instance = this;
+    }
 
- 
 
     // Start is called before the first frame update
     void Start()
     {
-        instance = this;
+        //instance = this;
 
         shopUI = UIScripts.instance.shopUI;
 

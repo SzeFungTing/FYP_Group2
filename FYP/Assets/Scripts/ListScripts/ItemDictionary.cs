@@ -15,15 +15,19 @@ public class ItemDictionary : MonoBehaviour
     private void Awake()
     {
         instance = this;
+        foreach (var i in itemArray)
+        {
+            itemDict.Add(i.id, i);
+        }
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        foreach (var i in itemArray)
-        {
-            itemDict.Add(i.id, i);
-        }
+        //foreach (var i in itemArray)
+        //{
+        //    itemDict.Add(i.id, i);
+        //}
 
         //Debug.Log("itemDict.Count: "+itemDict.Count);
         //Debug.Log( GetItem(16));

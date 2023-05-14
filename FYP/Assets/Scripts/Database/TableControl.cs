@@ -68,8 +68,6 @@ public class TableControl : MonoBehaviour
                 break;
         }
 
-        
-
         if (SceneManager.GetActiveScene().name == "HomeScene")
         {
             player = transform.parent.gameObject;
@@ -206,6 +204,7 @@ public class TableControl : MonoBehaviour
     {
         for (int i = 0; i < animos.Length; i++)
         {
+            Debug.Log(animos);
             var at = new AnimoTable
             {
                 AnimoId = animos[i].GetComponent<WorldItem>().GetItemId(),
@@ -232,7 +231,7 @@ public class TableControl : MonoBehaviour
                 Rotation = buildings[i].transform.rotation.y,
                 MapId = currentMap
             };
-            AnimoConnection.Insert(bt);
+            BuildingConnection.Insert(bt);
         }
     }
 
@@ -334,23 +333,29 @@ public class TableControl : MonoBehaviour
     public void SaveBuildingAndAnimo()
     {
         AnimoConnection.DeleteAll<AnimoTable>();
-        Animo[] animos = FindObjectsOfType<Animo>();
-        GameObject[] animoObjs = new GameObject[animos.Length];
-        for (int i = 0; i < animos.Length; i++)
-        {
-            if (animos[i].gameObject.tag == "Pet")
-                animoObjs[i] = animos[i].gameObject;
-        }
+        //Animo[] animos = FindObjectsOfType<Animo>();
+        //GameObject[] animoObjs = new GameObject[animos.Length];
+
+        GameObject[] animoObjs = GameObject.FindGameObjectsWithTag("Pet");
+        //for (int i = 0; i < animos.Length; i++)
+        //{
+        //    Debug.Log("tag: " + animos[i].gameObject.tag);
+
+        //    if (animos[i].gameObject.tag == "Pet")
+        //        animoObjs[i] = animos[i].gameObject;
+        //}
         InsertAllAnimoData(animoObjs);
 
         BuildingConnection.DeleteAll<BuildingTable>();
-        PlaceableObject[] buildings = FindObjectsOfType<PlaceableObject>();
-        GameObject[] buildingObjs = new GameObject[buildings.Length];
-        for (int i = 0; i < buildings.Length; i++)
-        {
-            buildingObjs[i] = buildings[i].gameObject;
-        }
-        InsertAllBuildingData(buildingObjs);
+        //PlaceableObject[] buildings = FindObjectsOfType<PlaceableObject>();
+        //GameObject[] buildingObjs = new GameObject[buildings.Length];
+        //for (int i = 0; i < buildings.Length; i++)
+        //{
+        //    buildingObjs[i] = buildings[i].gameObject;
+        //}
+        GameObject[] buildingObjs = GameObject.FindGameObjectsWithTag("Building");
+        if (buildingObjs.Length > 0)
+            InsertAllBuildingData(buildingObjs);
     }
 
     public int GetPlayerMap()
