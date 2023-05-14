@@ -154,8 +154,7 @@ public class UIScripts : MonoBehaviour
 
     public void QuitGame()
     {
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
-        tc.SavePlayerAndBackpack(player);
+        tc.SavePlayerAndBackpack();
 
         if (SceneManager.GetActiveScene().name == "HomeScene")
         {

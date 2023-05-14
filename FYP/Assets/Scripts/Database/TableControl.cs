@@ -15,6 +15,7 @@ public class TableControl : MonoBehaviour
     public SQLiteConnection MarketConnection;
 
     private int currentMap = 0;
+    private GameObject player;
 
     // Start is called before the first frame update
     void Start()
@@ -67,6 +68,7 @@ public class TableControl : MonoBehaviour
                 break;
         }
 
+        player = transform.parent.gameObject;
         LoadBackpack();
         //TestInsertAnimo();
     }
@@ -297,7 +299,7 @@ public class TableControl : MonoBehaviour
         
     }
 
-    public void SavePlayerAndBackpack(GameObject player)
+    public void SavePlayerAndBackpack()
     {
         PlayerConnection.DeleteAll<PlayerTable>();
         InsertPlayerData(player);
