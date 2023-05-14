@@ -68,8 +68,30 @@ public class TableControl : MonoBehaviour
                 break;
         }
 
-        player = transform.parent.gameObject;
-        LoadBackpack();
+        
+
+        if (SceneManager.GetActiveScene().name == "HomeScene")
+        {
+            player = transform.parent.gameObject;
+            LoadPlayerAndBackpack();
+            LoadAnimoAndBuilding();
+        }
+        else if (SceneManager.GetActiveScene().name != "StartStage")
+        {
+            player = transform.parent.gameObject;
+            LoadBackpack();
+        }
+
+        //secret key command for delete all table data
+        if (Input.GetKeyDown(KeyCode.P) && Input.GetKeyDown(KeyCode.L) && Input.GetKeyDown(KeyCode.M))
+        {
+            PlayerConnection.DeleteAll<PlayerTable>();
+            AnimoConnection.DeleteAll<AnimoTable>();
+            BuildingConnection.DeleteAll<BuildingTable>();
+            BackpackConnection.DeleteAll<BackpackTable>();
+
+            Debug.Log("Deleted all data");
+        }
         //TestInsertAnimo();
     }
 
@@ -330,41 +352,19 @@ public class TableControl : MonoBehaviour
         InsertAllBuildingData(buildingObjs);
     }
 
-    public string GetPlayerMap()
+    public int GetPlayerMap()
     {
         var playerData = GetPlayerData();
-        int map = 0;
+        int map = 1;
         foreach (var p in playerData)
         {
             map = p.MapId;
         }
 
-        switch (map)
-        {
-            case 1:
-                return "HomeScene";
-
-            case 2:
-                return "IceIslandScene";
-
-            case 3:
-                return "DesertScene";
-
-            case 4:
-                return "Volcano";
-
-            case 5:
-                return "DarkForest";
-
-            default:
-                Debug.Log("Invalid map id");
-                break;
-        }
-
-        return "";
+        return map;
     }
 
-    public void LoadPlayerAndBackpack(GameObject player)
+    public void LoadPlayerAndBackpack()
     {
         var playerData = GetPlayerData();
         foreach (var p in playerData)
@@ -378,6 +378,19 @@ public class TableControl : MonoBehaviour
         LoadBackpack();
     }
 
+    public bool TryLoadPlayer()
+    {
+        try
+        {
+            var playerData = GetPlayerData();
+            return true;
+        }
+        catch
+        {
+            return false;
+        }
+    }
+
     public void LoadBackpack()
     {
         var backpackData = GetBackpackData();
@@ -388,7 +401,13 @@ public class TableControl : MonoBehaviour
     }
 
     public void LoadAnimoAndBuilding()
-    {
+    {   
+        var buildingData = GetBuildingData();
+        foreach (var b in buildingData)
+        {
+            Instantiate(ItemDictionary.instance.GetItem(b.BuildingId).objectPrefab, new Vector3(b.PosX, b.PosY, b.PosZ), new Quaternion(0, b.Rotation, 0, 0));
+        }
+
         Animo[] animos = FindObjectsOfType<Animo>();
         for (int i = 0; i < animos.Length; i++)
         {
@@ -398,12 +417,6 @@ public class TableControl : MonoBehaviour
         foreach (var a in animoData)
         {
             Instantiate(ItemDictionary.instance.GetItem(a.AnimoId).objectPrefab, new Vector3(a.PosX, a.PosY, a.PosZ), Quaternion.identity);
-        }
-
-        var buildingData = GetBuildingData();
-        foreach (var b in buildingData)
-        {
-            Instantiate(ItemDictionary.instance.GetItem(b.BuildingId).objectPrefab, new Vector3(b.PosX, b.PosY, b.PosZ), new Quaternion(0, b.Rotation, 0, 0));
         }
     }
 }

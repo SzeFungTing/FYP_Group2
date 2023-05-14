@@ -8039,6 +8039,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9d79442471e8c840bfb465ebd9aa0aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tc: {fileID: 1908693773}
 --- !u!114 &446454429
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25293,6 +25294,74 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!1001 &1908693772
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 8259406298312887074, guid: 521f6df3db31b164c924f57760bdb3ad, type: 3}
+      propertyPath: m_RootOrder
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 8259406298312887074, guid: 521f6df3db31b164c924f57760bdb3ad, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8259406298312887074, guid: 521f6df3db31b164c924f57760bdb3ad, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8259406298312887074, guid: 521f6df3db31b164c924f57760bdb3ad, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8259406298312887074, guid: 521f6df3db31b164c924f57760bdb3ad, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8259406298312887074, guid: 521f6df3db31b164c924f57760bdb3ad, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8259406298312887074, guid: 521f6df3db31b164c924f57760bdb3ad, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8259406298312887074, guid: 521f6df3db31b164c924f57760bdb3ad, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8259406298312887074, guid: 521f6df3db31b164c924f57760bdb3ad, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8259406298312887074, guid: 521f6df3db31b164c924f57760bdb3ad, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8259406298312887074, guid: 521f6df3db31b164c924f57760bdb3ad, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8259406298312887132, guid: 521f6df3db31b164c924f57760bdb3ad, type: 3}
+      propertyPath: m_Name
+      value: Database
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 521f6df3db31b164c924f57760bdb3ad, type: 3}
+--- !u!114 &1908693773 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8259406298312887075, guid: 521f6df3db31b164c924f57760bdb3ad, type: 3}
+  m_PrefabInstance: {fileID: 1908693772}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a28fd7266822a04dbd99d5bcd8b1d94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1918186695
 GameObject:
   m_ObjectHideFlags: 0
@@ -26280,8 +26349,8 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 687403102}
         m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
-        m_MethodName: LoadScene
-        m_Mode: 3
+        m_MethodName: LoadSceneForStartStage
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -26554,6 +26623,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9d79442471e8c840bfb465ebd9aa0aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tc: {fileID: 1908693773}
 --- !u!1 &2079939160
 GameObject:
   m_ObjectHideFlags: 0
@@ -28323,10 +28393,15 @@ MonoBehaviour:
   backPackUI: {fileID: 0}
   hotBarUI: {fileID: 0}
   craftingUI: {fileID: 0}
+  craftingHint: {fileID: 0}
   gunVacuum: {fileID: 0}
   gunShooting: {fileID: 0}
+  jetpackUI: {fileID: 0}
+  loadingUI: {fileID: 0}
   isTimeStop: 0
+  isOpenUI: 0
   dropDown: {fileID: 1649679414}
+  tc: {fileID: 1908693773}
 --- !u!114 &712354775610555408
 MonoBehaviour:
   m_ObjectHideFlags: 0

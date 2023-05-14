@@ -5,10 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class StartGame : MonoBehaviour
 {
+    public TableControl tc;
     // Start is called before the first frame update
     void Start()
-    { 
-        
+    {
+        tc = FindObjectOfType<TableControl>();
     }
     public void exitgame()
     {
@@ -17,8 +18,20 @@ public class StartGame : MonoBehaviour
 
     public void StartStage()
     {
-            SceneManager.LoadScene("HomeScene");
-        
+        //if (tc.TryLoadPlayer())
+        //{
+        //    string map = tc.GetPlayerMap();
+        //    Debug.Log(map);
+        //    if (map != "")
+        //    {
+        //        SceneManager.LoadScene(map);
+        //    }
+        //}
+        //else
+        //{
+        //    SceneManager.LoadScene("HomeScene");
+        //}
+        SceneManager.LoadScene("HomeScene");
     }
 
 }

@@ -14,6 +14,13 @@ public class SceneLoader : MonoBehaviour
         StartCoroutine(LoadSceneAsynchronously(levelIndex));
     }
 
+    public void LoadSceneForStartStage()
+    {
+        TableControl tc = FindObjectOfType<TableControl>();
+        int map = tc.GetPlayerMap();
+        StartCoroutine(LoadSceneAsynchronously(map));
+    }
+
     IEnumerator LoadSceneAsynchronously(int levelIndex)
     {
         AsyncOperation operation = SceneManager.LoadSceneAsync(levelIndex);
