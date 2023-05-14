@@ -5582,7 +5582,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PuzzleStartPoint: {fileID: 1314381854}
-  FPSController: {fileID: 2140548684}
+  FPSController: {fileID: 1690481524}
 --- !u!1 &61716114
 GameObject:
   m_ObjectHideFlags: 0
@@ -11998,7 +11998,7 @@ MonoBehaviour:
   PortalTrigger: {fileID: 1712769881}
   Portal: {fileID: 409959086}
   wall: {fileID: 1086447005}
-  playerCameraTransform: {fileID: 2140548686}
+  playerCameraTransform: {fileID: 1690481525}
 --- !u!64 &177138004
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -19881,6 +19881,7 @@ MonoBehaviour:
   loadingSprites: []
   loadingImage: {fileID: 0}
   switchTime: 1
+  tc: {fileID: 0}
 --- !u!65 &418328840
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -44075,7 +44076,9 @@ MonoBehaviour:
   LeftJetpackFlame: {fileID: 0}
   RightJetpackFlame: {fileID: 0}
   state: 4
+  gun: {fileID: 0}
   playerHP: 100
+  spawnPoint: {fileID: 0}
 --- !u!114 &1140602332
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -85315,6 +85318,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ab694c7c1c9b29244ae5cbfe30c1b4c1, type: 3}
+--- !u!1 &1690481524 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8794295346756488011, guid: ab694c7c1c9b29244ae5cbfe30c1b4c1, type: 3}
+  m_PrefabInstance: {fileID: 1690481523}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1690481525 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8160607919683588593, guid: ab694c7c1c9b29244ae5cbfe30c1b4c1, type: 3}
+  m_PrefabInstance: {fileID: 1690481523}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1697601104
 GameObject:
   m_ObjectHideFlags: 0
@@ -85686,7 +85699,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MazeStartPoint: {fileID: 1141990525}
-  FPSController: {fileID: 2140548684}
+  FPSController: {fileID: 1690481524}
 --- !u!1 &1725685080
 GameObject:
   m_ObjectHideFlags: 0
@@ -88671,7 +88684,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1967782675
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -93396,7 +93409,9 @@ MonoBehaviour:
   LeftJetpackFlame: {fileID: 0}
   RightJetpackFlame: {fileID: 0}
   state: 4
+  gun: {fileID: 0}
   playerHP: 100
+  spawnPoint: {fileID: 0}
 --- !u!82 &2140548691
 AudioSource:
   m_ObjectHideFlags: 0
