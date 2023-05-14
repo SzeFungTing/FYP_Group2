@@ -15,7 +15,6 @@ public class TableControl : MonoBehaviour
     public SQLiteConnection MarketConnection;
 
     public GameObject player;
-    private int count = 0;
     private int currentMap = 0;
 
     // Start is called before the first frame update
@@ -61,76 +60,74 @@ public class TableControl : MonoBehaviour
                 break;
         }
 
-        TestInsertAnimo();
+        //TestInsertAnimo();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Z))    //save
-        {
-            PlayerConnection.DeleteAll<PlayerTable>();
-            InsertPlayerData(player);
+        //if (Input.GetKeyDown(KeyCode.Z))    //save
+        //{
+        //    PlayerConnection.DeleteAll<PlayerTable>();
+        //    InsertPlayerData(player);
 
-            BackpackConnection.DeleteAll<BackpackTable>();
-            InsertAllBackpackData();
+        //    BackpackConnection.DeleteAll<BackpackTable>();
+        //    InsertAllBackpackData();
 
-            AnimoConnection.DeleteAll<AnimoTable>();
-            Animo[] animos = FindObjectsOfType<Animo>();
-            GameObject[] animoObjs = new GameObject[animos.Length];
-            for (int i = 0; i < animos.Length; i++)
-            {
-                if (animos[i].gameObject.tag == "Pet")
-                animoObjs[i] = animos[i].gameObject;
-            }
-            InsertAllAnimoData(animoObjs);
+        //    AnimoConnection.DeleteAll<AnimoTable>();
+        //    Animo[] animos = FindObjectsOfType<Animo>();
+        //    GameObject[] animoObjs = new GameObject[animos.Length];
+        //    for (int i = 0; i < animos.Length; i++)
+        //    {
+        //        if (animos[i].gameObject.tag == "Pet")
+        //        animoObjs[i] = animos[i].gameObject;
+        //    }
+        //    InsertAllAnimoData(animoObjs);
 
-            BuildingConnection.DeleteAll<BuildingTable>();
-            PlaceableObject[] buildings = FindObjectsOfType<PlaceableObject>();
-            GameObject[] buildingObjs = new GameObject[buildings.Length];
-            for (int i = 0; i < buildings.Length; i++)
-            {
-                buildingObjs[i] = buildings[i].gameObject;
-            }
-            InsertAllBuildingData(buildingObjs);
-        }
+        //    BuildingConnection.DeleteAll<BuildingTable>();
+        //    PlaceableObject[] buildings = FindObjectsOfType<PlaceableObject>();
+        //    GameObject[] buildingObjs = new GameObject[buildings.Length];
+        //    for (int i = 0; i < buildings.Length; i++)
+        //    {
+        //        buildingObjs[i] = buildings[i].gameObject;
+        //    }
+        //    InsertAllBuildingData(buildingObjs);
+        //}
 
-        if (Input.GetKeyDown(KeyCode.X))    //load
-        {
-            var playerData = GetPlayerData();
-            foreach (var p in playerData)
-            {
-                player.transform.position = new Vector3(p.PosX, p.PosY, p.PosZ);
-                MoneyManager.instance.coins = (float)p.Coin;
-                MoneyManager.instance.RefreshCoins();
-                ShopManager.instance.haveJetpack = p.HvJetpack;
-            }
+        //if (Input.GetKeyDown(KeyCode.X))    //load
+        //{
+        //    var playerData = GetPlayerData();
+        //    foreach (var p in playerData)
+        //    {
+        //        player.transform.position = new Vector3(p.PosX, p.PosY, p.PosZ);
+        //        MoneyManager.instance.coins = (float)p.Coin;
+        //        MoneyManager.instance.RefreshCoins();
+        //        ShopManager.instance.haveJetpack = p.HvJetpack;
+        //    }
 
-            var backpackData = GetBackpackData();
-            foreach(var b in backpackData)
-            {
-                //Debug.Log("backpack: " + ItemDictionary.instance.GetItem(b.ItemId));
-                InventoryManager5.instance.SpawnNewItem(ItemDictionary.instance.GetItem(b.ItemId), InventoryManager5.instance.inventorySlots[b.PosId], b.Count);
-            }
+        //    var backpackData = GetBackpackData();
+        //    foreach(var b in backpackData)
+        //    {
+        //        InventoryManager5.instance.SpawnNewItem(ItemDictionary.instance.GetItem(b.ItemId), InventoryManager5.instance.inventorySlots[b.PosId], b.Count);
+        //    }
 
-            Animo[] animos = FindObjectsOfType<Animo>();
-            for (int i = 0; i < animos.Length; i++)
-            {
-                Destroy(animos[i].gameObject);
-            }
-            var animoData = GetAnimoData();
-            foreach (var a in animoData)
-            {
-                //Debug.Log("animo: " + ItemDictionary.instance.GetItem(a.Id).GetItemPrefab());
-                Instantiate(ItemDictionary.instance.GetItem(a.AnimoId).objectPrefab, new Vector3(a.PosX, a.PosY, a.PosZ), Quaternion.identity);
-            }
+        //    Animo[] animos = FindObjectsOfType<Animo>();
+        //    for (int i = 0; i < animos.Length; i++)
+        //    {
+        //        Destroy(animos[i].gameObject);
+        //    }
+        //    var animoData = GetAnimoData();
+        //    foreach (var a in animoData)
+        //    {
+        //        Instantiate(ItemDictionary.instance.GetItem(a.AnimoId).objectPrefab, new Vector3(a.PosX, a.PosY, a.PosZ), Quaternion.identity);
+        //    }
 
-            var buildingData = GetBuildingData();
-            foreach (var b in buildingData)
-            {
-                Instantiate(ItemDictionary.instance.GetItem(b.BuildingId).objectPrefab, new Vector3(b.PosX, b.PosY, b.PosZ), new Quaternion(0, b.Rotation, 0, 0));
-            }
-        }
+        //    var buildingData = GetBuildingData();
+        //    foreach (var b in buildingData)
+        //    {
+        //        Instantiate(ItemDictionary.instance.GetItem(b.BuildingId).objectPrefab, new Vector3(b.PosX, b.PosY, b.PosZ), new Quaternion(0, b.Rotation, 0, 0));
+        //    }
+        //}
     }
 
 
@@ -350,5 +347,74 @@ public class TableControl : MonoBehaviour
         };
         AnimoConnection.Insert(at);
         
+    }
+
+    public void savePlayerAndBackpack(GameObject player)
+    {
+        PlayerConnection.DeleteAll<PlayerTable>();
+        InsertPlayerData(player);
+
+        BackpackConnection.DeleteAll<BackpackTable>();
+        InsertAllBackpackData();
+    }
+
+    public void saveBuildingAndAnimo()
+    {
+        AnimoConnection.DeleteAll<AnimoTable>();
+        Animo[] animos = FindObjectsOfType<Animo>();
+        GameObject[] animoObjs = new GameObject[animos.Length];
+        for (int i = 0; i < animos.Length; i++)
+        {
+            if (animos[i].gameObject.tag == "Pet")
+                animoObjs[i] = animos[i].gameObject;
+        }
+        InsertAllAnimoData(animoObjs);
+
+        BuildingConnection.DeleteAll<BuildingTable>();
+        PlaceableObject[] buildings = FindObjectsOfType<PlaceableObject>();
+        GameObject[] buildingObjs = new GameObject[buildings.Length];
+        for (int i = 0; i < buildings.Length; i++)
+        {
+            buildingObjs[i] = buildings[i].gameObject;
+        }
+        InsertAllBuildingData(buildingObjs);
+    }
+
+    public void LoadPlayerAndBackpack(GameObject player)
+    {
+        var playerData = GetPlayerData();
+        foreach (var p in playerData)
+        {
+            player.transform.position = new Vector3(p.PosX, p.PosY, p.PosZ);
+            MoneyManager.instance.coins = (float)p.Coin;
+            MoneyManager.instance.RefreshCoins();
+            ShopManager.instance.haveJetpack = p.HvJetpack;
+        }
+
+        var backpackData = GetBackpackData();
+        foreach (var b in backpackData)
+        {
+            InventoryManager5.instance.SpawnNewItem(ItemDictionary.instance.GetItem(b.ItemId), InventoryManager5.instance.inventorySlots[b.PosId], b.Count);
+        }
+    }
+
+    public void LoadAnimoAndBuilding()
+    {
+        Animo[] animos = FindObjectsOfType<Animo>();
+        for (int i = 0; i < animos.Length; i++)
+        {
+            Destroy(animos[i].gameObject);
+        }
+        var animoData = GetAnimoData();
+        foreach (var a in animoData)
+        {
+            Instantiate(ItemDictionary.instance.GetItem(a.AnimoId).objectPrefab, new Vector3(a.PosX, a.PosY, a.PosZ), Quaternion.identity);
+        }
+
+        var buildingData = GetBuildingData();
+        foreach (var b in buildingData)
+        {
+            Instantiate(ItemDictionary.instance.GetItem(b.BuildingId).objectPrefab, new Vector3(b.PosX, b.PosY, b.PosZ), new Quaternion(0, b.Rotation, 0, 0));
+        }
     }
 }
