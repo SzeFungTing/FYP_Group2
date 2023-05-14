@@ -23237,7 +23237,19 @@ MonoBehaviour:
       m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 712354775560672627}
+        m_TargetAssemblyTypeName: UIScripts, Assembly-CSharp
+        m_MethodName: ChangeResolution
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_AlphaFadeSpeed: 0.15
 --- !u!114 &1649679415
 MonoBehaviour:
@@ -28314,6 +28326,7 @@ MonoBehaviour:
   gunVacuum: {fileID: 0}
   gunShooting: {fileID: 0}
   isTimeStop: 0
+  dropDown: {fileID: 1649679414}
 --- !u!114 &712354775610555408
 MonoBehaviour:
   m_ObjectHideFlags: 0
