@@ -38,6 +38,14 @@ public class UIScripts : MonoBehaviour
     private void Start()
     {
         craftingHint.SetActive(false);
+
+        //if(SceneManager.GetActiveScene().name == "Volcano")
+        //{
+        //    foreach(GameObject go in shopUI.transform)
+        //    {
+        //        //go.transform += 10;
+        //    }
+        //}
     }
 
     private void Update()

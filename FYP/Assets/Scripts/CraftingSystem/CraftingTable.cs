@@ -298,16 +298,16 @@ public class CraftingTable : MonoBehaviour
                     //Debug.Log("j: " + j);
 
                     previousInputItem = craftingRecipeSO.inputItemSOList[i - 1];
-                    Debug.Log("set previousInputItem.objectPrefab:" + previousInputItem.objectPrefab);
+                    //Debug.Log("set previousInputItem.objectPrefab:" + previousInputItem.objectPrefab);
                     //isFirstOne = false;
                 }
 
 
                 if (previousInputItem != null && (previousInputItem.objectPrefab == currentInputItem.objectPrefab))         //if not Already, nmber++
                 {
-                    Debug.Log("add itemAlreadyInInventory");
-                    Debug.Log("previousInputItem.objectPrefab:" + previousInputItem.objectPrefab);
-                    Debug.Log("currentInputItem.objectPrefab:" + currentInputItem.objectPrefab);
+                    //Debug.Log("add itemAlreadyInInventory");
+                    //Debug.Log("previousInputItem.objectPrefab:" + previousInputItem.objectPrefab);
+                    //Debug.Log("currentInputItem.objectPrefab:" + currentInputItem.objectPrefab);
 
 
 
@@ -323,10 +323,10 @@ public class CraftingTable : MonoBehaviour
 
             if (!itemAlreadyInInventory)
             {
-                Debug.Log("not itemAlreadyInInventory");
-                if(previousInputItem)
-                    Debug.Log("previousInputItem.objectPrefab:" + previousInputItem.objectPrefab);
-                Debug.Log("currentInputItem.objectPrefab:" + currentInputItem.objectPrefab);
+                //Debug.Log("not itemAlreadyInInventory");
+                //if(previousInputItem)
+                //    Debug.Log("previousInputItem.objectPrefab:" + previousInputItem.objectPrefab);
+                //Debug.Log("currentInputItem.objectPrefab:" + currentInputItem.objectPrefab);
 
                 consumeItemSlot = Instantiate(craftingUI.transform.GetChild(1).GetChild(0), craftingUI.transform.GetChild(1));
                 consumeItemSlot.gameObject.SetActive(true);

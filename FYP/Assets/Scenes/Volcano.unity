@@ -5716,10 +5716,26 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7149474624757735265, guid: ab694c7c1c9b29244ae5cbfe30c1b4c1, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -734.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7149474624757735265, guid: ab694c7c1c9b29244ae5cbfe30c1b4c1, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.000041484833
+      objectReference: {fileID: 0}
     - target: {fileID: 7149474624912438576, guid: ab694c7c1c9b29244ae5cbfe30c1b4c1, type: 3}
       propertyPath: tc
       value: 
       objectReference: {fileID: 452739012}
+    - target: {fileID: 7149474624912438576, guid: ab694c7c1c9b29244ae5cbfe30c1b4c1, type: 3}
+      propertyPath: loadingUI
+      value: 
+      objectReference: {fileID: 964372256}
+    - target: {fileID: 7149474625421567389, guid: ab694c7c1c9b29244ae5cbfe30c1b4c1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8160607919683588593, guid: ab694c7c1c9b29244ae5cbfe30c1b4c1, type: 3}
       propertyPath: m_RootOrder
       value: 14
@@ -19096,7 +19112,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1773315966}
   m_Layer: 0
-  m_Name: GameObject (1)
+  m_Name: SpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
