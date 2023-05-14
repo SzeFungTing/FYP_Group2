@@ -22,7 +22,6 @@ public class UnlockCursor : MonoBehaviour
 
     public void OnClick()
     {
-        
         NetworkUI.SetActive(false);
     }
 }
