@@ -59,24 +59,24 @@ public class Swap : MonoBehaviour
         {
             if (HomeScene && transform.name.Contains("Door"))
             {
-                StartCoroutine(LoadSceneAsynchronously(5));
+                StartCoroutine(LoadSceneAsynchronously(6));
             }
             else if (Maze)
             {
-                StartCoroutine(LoadSceneAsynchronously(0));
+                StartCoroutine(LoadSceneAsynchronously(1));
             }
 
             if (transform.gameObject.transform.parent.name.Contains("Portal_DarkForest") )
             {
-                StartCoroutine(LoadSceneAsynchronously(1));
+                StartCoroutine(LoadSceneAsynchronously(5));
             }
             else if (transform.gameObject.transform.parent.name.Contains("Portal_Desert"))
             {
-                StartCoroutine(LoadSceneAsynchronously(2));
+                StartCoroutine(LoadSceneAsynchronously(3));
             }
             else if (transform.gameObject.transform.parent.name.Contains("Portal_ice"))
             {
-                StartCoroutine(LoadSceneAsynchronously(3));
+                StartCoroutine(LoadSceneAsynchronously(2));
             }
             else if (transform.gameObject.transform.parent.name.Contains("Portal_Volcano"))
             {
@@ -84,7 +84,7 @@ public class Swap : MonoBehaviour
             }
             else if (transform.gameObject.transform.parent.name.Contains("Portal_Home"))
             {
-                StartCoroutine(LoadSceneAsynchronously(0));
+                StartCoroutine(LoadSceneAsynchronously(1));
             }
         }
             

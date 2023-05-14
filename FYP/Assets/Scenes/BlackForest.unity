@@ -4612,7 +4612,7 @@ PrefabInstance:
     - target: {fileID: 5757334145527397926, guid: c9c3fae732b44c046b257d4113e72064, type: 3}
       propertyPath: tc
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1053113706}
     - target: {fileID: 5757334145527397926, guid: c9c3fae732b44c046b257d4113e72064, type: 3}
       propertyPath: loadingBar
       value: 
@@ -4856,11 +4856,31 @@ PrefabInstance:
       value: FPS(model)
       objectReference: {fileID: 0}
     - target: {fileID: 8794295346756488014, guid: ab694c7c1c9b29244ae5cbfe30c1b4c1, type: 3}
+      propertyPath: gun
+      value: 
+      objectReference: {fileID: 1053113707}
+    - target: {fileID: 8794295346756488014, guid: ab694c7c1c9b29244ae5cbfe30c1b4c1, type: 3}
       propertyPath: spawnPoint
       value: 
       objectReference: {fileID: 1307772041}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ab694c7c1c9b29244ae5cbfe30c1b4c1, type: 3}
+--- !u!114 &1053113706 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 891969350827855844, guid: ab694c7c1c9b29244ae5cbfe30c1b4c1, type: 3}
+  m_PrefabInstance: {fileID: 1053113705}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a28fd7266822a04dbd99d5bcd8b1d94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &1053113707 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7149474625635583270, guid: ab694c7c1c9b29244ae5cbfe30c1b4c1, type: 3}
+  m_PrefabInstance: {fileID: 1053113705}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1083586731 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 5aca2fd8b5bdd384ca42b6f06ad61049, type: 3}
