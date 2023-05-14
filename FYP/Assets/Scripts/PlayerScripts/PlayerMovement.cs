@@ -61,6 +61,7 @@ public class PlayerMovement : MonoBehaviour
     //public ShopManager shopManager;
 
     public MovementState state;
+    public GameObject gun;
 
     //attack system
      public int playerHP = 100;
@@ -373,6 +374,7 @@ public class PlayerMovement : MonoBehaviour
             state = MovementState.sprinting;
             walkSpeed = sprintSpeed;
             characterAnim.SetBool("isRan", true);
+            gun.SetActive(false);
         }
         else if (controller.isGrounded && isWalking)
         {
@@ -392,6 +394,8 @@ public class PlayerMovement : MonoBehaviour
             state = MovementState.standing;
             characterAnim.SetBool("isRan", false);
             characterAnim.SetBool("isCrounched", false);
+            gun.SetActive(true);
+
 
         }
         else
