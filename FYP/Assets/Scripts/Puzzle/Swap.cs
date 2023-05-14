@@ -95,7 +95,7 @@ public class Swap : MonoBehaviour
         //database
         if (tc)
         {
-            tc.SavePlayerAndBackpack();
+            //tc.SavePlayerAndBackpack();
             if (HomeScene)
             {
                 tc.SaveBuildingAndAnimo();
