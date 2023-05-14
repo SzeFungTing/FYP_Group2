@@ -17,6 +17,7 @@ public class RotateToMouse : MonoBehaviour
     {
         if (cam != null)
         {
+            //Debug.Log(" Update RotateToMouse");
             RaycastHit hit;
             var mousePos = Input.mousePosition;
             rayMouse = cam.ScreenPointToRay(mousePos);
@@ -38,9 +39,9 @@ public class RotateToMouse : MonoBehaviour
 
     void RotateToMouseDirection(GameObject obj, Vector3 destination)
     {
-        direction = destination = obj.transform.position;
+        direction = destination - obj.transform.position;
         rotation = Quaternion.LookRotation(direction);
-        obj.transform.localRotation = Quaternion.Lerp(obj.transform.rotation, rotation, 1);
+        //obj.transform.localRotation = Quaternion.Lerp(obj.transform.rotation, rotation, 1);
     }
 
     public Quaternion GetRotation()

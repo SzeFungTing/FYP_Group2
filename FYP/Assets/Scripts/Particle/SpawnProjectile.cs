@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SwapProjectile : MonoBehaviour
+public class SpawnProjectile : MonoBehaviour
 {
     public GameObject firePoint;
     public List<GameObject> vfx = new List<GameObject>();
@@ -10,18 +10,35 @@ public class SwapProjectile : MonoBehaviour
 
     private GameObject effectToSpawn;
 
+    float droneStayTime = 2;
+    float currentDroneStayTime = 0;
+
+    float timeToFire = 0;
+
     // Start is called before the first frame update
     void Start()
     {
         effectToSpawn = vfx[0];
+
+        firePoint.transform.parent.gameObject.SetActive(false);
+        currentDroneStayTime = droneStayTime;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetKey(KeyCode.Q) && Time.time >= timeToFire)
         {
+            firePoint.transform.parent.gameObject.SetActive(true);
+            currentDroneStayTime = droneStayTime;
+            timeToFire = Time.time + 1 / effectToSpawn.GetComponent<ProjectileMove>().fireRate;
             SpawnVFX();
+        }
+        currentDroneStayTime -= Time.deltaTime;
+        if (currentDroneStayTime <= 0)
+        {
+            firePoint.transform.parent.gameObject.SetActive(false);
+            currentDroneStayTime = droneStayTime;
         }
     }
 
@@ -29,10 +46,10 @@ public class SwapProjectile : MonoBehaviour
     {
         GameObject vfx;
 
-        if (firePoint !=null)
+        if (firePoint != null)
         {
             vfx = Instantiate(effectToSpawn, firePoint.transform.position, Quaternion.identity);
-            if (rotateToMouse !=null)
+            if (rotateToMouse != null)
             {
                 vfx.transform.localRotation = rotateToMouse.GetRotation();
             }

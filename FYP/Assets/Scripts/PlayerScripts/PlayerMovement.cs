@@ -63,7 +63,7 @@ public class PlayerMovement : MonoBehaviour
     public MovementState state;
 
     //attack system
-    [HideInInspector] public int playerHP = 100;
+     public int playerHP = 100;
     [SerializeField] Transform spawnPoint;
 
 
@@ -113,7 +113,7 @@ public class PlayerMovement : MonoBehaviour
                 //CrouchScale();
                 SlideOnSlope();
                 FootStep();
-                Attack();
+                //Attack();
             }
             PlayerDies();
 
@@ -210,22 +210,22 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    void Attack()
-    {
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            Debug.DrawLine(Camera.main.transform.position, Camera.main.ScreenPointToRay(new Vector2(Screen.width / 2, Screen.height / 2)).GetPoint(50), Color.green);
-            float interactDistance = 20f;
-            if (Physics.Raycast(Camera.main.ScreenPointToRay(new Vector2(Screen.width / 2, Screen.height / 2)), out RaycastHit raycastHit, interactDistance))
-            {
-                //Debug.Log("raycastHit:" + raycastHit);
-                if (raycastHit.transform.TryGetComponent<DemonAI>(out DemonAI demonAI))
-                {
-                    demonAI.hp--;
-                }
-            }
-        }
-    }
+    //void Attack()
+    //{
+    //    if (Input.GetKeyDown(KeyCode.Q))
+    //    {
+    //        Debug.DrawLine(Camera.main.transform.position, Camera.main.ScreenPointToRay(new Vector2(Screen.width / 2, Screen.height / 2)).GetPoint(50), Color.green);
+    //        float interactDistance = 20f;
+    //        if (Physics.Raycast(Camera.main.ScreenPointToRay(new Vector2(Screen.width / 2, Screen.height / 2)), out RaycastHit raycastHit, interactDistance))
+    //        {
+    //            //Debug.Log("raycastHit:" + raycastHit);
+    //            if (raycastHit.transform.TryGetComponent<DemonAI>(out DemonAI demonAI))
+    //            {
+    //                demonAI.hp--;
+    //            }
+    //        }
+    //    }
+    //}
 
 
     void HandleMovementInput()
