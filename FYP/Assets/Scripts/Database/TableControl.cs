@@ -14,7 +14,6 @@ public class TableControl : MonoBehaviour
     public SQLiteConnection FajroConnection;
     public SQLiteConnection MarketConnection;
 
-    public GameObject player;
     private int currentMap = 0;
 
     // Start is called before the first frame update
@@ -55,11 +54,20 @@ public class TableControl : MonoBehaviour
                 currentMap = 3;
                 break;
 
+            case "Volcano":
+                currentMap = 4;
+                break;
+
+            case "BlackForest":
+                currentMap = 5;
+                break;
+
             default:
                 currentMap = 0;
                 break;
         }
 
+        LoadBackpack();
         //TestInsertAnimo();
     }
 
@@ -133,26 +141,6 @@ public class TableControl : MonoBehaviour
 
     public void InsertPlayerData(GameObject player)
     {
-        int mapId = 0;
-        switch (SceneManager.GetActiveScene().name)
-        {
-            case "HomeScene":
-                mapId = 1;
-                break;
-
-            case "IslandScene":
-                mapId = 2;
-                break;
-
-            case "DesertScene":
-                mapId = 3;
-                break;
-
-            default:
-                mapId = 0;
-                break;
-        }
-
         var pt = new PlayerTable
         {
             PosX = player.transform.position.x,
@@ -160,7 +148,7 @@ public class TableControl : MonoBehaviour
             PosZ = player.transform.position.z,
             Coin = (int)MoneyManager.instance.coins,
             HvJetpack = ShopManager.instance.haveJetpack,
-            MapId = mapId
+            MapId = currentMap
         };
         PlayerConnection.Insert(pt);
     }
@@ -191,26 +179,6 @@ public class TableControl : MonoBehaviour
 
     public void InsertAllAnimoData(GameObject[] animos)
     {
-        int mapId = 0;
-        switch (SceneManager.GetActiveScene().name)
-        {
-            case "HomeScene":
-                mapId = 1;
-                break;
-
-            case "IslandScene":
-                mapId = 2;
-                break;
-
-            case "DesertScene":
-                mapId = 3;
-                break;
-
-            default:
-                mapId = 0;
-                break;
-        }
-
         for (int i = 0; i < animos.Length; i++)
         {
             var at = new AnimoTable
@@ -220,7 +188,7 @@ public class TableControl : MonoBehaviour
                 PosY = animos[i].transform.position.y,
                 PosZ = animos[i].transform.position.z,
                 IsHungry = animos[i].GetComponent<EatFood>().GetIsHungey(),
-                MapId = mapId
+                MapId = currentMap
             };
             AnimoConnection.Insert(at);
         }
@@ -228,26 +196,6 @@ public class TableControl : MonoBehaviour
 
     public void InsertAllBuildingData(GameObject[] buildings)
     {
-        int mapId = 0;
-        switch (SceneManager.GetActiveScene().name)
-        {
-            case "HomeScene":
-                mapId = 1;
-                break;
-
-            case "IslandScene":
-                mapId = 2;
-                break;
-
-            case "DesertScene":
-                mapId = 3;
-                break;
-
-            default:
-                mapId = 0;
-                break;
-        }
-
         for (int i = 0; i < buildings.Length; i++)
         {
             var bt = new BuildingTable
@@ -257,7 +205,7 @@ public class TableControl : MonoBehaviour
                 PosY = buildings[i].transform.position.y,
                 PosZ = buildings[i].transform.position.z,
                 Rotation = buildings[i].transform.rotation.y,
-                MapId = mapId
+                MapId = currentMap
             };
             AnimoConnection.Insert(bt);
         }
@@ -349,7 +297,7 @@ public class TableControl : MonoBehaviour
         
     }
 
-    public void savePlayerAndBackpack(GameObject player)
+    public void SavePlayerAndBackpack(GameObject player)
     {
         PlayerConnection.DeleteAll<PlayerTable>();
         InsertPlayerData(player);
@@ -358,7 +306,7 @@ public class TableControl : MonoBehaviour
         InsertAllBackpackData();
     }
 
-    public void saveBuildingAndAnimo()
+    public void SaveBuildingAndAnimo()
     {
         AnimoConnection.DeleteAll<AnimoTable>();
         Animo[] animos = FindObjectsOfType<Animo>();
@@ -380,6 +328,40 @@ public class TableControl : MonoBehaviour
         InsertAllBuildingData(buildingObjs);
     }
 
+    public string GetPlayerMap()
+    {
+        var playerData = GetPlayerData();
+        int map = 0;
+        foreach (var p in playerData)
+        {
+            map = p.MapId;
+        }
+
+        switch (map)
+        {
+            case 1:
+                return "HomeScene";
+
+            case 2:
+                return "IceIslandScene";
+
+            case 3:
+                return "DesertScene";
+
+            case 4:
+                return "Volcano";
+
+            case 5:
+                return "DarkForest";
+
+            default:
+                Debug.Log("Invalid map id");
+                break;
+        }
+
+        return "";
+    }
+
     public void LoadPlayerAndBackpack(GameObject player)
     {
         var playerData = GetPlayerData();
@@ -391,6 +373,11 @@ public class TableControl : MonoBehaviour
             ShopManager.instance.haveJetpack = p.HvJetpack;
         }
 
+        LoadBackpack();
+    }
+
+    public void LoadBackpack()
+    {
         var backpackData = GetBackpackData();
         foreach (var b in backpackData)
         {

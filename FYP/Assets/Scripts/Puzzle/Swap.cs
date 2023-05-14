@@ -15,6 +15,7 @@ public class Swap : MonoBehaviour
     public float switchTime = 1.0f;
     private float timer = 0.0f;
     private int currentIndex = 0;
+    public TableControl tc;
     void Start()
     {
         currentIndex = Random.Range(0, loadingSprites.Length);
@@ -87,6 +88,12 @@ public class Swap : MonoBehaviour
 
     IEnumerator LoadSceneAsynchronously(int levelIndex)
     {
+        tc.SavePlayerAndBackpack(GameObject.FindGameObjectWithTag("Player"));
+        if (HomeScene)
+        {
+            tc.SaveBuildingAndAnimo();
+        }
+
         AsyncOperation operation = SceneManager.LoadSceneAsync(levelIndex);
         loadingScreen.SetActive(true);
         while (!operation.isDone)

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using System;
 
 public class UIScripts : MonoBehaviour
 {
@@ -26,6 +27,8 @@ public class UIScripts : MonoBehaviour
     public bool isOpenUI = false;
 
     public Dropdown dropDown;
+
+    public TableControl tc;
 
     private void Awake()
     {
@@ -150,6 +153,14 @@ public class UIScripts : MonoBehaviour
 
     public void QuitGame()
     {
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        tc.SavePlayerAndBackpack(player);
+
+        if (SceneManager.GetActiveScene().name == "HomeScene")
+        {
+            tc.SaveBuildingAndAnimo();
+        }
+
         Application.Quit();
     }
 
