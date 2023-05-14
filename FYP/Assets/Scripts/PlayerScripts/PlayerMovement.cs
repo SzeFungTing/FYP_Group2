@@ -6,9 +6,6 @@ using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
-
-    public GameObject gun;
-
     public CharacterController controller;
     public CapsuleCollider CapsuleCollider;
     public Rigidbody Rigidbody;
@@ -60,7 +57,6 @@ public class PlayerMovement : MonoBehaviour
 
     public ParticleSystem LeftJetpackFlame;
     public ParticleSystem RightJetpackFlame;
-
 
     //public ShopManager shopManager;
 
@@ -119,7 +115,7 @@ public class PlayerMovement : MonoBehaviour
                 FootStep();
                 //Attack();
             }
-            PlayerDies();
+            //PlayerDies();
 
 
 
@@ -205,11 +201,26 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    void PlayerDies()
+    //void PlayerDies()
+    //{
+    //    //Debug.Log("PlayerDies()");
+    //    if (playerHP <= 0)
+    //    {
+    //        Debug.Log("playerHP <= 0");
+
+    //        if (spawnPoint)
+    //            transform.position = spawnPoint.position;
+    //    }
+    //}
+
+    public void BeAttack(int values)
     {
+        playerHP -= values;
         if (playerHP <= 0)
         {
-            if(spawnPoint)
+            //Debug.Log("playerHP <= 0");
+
+            if (spawnPoint)
                 transform.position = spawnPoint.position;
         }
     }
@@ -362,7 +373,6 @@ public class PlayerMovement : MonoBehaviour
             state = MovementState.sprinting;
             walkSpeed = sprintSpeed;
             characterAnim.SetBool("isRan", true);
-            gun.SetActive(false);
         }
         else if (controller.isGrounded && isWalking)
         {
@@ -382,7 +392,6 @@ public class PlayerMovement : MonoBehaviour
             state = MovementState.standing;
             characterAnim.SetBool("isRan", false);
             characterAnim.SetBool("isCrounched", false);
-            gun.SetActive(true);
 
         }
         else
