@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class UIScripts : MonoBehaviour
 {
@@ -22,6 +23,8 @@ public class UIScripts : MonoBehaviour
     public GameObject jetpackUI;
 
     public bool isTimeStop = false;     //to pause playerMovement, shooting, inhale function
+
+    public Dropdown dropDown;
 
     private void Awake()
     {
@@ -160,6 +163,28 @@ public class UIScripts : MonoBehaviour
     public void ChangeScene(string sceneName)
     {
         SceneManager.LoadScene(sceneName);
+    }
+
+    public void ChangeResolution()
+    {
+        switch (dropDown.value)
+        {
+            case 0:
+                Screen.SetResolution(1920, 1080, true);
+                break;
+
+            case 1:
+                Screen.SetResolution(960, 540, true);
+                break;
+
+            case 2:
+                Screen.SetResolution(640, 360, true);
+                break;
+
+            default:
+                Screen.SetResolution(1920, 1080, true);
+                break;
+        }
     }
 
     //public void InteractiveLicense()
