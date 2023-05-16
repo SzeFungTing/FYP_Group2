@@ -10,12 +10,14 @@ public class TableControl : MonoBehaviour
     public SQLiteConnection BackpackConnection;
     public SQLiteConnection AnimoConnection;
     public SQLiteConnection BuildingConnection;
+    public SQLiteConnection AllAnimoConnection;
     //public SQLiteConnection PuzzleConnection;
     //public SQLiteConnection FajroConnection;
     //public SQLiteConnection MarketConnection;
 
     private int currentMap = 0;
     private GameObject player;
+    private static int previousScene;
 
     // Start is called before the first frame update
     void Start()
@@ -32,6 +34,9 @@ public class TableControl : MonoBehaviour
         BuildingConnection = new SQLiteConnection(Application.streamingAssetsPath + "/BuildingTable.db", SQLiteOpenFlags.ReadWrite | SQLiteOpenFlags.Create);
         BuildingConnection.CreateTable<BuildingTable>(CreateFlags.ImplicitPK | CreateFlags.AutoIncPK);
 
+        AllAnimoConnection = new SQLiteConnection(Application.streamingAssetsPath + "/AllAnimoTable.db", SQLiteOpenFlags.ReadWrite | SQLiteOpenFlags.Create);
+        AllAnimoConnection.CreateTable<AllAnimoTable>();
+
         //PuzzleConnection = new SQLiteConnection(Application.streamingAssetsPath + "/PuzzleTable.db", SQLiteOpenFlags.ReadWrite | SQLiteOpenFlags.Create);
         //PuzzleConnection.CreateTable<PuzzleTable>();
 
@@ -47,7 +52,7 @@ public class TableControl : MonoBehaviour
                 currentMap = 1;
                 break;
 
-            case "IslandScene":
+            case "IceIslandScene":
                 currentMap = 2;
                 break;
 
@@ -68,16 +73,24 @@ public class TableControl : MonoBehaviour
                 break;
         }
 
-        if (SceneManager.GetActiveScene().name == "HomeScene")
+        if (previousScene == 0 && SceneManager.GetActiveScene().name == "HomeScene")
         {
             player = transform.parent.gameObject;
             LoadPlayerAndBackpack();
+            LoadAnimoAndBuilding();
+        }
+        else if (SceneManager.GetActiveScene().name == "HomeScene")
+        {
+            player = transform.parent.gameObject;
+            LoadBackpack();
+            LoadPlayerJetAndCoin();
             LoadAnimoAndBuilding();
         }
         else if (SceneManager.GetActiveScene().name != "StartStage")
         {
             player = transform.parent.gameObject;
             LoadBackpack();
+            LoadPlayerJetAndCoin();
         }
 
         //TestInsertAnimo();
@@ -93,6 +106,7 @@ public class TableControl : MonoBehaviour
             AnimoConnection.DeleteAll<AnimoTable>();
             BuildingConnection.DeleteAll<BuildingTable>();
             BackpackConnection.DeleteAll<BackpackTable>();
+            AllAnimoConnection.DeleteAll<AllAnimoTable>();
 
             Debug.Log("Deleted all data");
         }
@@ -259,6 +273,15 @@ public class TableControl : MonoBehaviour
         }
     }
 
+    public void InsertAnimoSaw(int id)
+    {
+        var aa = new AllAnimoTable
+        {
+            AnimoId = id
+        };
+        AllAnimoConnection.Insert(aa);
+    }
+
     //public void InsertMarketData()
     //{
 
@@ -285,6 +308,12 @@ public class TableControl : MonoBehaviour
     public TableQuery<BuildingTable> GetBuildingData()
     {
         var data = BuildingConnection.Table<BuildingTable>().Where(_ => _.MapId == currentMap);
+        return data;
+    }
+
+    public TableQuery<AllAnimoTable> GetAnimoSawData()
+    {
+        var data = AllAnimoConnection.Table<AllAnimoTable>();
         return data;
     }
 
@@ -323,6 +352,8 @@ public class TableControl : MonoBehaviour
 
     public void SavePlayerAndBackpack()
     {
+        previousScene = SceneManager.GetActiveScene().buildIndex;
+
         PlayerConnection.DeleteAll<PlayerTable>();
         InsertPlayerData(player);
 
@@ -412,6 +443,17 @@ public class TableControl : MonoBehaviour
         }
     }
 
+    public void LoadPlayerJetAndCoin()
+    {
+        var playerData = GetPlayerData();
+        foreach (var p in playerData)
+        {
+            MoneyManager.instance.coins = (float)p.Coin;
+            MoneyManager.instance.RefreshCoins();
+            ShopManager.instance.haveJetpack = p.HvJetpack;
+        }
+    }
+
     public void LoadAnimoAndBuilding()
     {   
         var buildingData = GetBuildingData();
@@ -430,5 +472,24 @@ public class TableControl : MonoBehaviour
         {
             Instantiate(ItemDictionary.instance.GetItem(a.AnimoId).objectPrefab, new Vector3(a.PosX, a.PosY, a.PosZ), Quaternion.identity);
         }
+    }
+
+    public int[] LoadAnimoSaw()
+    {
+        var data = GetAnimoSawData();
+        int count = 0;
+        foreach(var d in data)
+        {
+            count++;
+        }
+        int[] saw = new int[count];
+        int temp = 0;
+        foreach(var d in data)
+        {
+            saw[temp] = d.AnimoId;
+            temp++;
+        }
+
+        return saw;
     }
 }

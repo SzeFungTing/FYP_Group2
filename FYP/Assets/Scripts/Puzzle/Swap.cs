@@ -59,7 +59,7 @@ public class Swap : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            tc.SaveBackpack();
+            tc.SavePlayerAndBackpack();
             if (HomeScene && transform.name.Contains("Door"))
             {
                 if (HomeScene)

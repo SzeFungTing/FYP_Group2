@@ -18,6 +18,7 @@ public class SceneLoader : MonoBehaviour
     {
         TableControl tc = FindObjectOfType<TableControl>();
         int map = tc.GetPlayerMap();
+        Debug.Log("player map: " + map);
         StartCoroutine(LoadSceneAsynchronously(map));
     }
 

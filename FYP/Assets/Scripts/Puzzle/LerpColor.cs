@@ -18,6 +18,8 @@ public class LerpColor : MonoBehaviour
 
     [SerializeField] private Transform playerCameraTransform;
 
+    [SerializeField] int puzzleNum = 3;
+
     int colorIdx = 0;
     float emitTime = 0;
     float emitInterval = 0.5f;
@@ -29,7 +31,7 @@ public class LerpColor : MonoBehaviour
     void Start()
     {
 
-        foreach (Transform all in transform)
+        foreach (Transform all in transform)                        //close all puzzle light
         {
             all.GetComponent<Renderer>().materials[1].SetColor("_EmissionColor", Color.black);
         }
@@ -39,10 +41,9 @@ public class LerpColor : MonoBehaviour
 
     private void Update()
     {
-        if (wall.istriggered)
+        if (wall && wall.istriggered || (!wall && !isDone))       //start animation
         {
-            
-                RandomV();
+            RandomV();
             
         }
 
@@ -52,21 +53,25 @@ public class LerpColor : MonoBehaviour
         if (isDone)
         {
             Debug.DrawLine(Camera.main.transform.position, Camera.main.ScreenPointToRay(new Vector2(Screen.width / 2, Screen.height / 2)).GetPoint(50), Color.green);
-            if (Physics.Raycast(/*playerCameraTransform.position, playerCameraTransform.forward*/Camera.main.ScreenPointToRay(new Vector2(Screen.width / 2, Screen.height / 2)), out RaycastHit raycastHit, interactDistance))
+
+            //Debug.Log(raycastHit.transform.gameObject);
+            //Debug.DrawRay(playerCameraTransform.position, playerCameraTransform.TransformDirection(Vector3.forward) * 1000, Color.white);
+
+
+
+
+            if (index != puzzleNum)
             {
-                Debug.Log(raycastHit.transform.gameObject);
-                Debug.DrawRay(playerCameraTransform.position, playerCameraTransform.TransformDirection(Vector3.forward) * 1000, Color.white);
-
-
-                if (index != 3)
+                if (Input.GetKeyDown(KeyCode.E))
                 {
-                    if (Input.GetKeyDown(KeyCode.E))
+                    if (Physics.Raycast(/*playerCameraTransform.position, playerCameraTransform.forward*/Camera.main.ScreenPointToRay(new Vector2(Screen.width / 2, Screen.height / 2)), out RaycastHit raycastHit, interactDistance))
                     {
-                        if (P_list.Contains(raycastHit.transform.gameObject))
+
+                        if (P_list.Contains(raycastHit.transform.gameObject))       //player select same position
                         {
                             return;
                         }
-                        else if (raycastHit.transform.gameObject == list[index] && !P_list.Contains(raycastHit.transform.gameObject))
+                        else if (raycastHit.transform.gameObject == list[index] && !P_list.Contains(raycastHit.transform.gameObject))       //corret
                         {
                             Debug.Log("raycastHit.transform.gameObject1: " + raycastHit.transform.gameObject);
                             Debug.Log("list[index]1: " + list[index]);
@@ -75,7 +80,7 @@ public class LerpColor : MonoBehaviour
                             index++;
                             emitTime = Time.time;
                         }
-                        else if (raycastHit.transform.gameObject != list[index])
+                        else if (raycastHit.transform.gameObject != list[index])        //incorret
                         {
                             Debug.Log("raycastHit.transform.gameObject2: " + raycastHit.transform.gameObject);
                             Debug.Log("list[index]2: " + list[index]);
@@ -89,30 +94,35 @@ public class LerpColor : MonoBehaviour
 
                         }
 
-
                     }
                 }
-                else
+              
+            }
+            else
+            {
+                if (Time.time > emitTime + emitInterval + 2)        //end puzzle
                 {
-                    if (Time.time > emitTime + emitInterval + 2)
+                    foreach (Transform all in transform)
                     {
-                        foreach (Transform all in transform)
-                        {
-                            all.GetComponent<Renderer>().materials[1].SetColor("_EmissionColor", emissiveIntensity * new Color(12 / 255f, 28 / 255f, 191 / 255f));
-                            all.GetComponent<MeshCollider>().enabled = false;
-                            all.GetComponent<Rigidbody>().isKinematic = false;
-                            all.GetComponent<Rigidbody>().useGravity = true;                           
-                            PortalTrigger.SetActive(true);
-                            Portal.Play();
-                        }
-                    }
+                        all.GetComponent<Renderer>().materials[1].SetColor("_EmissionColor", emissiveIntensity * new Color(12 / 255f, 28 / 255f, 191 / 255f));
+                        all.GetComponent<MeshCollider>().enabled = false;
+                        all.GetComponent<Rigidbody>().isKinematic = false;
+                        all.GetComponent<Rigidbody>().useGravity = true;
+                        PortalTrigger.SetActive(true);
+                        Portal.Play();
 
+                        Destroy(this.gameObject, 2f);
+                    }
                 }
 
             }
+
+
+
+
         }
 
-        if (toReset && Time.time > emitTime + emitInterval + 2)
+        if (toReset && Time.time > emitTime + emitInterval + 2)     //reset
         {
             foreach (Transform all in transform)
             {
@@ -121,9 +131,10 @@ public class LerpColor : MonoBehaviour
             list = new List<GameObject>();
             P_list = new List<GameObject>();
             colorIdx = 0;
+            index = 0;
             isDone = false;
             Light.SetActive(false);
-            //RandomV();
+            RandomV();
 
             toReset = false;
             emitTime = Time.time;
@@ -136,7 +147,7 @@ public class LerpColor : MonoBehaviour
     {
         
 
-        if (colorIdx < 3)
+        if (colorIdx < puzzleNum)
         {
             if (Time.time > emitTime + emitInterval)
             {
@@ -145,11 +156,11 @@ public class LerpColor : MonoBehaviour
                 if (list.Contains(all.transform.GetChild(num).gameObject))
                 {
                     //list.Remove(all.transform.GetChild(num).gameObject);
-                    Debug.Log("hi");
+                    //Debug.Log("hi");
                     num = Random.Range(0, all.transform.childCount);
 
                 }
-                else if(colorIdx<3)
+                else if (colorIdx < puzzleNum)
                 {
 
                     all.transform.GetChild(num).GetComponent<Renderer>().materials[1].SetColor("_EmissionColor", emissiveIntensity * new Color(12 / 255f, 28 / 255f, 191 / 255f));
@@ -162,7 +173,7 @@ public class LerpColor : MonoBehaviour
 
             }
         }
-        if (colorIdx == 3 && Time.time > emitTime + emitInterval && !isDone)
+        if (colorIdx == puzzleNum && Time.time > emitTime + emitInterval && !isDone)
         {
             foreach (Transform all in transform)
             {
@@ -175,6 +186,11 @@ public class LerpColor : MonoBehaviour
                 isDone = true;
             }
 
+        }
+
+        if (wall && isDone)
+        {
+            Destroy(wall);
         }
     }
 
