@@ -27,6 +27,9 @@ public class PlaceableObject : MonoBehaviour
         for(int i =0; i<vertices.Length; i++)
         {
             Vector3 worldPos = transform.TransformPoint(Vertices[i]);
+            //Debug.Log(BuildingSystem.instance.gameObject.name);
+            //ShopManager.instance.call();
+            //Debug.Log(BuildingSystem.instance.gridLayout);
             vertices[i] = BuildingSystem.instance.gridLayout.WorldToCell(worldPos);
         }
 
@@ -42,14 +45,23 @@ public class PlaceableObject : MonoBehaviour
 
     private void Awake()
     {
+        //Debug.Log("PlaceableObject Awake");
+
         GetColliderVertexPositionlocal();
-        CalculateSizeInCells();
-        //c = GetComponent<Collider>();
-        foreach(Collider c in cs)
+        if (BuildingSystem.instance)
         {
-            //c.isTrigger = true;
-            c.enabled = false;
+            CalculateSizeInCells();
+            //c = GetComponent<Collider>();
+            foreach (Collider c in cs)
+            {
+                //c.isTrigger = true;
+                c.enabled = false;
+            }
         }
+
+           
+      
+
     }
 
     public void Rotate()
