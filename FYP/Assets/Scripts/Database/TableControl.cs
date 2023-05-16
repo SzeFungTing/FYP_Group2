@@ -16,6 +16,7 @@ public class TableControl : MonoBehaviour
 
     private int currentMap = 0;
     private GameObject player;
+    private static int previousScene;
 
     // Start is called before the first frame update
     void Start()
@@ -47,7 +48,7 @@ public class TableControl : MonoBehaviour
                 currentMap = 1;
                 break;
 
-            case "IslandScene":
+            case "IceIslandScene":
                 currentMap = 2;
                 break;
 
@@ -68,16 +69,25 @@ public class TableControl : MonoBehaviour
                 break;
         }
 
-        if (SceneManager.GetActiveScene().name == "HomeScene")
+        Debug.Log("previous: " + previousScene);
+        if (previousScene == 0 && SceneManager.GetActiveScene().name == "HomeScene")
         {
             player = transform.parent.gameObject;
             LoadPlayerAndBackpack();
+            LoadAnimoAndBuilding();
+        }
+        else if (SceneManager.GetActiveScene().name == "HomeScene")
+        {
+            player = transform.parent.gameObject;
+            LoadBackpack();
+            LoadPlayerJetAndCoin();
             LoadAnimoAndBuilding();
         }
         else if (SceneManager.GetActiveScene().name != "StartStage")
         {
             player = transform.parent.gameObject;
             LoadBackpack();
+            LoadPlayerJetAndCoin();
         }
 
         //TestInsertAnimo();
@@ -323,6 +333,8 @@ public class TableControl : MonoBehaviour
 
     public void SavePlayerAndBackpack()
     {
+        previousScene = SceneManager.GetActiveScene().buildIndex;
+
         PlayerConnection.DeleteAll<PlayerTable>();
         InsertPlayerData(player);
 
@@ -409,6 +421,17 @@ public class TableControl : MonoBehaviour
         foreach (var b in backpackData)
         {
             InventoryManager5.instance.SpawnNewItem(ItemDictionary.instance.GetItem(b.ItemId), InventoryManager5.instance.inventorySlots[b.PosId], b.Count);
+        }
+    }
+
+    public void LoadPlayerJetAndCoin()
+    {
+        var playerData = GetPlayerData();
+        foreach (var p in playerData)
+        {
+            MoneyManager.instance.coins = (float)p.Coin;
+            MoneyManager.instance.RefreshCoins();
+            ShopManager.instance.haveJetpack = p.HvJetpack;
         }
     }
 
