@@ -160,7 +160,7 @@ public class ShopManager : MonoBehaviour
 
         }
 
-        if (haveJetpack&&!UIScripts.instance.backPackUI.activeInHierarchy && !UIScripts.instance.loadingUI.activeInHierarchy)
+        if (haveJetpack&&!UIScripts.instance.backPackUI.activeInHierarchy && (UIScripts.instance.loadingUI&&!UIScripts.instance.loadingUI.activeInHierarchy))
         {
             Jetpack.SetActive(true);
         }

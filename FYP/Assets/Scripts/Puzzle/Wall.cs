@@ -22,7 +22,7 @@ public class Wall : MonoBehaviour
         if (other.tag == "Player")
         {
             istriggered = true;
-            Destroy(gameObject);
+            //Destroy(gameObject);
         }
     }
 }
