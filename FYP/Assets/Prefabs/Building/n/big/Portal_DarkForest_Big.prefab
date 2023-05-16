@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6769606683940634837}
   - component: {fileID: 7074242647449926661}
   - component: {fileID: 3953293338615834558}
+  - component: {fileID: 7658714139747203120}
   m_Layer: 0
   m_Name: Portal_DarkForest_Big
   m_TagString: Building
@@ -77,6 +78,20 @@ MonoBehaviour:
   - {fileID: 6709973369671137810}
   - {fileID: 6709973369671137811}
   - {fileID: 6709973369671137812}
+--- !u!114 &7658714139747203120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5144405949781604315}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69cc6bbaa03dc054988569c3108b1659, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item: {fileID: 11400000, guid: 098b2d854734b634880465e8a89b1cf0, type: 2}
+  canConsume: 0
 --- !u!1001 &1966314634814328131
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -84,10 +99,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6769606683940634837}
     m_Modifications:
+    - target: {fileID: 5973843852375287323, guid: 6e5cff4b85fbb0943a05d52c8501a35f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5973843852809145988, guid: 6e5cff4b85fbb0943a05d52c8501a35f, type: 3}
       propertyPath: m_Name
       value: LoadingUI
       objectReference: {fileID: 0}
+    - target: {fileID: 5973843852809146106, guid: 6e5cff4b85fbb0943a05d52c8501a35f, type: 3}
+      propertyPath: tc
+      value: 
+      objectReference: {fileID: 8259406298312887075, guid: 521f6df3db31b164c924f57760bdb3ad, type: 3}
     - target: {fileID: 5973843852809146107, guid: 6e5cff4b85fbb0943a05d52c8501a35f, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -172,6 +195,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5973843852809146111, guid: 6e5cff4b85fbb0943a05d52c8501a35f, type: 3}
+      propertyPath: m_RenderMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5973843853155352773, guid: 6e5cff4b85fbb0943a05d52c8501a35f, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6e5cff4b85fbb0943a05d52c8501a35f, type: 3}
 --- !u!224 &5309352445855761336 stripped
@@ -184,6 +215,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5973843852375287323, guid: 6e5cff4b85fbb0943a05d52c8501a35f, type: 3}
   m_PrefabInstance: {fileID: 1966314634814328131}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &6869671287288754082 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4907860493031006945, guid: 6e5cff4b85fbb0943a05d52c8501a35f, type: 3}
+  m_PrefabInstance: {fileID: 1966314634814328131}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &5309352445289562014 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5973843852234552029, guid: 6e5cff4b85fbb0943a05d52c8501a35f, type: 3}
@@ -211,9 +253,85 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 5309352445289562014}
     - target: {fileID: 1246145876, guid: 987fdc905668f204ebb22edac4b1f1bf, type: 3}
+      propertyPath: switchTime
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1246145876, guid: 987fdc905668f204ebb22edac4b1f1bf, type: 3}
+      propertyPath: loadingImage
+      value: 
+      objectReference: {fileID: 6869671287288754082}
+    - target: {fileID: 1246145876, guid: 987fdc905668f204ebb22edac4b1f1bf, type: 3}
       propertyPath: loadingScreen
       value: 
       objectReference: {fileID: 5309352445153405784}
+    - target: {fileID: 1246145876, guid: 987fdc905668f204ebb22edac4b1f1bf, type: 3}
+      propertyPath: loadingSprites.Array.size
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 1246145876, guid: 987fdc905668f204ebb22edac4b1f1bf, type: 3}
+      propertyPath: loadingSprites.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: 430c894244eaef04788a56a95b677fb2, type: 3}
+    - target: {fileID: 1246145876, guid: 987fdc905668f204ebb22edac4b1f1bf, type: 3}
+      propertyPath: loadingSprites.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300000, guid: a52806e3464d9e642aabbc791f104092, type: 3}
+    - target: {fileID: 1246145876, guid: 987fdc905668f204ebb22edac4b1f1bf, type: 3}
+      propertyPath: loadingSprites.Array.data[2]
+      value: 
+      objectReference: {fileID: 21300000, guid: b6e67d08541ba5c40b32e44df8596fa1, type: 3}
+    - target: {fileID: 1246145876, guid: 987fdc905668f204ebb22edac4b1f1bf, type: 3}
+      propertyPath: loadingSprites.Array.data[3]
+      value: 
+      objectReference: {fileID: 21300000, guid: bdc499b0bb9337449ba27fa5b00b7dab, type: 3}
+    - target: {fileID: 1246145876, guid: 987fdc905668f204ebb22edac4b1f1bf, type: 3}
+      propertyPath: loadingSprites.Array.data[4]
+      value: 
+      objectReference: {fileID: 21300000, guid: 480d3cfc47545c649acf8959f475f05f, type: 3}
+    - target: {fileID: 1246145876, guid: 987fdc905668f204ebb22edac4b1f1bf, type: 3}
+      propertyPath: loadingSprites.Array.data[5]
+      value: 
+      objectReference: {fileID: 21300000, guid: 6e63dac7be96fc24489ccf88c59c5f92, type: 3}
+    - target: {fileID: 1246145876, guid: 987fdc905668f204ebb22edac4b1f1bf, type: 3}
+      propertyPath: loadingSprites.Array.data[6]
+      value: 
+      objectReference: {fileID: 21300000, guid: 7e339eb1219d9b2458e7dc5324bee905, type: 3}
+    - target: {fileID: 1246145876, guid: 987fdc905668f204ebb22edac4b1f1bf, type: 3}
+      propertyPath: loadingSprites.Array.data[7]
+      value: 
+      objectReference: {fileID: 21300000, guid: cf96e2165acfc7f4dade371a0077ee66, type: 3}
+    - target: {fileID: 1246145876, guid: 987fdc905668f204ebb22edac4b1f1bf, type: 3}
+      propertyPath: loadingSprites.Array.data[8]
+      value: 
+      objectReference: {fileID: 21300000, guid: c23e7f4be96b92b4e9d617ade5e4bac1, type: 3}
+    - target: {fileID: 1246145876, guid: 987fdc905668f204ebb22edac4b1f1bf, type: 3}
+      propertyPath: loadingSprites.Array.data[9]
+      value: 
+      objectReference: {fileID: 21300000, guid: d81966cbe5cdfa9478e0a47d0d7d4f6b, type: 3}
+    - target: {fileID: 1246145876, guid: 987fdc905668f204ebb22edac4b1f1bf, type: 3}
+      propertyPath: loadingSprites.Array.data[10]
+      value: 
+      objectReference: {fileID: 21300000, guid: 2d02487eda8d6f5468644650eb02b635, type: 3}
+    - target: {fileID: 1246145876, guid: 987fdc905668f204ebb22edac4b1f1bf, type: 3}
+      propertyPath: loadingSprites.Array.data[11]
+      value: 
+      objectReference: {fileID: 21300000, guid: 57deaa17e35206247b3d9a209a8cfe78, type: 3}
+    - target: {fileID: 1246145876, guid: 987fdc905668f204ebb22edac4b1f1bf, type: 3}
+      propertyPath: loadingSprites.Array.data[12]
+      value: 
+      objectReference: {fileID: 21300000, guid: 3e88351ebb6d1da49b2fa6a2f89d3297, type: 3}
+    - target: {fileID: 1246145876, guid: 987fdc905668f204ebb22edac4b1f1bf, type: 3}
+      propertyPath: loadingSprites.Array.data[13]
+      value: 
+      objectReference: {fileID: 21300000, guid: 382d50036df2fef41a17b22596fb5275, type: 3}
+    - target: {fileID: 1246145876, guid: 987fdc905668f204ebb22edac4b1f1bf, type: 3}
+      propertyPath: loadingSprites.Array.data[14]
+      value: 
+      objectReference: {fileID: 21300000, guid: ee5e7d9844e51cf4b86ca94f4fb079b4, type: 3}
+    - target: {fileID: 1246145876, guid: 987fdc905668f204ebb22edac4b1f1bf, type: 3}
+      propertyPath: loadingSprites.Array.data[15]
+      value: 
+      objectReference: {fileID: 21300000, guid: d6a310e5930dca746ba32f1e684fbed2, type: 3}
     - target: {fileID: 1243582123600223016, guid: 987fdc905668f204ebb22edac4b1f1bf, type: 3}
       propertyPath: m_Name
       value: Portal_DarkForest

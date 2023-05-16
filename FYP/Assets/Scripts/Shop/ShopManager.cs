@@ -175,9 +175,6 @@ public class ShopManager : MonoBehaviour
         //}
     }
 
-
-
-
     public void Buy()
     {
         //Debug.Log("buy");
