@@ -34,6 +34,12 @@ public class GunVacuum : MonoBehaviour
     GameObject shopUI;
     GameObject backPackUI;
 
+    [SerializeField] TableControl tc;
+
+    private void Awake()
+    {
+        tc = FindObjectOfType<TableControl>();
+    }
     private void Start()
     {
         if(UIScripts.instance)
@@ -215,9 +221,14 @@ public class GunVacuum : MonoBehaviour
             var item = other.transform.GetComponent<WorldItem>().item;
             if (item)
             {
-                if(InventoryManager5.instance.AddItem(item))
+                if (InventoryManager5.instance.AddItem(item))
+                {
+                    if (item.type == ItemType.Ghost)
+                    {
+                        tc.InsertAnimoSaw(item.id);
+                    }
                     Destroy(other.transform.gameObject);
-
+                }
             }
 
 
