@@ -30,6 +30,7 @@ public class Target : MonoBehaviour
     {
         originalScale = GetComponent<Transform>().localScale;
         //rb = GetComponent<Rigidbody>();
+        //Destroy(this.gameObject, 600f);
     }
 
     // Update is called once per frame

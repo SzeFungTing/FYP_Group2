@@ -28,7 +28,7 @@ public class Crystal : MonoBehaviour
                 float x = Random.Range(minX,minX+ range * 2);
                 float z = Random.Range(minZ,minZ+ range * 2);
                 GameObject newGameObject = Instantiate(prefab,new Vector3(x,transform.position.y,z), Quaternion.identity);
-                Debug.Log("gen:" + prefab.name);
+                //Debug.Log("gen:" + prefab.name);
             }
 
             timecount = time;

@@ -73,46 +73,51 @@ public class Swap : MonoBehaviour
                 StartCoroutine(LoadSceneAsynchronously(1));
             }
 
-            if (transform.gameObject.transform.parent.name.Contains("Portal_DarkForest") )
+
+            if (transform.gameObject.transform.parent)
             {
-                if (HomeScene)
+                if (transform.gameObject.transform.parent.name.Contains("Portal_DarkForest"))
                 {
-                    tc.SaveBuildingAndAnimo();
+                    if (HomeScene)
+                    {
+                        tc.SaveBuildingAndAnimo();
+                    }
+                    StartCoroutine(LoadSceneAsynchronously(5));
                 }
-                StartCoroutine(LoadSceneAsynchronously(5));
-            }
-            else if (transform.gameObject.transform.parent.name.Contains("Portal_Desert"))
-            {
-                if (HomeScene)
+                else if (transform.gameObject.transform.parent.name.Contains("Portal_Desert"))
                 {
-                    tc.SaveBuildingAndAnimo();
+                    if (HomeScene)
+                    {
+                        tc.SaveBuildingAndAnimo();
+                    }
+                    StartCoroutine(LoadSceneAsynchronously(3));
                 }
-                StartCoroutine(LoadSceneAsynchronously(3));
-            }
-            else if (transform.gameObject.transform.parent.name.Contains("Portal_ice"))
-            {
-                if (HomeScene)
+                else if (transform.gameObject.transform.parent.name.Contains("Portal_ice"))
                 {
-                    tc.SaveBuildingAndAnimo();
+                    if (HomeScene)
+                    {
+                        tc.SaveBuildingAndAnimo();
+                    }
+                    StartCoroutine(LoadSceneAsynchronously(2));
                 }
-                StartCoroutine(LoadSceneAsynchronously(2));
-            }
-            else if (transform.gameObject.transform.parent.name.Contains("Portal_Volcano"))
-            {
-                if (HomeScene)
+                else if (transform.gameObject.transform.parent.name.Contains("Portal_Volcano"))
                 {
-                    tc.SaveBuildingAndAnimo();
+                    if (HomeScene)
+                    {
+                        tc.SaveBuildingAndAnimo();
+                    }
+                    StartCoroutine(LoadSceneAsynchronously(4));
                 }
-                StartCoroutine(LoadSceneAsynchronously(4));
-            }
-            else if (transform.gameObject.transform.parent.name.Contains("Portal_Home"))
-            {
-                if (HomeScene)
+                else if (transform.gameObject.transform.parent.name.Contains("Portal_Home"))
                 {
-                    tc.SaveBuildingAndAnimo();
+                    if (HomeScene)
+                    {
+                        tc.SaveBuildingAndAnimo();
+                    }
+                    StartCoroutine(LoadSceneAsynchronously(1));
                 }
-                StartCoroutine(LoadSceneAsynchronously(1));
             }
+           
         }
             
     }

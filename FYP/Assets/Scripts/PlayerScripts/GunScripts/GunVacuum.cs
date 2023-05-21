@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GunVacuum : MonoBehaviour
 {
@@ -36,6 +37,9 @@ public class GunVacuum : MonoBehaviour
 
     [SerializeField] TableControl tc;
 
+    float DemandDistance = 0.3f;
+
+
     private void Awake()
     {
         tc = FindObjectOfType<TableControl>();
@@ -50,9 +54,13 @@ public class GunVacuum : MonoBehaviour
             backPackUI = UIScripts.instance.backPackUI;
 
         }
-      
+        if (SceneManager.GetActiveScene().name == "Volcano")
+        {
+            DemandDistance = 0.8f;
+        }
 
-        gunAnim = gun.GetComponent<Animator>();
+
+            gunAnim = gun.GetComponent<Animator>();
     }
 
     private void Update()
@@ -190,7 +198,7 @@ public class GunVacuum : MonoBehaviour
     public void VacuumTarget(Collider other)
     {
         //Debug.Log("inhaling");
-        if (Vector3.Distance(other.transform.position, gunPoint.position) > 0.3f)
+        if (Vector3.Distance(other.transform.position, gunPoint.position) > DemandDistance)
         {
             //old version (Vector3.MoveTowards)
             //float distance = speed * Time.deltaTime;
