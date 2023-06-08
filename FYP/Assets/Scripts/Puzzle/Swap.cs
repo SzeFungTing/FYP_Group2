@@ -55,6 +55,7 @@ public class Swap : MonoBehaviour
         }
     }
 
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
@@ -137,6 +138,7 @@ public class Swap : MonoBehaviour
 
         AsyncOperation operation = SceneManager.LoadSceneAsync(levelIndex);
         loadingScreen.SetActive(true);
+        UIScripts.instance.loadingUI = loadingScreen;               //new
 
         //hide hotbar
         if (loadingScreen.activeInHierarchy)
