@@ -22,7 +22,7 @@ public class PlayerCrafting : MonoBehaviour
             float interactDistance = 3f;
             if(Physics.Raycast(playerCameraTransform.position, playerCameraTransform.forward, out RaycastHit raycastHit, interactDistance))
             {
-                Debug.Log("raycastHit:" + raycastHit.collider.gameObject.name);
+                //Debug.Log("raycastHit:" + raycastHit.collider.gameObject.name);
                 if(raycastHit.transform.TryGetComponent(out CraftingTable craftingTable) /*|| recipeUI|| (raycastHit.transform.GetComponent<CraftingTable>() && raycastHit.transform.GetComponent<CraftingTable>().recipeImage.transform.parent)*/)
                 {
                     //recipeUI = craftingTable.recipeImage.transform.parent;

@@ -188,12 +188,12 @@ public class CraftingTable : MonoBehaviour
 
     public void Craft()
     {
-        Debug.Log("Craft");
+        //Debug.Log("Craft");
         
 
         if (inputItemList != null && inputItemList.Count == 0)        //Have all the required item to craft
         {
-            Debug.Log("Yes");
+            //Debug.Log("Yes");
 
             animator.SetBool("isOpenOutputDoor", true);
             //transform.GetComponent<Collider>().enabled = false;
@@ -224,7 +224,7 @@ public class CraftingTable : MonoBehaviour
         }
         else
         {
-            Debug.Log("No");
+            //Debug.Log("No");
 
         }
     }

@@ -53,10 +53,10 @@ public class ShopManager : MonoBehaviour
 
         shopUI = UIScripts.instance.shopUI;
 
-        buildingPlane = shopUI.transform.GetChild(1).GetChild(0).GetChild(0).GetChild(0);
-        upgradePlane = shopUI.transform.GetChild(1).GetChild(1).GetChild(0).GetChild(0);
-        equipmentPlane = shopUI.transform.GetChild(1).GetChild(2).GetChild(0).GetChild(0);
-        itemPlane = shopUI.transform.GetChild(1).GetChild(3).GetChild(0).GetChild(0);
+        buildingPlane = shopUI.transform.GetChild(0).GetChild(0).GetChild(0).GetChild(0).GetChild(0);
+        upgradePlane = shopUI.transform.GetChild(0).GetChild(0).GetChild(1).GetChild(0).GetChild(0);
+        equipmentPlane = shopUI.transform.GetChild(0).GetChild(0).GetChild(2).GetChild(0).GetChild(0);
+        itemPlane = shopUI.transform.GetChild(0).GetChild(0).GetChild(3).GetChild(0).GetChild(0);
 
         Anim_Drone = ShootingP.GetComponent<Animator>();
         Jetpack.SetActive(false);
@@ -160,8 +160,10 @@ public class ShopManager : MonoBehaviour
 
         }
 
-        if (haveJetpack&&!UIScripts.instance.backPackUI.activeInHierarchy && (UIScripts.instance.loadingUI&&!UIScripts.instance.loadingUI.activeInHierarchy))
+        if (haveJetpack&&!UIScripts.instance.backPackUI.activeInHierarchy)
         {
+            if (UIScripts.instance.loadingUI && !UIScripts.instance.loadingUI.activeInHierarchy)
+                return;
             Jetpack.SetActive(true);
         }
 

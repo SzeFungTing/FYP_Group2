@@ -27,7 +27,7 @@ public class SpawnProjectile : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.Q) && Time.time >= timeToFire)
+        if (!UIScripts.instance.backPackUI.activeInHierarchy&&Input.GetKey(KeyCode.Q) && Time.time >= timeToFire)
         {
             firePoint.transform.parent.gameObject.SetActive(true);
             currentDroneStayTime = droneStayTime;

@@ -209,8 +209,19 @@ public class InventoryManager5 : MonoBehaviour
                 if(ShopManager.instance.haveJetpack)
                     UIScripts.instance.jetpackUI.SetActive(false);
                 //SynchronizeHotBar();
-                hotBarUI.transform.position = /*new Vector3(Screen.width / 2, (inventorySlots[4].transform.position.y)+50, 0.5400000214576721f)*/hotBarPos.position;     //up
                 hotBarUI.transform.localScale = new Vector3(0.7f, 0.7f, 0.7f);
+
+
+                //up
+                //hotBarUI.transform.position = /*new Vector3(Screen.width / 2, (inventorySlots[4].transform.position.y)+50, 0.5400000214576721f)*/hotBarPos.position;     
+                hotBarUI.transform.SetParent(UIScripts.instance.backPackUI.transform.GetChild(1));
+                hotBarUI.GetComponent<RectTransform>().anchorMin = new Vector2(0.5f, 1);
+                hotBarUI.GetComponent<RectTransform>().anchorMax = new Vector2(0.5f, 1);
+                //hotBarUI.GetComponent<RectTransform>().anchoredPosition.
+                    hotBarUI.GetComponent<RectTransform>().anchoredPosition = new Vector2(0.5f, 1);
+
+
+
 
                 Debug.Log("open backpack");
             }
