@@ -33,11 +33,12 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        Debug.Log("OnBeginDrag");
+        //Debug.Log("OnBeginDrag");
         //image.raycastTarget = false;
         parentAfterDrag = transform.parent;
         transform.SetParent(UIScripts.instance.backPackUI.transform.parent);
         transform.SetAsLastSibling();
+        //transform.localScale = Vector3.zero;
 
         canvasGroup.alpha = 0.6f;
         canvasGroup.blocksRaycasts = false;
@@ -45,16 +46,18 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
     public void OnDrag(PointerEventData eventData)
     {
-        Debug.Log("OnDrag");
+        //Debug.Log("OnDrag");
         transform.position = Input.mousePosition;
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        Debug.Log("OnEndDrag");
+        //Debug.Log("OnEndDrag");
 
         //image.raycastTarget = true;
         transform.SetParent(parentAfterDrag);
+        transform.localScale = new Vector3(1, 1, 1);
+
 
         canvasGroup.alpha = 1f;
         canvasGroup.blocksRaycasts = true;

@@ -73,8 +73,8 @@ public class LerpColor : MonoBehaviour
                         }
                         else if (raycastHit.transform.gameObject == list[index] && !P_list.Contains(raycastHit.transform.gameObject))       //corret
                         {
-                            Debug.Log("raycastHit.transform.gameObject1: " + raycastHit.transform.gameObject);
-                            Debug.Log("list[index]1: " + list[index]);
+                            //Debug.Log("raycastHit.transform.gameObject1: " + raycastHit.transform.gameObject);
+                            //Debug.Log("list[index]1: " + list[index]);
                             raycastHit.transform.GetComponent<Renderer>().materials[1].SetColor("_EmissionColor", emissiveIntensity * new Color(12 / 255f, 28 / 255f, 191 / 255f));
                             P_list.Add(raycastHit.transform.gameObject);
                             index++;
@@ -82,8 +82,8 @@ public class LerpColor : MonoBehaviour
                         }
                         else if (raycastHit.transform.gameObject != list[index])        //incorret
                         {
-                            Debug.Log("raycastHit.transform.gameObject2: " + raycastHit.transform.gameObject);
-                            Debug.Log("list[index]2: " + list[index]);
+                            //Debug.Log("raycastHit.transform.gameObject2: " + raycastHit.transform.gameObject);
+                            //Debug.Log("list[index]2: " + list[index]);
                             foreach (Transform all in transform)
                             {
                                 all.GetComponent<Renderer>().materials[1].SetColor("_EmissionColor", emissiveIntensity * Color.red);

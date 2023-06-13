@@ -11,7 +11,13 @@ public class PlayerDead : MonoBehaviour
         if(other.tag == "Player")
         {
             other.transform.position = spawnPoint.position;
-            other.GetComponent<PlayerMovement>().playerHP = 100;
+            if(TryGetComponent<PlayerMovement>(out PlayerMovement playerMovement))
+                other.GetComponent<PlayerMovement>().playerHP = 100;
+
+            if (TryGetComponent<PlayerMovement2>(out PlayerMovement2 playerMovement2))
+                other.GetComponent<PlayerMovement2>().playerHP = 100;
+
+
         }
     }
 }

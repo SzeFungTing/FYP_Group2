@@ -56,7 +56,7 @@ public class GunVacuum : MonoBehaviour
         }
         if (SceneManager.GetActiveScene().name == "Volcano")
         {
-            DemandDistance = 0.8f;
+            DemandDistance = 3f;
         }
 
 
@@ -154,8 +154,8 @@ public class GunVacuum : MonoBehaviour
 
                     if (anim)
                     {
-                        anim.ResetTrigger("Suck");
-                        anim.SetTrigger("Release");
+                        //anim.ResetTrigger("Suck");
+                        //anim.SetTrigger("Release");
                     }
 
                 }
@@ -184,8 +184,8 @@ public class GunVacuum : MonoBehaviour
                 other.transform.gameObject.GetComponent<Target>().isVacuum = false;
                 if (anim)
                 {
-                    anim.ResetTrigger("Suck");
-                    anim.SetTrigger("Release");
+                    //anim.ResetTrigger("Suck");
+                    //anim.SetTrigger("Release");
                 }
 
             }
@@ -214,8 +214,8 @@ public class GunVacuum : MonoBehaviour
             if (anim)
             {
                 anim.speed = 1;
-                anim.SetTrigger("Suck");
-                anim.ResetTrigger("Release");
+                //anim.SetTrigger("Suck");
+                //anim.ResetTrigger("Release");
             }
            
 

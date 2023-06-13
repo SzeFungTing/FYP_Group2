@@ -21,7 +21,7 @@ public class Target : MonoBehaviour
     {
         if (SceneManager.GetActiveScene().name == "Volcano")
         {
-            transform.localScale *= 10;
+            transform.localScale *= 8;
         }
     }
 

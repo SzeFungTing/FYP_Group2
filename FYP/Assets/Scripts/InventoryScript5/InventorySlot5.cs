@@ -51,6 +51,8 @@ public class InventorySlot5 : MonoBehaviour, IDropHandler, IPointerEnterHandler,
 
             InventoryItem inventoryItem = eventData.pointerDrag.GetComponent<InventoryItem>();
             inventoryItem.parentAfterDrag = transform;
+
+            inventoryItem.transform.localScale = new Vector3(1, 1, 1);
         }
         else if (transform.childCount == 1)
         {
@@ -67,6 +69,10 @@ public class InventorySlot5 : MonoBehaviour, IDropHandler, IPointerEnterHandler,
             //Debug.Log("item2: " + item2);
             inventoryItem2.parentAfterDrag = inventoryItemParentAfterDrag;
             inventoryItem2.transform.SetParent(inventoryItemParentAfterDrag);
+
+            inventoryItem.transform.localScale = new Vector3(1, 1, 1);
+            inventoryItem2.transform.localScale = new Vector3(1, 1, 1);
+
             //Debug.Log("inventoryItem2.name: " + inventoryItem2.name);
 
             if (item.id == item2.id)

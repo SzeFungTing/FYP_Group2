@@ -162,8 +162,14 @@ public class ShopManager : MonoBehaviour
 
         if (haveJetpack&&!UIScripts.instance.backPackUI.activeInHierarchy)
         {
-            if (UIScripts.instance.loadingUI && !UIScripts.instance.loadingUI.activeInHierarchy)
+            if (UIScripts.instance.loadingUI && UIScripts.instance.loadingUI.activeInHierarchy)
+            {
+                //Debug.Log("have loading");
                 return;
+
+            }
+            //Debug.Log("Jetpack.SetActive(true);");
+
             Jetpack.SetActive(true);
         }
 

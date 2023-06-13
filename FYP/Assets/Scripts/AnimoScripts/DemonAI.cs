@@ -90,9 +90,13 @@ public class DemonAI : MonoBehaviour
 
         if (isRotatingToPlayer)
         {
-            Vector3 lookPos = closestPlayer.transform.position - transform.position;
-            Quaternion rotation = Quaternion.LookRotation(lookPos);
-            transform.rotation = Quaternion.Slerp(transform.rotation, new Quaternion(0f, rotation.y, 0f, rotation.w), Time.deltaTime * 1.5f);
+            if (closestPlayer !=null)
+            {
+                Vector3 lookPos = closestPlayer.transform.position - transform.position;
+                Quaternion rotation = Quaternion.LookRotation(lookPos);
+                transform.rotation = Quaternion.Slerp(transform.rotation, new Quaternion(0f, rotation.y, 0f, rotation.w), Time.deltaTime * 1.5f);
+            }
+            
         }
 
         if (isWalkingToPlayer && closestPlayer != null)

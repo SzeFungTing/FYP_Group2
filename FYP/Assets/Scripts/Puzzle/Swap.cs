@@ -144,8 +144,12 @@ public class Swap : MonoBehaviour
         if (loadingScreen.activeInHierarchy)
         {
             UIScripts.instance.hotBarUI.SetActive(false);
-            if(UIScripts.instance.jetpackUI.activeInHierarchy)
+            if (UIScripts.instance.jetpackUI.activeInHierarchy)
+            {
+                //Debug.Log("jetpackUI.SetActive(false);");
                 UIScripts.instance.jetpackUI.SetActive(false);
+
+            }
         }
 
         while (!operation.isDone)
