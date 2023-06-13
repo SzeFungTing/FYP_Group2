@@ -47,14 +47,14 @@ public class InventorySlot5 : MonoBehaviour, IDropHandler, IPointerEnterHandler,
 
         if(transform.childCount == 0)
         {
-            Debug.Log("transform.childCount == 0");
+            //Debug.Log("transform.childCount == 0");
 
             InventoryItem inventoryItem = eventData.pointerDrag.GetComponent<InventoryItem>();
             inventoryItem.parentAfterDrag = transform;
         }
         else if (transform.childCount == 1)
         {
-            Debug.Log("transform.childCount == 1");
+            //Debug.Log("transform.childCount == 1");
             InventoryItem inventoryItem = eventData.pointerDrag.GetComponent<InventoryItem>();      //InventoryItem Script of item1
             Item5 item = inventoryItem.item;                                                        //item of item1
             //Debug.Log("item: " + item);
@@ -127,7 +127,7 @@ public class InventorySlot5 : MonoBehaviour, IDropHandler, IPointerEnterHandler,
 
             if (Input.GetKeyUp(KeyCode.Q) && (Time.time - clickTime) < 0.2)   // short Click
             {
-                Debug.Log(gameObject.name + ": is click one time");
+                //Debug.Log(gameObject.name + ": is click one time");
                 if (selectedItem)
                 {
                     if (selectedItem.item.sellable)     //if item can sell
@@ -146,7 +146,7 @@ public class InventorySlot5 : MonoBehaviour, IDropHandler, IPointerEnterHandler,
                     }
                     else            //item can not sell
                     {
-                        Debug.Log("item is not sellable");
+                        //Debug.Log("item is not sellable");
                     }
                     
                 }
@@ -155,7 +155,7 @@ public class InventorySlot5 : MonoBehaviour, IDropHandler, IPointerEnterHandler,
 
             if (Input.GetKeyUp(KeyCode.Q) && (Time.time - clickTime) > 0.2)      // Long Click
             {
-                Debug.Log("long click");
+                //Debug.Log("long click");
 
                 //GameObject newItemGo = Instantiate(itemCountPrefab, transform.GetChild(0));
                 //ItemSliderScript itemSliderScript = GetComponentInChildren<ItemSliderScript>();

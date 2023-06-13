@@ -9,9 +9,10 @@ public class InventoryManager5 : MonoBehaviour
     //public int maxStackedItems = 4;
     public InventorySlot5[] inventorySlots;
     public GameObject inventoryItemPrefab;
-    [HideInInspector]public GameObject inventoryUI;
-    [HideInInspector] public GameObject hotBarUI;
-    [HideInInspector] public GunShooting gunShooting;
+    GameObject inventoryUI;
+    GameObject hotBarUI;
+    GunShooting gunShooting;
+    GunVacuum gunVacuum;
 
     Transform hotBarPos;
     [SerializeField]Transform originalHotBarPos;
@@ -36,9 +37,10 @@ public class InventoryManager5 : MonoBehaviour
         inventoryUI = UIScripts.instance.backPackUI;
         hotBarUI = UIScripts.instance.hotBarUI;
         gunShooting = UIScripts.instance.gunShooting;
+        gunVacuum = UIScripts.instance.gunVacuum;
 
         hotBarPos = inventoryUI.transform.GetChild(0);
-        //originalHotBarPos = hotBarUI.transform;
+        originalHotBarPos = inventoryUI.transform.parent.GetChild(2);
 
 
         inventoryUI.SetActive(false);
@@ -205,6 +207,7 @@ public class InventoryManager5 : MonoBehaviour
             {
                 isOpenBackpack = true;
                 gunShooting.enabled = false;
+                gunVacuum.enabled = false;
                 inventoryUI.SetActive(true);
                 if(ShopManager.instance.haveJetpack)
                     UIScripts.instance.jetpackUI.SetActive(false);
@@ -217,13 +220,12 @@ public class InventoryManager5 : MonoBehaviour
                 hotBarUI.transform.SetParent(UIScripts.instance.backPackUI.transform.GetChild(1));
                 hotBarUI.GetComponent<RectTransform>().anchorMin = new Vector2(0.5f, 1);
                 hotBarUI.GetComponent<RectTransform>().anchorMax = new Vector2(0.5f, 1);
-                //hotBarUI.GetComponent<RectTransform>().anchoredPosition.
-                    hotBarUI.GetComponent<RectTransform>().anchoredPosition = new Vector2(0.5f, 1);
+                hotBarUI.transform.position = new Vector2(Screen.width / 2, hotBarPos.position.y);
 
 
 
 
-                Debug.Log("open backpack");
+                //Debug.Log("open backpack");
             }
             else                //close backpack
             {
@@ -246,8 +248,19 @@ public class InventoryManager5 : MonoBehaviour
     {
         isOpenBackpack = false;
         gunShooting.enabled = true;
-        inventoryUI.SetActive(false);
-        hotBarUI.transform.position = /*new Vector3(Screen.width / 2, Screen.height * 90.0f/100, 0)*/originalHotBarPos.position;      //down
+        gunVacuum.enabled = true;
+
+        originalHotBarPos = inventoryUI.transform.parent.GetChild(1);
+
+        hotBarUI.transform.SetParent(UIScripts.instance.backPackUI.transform.parent);
+        hotBarUI.GetComponent<RectTransform>().anchorMin = new Vector2(0.5f, 0);
+        hotBarUI.GetComponent<RectTransform>().anchorMax = new Vector2(0.5f, 0);
+        hotBarUI.transform.position = new Vector2(Screen.width / 2, originalHotBarPos.position.y);
+
+        //hotBarUI.transform.position = /*new Vector3(Screen.width / 2, Screen.height * 90.0f/100, 0)*/originalHotBarPos.position;      //down
         hotBarUI.transform.localScale = new Vector3(1f, 1f, 1f);
+
+        inventoryUI.SetActive(false);
+
     }
 }
