@@ -160,11 +160,11 @@ public class MouseLook : MonoBehaviour
         //}
     }
 
-    [SerializeField] Slider sensitivitySlider;
+    //[SerializeField] Slider sensitivitySlider;
+    //float sensitivity = 0.1f;
 
-    public void ChangeMouseSensitivity()
+    public void ChangeMouseSensitivity(float value)
     {
-        float sensitivity = sensitivitySlider.value;
-        mouseSensitivity = 990 * sensitivity+10;
+        mouseSensitivity = 990 * value + 10;        //change sensitivity(10 ~ 1000)
     }
 }

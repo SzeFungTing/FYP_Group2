@@ -9,6 +9,8 @@ public class UIScripts : MonoBehaviour
 {
     public static UIScripts instance;
 
+    public MouseLook mouseLook;
+
     public GameObject pauseUI;
     public GameObject settingUI;
     public GameObject shopUI;
@@ -37,6 +39,7 @@ public class UIScripts : MonoBehaviour
     }
     private void Start()
     {
+        if(craftingHint)
         craftingHint.SetActive(false);
 
         //if(SceneManager.GetActiveScene().name == "Volcano")
@@ -54,7 +57,7 @@ public class UIScripts : MonoBehaviour
         if (!pauseUI.activeInHierarchy && !settingUI.activeInHierarchy)
         {
 
-            if (Input.GetKeyDown(KeyCode.Escape) && SceneManager.GetActiveScene().name != "Start UI")
+            if (Input.GetKeyDown(KeyCode.Escape) && SceneManager.GetActiveScene().name != "StartStage")
             {
                 //if (shopUI.activeInHierarchy || backPackUI.activeInHierarchy || craftingUI.activeInHierarchy)
                 {
@@ -112,12 +115,13 @@ public class UIScripts : MonoBehaviour
         }
        
 
-        if (pauseUI.activeInHierarchy || settingUI.activeInHierarchy || SceneManager.GetActiveScene().name == "Start UI")       //pause the game time, game, lock mouse
+        if (pauseUI.activeInHierarchy || settingUI.activeInHierarchy || SceneManager.GetActiveScene().name == "StartStage")       //pause the game time, game, lock mouse
         {
             //Debug.Log("8");
             isTimeStop = true;
             isOpenUI = true;
 
+            if(SceneManager.GetActiveScene().name != "StartStage")
             Time.timeScale = 0;     //pause the game time
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
