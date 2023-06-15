@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MouseLook : MonoBehaviour
 {
@@ -157,5 +158,13 @@ public class MouseLook : MonoBehaviour
         //        lockViewMoving = false;
         //    }
         //}
+    }
+
+    [SerializeField] Slider sensitivitySlider;
+
+    public void ChangeMouseSensitivity()
+    {
+        float sensitivity = sensitivitySlider.value;
+        mouseSensitivity = 990 * sensitivity+10;
     }
 }
